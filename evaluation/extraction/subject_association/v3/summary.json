@@ -1,0 +1,412 @@
+{
+  "duration_seconds": 129.85697293281555,
+  "datasets": {
+    "ORIGINAL": {
+      "S1_DETERMINISTIC": {
+        "metrics": {
+          "counts": {
+            "ground_truth": 35,
+            "CORRECT_RESOLUTION": 15,
+            "third_party": 23,
+            "narrator": 12,
+            "detected": 31,
+            "resolved": 19,
+            "subject_correct": 15,
+            "wrong_resolved": 4,
+            "false_narrator": 0,
+            "third_correct": 10,
+            "narrator_correct": 5,
+            "date_total": 28,
+            "date_correct": 25,
+            "SAFE_ABSTENTION": 12,
+            "TRUNCATED_SUBJECT": 4,
+            "STAGE1_MISS": 4
+          },
+          "subject_exact_accuracy": 0.42857142857142855,
+          "subject_coverage": 0.6129032258064516,
+          "wrong_resolved_subject_rate": 0.21052631578947367,
+          "false_narrator_attribution": 0.0,
+          "third_party_identification": 0.43478260869565216,
+          "narrator_recall": 0.4166666666666667,
+          "date_exact_accuracy": 0.8928571428571429,
+          "participant_accuracy": null,
+          "stage1_recall": 0.8857142857142857,
+          "stage2_latency_ms": {
+            "mean": 0.03757765714129034,
+            "median": 0.040113000068231486,
+            "p95": 0.04809299935004674
+          }
+        }
+      },
+      "S1B_PORTUGUESE_CONTINUITY": {
+        "metrics": {
+          "counts": {
+            "ground_truth": 35,
+            "CORRECT_RESOLUTION": 23,
+            "third_party": 23,
+            "narrator": 12,
+            "detected": 31,
+            "resolved": 27,
+            "subject_correct": 23,
+            "wrong_resolved": 4,
+            "false_narrator": 0,
+            "third_correct": 13,
+            "narrator_correct": 10,
+            "date_total": 28,
+            "date_correct": 25,
+            "SAFE_ABSTENTION": 4,
+            "TRUNCATED_SUBJECT": 4,
+            "STAGE1_MISS": 4
+          },
+          "subject_exact_accuracy": 0.6571428571428571,
+          "subject_coverage": 0.8709677419354839,
+          "wrong_resolved_subject_rate": 0.14814814814814814,
+          "false_narrator_attribution": 0.0,
+          "third_party_identification": 0.5652173913043478,
+          "narrator_recall": 0.8333333333333334,
+          "date_exact_accuracy": 0.8928571428571429,
+          "participant_accuracy": null,
+          "stage1_recall": 0.8857142857142857,
+          "stage2_latency_ms": {
+            "mean": 0.05378199997981677,
+            "median": 0.05820899968966842,
+            "p95": 0.09013199996843468
+          }
+        }
+      },
+      "S1C_CONSERVATIVE_GUARDS": {
+        "metrics": {
+          "counts": {
+            "ground_truth": 35,
+            "CORRECT_RESOLUTION": 25,
+            "third_party": 23,
+            "narrator": 12,
+            "detected": 31,
+            "resolved": 26,
+            "subject_correct": 25,
+            "wrong_resolved": 1,
+            "false_narrator": 0,
+            "third_correct": 15,
+            "narrator_correct": 10,
+            "date_total": 28,
+            "date_correct": 25,
+            "SAFE_ABSTENTION": 5,
+            "STAGE1_MISS": 4,
+            "TRUNCATED_SUBJECT": 1
+          },
+          "subject_exact_accuracy": 0.7142857142857143,
+          "subject_coverage": 0.8387096774193549,
+          "wrong_resolved_subject_rate": 0.038461538461538464,
+          "false_narrator_attribution": 0.0,
+          "third_party_identification": 0.6521739130434783,
+          "narrator_recall": 0.8333333333333334,
+          "date_exact_accuracy": 0.8928571428571429,
+          "participant_accuracy": null,
+          "stage1_recall": 0.8857142857142857,
+          "stage2_latency_ms": {
+            "mean": 0.10565874264492388,
+            "median": 0.10892899990722071,
+            "p95": 0.1331610001216177
+          }
+        }
+      }
+    },
+    "V2": {
+      "S1_DETERMINISTIC": {
+        "metrics": {
+          "counts": {
+            "ground_truth": 47,
+            "SAFE_ABSTENTION": 23,
+            "third_party": 38,
+            "narrator": 9,
+            "detected": 47,
+            "resolved": 24,
+            "subject_correct": 18,
+            "wrong_resolved": 6,
+            "false_narrator": 0,
+            "third_correct": 17,
+            "narrator_correct": 1,
+            "date_total": 47,
+            "date_correct": 46,
+            "participant_total": 3,
+            "participant_correct": 3,
+            "CORRECT_RESOLUTION": 18,
+            "TRUNCATED_SUBJECT": 3,
+            "WRONG_THIRD_PARTY_SUBJECT": 3
+          },
+          "subject_exact_accuracy": 0.3829787234042553,
+          "subject_coverage": 0.5106382978723404,
+          "wrong_resolved_subject_rate": 0.25,
+          "false_narrator_attribution": 0.0,
+          "third_party_identification": 0.4473684210526316,
+          "narrator_recall": 0.1111111111111111,
+          "date_exact_accuracy": 0.9787234042553191,
+          "participant_accuracy": 1.0,
+          "stage1_recall": 1.0,
+          "stage2_latency_ms": {
+            "mean": 0.05104711544845486,
+            "median": 0.04932750016450882,
+            "p95": 0.06294600098044612
+          }
+        }
+      },
+      "S1B_PORTUGUESE_CONTINUITY": {
+        "metrics": {
+          "counts": {
+            "ground_truth": 47,
+            "CORRECT_RESOLUTION": 35,
+            "third_party": 38,
+            "narrator": 9,
+            "detected": 47,
+            "resolved": 41,
+            "subject_correct": 35,
+            "wrong_resolved": 6,
+            "false_narrator": 0,
+            "third_correct": 27,
+            "narrator_correct": 8,
+            "date_total": 47,
+            "date_correct": 46,
+            "participant_total": 3,
+            "participant_correct": 3,
+            "SAFE_ABSTENTION": 6,
+            "TRUNCATED_SUBJECT": 3,
+            "WRONG_THIRD_PARTY_SUBJECT": 3
+          },
+          "subject_exact_accuracy": 0.7446808510638298,
+          "subject_coverage": 0.8723404255319149,
+          "wrong_resolved_subject_rate": 0.14634146341463414,
+          "false_narrator_attribution": 0.0,
+          "third_party_identification": 0.7105263157894737,
+          "narrator_recall": 0.8888888888888888,
+          "date_exact_accuracy": 0.9787234042553191,
+          "participant_accuracy": 1.0,
+          "stage1_recall": 1.0,
+          "stage2_latency_ms": {
+            "mean": 0.08718811540557699,
+            "median": 0.08323949987243395,
+            "p95": 0.11912499940081034
+          }
+        }
+      },
+      "S1C_CONSERVATIVE_GUARDS": {
+        "metrics": {
+          "counts": {
+            "ground_truth": 47,
+            "CORRECT_RESOLUTION": 39,
+            "third_party": 38,
+            "narrator": 9,
+            "detected": 47,
+            "resolved": 39,
+            "subject_correct": 39,
+            "wrong_resolved": 0,
+            "false_narrator": 0,
+            "third_correct": 30,
+            "narrator_correct": 9,
+            "date_total": 47,
+            "date_correct": 46,
+            "participant_total": 3,
+            "participant_correct": 3,
+            "SAFE_ABSTENTION": 8
+          },
+          "subject_exact_accuracy": 0.8297872340425532,
+          "subject_coverage": 0.8297872340425532,
+          "wrong_resolved_subject_rate": 0.0,
+          "false_narrator_attribution": 0.0,
+          "third_party_identification": 0.7894736842105263,
+          "narrator_recall": 1.0,
+          "date_exact_accuracy": 0.9787234042553191,
+          "participant_accuracy": 1.0,
+          "stage1_recall": 1.0,
+          "stage2_latency_ms": {
+            "mean": 0.1439401535557968,
+            "median": 0.140701498821727,
+            "p95": 0.1865739995992044
+          }
+        }
+      }
+    },
+    "V3": {
+      "S1_DETERMINISTIC": {
+        "metrics": {
+          "counts": {
+            "ground_truth": 35,
+            "WRONG_THIRD_PARTY_SUBJECT": 10,
+            "third_party": 29,
+            "narrator": 6,
+            "detected": 33,
+            "resolved": 28,
+            "subject_correct": 13,
+            "wrong_resolved": 15,
+            "false_narrator": 0,
+            "third_correct": 12,
+            "narrator_correct": 1,
+            "date_total": 32,
+            "date_correct": 31,
+            "CORRECT_RESOLUTION": 13,
+            "TRUNCATED_SUBJECT": 1,
+            "SAFE_ABSTENTION": 5,
+            "STAGE1_MISS": 2,
+            "COORDINATED_SUBJECT_UNSAFE": 4,
+            "participant_total": 1,
+            "participant_correct": 1
+          },
+          "subject_exact_accuracy": 0.37142857142857144,
+          "subject_coverage": 0.8484848484848485,
+          "wrong_resolved_subject_rate": 0.5357142857142857,
+          "false_narrator_attribution": 0.0,
+          "third_party_identification": 0.41379310344827586,
+          "narrator_recall": 0.16666666666666666,
+          "date_exact_accuracy": 0.96875,
+          "participant_accuracy": 1.0,
+          "stage1_recall": 0.9428571428571428,
+          "stage2_latency_ms": {
+            "mean": 0.07195833313744515,
+            "median": 0.042390998714836314,
+            "p95": 0.052940000387025066
+          }
+        },
+        "safety_metrics": {
+          "counts": {
+            "reported_total": 9,
+            "reported_correct": 2,
+            "reporter_leak": 6,
+            "kinship_total": 18,
+            "kinship_exact": 7,
+            "incidental_total": 8,
+            "incidental_leak": 2,
+            "coordinated_total": 5,
+            "coordinated_abstained": 0,
+            "coordinated_correct": 0,
+            "coordinated_unsafe": 4
+          },
+          "reported_speech_accuracy": 0.2222222222222222,
+          "reporting_person_leakage_rate": 0.6666666666666666,
+          "incidental_person_leakage_rate": 0.25,
+          "kinship_subject_exact_accuracy": 0.3888888888888889,
+          "coordinated_abstention_rate": 0.0,
+          "coordinated_unsafe_rate": 0.8
+        }
+      },
+      "S1B_PORTUGUESE_CONTINUITY": {
+        "metrics": {
+          "counts": {
+            "ground_truth": 35,
+            "WRONG_THIRD_PARTY_SUBJECT": 9,
+            "third_party": 29,
+            "narrator": 6,
+            "detected": 33,
+            "resolved": 30,
+            "subject_correct": 15,
+            "wrong_resolved": 15,
+            "false_narrator": 0,
+            "third_correct": 13,
+            "narrator_correct": 2,
+            "date_total": 32,
+            "date_correct": 31,
+            "CORRECT_RESOLUTION": 15,
+            "TRUNCATED_SUBJECT": 1,
+            "SAFE_ABSTENTION": 3,
+            "STAGE1_MISS": 2,
+            "COORDINATED_SUBJECT_UNSAFE": 4,
+            "WRONG_SUBJECT_PROPAGATION": 1,
+            "participant_total": 1,
+            "participant_correct": 1
+          },
+          "subject_exact_accuracy": 0.42857142857142855,
+          "subject_coverage": 0.9090909090909091,
+          "wrong_resolved_subject_rate": 0.5,
+          "false_narrator_attribution": 0.0,
+          "third_party_identification": 0.4482758620689655,
+          "narrator_recall": 0.3333333333333333,
+          "date_exact_accuracy": 0.96875,
+          "participant_accuracy": 1.0,
+          "stage1_recall": 0.9428571428571428,
+          "stage2_latency_ms": {
+            "mean": 0.07444440010052251,
+            "median": 0.0658665003356873,
+            "p95": 0.10448500142956618
+          }
+        },
+        "safety_metrics": {
+          "counts": {
+            "reported_total": 9,
+            "reported_correct": 2,
+            "reporter_leak": 7,
+            "kinship_total": 18,
+            "kinship_exact": 7,
+            "incidental_total": 8,
+            "incidental_leak": 1,
+            "coordinated_total": 5,
+            "coordinated_abstained": 0,
+            "coordinated_correct": 0,
+            "coordinated_unsafe": 4
+          },
+          "reported_speech_accuracy": 0.2222222222222222,
+          "reporting_person_leakage_rate": 0.7777777777777778,
+          "incidental_person_leakage_rate": 0.125,
+          "kinship_subject_exact_accuracy": 0.3888888888888889,
+          "coordinated_abstention_rate": 0.0,
+          "coordinated_unsafe_rate": 0.8
+        }
+      },
+      "S1C_CONSERVATIVE_GUARDS": {
+        "metrics": {
+          "counts": {
+            "ground_truth": 35,
+            "CORRECT_RESOLUTION": 20,
+            "third_party": 29,
+            "narrator": 6,
+            "detected": 33,
+            "resolved": 20,
+            "subject_correct": 20,
+            "wrong_resolved": 0,
+            "false_narrator": 0,
+            "third_correct": 14,
+            "narrator_correct": 6,
+            "date_total": 32,
+            "date_correct": 31,
+            "SAFE_ABSTENTION": 13,
+            "STAGE1_MISS": 2,
+            "participant_total": 1,
+            "participant_correct": 1
+          },
+          "subject_exact_accuracy": 0.5714285714285714,
+          "subject_coverage": 0.6060606060606061,
+          "wrong_resolved_subject_rate": 0.0,
+          "false_narrator_attribution": 0.0,
+          "third_party_identification": 0.4827586206896552,
+          "narrator_recall": 1.0,
+          "date_exact_accuracy": 0.96875,
+          "participant_accuracy": 1.0,
+          "stage1_recall": 0.9428571428571428,
+          "stage2_latency_ms": {
+            "mean": 0.12083356662818308,
+            "median": 0.12050449822709197,
+            "p95": 0.15262500164681114
+          }
+        },
+        "safety_metrics": {
+          "counts": {
+            "reported_total": 9,
+            "reported_correct": 4,
+            "reporter_leak": 0,
+            "kinship_total": 18,
+            "kinship_exact": 8,
+            "incidental_total": 8,
+            "incidental_leak": 0,
+            "coordinated_total": 5,
+            "coordinated_abstained": 4,
+            "coordinated_correct": 0,
+            "coordinated_unsafe": 0
+          },
+          "reported_speech_accuracy": 0.4444444444444444,
+          "reporting_person_leakage_rate": 0.0,
+          "incidental_person_leakage_rate": 0.0,
+          "kinship_subject_exact_accuracy": 0.4444444444444444,
+          "coordinated_abstention_rate": 0.8,
+          "coordinated_unsafe_rate": 0.0
+        }
+      }
+    }
+  }
+}

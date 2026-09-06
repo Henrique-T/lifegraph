@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lifegraph-backend"
+version = "0.1.0"
+description = "Infrastructure skeleton for LifeGraph Conversacional"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "fastapi==0.141.1",
+    "httpx==0.28.1",
+    "neo4j==6.3.0",
+    "pydantic-settings==2.14.0",
+    "uvicorn==0.46.0",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest==9.0.2",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = ["integration: requires the live LifeGraph Neo4j service"]

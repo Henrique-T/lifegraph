@@ -1,0 +1,102 @@
+name: lifegraph
+
+services:
+  neo4j:
+    image: neo4j:2026.07.1
+    container_name: lifegraph-neo4j
+    environment:
+      NEO4J_AUTH: "${NEO4J_USER:-neo4j}/${NEO4J_PASSWORD:?Set NEO4J_PASSWORD in .env}"
+      NEO4J_server_memory_heap_initial__size: 512m
+      NEO4J_server_memory_heap_max__size: 1G
+      NEO4J_server_memory_pagecache_size: 512m
+    ports:
+      - "127.0.0.1:7474:7474"
+      - "127.0.0.1:7687:7687"
+    volumes:
+      - neo4j_data:/data
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "cypher-shell -u \"${NEO4J_USER:-neo4j}\" -p \"$${NEO4J_AUTH#*/}\" 'RETURN 1;' >/dev/null 2>&1",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+    container_name: lifegraph-backend
+    env_file:
+      - .env
+    environment:
+      API_HOST: 0.0.0.0
+      API_PORT: 8100
+      NEO4J_URI: bolt://neo4j:7687
+      REF_BEARER_TOKEN: "${REF_BEARER_TOKEN:-}"
+      GLINER_BASE_URL: http://gliner:8200
+    ports:
+      - "127.0.0.1:8100:8100"
+    depends_on:
+      neo4j:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:8100/ready', timeout=3)",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+    restart: unless-stopped
+
+  gliner:
+    build:
+      context: ./gliner-service
+    container_name: lifegraph-gliner
+    environment:
+      HF_HOME: /cache/huggingface
+      HF_HUB_DISABLE_TELEMETRY: "1"
+    volumes:
+      - type: bind
+        source: C:/AIModels/huggingface
+        target: /cache/huggingface
+      - type: bind
+        source: ./evaluation/extraction
+        target: /evaluation/extraction
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:8200/health', timeout=3)",
+        ]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: lifegraph-frontend
+    environment:
+      VITE_API_BASE_URL: http://localhost:8100
+    ports:
+      - "127.0.0.1:5173:5173"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  neo4j_data:

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "A",
+    "text": "Eu nasci em 1995.",
+    "expected_event_types": ["nascimento"],
+    "expected_person_mentions": [],
+    "expected_temporal_expression": "1995",
+    "notes": "First-person birth; no named person is required."
+  },
+  {
+    "id": "B",
+    "text": "Eu me casei com Ana em 2019.",
+    "expected_event_types": ["casamento"],
+    "expected_person_mentions": ["Ana"],
+    "expected_temporal_expression": "2019",
+    "notes": "The extraction remains an untrusted candidate and is not persisted."
+  },
+  {
+    "id": "C",
+    "text": "Meu marido morreu em 2023.",
+    "expected_event_types": ["obito"],
+    "expected_person_mentions": ["Meu marido"],
+    "expected_temporal_expression": "2023",
+    "notes": "Kinship mention quality is observed, not assumed."
+  },
+  {
+    "id": "D",
+    "text": "Eu acho que me casei por volta de 2019.",
+    "expected_event_types": ["casamento"],
+    "expected_person_mentions": [],
+    "expected_temporal_expression": "2019",
+    "notes": "Uncertain language must remain in source_text; uncertainty classification is unsupported."
+  },
+  {
+    "id": "E",
+    "text": "Fui ao supermercado em 2019.",
+    "expected_event_types": [],
+    "expected_person_mentions": [],
+    "expected_temporal_expression": "2019",
+    "notes": "Negative non-civil control."
+  },
+  {
+    "id": "F",
+    "text": "Meu irmão se casou em 2020.",
+    "expected_event_types": ["casamento"],
+    "expected_person_mentions": ["Meu irmão"],
+    "expected_temporal_expression": "2020",
+    "notes": "Must not be converted into the user's own ClaimEvent."
+  }
+]

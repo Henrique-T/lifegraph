@@ -1,0 +1,1696 @@
+{
+  "dataset": "original_35",
+  "strategy": "S1B_PORTUGUESE_CONTINUITY",
+  "rows": [
+    {
+      "id": "birth_self_01",
+      "text": "Eu nasci em 1995.",
+      "categories": [
+        "NASCIMENTO"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": "Eu",
+          "belongs_to_narrator": true,
+          "date_expression": "1995"
+        }
+      ],
+      "notes": "Nascimento próprio com ano.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasci",
+            "trigger_start": 3,
+            "trigger_end": 8
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasci",
+            "trigger_start": 3,
+            "trigger_end": 8,
+            "subject_text": "__NARRATOR__",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "EXPLICIT_FIRST_PERSON_PRONOUN",
+            "participant_texts": [],
+            "date_expression": "1995",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 298.8123270001779,
+        "stage2_latency_ms": 0.045929999487270834,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "birth_self_02",
+      "text": "Nasci no dia 12 de maio de 1988.",
+      "categories": [
+        "NASCIMENTO"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": null,
+          "belongs_to_narrator": true,
+          "date_expression": "12 de maio de 1988"
+        }
+      ],
+      "notes": "Sujeito elíptico.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "Nasci",
+            "trigger_start": 0,
+            "trigger_end": 5
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "Nasci",
+            "trigger_start": 0,
+            "trigger_end": 5,
+            "subject_text": "__NARRATOR__",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "FIRST_PERSON_VERB_FORM",
+            "participant_texts": [],
+            "date_expression": "12 de maio de 1988",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 277.3291979997339,
+        "stage2_latency_ms": 0.046150000343914144,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "birth_mother_01",
+      "text": "Minha mãe nasceu em 1965.",
+      "categories": [
+        "NASCIMENTO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": "Minha mãe",
+          "belongs_to_narrator": false,
+          "date_expression": "1965"
+        }
+      ],
+      "notes": "Nascimento de terceiro.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasceu",
+            "trigger_start": 10,
+            "trigger_end": 16
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasceu",
+            "trigger_start": 10,
+            "trigger_end": 16,
+            "subject_text": "Minha mãe",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "EXPLICIT_PRETRIGGER_SUBJECT",
+            "participant_texts": [],
+            "date_expression": "1965",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 276.37370100001135,
+        "stage2_latency_ms": 0.04211699979350669,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "birth_daughter_01",
+      "text": "Minha filha nasceu em 2018.",
+      "categories": [
+        "NASCIMENTO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": "Minha filha",
+          "belongs_to_narrator": false,
+          "date_expression": "2018"
+        }
+      ],
+      "notes": "Nascimento de terceiro.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasceu",
+            "trigger_start": 12,
+            "trigger_end": 18
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasceu",
+            "trigger_start": 12,
+            "trigger_end": 18,
+            "subject_text": null,
+            "subject_resolution": "UNRESOLVED",
+            "subject_reason": "NO_SAFE_SUBJECT_EVIDENCE",
+            "participant_texts": [],
+            "date_expression": "2018",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 271.850674000234,
+        "stage2_latency_ms": 0.0405579999096517,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "birth_unknown_01",
+      "text": "Não lembro exatamente quando nasci.",
+      "categories": [
+        "NASCIMENTO",
+        "UNCERTAINTY"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": null,
+          "belongs_to_narrator": true,
+          "date_expression": null
+        }
+      ],
+      "notes": "Data ausente e incerteza explícita.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasci",
+            "trigger_start": 29,
+            "trigger_end": 34
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasci",
+            "trigger_start": 29,
+            "trigger_end": 34,
+            "subject_text": "__NARRATOR__",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "FIRST_PERSON_VERB_FORM",
+            "participant_texts": [],
+            "date_expression": null,
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 271.58629900031883,
+        "stage2_latency_ms": 0.03795199972955743,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "marriage_self_01",
+      "text": "Eu me casei com Ana em 2019.",
+      "categories": [
+        "CASAMENTO"
+      ],
+      "expected_events": [
+        {
+          "event_type": "casamento",
+          "subject_text": "Eu",
+          "belongs_to_narrator": true,
+          "date_expression": "2019"
+        }
+      ],
+      "notes": "Casamento próprio.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "casamento",
+            "trigger_text": "me casei",
+            "trigger_start": 3,
+            "trigger_end": 11
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "casamento",
+            "trigger_text": "me casei",
+            "trigger_start": 3,
+            "trigger_end": 11,
+            "subject_text": "__NARRATOR__",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "EXPLICIT_FIRST_PERSON_PRONOUN",
+            "participant_texts": [
+              "Ana"
+            ],
+            "date_expression": "2019",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 281.8404820000069,
+        "stage2_latency_ms": 0.04491600020628539,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "marriage_self_02",
+      "text": "Casei com João em junho de 2014.",
+      "categories": [
+        "CASAMENTO"
+      ],
+      "expected_events": [
+        {
+          "event_type": "casamento",
+          "subject_text": null,
+          "belongs_to_narrator": true,
+          "date_expression": "junho de 2014"
+        }
+      ],
+      "notes": "Sujeito elíptico.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "casamento",
+            "trigger_text": "Casei",
+            "trigger_start": 0,
+            "trigger_end": 5
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "casamento",
+            "trigger_text": "Casei",
+            "trigger_start": 0,
+            "trigger_end": 5,
+            "subject_text": "__NARRATOR__",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "FIRST_PERSON_VERB_FORM",
+            "participant_texts": [
+              "João"
+            ],
+            "date_expression": "junho de 2014",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 279.6134830000483,
+        "stage2_latency_ms": 0.043136999920534436,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "marriage_brother_01",
+      "text": "Meu irmão se casou em 2020.",
+      "categories": [
+        "CASAMENTO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "casamento",
+          "subject_text": "Meu irmão",
+          "belongs_to_narrator": false,
+          "date_expression": "2020"
+        }
+      ],
+      "notes": "Casamento de terceiro.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "casamento",
+            "trigger_text": "se casou",
+            "trigger_start": 10,
+            "trigger_end": 18
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "casamento",
+            "trigger_text": "se casou",
+            "trigger_start": 10,
+            "trigger_end": 18,
+            "subject_text": "Meu irmão",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "EXPLICIT_PRETRIGGER_SUBJECT",
+            "participant_texts": [],
+            "date_expression": "2020",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 275.9718230004182,
+        "stage2_latency_ms": 0.04599699968821369,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "marriage_friend_01",
+      "text": "Carlos e Beatriz se casaram em 2017.",
+      "categories": [
+        "CASAMENTO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "casamento",
+          "subject_text": "Carlos e Beatriz",
+          "belongs_to_narrator": false,
+          "date_expression": "2017"
+        }
+      ],
+      "notes": "Dois sujeitos explícitos.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "casamento",
+            "trigger_text": "se casaram",
+            "trigger_start": 17,
+            "trigger_end": 27
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "casamento",
+            "trigger_text": "se casaram",
+            "trigger_start": 17,
+            "trigger_end": 27,
+            "subject_text": "Beatriz",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "EXPLICIT_PRETRIGGER_SUBJECT",
+            "participant_texts": [],
+            "date_expression": "2017",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 276.83035499967446,
+        "stage2_latency_ms": 0.04466400014280225,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "marriage_state_01",
+      "text": "Sou casado com Ana.",
+      "categories": [
+        "CASAMENTO"
+      ],
+      "expected_events": [
+        {
+          "event_type": "casamento",
+          "subject_text": null,
+          "belongs_to_narrator": true,
+          "date_expression": null
+        }
+      ],
+      "notes": "Estado civil implica evento, sem data.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [],
+        "associated_events": [],
+        "stage1_latency_ms": 271.16024900033153,
+        "stage2_latency_ms": 0.012363999758235877,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "marriage_uncertain_01",
+      "text": "Acho que me casei em 2019.",
+      "categories": [
+        "CASAMENTO",
+        "UNCERTAINTY"
+      ],
+      "expected_events": [
+        {
+          "event_type": "casamento",
+          "subject_text": null,
+          "belongs_to_narrator": true,
+          "date_expression": "2019"
+        }
+      ],
+      "notes": "Incerteza explícita.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "casamento",
+            "trigger_text": "me casei",
+            "trigger_start": 9,
+            "trigger_end": 17
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "casamento",
+            "trigger_text": "me casei",
+            "trigger_start": 9,
+            "trigger_end": 17,
+            "subject_text": "__NARRATOR__",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "FIRST_PERSON_VERB_FORM",
+            "participant_texts": [],
+            "date_expression": "2019",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 418.0012440001519,
+        "stage2_latency_ms": 0.041928999962692615,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "marriage_guest_trap_01",
+      "text": "Fui ao casamento da minha irmã em 2019.",
+      "categories": [
+        "CASAMENTO",
+        "NEGATIVE_NON_CIVIL",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [],
+      "notes": "Menção nominal a casamento, não afirma sua ocorrência nem casamento do narrador.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [],
+        "associated_events": [],
+        "stage1_latency_ms": 415.80498000030275,
+        "stage2_latency_ms": 0.012262999462109292,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "death_husband_01",
+      "text": "Meu marido morreu em 2023.",
+      "categories": [
+        "OBITO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "obito",
+          "subject_text": "Meu marido",
+          "belongs_to_narrator": false,
+          "date_expression": "2023"
+        }
+      ],
+      "notes": "Óbito de terceiro.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "obito",
+            "trigger_text": "morreu",
+            "trigger_start": 11,
+            "trigger_end": 17
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "obito",
+            "trigger_text": "morreu",
+            "trigger_start": 11,
+            "trigger_end": 17,
+            "subject_text": "Meu marido",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "EXPLICIT_PRETRIGGER_SUBJECT",
+            "participant_texts": [],
+            "date_expression": "2023",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 282.11212099995464,
+        "stage2_latency_ms": 0.04456099986782647,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "death_father_01",
+      "text": "Meu pai faleceu em 2010.",
+      "categories": [
+        "OBITO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "obito",
+          "subject_text": "Meu pai",
+          "belongs_to_narrator": false,
+          "date_expression": "2010"
+        }
+      ],
+      "notes": "Sinônimo faleceu.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "obito",
+            "trigger_text": "faleceu",
+            "trigger_start": 8,
+            "trigger_end": 15
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "obito",
+            "trigger_text": "faleceu",
+            "trigger_start": 8,
+            "trigger_end": 15,
+            "subject_text": "Meu pai",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "EXPLICIT_PRETRIGGER_SUBJECT",
+            "participant_texts": [],
+            "date_expression": "2010",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 281.23199099991325,
+        "stage2_latency_ms": 0.043559000005188864,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "death_named_01",
+      "text": "Paulo morreu no dia 3 de março de 2021.",
+      "categories": [
+        "OBITO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "obito",
+          "subject_text": "Paulo",
+          "belongs_to_narrator": false,
+          "date_expression": "3 de março de 2021"
+        }
+      ],
+      "notes": "Pessoa nomeada.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "obito",
+            "trigger_text": "morreu",
+            "trigger_start": 6,
+            "trigger_end": 12
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "obito",
+            "trigger_text": "morreu",
+            "trigger_start": 6,
+            "trigger_end": 12,
+            "subject_text": "Paulo",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "EXPLICIT_PRETRIGGER_SUBJECT",
+            "participant_texts": [],
+            "date_expression": "3 de março de 2021",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 281.19515999969735,
+        "stage2_latency_ms": 0.04013400030089542,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "death_uncertain_01",
+      "text": "Foi por volta de 2020 que meu marido morreu.",
+      "categories": [
+        "OBITO",
+        "THIRD_PARTY_SUBJECT",
+        "UNCERTAINTY"
+      ],
+      "expected_events": [
+        {
+          "event_type": "obito",
+          "subject_text": "meu marido",
+          "belongs_to_narrator": false,
+          "date_expression": "por volta de 2020"
+        }
+      ],
+      "notes": "Data aproximada.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "obito",
+            "trigger_text": "morreu",
+            "trigger_start": 37,
+            "trigger_end": 43
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "obito",
+            "trigger_text": "morreu",
+            "trigger_start": 37,
+            "trigger_end": 43,
+            "subject_text": "meu marido",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "EXPLICIT_PRETRIGGER_SUBJECT",
+            "participant_texts": [],
+            "date_expression": null,
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 284.9128030002248,
+        "stage2_latency_ms": 0.043495999761944404,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "death_incomplete_01",
+      "text": "Meu pai faleceu há alguns anos.",
+      "categories": [
+        "OBITO",
+        "THIRD_PARTY_SUBJECT",
+        "UNCERTAINTY"
+      ],
+      "expected_events": [
+        {
+          "event_type": "obito",
+          "subject_text": "Meu pai",
+          "belongs_to_narrator": false,
+          "date_expression": "há alguns anos"
+        }
+      ],
+      "notes": "Expressão relativa não normalizável.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "obito",
+            "trigger_text": "faleceu",
+            "trigger_start": 8,
+            "trigger_end": 15
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "obito",
+            "trigger_text": "faleceu",
+            "trigger_start": 8,
+            "trigger_end": 15,
+            "subject_text": "Meu pai",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "EXPLICIT_PRETRIGGER_SUBJECT",
+            "participant_texts": [],
+            "date_expression": "alguns anos",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 285.0566889997026,
+        "stage2_latency_ms": 0.0426450001214107,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "death_noun_01",
+      "text": "Depois da morte do meu pai, mudei de cidade.",
+      "categories": [
+        "OBITO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "obito",
+          "subject_text": "meu pai",
+          "belongs_to_narrator": false,
+          "date_expression": null
+        }
+      ],
+      "notes": "Menção inequívoca a óbito passado; não é evento do narrador.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "obito",
+            "trigger_text": "mudei de cidade",
+            "trigger_start": 28,
+            "trigger_end": 43
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "obito",
+            "trigger_text": "mudei de cidade",
+            "trigger_start": 28,
+            "trigger_end": 43,
+            "subject_text": "pai",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "EXPLICIT_PRETRIGGER_SUBJECT",
+            "participant_texts": [],
+            "date_expression": null,
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 293.5969620002652,
+        "stage2_latency_ms": 0.04435199980434845,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "stillbirth_01",
+      "text": "O bebê de Marina nasceu sem vida em 2022.",
+      "categories": [
+        "NATIMORTO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "natimorto",
+          "subject_text": "O bebê de Marina",
+          "belongs_to_narrator": false,
+          "date_expression": "2022"
+        }
+      ],
+      "notes": "Exemplo sintético respeitoso.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasceu",
+            "trigger_start": 17,
+            "trigger_end": 23
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasceu",
+            "trigger_start": 17,
+            "trigger_end": 23,
+            "subject_text": "Marina",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "EXPLICIT_PRETRIGGER_SUBJECT",
+            "participant_texts": [],
+            "date_expression": "2022",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 307.3900730000787,
+        "stage2_latency_ms": 0.047635000100854086,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "stillbirth_02",
+      "text": "A família informou que a criança foi natimorta em maio de 2020.",
+      "categories": [
+        "NATIMORTO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "natimorto",
+          "subject_text": "a criança",
+          "belongs_to_narrator": false,
+          "date_expression": "maio de 2020"
+        }
+      ],
+      "notes": "Termo registral explícito.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "natimorto",
+            "trigger_text": "natimorta",
+            "trigger_start": 37,
+            "trigger_end": 46
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "natimorto",
+            "trigger_text": "natimorta",
+            "trigger_start": 37,
+            "trigger_end": 46,
+            "subject_text": null,
+            "subject_resolution": "UNRESOLVED",
+            "subject_reason": "NO_SAFE_SUBJECT_EVIDENCE",
+            "participant_texts": [],
+            "date_expression": "maio de 2020",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 333.47482699991815,
+        "stage2_latency_ms": 0.044393999814928975,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "stillbirth_03",
+      "text": "Infelizmente, nosso filho nasceu sem vida; não recordo a data exata.",
+      "categories": [
+        "NATIMORTO",
+        "THIRD_PARTY_SUBJECT",
+        "UNCERTAINTY"
+      ],
+      "expected_events": [
+        {
+          "event_type": "natimorto",
+          "subject_text": "nosso filho",
+          "belongs_to_narrator": false,
+          "date_expression": null
+        }
+      ],
+      "notes": "Sem data e com incerteza.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasceu",
+            "trigger_start": 26,
+            "trigger_end": 32
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasceu",
+            "trigger_start": 26,
+            "trigger_end": 32,
+            "subject_text": null,
+            "subject_resolution": "UNRESOLVED",
+            "subject_reason": "NO_SAFE_SUBJECT_EVIDENCE",
+            "participant_texts": [],
+            "date_expression": null,
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 374.2539539998688,
+        "stage2_latency_ms": 0.04902699993181159,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "multi_01",
+      "text": "Nasci em 1988 e me casei com João em 2014.",
+      "categories": [
+        "MULTIPLE_EVENTS",
+        "NASCIMENTO",
+        "CASAMENTO"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": null,
+          "belongs_to_narrator": true,
+          "date_expression": "1988"
+        },
+        {
+          "event_type": "casamento",
+          "subject_text": null,
+          "belongs_to_narrator": true,
+          "date_expression": "2014"
+        }
+      ],
+      "notes": "Dois eventos do narrador.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "Nasci",
+            "trigger_start": 0,
+            "trigger_end": 5
+          },
+          {
+            "event_type": "casamento",
+            "trigger_text": "casei",
+            "trigger_start": 19,
+            "trigger_end": 24
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "Nasci",
+            "trigger_start": 0,
+            "trigger_end": 5,
+            "subject_text": "__NARRATOR__",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "FIRST_PERSON_VERB_FORM",
+            "participant_texts": [],
+            "date_expression": "1988",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          },
+          {
+            "event_type": "casamento",
+            "trigger_text": "casei",
+            "trigger_start": 19,
+            "trigger_end": 24,
+            "subject_text": "__NARRATOR__",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "EXPLICIT_FIRST_PERSON_PRONOUN",
+            "participant_texts": [
+              "João"
+            ],
+            "date_expression": "2014",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 358.31805799989525,
+        "stage2_latency_ms": 0.06889699989187648,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "multi_02",
+      "text": "Minha filha nasceu em 2018 e meu pai morreu no ano seguinte.",
+      "categories": [
+        "MULTIPLE_EVENTS",
+        "NASCIMENTO",
+        "OBITO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": "Minha filha",
+          "belongs_to_narrator": false,
+          "date_expression": "2018"
+        },
+        {
+          "event_type": "obito",
+          "subject_text": "meu pai",
+          "belongs_to_narrator": false,
+          "date_expression": "no ano seguinte"
+        }
+      ],
+      "notes": "Dois terceiros e expressão relativa.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasceu",
+            "trigger_start": 12,
+            "trigger_end": 18
+          },
+          {
+            "event_type": "obito",
+            "trigger_text": "morreu",
+            "trigger_start": 37,
+            "trigger_end": 43
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasceu",
+            "trigger_start": 12,
+            "trigger_end": 18,
+            "subject_text": null,
+            "subject_resolution": "UNRESOLVED",
+            "subject_reason": "NO_SAFE_SUBJECT_EVIDENCE",
+            "participant_texts": [],
+            "date_expression": "2018",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          },
+          {
+            "event_type": "obito",
+            "trigger_text": "morreu",
+            "trigger_start": 37,
+            "trigger_end": 43,
+            "subject_text": "pai",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "EXPLICIT_PRETRIGGER_SUBJECT",
+            "participant_texts": [],
+            "date_expression": "ano seguinte",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 354.86006099972656,
+        "stage2_latency_ms": 0.07571400055894628,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "multi_03",
+      "text": "Ana nasceu em 1990, casou-se em 2012 e morreu em 2024.",
+      "categories": [
+        "MULTIPLE_EVENTS",
+        "NASCIMENTO",
+        "CASAMENTO",
+        "OBITO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": "Ana",
+          "belongs_to_narrator": false,
+          "date_expression": "1990"
+        },
+        {
+          "event_type": "casamento",
+          "subject_text": "Ana",
+          "belongs_to_narrator": false,
+          "date_expression": "2012"
+        },
+        {
+          "event_type": "obito",
+          "subject_text": "Ana",
+          "belongs_to_narrator": false,
+          "date_expression": "2024"
+        }
+      ],
+      "notes": "Três eventos da mesma terceira pessoa.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasceu",
+            "trigger_start": 4,
+            "trigger_end": 10
+          },
+          {
+            "event_type": "casamento",
+            "trigger_text": "casou-se",
+            "trigger_start": 20,
+            "trigger_end": 28
+          },
+          {
+            "event_type": "obito",
+            "trigger_text": "morreu",
+            "trigger_start": 39,
+            "trigger_end": 45
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasceu",
+            "trigger_start": 4,
+            "trigger_end": 10,
+            "subject_text": "Ana",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "EXPLICIT_PRETRIGGER_SUBJECT",
+            "participant_texts": [],
+            "date_expression": "1990",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          },
+          {
+            "event_type": "casamento",
+            "trigger_text": "casou-se",
+            "trigger_start": 20,
+            "trigger_end": 28,
+            "subject_text": "Ana",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "COORDINATED_SUBJECT_CONTINUITY",
+            "participant_texts": [],
+            "date_expression": "2012",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          },
+          {
+            "event_type": "obito",
+            "trigger_text": "morreu",
+            "trigger_start": 39,
+            "trigger_end": 45,
+            "subject_text": "Ana",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "COORDINATED_SUBJECT_CONTINUITY",
+            "participant_texts": [],
+            "date_expression": "2024",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 334.10202499999286,
+        "stage2_latency_ms": 0.31675099990025046,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "multi_04",
+      "text": "Eu nasci em 1975; meu irmão nasceu em 1978 e se casou em 2001.",
+      "categories": [
+        "MULTIPLE_EVENTS",
+        "NASCIMENTO",
+        "CASAMENTO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": "Eu",
+          "belongs_to_narrator": true,
+          "date_expression": "1975"
+        },
+        {
+          "event_type": "nascimento",
+          "subject_text": "meu irmão",
+          "belongs_to_narrator": false,
+          "date_expression": "1978"
+        },
+        {
+          "event_type": "casamento",
+          "subject_text": "meu irmão",
+          "belongs_to_narrator": false,
+          "date_expression": "2001"
+        }
+      ],
+      "notes": "Eventos do narrador e de terceiro.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasci",
+            "trigger_start": 3,
+            "trigger_end": 8
+          },
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasceu",
+            "trigger_start": 28,
+            "trigger_end": 34
+          },
+          {
+            "event_type": "casamento",
+            "trigger_text": "se casou",
+            "trigger_start": 45,
+            "trigger_end": 53
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasci",
+            "trigger_start": 3,
+            "trigger_end": 8,
+            "subject_text": "__NARRATOR__",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "EXPLICIT_FIRST_PERSON_PRONOUN",
+            "participant_texts": [],
+            "date_expression": "1975",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          },
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasceu",
+            "trigger_start": 28,
+            "trigger_end": 34,
+            "subject_text": "meu irmão",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "EXPLICIT_SUBJECT_OVERRIDE",
+            "participant_texts": [],
+            "date_expression": "1978",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          },
+          {
+            "event_type": "casamento",
+            "trigger_text": "se casou",
+            "trigger_start": 45,
+            "trigger_end": 53,
+            "subject_text": "meu irmão",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "COORDINATED_SUBJECT_CONTINUITY",
+            "participant_texts": [],
+            "date_expression": "2001",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 309.1075910001564,
+        "stage2_latency_ms": 0.10296099981133011,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "negative_01",
+      "text": "Fui ao supermercado em 2019.",
+      "categories": [
+        "NEGATIVE_NON_CIVIL"
+      ],
+      "expected_events": [],
+      "notes": "Data sem evento civil.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [],
+        "associated_events": [],
+        "stage1_latency_ms": 297.45471400019596,
+        "stage2_latency_ms": 0.011557999641809147,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "negative_02",
+      "text": "Ana trabalha no cartório desde 2020.",
+      "categories": [
+        "NEGATIVE_NON_CIVIL"
+      ],
+      "expected_events": [],
+      "notes": "Pessoa e data sem evento civil.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [],
+        "associated_events": [],
+        "stage1_latency_ms": 310.8096430000842,
+        "stage2_latency_ms": 0.01319800003329874,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "negative_03",
+      "text": "Li uma reportagem sobre nascimentos no Brasil.",
+      "categories": [
+        "NEGATIVE_NON_CIVIL"
+      ],
+      "expected_events": [],
+      "notes": "Vocabulário temático sem evento individual.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [],
+        "associated_events": [],
+        "stage1_latency_ms": 298.75480900000184,
+        "stage2_latency_ms": 0.013653000223712297,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "negative_04",
+      "text": "A certidão de casamento ficou sobre a mesa.",
+      "categories": [
+        "NEGATIVE_NON_CIVIL"
+      ],
+      "expected_events": [],
+      "notes": "Documento mencionado sem afirmação do evento.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [],
+        "associated_events": [],
+        "stage1_latency_ms": 322.2867959998439,
+        "stage2_latency_ms": 0.01397300002281554,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "negative_05",
+      "text": "O filme terminou com a morte do vilão.",
+      "categories": [
+        "NEGATIVE_NON_CIVIL"
+      ],
+      "expected_events": [],
+      "notes": "Evento ficcional, fora da narrativa civil.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [],
+        "associated_events": [],
+        "stage1_latency_ms": 390.50738600008117,
+        "stage2_latency_ms": 0.014784000086365268,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "uncertain_birth_02",
+      "text": "Talvez eu tenha nascido em 1992.",
+      "categories": [
+        "NASCIMENTO",
+        "UNCERTAINTY"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": "eu",
+          "belongs_to_narrator": true,
+          "date_expression": "1992"
+        }
+      ],
+      "notes": "Modal talvez.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nascido",
+            "trigger_start": 16,
+            "trigger_end": 23
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nascido",
+            "trigger_start": 16,
+            "trigger_end": 23,
+            "subject_text": "__NARRATOR__",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "EXPLICIT_FIRST_PERSON_PRONOUN",
+            "participant_texts": [],
+            "date_expression": "1992",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 312.80796500004726,
+        "stage2_latency_ms": 0.04432400010045967,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "uncertain_marriage_02",
+      "text": "Não tenho certeza, mas nosso casamento pode ter sido em 2016.",
+      "categories": [
+        "CASAMENTO",
+        "UNCERTAINTY"
+      ],
+      "expected_events": [
+        {
+          "event_type": "casamento",
+          "subject_text": null,
+          "belongs_to_narrator": true,
+          "date_expression": "2016"
+        }
+      ],
+      "notes": "Incerteza explícita.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [],
+        "associated_events": [],
+        "stage1_latency_ms": 309.67957499979093,
+        "stage2_latency_ms": 0.011730000096576987,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "birth_day_03",
+      "text": "Renata nasceu ontem.",
+      "categories": [
+        "NASCIMENTO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": "Renata",
+          "belongs_to_narrator": false,
+          "date_expression": "ontem"
+        }
+      ],
+      "notes": "Expressão relativa.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasceu",
+            "trigger_start": 7,
+            "trigger_end": 13
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "nascimento",
+            "trigger_text": "nasceu",
+            "trigger_start": 7,
+            "trigger_end": 13,
+            "subject_text": "Renata",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "EXPLICIT_PRETRIGGER_SUBJECT",
+            "participant_texts": [],
+            "date_expression": "ontem",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 300.6746179999027,
+        "stage2_latency_ms": 0.05781800018667127,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "marriage_plural_03",
+      "text": "Meus avós casaram em 1950.",
+      "categories": [
+        "CASAMENTO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "casamento",
+          "subject_text": "Meus avós",
+          "belongs_to_narrator": false,
+          "date_expression": "1950"
+        }
+      ],
+      "notes": "Sujeito plural.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "casamento",
+            "trigger_text": "casaram",
+            "trigger_start": 10,
+            "trigger_end": 17
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "casamento",
+            "trigger_text": "casaram",
+            "trigger_start": 10,
+            "trigger_end": 17,
+            "subject_text": null,
+            "subject_resolution": "UNRESOLVED",
+            "subject_reason": "NO_SAFE_SUBJECT_EVIDENCE",
+            "participant_texts": [],
+            "date_expression": "1950",
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 312.89281099998334,
+        "stage2_latency_ms": 0.08056300021053175,
+        "additional_model_calls": 0
+      }
+    },
+    {
+      "id": "death_no_date_02",
+      "text": "A avó de Pedro já faleceu.",
+      "categories": [
+        "OBITO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "obito",
+          "subject_text": "A avó de Pedro",
+          "belongs_to_narrator": false,
+          "date_expression": null
+        }
+      ],
+      "notes": "Sem data.",
+      "result": {
+        "strategy_id": "S1B_PORTUGUESE_CONTINUITY",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "stage1": [
+          {
+            "event_type": "obito",
+            "trigger_text": "faleceu",
+            "trigger_start": 18,
+            "trigger_end": 25
+          }
+        ],
+        "associated_events": [
+          {
+            "event_type": "obito",
+            "trigger_text": "faleceu",
+            "trigger_start": 18,
+            "trigger_end": 25,
+            "subject_text": "avó de Pedro",
+            "subject_resolution": "RESOLVED",
+            "subject_reason": "EXPLICIT_PRETRIGGER_SUBJECT",
+            "participant_texts": [],
+            "date_expression": null,
+            "association_strategy": "S1B_PORTUGUESE_CONTINUITY",
+            "warnings": []
+          }
+        ],
+        "stage1_latency_ms": 294.0965539996796,
+        "stage2_latency_ms": 0.05200300029173377,
+        "additional_model_calls": 0
+      }
+    }
+  ],
+  "metrics": {
+    "counts": {
+      "ground_truth": 35,
+      "stage1_matched": 31,
+      "third_party_all": 23,
+      "narrator_all": 12,
+      "explicit_third_all": 23,
+      "conditional": 31,
+      "resolved": 27,
+      "subject_correct": 23,
+      "narrator_matched": 10,
+      "narrator_correct": 10,
+      "date_total": 28,
+      "date_correct": 25,
+      "outcome_correct": 23,
+      "third_matched": 21,
+      "false_narrator": 0,
+      "explicit_third_matched": 21,
+      "third_correct": 13,
+      "third_unresolved": 4,
+      "outcome_safe_abstention": 4,
+      "participant_total": 3,
+      "participant_correct": 3,
+      "outcome_wrong_third_party": 4
+    },
+    "conditional_subject_exact_accuracy": 0.7419354838709677,
+    "subject_resolution_coverage": 0.8709677419354839,
+    "end_to_end_subject_accuracy": 0.6571428571428571,
+    "end_to_end_third_party_identification": 0.5652173913043478,
+    "false_narrator_attribution": 0.0,
+    "narrator_recall": 0.8333333333333334,
+    "unresolved_subject_rate": 0.12903225806451613,
+    "date_exact_accuracy": 0.8928571428571429,
+    "participant_accuracy": 1.0,
+    "stage1_event_recall": 0.8857142857142857,
+    "stage2_latency_ms": {
+      "mean": 0.0495916285477246,
+      "median": 0.04432400010045967,
+      "p95": 0.08056300021053175
+    }
+  },
+  "special_metrics": {
+    "pro_drop_narrator": {
+      "correct": 0,
+      "total": 0,
+      "accuracy": null
+    },
+    "coordinated_subject_continuity": {
+      "correct": 0,
+      "total": 0,
+      "accuracy": null
+    },
+    "subject_switch": {
+      "correct": 0,
+      "total": 0,
+      "accuracy": null
+    },
+    "cross_sentence_propagation": {
+      "errors": 0,
+      "cases": 0
+    }
+  }
+}

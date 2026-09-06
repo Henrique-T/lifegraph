@@ -1,0 +1,273 @@
+{
+  "completed_at_epoch": 1788533202.613223,
+  "duration_seconds": 49.08085918426514,
+  "datasets": {
+    "original_35": {
+      "S1_DETERMINISTIC": {
+        "metrics": {
+          "counts": {
+            "ground_truth": 35,
+            "stage1_matched": 31,
+            "third_party_all": 23,
+            "narrator_all": 12,
+            "explicit_third_all": 23,
+            "conditional": 31,
+            "resolved": 19,
+            "subject_correct": 15,
+            "narrator_matched": 10,
+            "narrator_correct": 5,
+            "date_total": 28,
+            "date_correct": 25,
+            "outcome_correct": 15,
+            "outcome_safe_abstention": 12,
+            "third_matched": 21,
+            "false_narrator": 0,
+            "explicit_third_matched": 21,
+            "third_correct": 10,
+            "third_unresolved": 7,
+            "participant_total": 3,
+            "participant_correct": 3,
+            "outcome_wrong_third_party": 4
+          },
+          "conditional_subject_exact_accuracy": 0.4838709677419355,
+          "subject_resolution_coverage": 0.6129032258064516,
+          "end_to_end_subject_accuracy": 0.42857142857142855,
+          "end_to_end_third_party_identification": 0.43478260869565216,
+          "false_narrator_attribution": 0.0,
+          "narrator_recall": 0.4166666666666667,
+          "unresolved_subject_rate": 0.3870967741935484,
+          "date_exact_accuracy": 0.8928571428571429,
+          "participant_accuracy": 1.0,
+          "stage1_event_recall": 0.8857142857142857,
+          "stage2_latency_ms": {
+            "mean": 0.04096508571040301,
+            "median": 0.02852299985534046,
+            "p95": 0.09983399968405138
+          }
+        },
+        "special_metrics": {
+          "pro_drop_narrator": {
+            "correct": 0,
+            "total": 0,
+            "accuracy": null
+          },
+          "coordinated_subject_continuity": {
+            "correct": 0,
+            "total": 0,
+            "accuracy": null
+          },
+          "subject_switch": {
+            "correct": 0,
+            "total": 0,
+            "accuracy": null
+          },
+          "cross_sentence_propagation": {
+            "errors": 0,
+            "cases": 0
+          }
+        }
+      },
+      "S1B_PORTUGUESE_CONTINUITY": {
+        "metrics": {
+          "counts": {
+            "ground_truth": 35,
+            "stage1_matched": 31,
+            "third_party_all": 23,
+            "narrator_all": 12,
+            "explicit_third_all": 23,
+            "conditional": 31,
+            "resolved": 27,
+            "subject_correct": 23,
+            "narrator_matched": 10,
+            "narrator_correct": 10,
+            "date_total": 28,
+            "date_correct": 25,
+            "outcome_correct": 23,
+            "third_matched": 21,
+            "false_narrator": 0,
+            "explicit_third_matched": 21,
+            "third_correct": 13,
+            "third_unresolved": 4,
+            "outcome_safe_abstention": 4,
+            "participant_total": 3,
+            "participant_correct": 3,
+            "outcome_wrong_third_party": 4
+          },
+          "conditional_subject_exact_accuracy": 0.7419354838709677,
+          "subject_resolution_coverage": 0.8709677419354839,
+          "end_to_end_subject_accuracy": 0.6571428571428571,
+          "end_to_end_third_party_identification": 0.5652173913043478,
+          "false_narrator_attribution": 0.0,
+          "narrator_recall": 0.8333333333333334,
+          "unresolved_subject_rate": 0.12903225806451613,
+          "date_exact_accuracy": 0.8928571428571429,
+          "participant_accuracy": 1.0,
+          "stage1_event_recall": 0.8857142857142857,
+          "stage2_latency_ms": {
+            "mean": 0.0495916285477246,
+            "median": 0.04432400010045967,
+            "p95": 0.08056300021053175
+          }
+        },
+        "special_metrics": {
+          "pro_drop_narrator": {
+            "correct": 0,
+            "total": 0,
+            "accuracy": null
+          },
+          "coordinated_subject_continuity": {
+            "correct": 0,
+            "total": 0,
+            "accuracy": null
+          },
+          "subject_switch": {
+            "correct": 0,
+            "total": 0,
+            "accuracy": null
+          },
+          "cross_sentence_propagation": {
+            "errors": 0,
+            "cases": 0
+          }
+        }
+      }
+    },
+    "adversarial": {
+      "S1_DETERMINISTIC": {
+        "metrics": {
+          "counts": {
+            "ground_truth": 47,
+            "stage1_matched": 47,
+            "third_party_all": 38,
+            "narrator_all": 9,
+            "explicit_third_all": 36,
+            "conditional": 47,
+            "resolved": 24,
+            "subject_correct": 19,
+            "narrator_matched": 9,
+            "narrator_correct": 1,
+            "date_total": 47,
+            "date_correct": 46,
+            "outcome_safe_abstention": 22,
+            "participant_total": 3,
+            "participant_correct": 3,
+            "third_matched": 38,
+            "false_narrator": 0,
+            "explicit_third_matched": 36,
+            "third_correct": 17,
+            "third_unresolved": 16,
+            "outcome_correct": 19,
+            "outcome_wrong_third_party": 5,
+            "outcome_wrong_propagation": 1
+          },
+          "conditional_subject_exact_accuracy": 0.40425531914893614,
+          "subject_resolution_coverage": 0.5106382978723404,
+          "end_to_end_subject_accuracy": 0.40425531914893614,
+          "end_to_end_third_party_identification": 0.4722222222222222,
+          "false_narrator_attribution": 0.0,
+          "narrator_recall": 0.1111111111111111,
+          "unresolved_subject_rate": 0.4893617021276596,
+          "date_exact_accuracy": 0.9787234042553191,
+          "participant_accuracy": 1.0,
+          "stage1_event_recall": 1.0,
+          "stage2_latency_ms": {
+            "mean": 0.04363342309961109,
+            "median": 0.04472499995245016,
+            "p95": 0.05390599972088239
+          }
+        },
+        "special_metrics": {
+          "pro_drop_narrator": {
+            "correct": 1,
+            "total": 9,
+            "accuracy": 0.1111111111111111
+          },
+          "coordinated_subject_continuity": {
+            "correct": 8,
+            "total": 24,
+            "accuracy": 0.3333333333333333
+          },
+          "subject_switch": {
+            "correct": 9,
+            "total": 14,
+            "accuracy": 0.6428571428571429
+          },
+          "cross_sentence_propagation": {
+            "errors": 1,
+            "cases": 3
+          }
+        }
+      },
+      "S1B_PORTUGUESE_CONTINUITY": {
+        "metrics": {
+          "counts": {
+            "ground_truth": 47,
+            "stage1_matched": 47,
+            "third_party_all": 38,
+            "narrator_all": 9,
+            "explicit_third_all": 36,
+            "conditional": 47,
+            "resolved": 41,
+            "subject_correct": 36,
+            "narrator_matched": 9,
+            "narrator_correct": 8,
+            "date_total": 47,
+            "date_correct": 46,
+            "outcome_correct": 36,
+            "participant_total": 3,
+            "participant_correct": 3,
+            "third_matched": 38,
+            "false_narrator": 0,
+            "explicit_third_matched": 36,
+            "third_correct": 27,
+            "third_unresolved": 6,
+            "outcome_safe_abstention": 5,
+            "outcome_wrong_third_party": 5,
+            "outcome_wrong_propagation": 1
+          },
+          "conditional_subject_exact_accuracy": 0.7659574468085106,
+          "subject_resolution_coverage": 0.8723404255319149,
+          "end_to_end_subject_accuracy": 0.7659574468085106,
+          "end_to_end_third_party_identification": 0.75,
+          "false_narrator_attribution": 0.0,
+          "narrator_recall": 0.8888888888888888,
+          "unresolved_subject_rate": 0.12765957446808507,
+          "date_exact_accuracy": 0.9787234042553191,
+          "participant_accuracy": 1.0,
+          "stage1_event_recall": 1.0,
+          "stage2_latency_ms": {
+            "mean": 0.07380934626920722,
+            "median": 0.07022300019343675,
+            "p95": 0.0950700004977989
+          }
+        },
+        "special_metrics": {
+          "pro_drop_narrator": {
+            "correct": 8,
+            "total": 9,
+            "accuracy": 0.8888888888888888
+          },
+          "coordinated_subject_continuity": {
+            "correct": 20,
+            "total": 24,
+            "accuracy": 0.8333333333333334
+          },
+          "subject_switch": {
+            "correct": 10,
+            "total": 14,
+            "accuracy": 0.7142857142857143
+          },
+          "cross_sentence_propagation": {
+            "errors": 1,
+            "cases": 3
+          }
+        }
+      }
+    }
+  },
+  "newly_resolved_review": {
+    "total": 25,
+    "correct": 25,
+    "wrong": 0
+  }
+}

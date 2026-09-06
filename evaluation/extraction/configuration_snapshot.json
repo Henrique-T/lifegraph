@@ -1,0 +1,9 @@
+{
+  "snapshot_id": "primary-2026-09-03",
+  "frozen_at": "2026-09-03T18:36:00-03:00",
+  "model_id": "fastino/gliner2.5-multi-v1",
+  "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+  "configuration_ids": ["A_ENTITY_EVENT_BASELINE", "B_LINGUISTIC_EVENT_SPANS", "C_STRUCTURED_RECORDS", "D_CONSTRAINED_RECORDS", "E_RELATION_EXTRACTION"],
+  "source_of_truth": "gliner-service/app/calibration.py",
+  "post_hoc_tuning_allowed_in_primary": false
+}

@@ -1,0 +1,1297 @@
+{
+  "configuration_id": "C_STRUCTURED_RECORDS",
+  "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+  "cases": [
+    {
+      "id": "birth_self_01",
+      "text": "Eu nasci em 1995.",
+      "categories": [
+        "NASCIMENTO"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": "Eu",
+          "belongs_to_narrator": true,
+          "date_expression": "1995"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {
+          "civil_event": [
+            {
+              "event_type": {
+                "text": "nasci",
+                "confidence": 0.6391425728797913,
+                "start": 3,
+                "end": 8
+              },
+              "subject_text": null,
+              "participant_texts": [],
+              "date_expression": {
+                "text": "1995",
+                "confidence": 0.9940432906150818,
+                "start": 12,
+                "end": 16
+              },
+              "trigger_text": null
+            }
+          ]
+        },
+        "latency_ms": 249.78863399996953
+      }
+    },
+    {
+      "id": "birth_self_02",
+      "text": "Nasci no dia 12 de maio de 1988.",
+      "categories": [
+        "NASCIMENTO"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": null,
+          "belongs_to_narrator": true,
+          "date_expression": "12 de maio de 1988"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {
+          "civil_event": [
+            {
+              "event_type": {
+                "text": "Nasci",
+                "confidence": 0.6875309348106384,
+                "start": 0,
+                "end": 5
+              },
+              "subject_text": null,
+              "participant_texts": [],
+              "date_expression": {
+                "text": "12 de maio de 1988",
+                "confidence": 0.9942783117294312,
+                "start": 13,
+                "end": 31
+              },
+              "trigger_text": null
+            }
+          ]
+        },
+        "latency_ms": 251.12154699991152
+      }
+    },
+    {
+      "id": "birth_mother_01",
+      "text": "Minha mãe nasceu em 1965.",
+      "categories": [
+        "NASCIMENTO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": "Minha mãe",
+          "belongs_to_narrator": false,
+          "date_expression": "1965"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 240.25570599997081
+      }
+    },
+    {
+      "id": "birth_daughter_01",
+      "text": "Minha filha nasceu em 2018.",
+      "categories": [
+        "NASCIMENTO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": "Minha filha",
+          "belongs_to_narrator": false,
+          "date_expression": "2018"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 264.72542299984525
+      }
+    },
+    {
+      "id": "birth_unknown_01",
+      "text": "Não lembro exatamente quando nasci.",
+      "categories": [
+        "NASCIMENTO",
+        "UNCERTAINTY"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": null,
+          "belongs_to_narrator": true,
+          "date_expression": null
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {
+          "civil_event": [
+            {
+              "event_type": {
+                "text": "nasci",
+                "confidence": 0.7084112763404846,
+                "start": 29,
+                "end": 34
+              },
+              "subject_text": null,
+              "participant_texts": [],
+              "date_expression": null,
+              "trigger_text": null
+            }
+          ]
+        },
+        "latency_ms": 296.55979300014224
+      }
+    },
+    {
+      "id": "marriage_self_01",
+      "text": "Eu me casei com Ana em 2019.",
+      "categories": [
+        "CASAMENTO"
+      ],
+      "expected_events": [
+        {
+          "event_type": "casamento",
+          "subject_text": "Eu",
+          "belongs_to_narrator": true,
+          "date_expression": "2019"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 293.8406139999188
+      }
+    },
+    {
+      "id": "marriage_self_02",
+      "text": "Casei com João em junho de 2014.",
+      "categories": [
+        "CASAMENTO"
+      ],
+      "expected_events": [
+        {
+          "event_type": "casamento",
+          "subject_text": null,
+          "belongs_to_narrator": true,
+          "date_expression": "junho de 2014"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 237.61373699994692
+      }
+    },
+    {
+      "id": "marriage_brother_01",
+      "text": "Meu irmão se casou em 2020.",
+      "categories": [
+        "CASAMENTO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "casamento",
+          "subject_text": "Meu irmão",
+          "belongs_to_narrator": false,
+          "date_expression": "2020"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 238.48397300002944
+      }
+    },
+    {
+      "id": "marriage_friend_01",
+      "text": "Carlos e Beatriz se casaram em 2017.",
+      "categories": [
+        "CASAMENTO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "casamento",
+          "subject_text": "Carlos e Beatriz",
+          "belongs_to_narrator": false,
+          "date_expression": "2017"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 254.7117829999479
+      }
+    },
+    {
+      "id": "marriage_state_01",
+      "text": "Sou casado com Ana.",
+      "categories": [
+        "CASAMENTO"
+      ],
+      "expected_events": [
+        {
+          "event_type": "casamento",
+          "subject_text": null,
+          "belongs_to_narrator": true,
+          "date_expression": null
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 241.59173299995018
+      }
+    },
+    {
+      "id": "marriage_uncertain_01",
+      "text": "Acho que me casei em 2019.",
+      "categories": [
+        "CASAMENTO",
+        "UNCERTAINTY"
+      ],
+      "expected_events": [
+        {
+          "event_type": "casamento",
+          "subject_text": null,
+          "belongs_to_narrator": true,
+          "date_expression": "2019"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 239.90922200005116
+      }
+    },
+    {
+      "id": "marriage_guest_trap_01",
+      "text": "Fui ao casamento da minha irmã em 2019.",
+      "categories": [
+        "CASAMENTO",
+        "NEGATIVE_NON_CIVIL",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [
+          {
+            "event_type": "casamento",
+            "subject_text": null,
+            "participant_texts": [],
+            "date_expression": "2019",
+            "event_trigger_text": null,
+            "model_score_metadata": null,
+            "extraction_mode": "C_STRUCTURED_RECORDS"
+          }
+        ],
+        "raw_output": {
+          "civil_event": [
+            {
+              "event_type": {
+                "text": "casamento",
+                "confidence": 0.9810346961021423,
+                "start": 7,
+                "end": 16
+              },
+              "subject_text": null,
+              "participant_texts": [],
+              "date_expression": {
+                "text": "2019",
+                "confidence": 0.9915705919265747,
+                "start": 34,
+                "end": 38
+              },
+              "trigger_text": null
+            }
+          ]
+        },
+        "latency_ms": 274.3659780001053
+      }
+    },
+    {
+      "id": "death_husband_01",
+      "text": "Meu marido morreu em 2023.",
+      "categories": [
+        "OBITO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "obito",
+          "subject_text": "Meu marido",
+          "belongs_to_narrator": false,
+          "date_expression": "2023"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 316.02589099998113
+      }
+    },
+    {
+      "id": "death_father_01",
+      "text": "Meu pai faleceu em 2010.",
+      "categories": [
+        "OBITO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "obito",
+          "subject_text": "Meu pai",
+          "belongs_to_narrator": false,
+          "date_expression": "2010"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 322.5253309999516
+      }
+    },
+    {
+      "id": "death_named_01",
+      "text": "Paulo morreu no dia 3 de março de 2021.",
+      "categories": [
+        "OBITO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "obito",
+          "subject_text": "Paulo",
+          "belongs_to_narrator": false,
+          "date_expression": "3 de março de 2021"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 272.59192199994686
+      }
+    },
+    {
+      "id": "death_uncertain_01",
+      "text": "Foi por volta de 2020 que meu marido morreu.",
+      "categories": [
+        "OBITO",
+        "THIRD_PARTY_SUBJECT",
+        "UNCERTAINTY"
+      ],
+      "expected_events": [
+        {
+          "event_type": "obito",
+          "subject_text": "meu marido",
+          "belongs_to_narrator": false,
+          "date_expression": "por volta de 2020"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 271.26752499998474
+      }
+    },
+    {
+      "id": "death_incomplete_01",
+      "text": "Meu pai faleceu há alguns anos.",
+      "categories": [
+        "OBITO",
+        "THIRD_PARTY_SUBJECT",
+        "UNCERTAINTY"
+      ],
+      "expected_events": [
+        {
+          "event_type": "obito",
+          "subject_text": "Meu pai",
+          "belongs_to_narrator": false,
+          "date_expression": "há alguns anos"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 543.7312919998476
+      }
+    },
+    {
+      "id": "death_noun_01",
+      "text": "Depois da morte do meu pai, mudei de cidade.",
+      "categories": [
+        "OBITO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "obito",
+          "subject_text": "meu pai",
+          "belongs_to_narrator": false,
+          "date_expression": null
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 303.79228699985106
+      }
+    },
+    {
+      "id": "stillbirth_01",
+      "text": "O bebê de Marina nasceu sem vida em 2022.",
+      "categories": [
+        "NATIMORTO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "natimorto",
+          "subject_text": "O bebê de Marina",
+          "belongs_to_narrator": false,
+          "date_expression": "2022"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 268.137476999982
+      }
+    },
+    {
+      "id": "stillbirth_02",
+      "text": "A família informou que a criança foi natimorta em maio de 2020.",
+      "categories": [
+        "NATIMORTO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "natimorto",
+          "subject_text": "a criança",
+          "belongs_to_narrator": false,
+          "date_expression": "maio de 2020"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {
+          "civil_event": [
+            {
+              "event_type": {
+                "text": "natimorta",
+                "confidence": 0.6640123128890991,
+                "start": 37,
+                "end": 46
+              },
+              "subject_text": {
+                "text": "criança",
+                "confidence": 0.9404699206352234,
+                "start": 25,
+                "end": 32
+              },
+              "participant_texts": [],
+              "date_expression": {
+                "text": "maio de 2020",
+                "confidence": 0.9983757734298706,
+                "start": 50,
+                "end": 62
+              },
+              "trigger_text": null
+            }
+          ]
+        },
+        "latency_ms": 282.4464799998623
+      }
+    },
+    {
+      "id": "stillbirth_03",
+      "text": "Infelizmente, nosso filho nasceu sem vida; não recordo a data exata.",
+      "categories": [
+        "NATIMORTO",
+        "THIRD_PARTY_SUBJECT",
+        "UNCERTAINTY"
+      ],
+      "expected_events": [
+        {
+          "event_type": "natimorto",
+          "subject_text": "nosso filho",
+          "belongs_to_narrator": false,
+          "date_expression": null
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 295.8190659999218
+      }
+    },
+    {
+      "id": "multi_01",
+      "text": "Nasci em 1988 e me casei com João em 2014.",
+      "categories": [
+        "MULTIPLE_EVENTS",
+        "NASCIMENTO",
+        "CASAMENTO"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": null,
+          "belongs_to_narrator": true,
+          "date_expression": "1988"
+        },
+        {
+          "event_type": "casamento",
+          "subject_text": null,
+          "belongs_to_narrator": true,
+          "date_expression": "2014"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {
+          "civil_event": [
+            {
+              "event_type": {
+                "text": "Nasci",
+                "confidence": 0.9572826027870178,
+                "start": 0,
+                "end": 5
+              },
+              "subject_text": {
+                "text": "Nasci",
+                "confidence": 0.5778102874755859,
+                "start": 0,
+                "end": 5
+              },
+              "participant_texts": [
+                {
+                  "text": "João",
+                  "confidence": 0.9755709767341614,
+                  "start": 29,
+                  "end": 33
+                }
+              ],
+              "date_expression": {
+                "text": "1988",
+                "confidence": 0.799924910068512,
+                "start": 9,
+                "end": 13
+              },
+              "trigger_text": null
+            },
+            {
+              "event_type": {
+                "text": "casei",
+                "confidence": 0.8707443475723267,
+                "start": 19,
+                "end": 24
+              },
+              "subject_text": null,
+              "participant_texts": [
+                {
+                  "text": "João",
+                  "confidence": 0.9712048172950745,
+                  "start": 29,
+                  "end": 33
+                }
+              ],
+              "date_expression": {
+                "text": "2014",
+                "confidence": 0.7941537499427795,
+                "start": 37,
+                "end": 41
+              },
+              "trigger_text": null
+            }
+          ]
+        },
+        "latency_ms": 276.3094080000883
+      }
+    },
+    {
+      "id": "multi_02",
+      "text": "Minha filha nasceu em 2018 e meu pai morreu no ano seguinte.",
+      "categories": [
+        "MULTIPLE_EVENTS",
+        "NASCIMENTO",
+        "OBITO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": "Minha filha",
+          "belongs_to_narrator": false,
+          "date_expression": "2018"
+        },
+        {
+          "event_type": "obito",
+          "subject_text": "meu pai",
+          "belongs_to_narrator": false,
+          "date_expression": "no ano seguinte"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {
+          "civil_event": [
+            {
+              "event_type": {
+                "text": "nasceu",
+                "confidence": 0.6687623262405396,
+                "start": 12,
+                "end": 18
+              },
+              "subject_text": null,
+              "participant_texts": [],
+              "date_expression": {
+                "text": "2018",
+                "confidence": 0.8149248957633972,
+                "start": 22,
+                "end": 26
+              },
+              "trigger_text": null
+            },
+            {
+              "event_type": {
+                "text": "morreu",
+                "confidence": 0.5018758177757263,
+                "start": 37,
+                "end": 43
+              },
+              "subject_text": null,
+              "participant_texts": [],
+              "date_expression": null,
+              "trigger_text": null
+            }
+          ]
+        },
+        "latency_ms": 263.39787500000966
+      }
+    },
+    {
+      "id": "multi_03",
+      "text": "Ana nasceu em 1990, casou-se em 2012 e morreu em 2024.",
+      "categories": [
+        "MULTIPLE_EVENTS",
+        "NASCIMENTO",
+        "CASAMENTO",
+        "OBITO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": "Ana",
+          "belongs_to_narrator": false,
+          "date_expression": "1990"
+        },
+        {
+          "event_type": "casamento",
+          "subject_text": "Ana",
+          "belongs_to_narrator": false,
+          "date_expression": "2012"
+        },
+        {
+          "event_type": "obito",
+          "subject_text": "Ana",
+          "belongs_to_narrator": false,
+          "date_expression": "2024"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {
+          "civil_event": [
+            {
+              "event_type": {
+                "text": "casou-se",
+                "confidence": 0.5861017107963562,
+                "start": 20,
+                "end": 28
+              },
+              "subject_text": {
+                "text": "Ana",
+                "confidence": 0.9800902605056763,
+                "start": 0,
+                "end": 3
+              },
+              "participant_texts": [],
+              "date_expression": {
+                "text": "1990",
+                "confidence": 0.7461632490158081,
+                "start": 14,
+                "end": 18
+              },
+              "trigger_text": null
+            },
+            {
+              "event_type": {
+                "text": "morreu",
+                "confidence": 0.5318604707717896,
+                "start": 39,
+                "end": 45
+              },
+              "subject_text": {
+                "text": "Ana",
+                "confidence": 0.9513329863548279,
+                "start": 0,
+                "end": 3
+              },
+              "participant_texts": [],
+              "date_expression": {
+                "text": "2012",
+                "confidence": 0.5521147847175598,
+                "start": 32,
+                "end": 36
+              },
+              "trigger_text": null
+            }
+          ]
+        },
+        "latency_ms": 254.37694500010366
+      }
+    },
+    {
+      "id": "multi_04",
+      "text": "Eu nasci em 1975; meu irmão nasceu em 1978 e se casou em 2001.",
+      "categories": [
+        "MULTIPLE_EVENTS",
+        "NASCIMENTO",
+        "CASAMENTO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": "Eu",
+          "belongs_to_narrator": true,
+          "date_expression": "1975"
+        },
+        {
+          "event_type": "nascimento",
+          "subject_text": "meu irmão",
+          "belongs_to_narrator": false,
+          "date_expression": "1978"
+        },
+        {
+          "event_type": "casamento",
+          "subject_text": "meu irmão",
+          "belongs_to_narrator": false,
+          "date_expression": "2001"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {
+          "civil_event": [
+            {
+              "event_type": {
+                "text": "nasci",
+                "confidence": 0.6168950796127319,
+                "start": 3,
+                "end": 8
+              },
+              "subject_text": null,
+              "participant_texts": [],
+              "date_expression": {
+                "text": "1975",
+                "confidence": 0.9594789147377014,
+                "start": 12,
+                "end": 16
+              },
+              "trigger_text": null
+            },
+            {
+              "event_type": {
+                "text": "se casou",
+                "confidence": 0.8229095935821533,
+                "start": 45,
+                "end": 53
+              },
+              "subject_text": null,
+              "participant_texts": [],
+              "date_expression": {
+                "text": "2001",
+                "confidence": 0.8369626402854919,
+                "start": 57,
+                "end": 61
+              },
+              "trigger_text": null
+            },
+            {
+              "event_type": {
+                "text": "casou",
+                "confidence": 0.7836271524429321,
+                "start": 48,
+                "end": 53
+              },
+              "subject_text": null,
+              "participant_texts": [],
+              "date_expression": null,
+              "trigger_text": null
+            }
+          ]
+        },
+        "latency_ms": 297.7898730000561
+      }
+    },
+    {
+      "id": "negative_01",
+      "text": "Fui ao supermercado em 2019.",
+      "categories": [
+        "NEGATIVE_NON_CIVIL"
+      ],
+      "expected_events": [],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 311.5387870000177
+      }
+    },
+    {
+      "id": "negative_02",
+      "text": "Ana trabalha no cartório desde 2020.",
+      "categories": [
+        "NEGATIVE_NON_CIVIL"
+      ],
+      "expected_events": [],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 291.6132010000183
+      }
+    },
+    {
+      "id": "negative_03",
+      "text": "Li uma reportagem sobre nascimentos no Brasil.",
+      "categories": [
+        "NEGATIVE_NON_CIVIL"
+      ],
+      "expected_events": [],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 285.735878999958
+      }
+    },
+    {
+      "id": "negative_04",
+      "text": "A certidão de casamento ficou sobre a mesa.",
+      "categories": [
+        "NEGATIVE_NON_CIVIL"
+      ],
+      "expected_events": [],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [
+          {
+            "event_type": "casamento",
+            "subject_text": null,
+            "participant_texts": [],
+            "date_expression": null,
+            "event_trigger_text": null,
+            "model_score_metadata": null,
+            "extraction_mode": "C_STRUCTURED_RECORDS"
+          }
+        ],
+        "raw_output": {
+          "civil_event": [
+            {
+              "event_type": {
+                "text": "casamento",
+                "confidence": 0.9829440712928772,
+                "start": 14,
+                "end": 23
+              },
+              "subject_text": null,
+              "participant_texts": [],
+              "date_expression": null,
+              "trigger_text": null
+            }
+          ]
+        },
+        "latency_ms": 256.62498199994843
+      }
+    },
+    {
+      "id": "negative_05",
+      "text": "O filme terminou com a morte do vilão.",
+      "categories": [
+        "NEGATIVE_NON_CIVIL"
+      ],
+      "expected_events": [],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 245.13788499984912
+      }
+    },
+    {
+      "id": "uncertain_birth_02",
+      "text": "Talvez eu tenha nascido em 1992.",
+      "categories": [
+        "NASCIMENTO",
+        "UNCERTAINTY"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": "eu",
+          "belongs_to_narrator": true,
+          "date_expression": "1992"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {
+          "civil_event": [
+            {
+              "event_type": {
+                "text": "nascido",
+                "confidence": 0.6271997094154358,
+                "start": 16,
+                "end": 23
+              },
+              "subject_text": null,
+              "participant_texts": [],
+              "date_expression": {
+                "text": "1992",
+                "confidence": 0.9903168678283691,
+                "start": 27,
+                "end": 31
+              },
+              "trigger_text": null
+            }
+          ]
+        },
+        "latency_ms": 278.5578309999437
+      }
+    },
+    {
+      "id": "uncertain_marriage_02",
+      "text": "Não tenho certeza, mas nosso casamento pode ter sido em 2016.",
+      "categories": [
+        "CASAMENTO",
+        "UNCERTAINTY"
+      ],
+      "expected_events": [
+        {
+          "event_type": "casamento",
+          "subject_text": null,
+          "belongs_to_narrator": true,
+          "date_expression": "2016"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [
+          {
+            "event_type": "casamento",
+            "subject_text": null,
+            "participant_texts": [],
+            "date_expression": "2016",
+            "event_trigger_text": null,
+            "model_score_metadata": null,
+            "extraction_mode": "C_STRUCTURED_RECORDS"
+          }
+        ],
+        "raw_output": {
+          "civil_event": [
+            {
+              "event_type": {
+                "text": "casamento",
+                "confidence": 0.9982109069824219,
+                "start": 29,
+                "end": 38
+              },
+              "subject_text": null,
+              "participant_texts": [],
+              "date_expression": {
+                "text": "2016",
+                "confidence": 0.9980854988098145,
+                "start": 56,
+                "end": 60
+              },
+              "trigger_text": null
+            }
+          ]
+        },
+        "latency_ms": 241.13804600006006
+      }
+    },
+    {
+      "id": "birth_day_03",
+      "text": "Renata nasceu ontem.",
+      "categories": [
+        "NASCIMENTO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "nascimento",
+          "subject_text": "Renata",
+          "belongs_to_narrator": false,
+          "date_expression": "ontem"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {
+          "civil_event": [
+            {
+              "event_type": {
+                "text": "nasceu",
+                "confidence": 0.5688473582267761,
+                "start": 7,
+                "end": 13
+              },
+              "subject_text": null,
+              "participant_texts": [],
+              "date_expression": {
+                "text": "ontem",
+                "confidence": 0.9880363941192627,
+                "start": 14,
+                "end": 19
+              },
+              "trigger_text": null
+            }
+          ]
+        },
+        "latency_ms": 246.98534599997402
+      }
+    },
+    {
+      "id": "marriage_plural_03",
+      "text": "Meus avós casaram em 1950.",
+      "categories": [
+        "CASAMENTO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "casamento",
+          "subject_text": "Meus avós",
+          "belongs_to_narrator": false,
+          "date_expression": "1950"
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 234.4621989998359
+      }
+    },
+    {
+      "id": "death_no_date_02",
+      "text": "A avó de Pedro já faleceu.",
+      "categories": [
+        "OBITO",
+        "THIRD_PARTY_SUBJECT"
+      ],
+      "expected_events": [
+        {
+          "event_type": "obito",
+          "subject_text": "A avó de Pedro",
+          "belongs_to_narrator": false,
+          "date_expression": null
+        }
+      ],
+      "result": {
+        "configuration_id": "C_STRUCTURED_RECORDS",
+        "model_id": "fastino/gliner2.5-multi-v1",
+        "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+        "detected_events": [],
+        "raw_output": {},
+        "latency_ms": 249.54957500017372
+      }
+    }
+  ],
+  "metrics": {
+    "event_precision": 0.3333333333333333,
+    "event_recall": 0.02857142857142857,
+    "event_f1": 0.05263157894736842,
+    "subject_exact_accuracy": null,
+    "temporal_exact_accuracy": 1.0,
+    "third_party_subject_identification_rate": 0.0,
+    "false_narrator_attribution_rate": null,
+    "negative_case_false_positive_rate": 0.3333333333333333,
+    "multi_event_recall": 0.0,
+    "structured_output_validity": 1.0,
+    "latency_ms": {
+      "mean": 276.92923559997587,
+      "median": 268.137476999982,
+      "min": 234.4621989998359,
+      "max": 543.7312919998476,
+      "p95": 316.02589099998113
+    },
+    "counts": {
+      "tp": 1,
+      "fp": 2,
+      "fn": 34
+    },
+    "per_event_type": {
+      "nascimento": {
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0,
+        "counts": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12
+        }
+      },
+      "casamento": {
+        "precision": 0.3333333333333333,
+        "recall": 0.09090909090909091,
+        "f1": 0.14285714285714288,
+        "counts": {
+          "tp": 1,
+          "fp": 2,
+          "fn": 10
+        }
+      },
+      "obito": {
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0,
+        "counts": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        }
+      },
+      "natimorto": {
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0,
+        "counts": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        }
+      }
+    }
+  }
+}

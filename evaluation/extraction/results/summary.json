@@ -1,0 +1,337 @@
+{
+  "benchmark_id": "lifegraph-pt-civil-v1",
+  "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+  "run_at": "2026-09-04T13:58:22.659929+00:00",
+  "configurations": {
+    "A_ENTITY_EVENT_BASELINE": {
+      "event_precision": 0.7368421052631579,
+      "event_recall": 0.4,
+      "event_f1": 0.5185185185185185,
+      "subject_exact_accuracy": 0.0,
+      "temporal_exact_accuracy": 0.42857142857142855,
+      "third_party_subject_identification_rate": 0.0,
+      "false_narrator_attribution_rate": null,
+      "negative_case_false_positive_rate": 0.5,
+      "multi_event_recall": 0.8,
+      "structured_output_validity": 1.0,
+      "latency_ms": {
+        "mean": 356.09743477142666,
+        "median": 336.69768400000066,
+        "min": 294.3486540000322,
+        "max": 666.8558239999811,
+        "p95": 422.55499999998847
+      },
+      "counts": {
+        "tp": 14,
+        "fp": 5,
+        "fn": 21
+      },
+      "per_event_type": {
+        "nascimento": {
+          "precision": 0.7272727272727273,
+          "recall": 0.6666666666666666,
+          "f1": 0.6956521739130435,
+          "counts": {
+            "tp": 8,
+            "fp": 3,
+            "fn": 4
+          }
+        },
+        "casamento": {
+          "precision": 0.8,
+          "recall": 0.36363636363636365,
+          "f1": 0.5000000000000001,
+          "counts": {
+            "tp": 4,
+            "fp": 1,
+            "fn": 7
+          }
+        },
+        "obito": {
+          "precision": 0.5,
+          "recall": 0.1111111111111111,
+          "f1": 0.1818181818181818,
+          "counts": {
+            "tp": 1,
+            "fp": 1,
+            "fn": 8
+          }
+        },
+        "natimorto": {
+          "precision": 1.0,
+          "recall": 0.3333333333333333,
+          "f1": 0.5,
+          "counts": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 2
+          }
+        }
+      }
+    },
+    "B_LINGUISTIC_EVENT_SPANS": {
+      "event_precision": 0.9393939393939394,
+      "event_recall": 0.8857142857142857,
+      "event_f1": 0.9117647058823529,
+      "subject_exact_accuracy": 0.0,
+      "temporal_exact_accuracy": 0.5714285714285714,
+      "third_party_subject_identification_rate": 0.0,
+      "false_narrator_attribution_rate": null,
+      "negative_case_false_positive_rate": 0.0,
+      "multi_event_recall": 1.0,
+      "structured_output_validity": 1.0,
+      "latency_ms": {
+        "mean": 335.75165591427583,
+        "median": 315.21929699999873,
+        "min": 276.7502520000562,
+        "max": 601.617709999914,
+        "p95": 427.112037000029
+      },
+      "counts": {
+        "tp": 31,
+        "fp": 2,
+        "fn": 4
+      },
+      "per_event_type": {
+        "nascimento": {
+          "precision": 0.8571428571428571,
+          "recall": 1.0,
+          "f1": 0.923076923076923,
+          "counts": {
+            "tp": 12,
+            "fp": 2,
+            "fn": 0
+          }
+        },
+        "casamento": {
+          "precision": 1.0,
+          "recall": 0.8181818181818182,
+          "f1": 0.9,
+          "counts": {
+            "tp": 9,
+            "fp": 0,
+            "fn": 2
+          }
+        },
+        "obito": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "counts": {
+            "tp": 9,
+            "fp": 0,
+            "fn": 0
+          }
+        },
+        "natimorto": {
+          "precision": 1.0,
+          "recall": 0.3333333333333333,
+          "f1": 0.5,
+          "counts": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 2
+          }
+        }
+      }
+    },
+    "C_STRUCTURED_RECORDS": {
+      "event_precision": 0.3333333333333333,
+      "event_recall": 0.02857142857142857,
+      "event_f1": 0.05263157894736842,
+      "subject_exact_accuracy": null,
+      "temporal_exact_accuracy": 1.0,
+      "third_party_subject_identification_rate": 0.0,
+      "false_narrator_attribution_rate": null,
+      "negative_case_false_positive_rate": 0.3333333333333333,
+      "multi_event_recall": 0.0,
+      "structured_output_validity": 1.0,
+      "latency_ms": {
+        "mean": 276.92923559997587,
+        "median": 268.137476999982,
+        "min": 234.4621989998359,
+        "max": 543.7312919998476,
+        "p95": 316.02589099998113
+      },
+      "counts": {
+        "tp": 1,
+        "fp": 2,
+        "fn": 34
+      },
+      "per_event_type": {
+        "nascimento": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "counts": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 12
+          }
+        },
+        "casamento": {
+          "precision": 0.3333333333333333,
+          "recall": 0.09090909090909091,
+          "f1": 0.14285714285714288,
+          "counts": {
+            "tp": 1,
+            "fp": 2,
+            "fn": 10
+          }
+        },
+        "obito": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "counts": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 9
+          }
+        },
+        "natimorto": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "counts": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 3
+          }
+        }
+      }
+    },
+    "D_CONSTRAINED_RECORDS": {
+      "event_precision": 0.3958333333333333,
+      "event_recall": 0.5428571428571428,
+      "event_f1": 0.4578313253012048,
+      "subject_exact_accuracy": 0.23076923076923078,
+      "temporal_exact_accuracy": 1.0,
+      "third_party_subject_identification_rate": 0.13043478260869565,
+      "false_narrator_attribution_rate": null,
+      "negative_case_false_positive_rate": 1.0,
+      "multi_event_recall": 0.4,
+      "structured_output_validity": 1.0,
+      "latency_ms": {
+        "mean": 377.70016937143475,
+        "median": 353.4352149999904,
+        "min": 277.7729219999401,
+        "max": 691.1272559998451,
+        "p95": 538.1401639999694
+      },
+      "counts": {
+        "tp": 19,
+        "fp": 29,
+        "fn": 16
+      },
+      "per_event_type": {
+        "nascimento": {
+          "precision": 0.34375,
+          "recall": 0.9166666666666666,
+          "f1": 0.5,
+          "counts": {
+            "tp": 11,
+            "fp": 21,
+            "fn": 1
+          }
+        },
+        "casamento": {
+          "precision": 0.7,
+          "recall": 0.6363636363636364,
+          "f1": 0.6666666666666666,
+          "counts": {
+            "tp": 7,
+            "fp": 3,
+            "fn": 4
+          }
+        },
+        "obito": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "counts": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 9
+          }
+        },
+        "natimorto": {
+          "precision": 0.16666666666666666,
+          "recall": 0.3333333333333333,
+          "f1": 0.2222222222222222,
+          "counts": {
+            "tp": 1,
+            "fp": 5,
+            "fn": 2
+          }
+        }
+      }
+    },
+    "E_RELATION_EXTRACTION": {
+      "event_precision": 0.6666666666666666,
+      "event_recall": 0.34285714285714286,
+      "event_f1": 0.4528301886792453,
+      "subject_exact_accuracy": 0.45454545454545453,
+      "temporal_exact_accuracy": 0.0,
+      "third_party_subject_identification_rate": 0.13043478260869565,
+      "false_narrator_attribution_rate": null,
+      "negative_case_false_positive_rate": 0.0,
+      "multi_event_recall": 0.4,
+      "structured_output_validity": 1.0,
+      "latency_ms": {
+        "mean": 283.6690471714129,
+        "median": 268.4865619999073,
+        "min": 229.05444799994257,
+        "max": 453.558183000041,
+        "p95": 407.4666230001185
+      },
+      "counts": {
+        "tp": 12,
+        "fp": 6,
+        "fn": 23
+      },
+      "per_event_type": {
+        "nascimento": {
+          "precision": 0.8571428571428571,
+          "recall": 0.5,
+          "f1": 0.631578947368421,
+          "counts": {
+            "tp": 6,
+            "fp": 1,
+            "fn": 6
+          }
+        },
+        "casamento": {
+          "precision": 0.8,
+          "recall": 0.36363636363636365,
+          "f1": 0.5000000000000001,
+          "counts": {
+            "tp": 4,
+            "fp": 1,
+            "fn": 7
+          }
+        },
+        "obito": {
+          "precision": 0.3333333333333333,
+          "recall": 0.2222222222222222,
+          "f1": 0.26666666666666666,
+          "counts": {
+            "tp": 2,
+            "fp": 4,
+            "fn": 7
+          }
+        },
+        "natimorto": {
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0,
+          "counts": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 3
+          }
+        }
+      }
+    }
+  }
+}
