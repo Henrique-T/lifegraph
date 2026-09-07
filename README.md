@@ -6,6 +6,8 @@ The minimal browser review workflow is documented in
 [docs/review-ui.md](docs/review-ui.md).
 Deliberate deterministic reconciliation controls are documented in
 [docs/reconciliation-ui.md](docs/reconciliation-ui.md).
+The reproducible classroom/video flow is documented in
+[docs/canonical-demo.md](docs/canonical-demo.md).
 
 ## Purpose
 

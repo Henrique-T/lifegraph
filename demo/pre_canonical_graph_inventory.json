@@ -1,0 +1,31 @@
+{
+  "inventory_version": "PRE_LIFEGRAPH_CANONICAL_DEMO_V1",
+  "captured_at": "2026-09-07T11:13:07-03:00",
+  "counts": { "nodes": 22, "relationships": 24, "persons": 3, "claim_events": 6, "ref_events": 3, "evidence": 6, "conversation_turns": 4 },
+  "persons": [
+    { "person_id": "a354b856-b8a3-400e-a2f6-6b0511be8eba", "display_name": "Ana Example" },
+    { "person_id": "c737622b-ca61-45e0-afbe-1e224f1b9519", "display_name": "Reconciliation Demo" },
+    { "person_id": "944969d9-b981-41c9-adde-d5e2b835d1e6", "display_name": "Valentim REF Import Example" }
+  ],
+  "relevant_claims": [
+    { "claim_event_id": "0e150789-1b0c-4ff6-a33f-ed42a48d4e6f", "person_id": "a354b856-b8a3-400e-a2f6-6b0511be8eba", "event_type": "casamento", "origin": "CONVERSATION", "verification_status": "UNVERIFIED", "relationships": ["SUBJECT_OF", "EXTRACTED_FROM", "ABOUT"] },
+    { "claim_event_id": "79b0ef6e-d1db-4396-beb8-cc61188f9575", "person_id": "c737622b-ca61-45e0-afbe-1e224f1b9519", "event_type": "casamento", "origin": "CONVERSATION", "verification_status": "CONFIRMED", "relationships": ["SUBJECT_OF", "ABOUT", "SUPPORTED_BY"] },
+    { "claim_event_id": "9cb6da9b-827c-42d5-97f9-9a8c4878e85b", "person_id": "a354b856-b8a3-400e-a2f6-6b0511be8eba", "event_type": "casamento", "origin": "CONVERSATION", "verification_status": "DECLARED", "relationships": ["SUBJECT_OF", "EXTRACTED_FROM"] },
+    { "claim_event_id": "e33ad773-b82b-4714-8c23-8443a73fe431", "person_id": "c737622b-ca61-45e0-afbe-1e224f1b9519", "event_type": "casamento", "origin": "CONVERSATION", "verification_status": "DIVERGENT", "relationships": ["SUBJECT_OF", "ABOUT", "CONTRADICTS"] },
+    { "claim_event_id": "082984b8-4c7f-4d76-818b-7242817b46fc", "person_id": "a354b856-b8a3-400e-a2f6-6b0511be8eba", "event_type": "casamento", "origin": "CONVERSATION", "verification_status": "UNVERIFIED", "relationships": ["SUBJECT_OF", "EXTRACTED_FROM", "ABOUT"] },
+    { "claim_event_id": "f9818988-bfc7-43f8-945e-9a70b6ed5dec", "person_id": "c737622b-ca61-45e0-afbe-1e224f1b9519", "event_type": "casamento", "origin": "CONVERSATION", "verification_status": "DECLARED", "relationships": ["SUBJECT_OF", "EXTRACTED_FROM"] }
+  ],
+  "ref_events": [
+    { "ref_event_id": "768427a1-0dc1-4819-88e7-b9fc3609d36e", "person_id": "c737622b-ca61-45e0-afbe-1e224f1b9519", "event_type": "casamento", "origin": "REF", "event_date": "2019-06-15T00:00:00Z" },
+    { "ref_event_id": "83cec5b2-84b8-4ca9-b6b2-c050bb9cb77e", "person_id": "944969d9-b981-41c9-adde-d5e2b835d1e6", "event_type": "nascimento", "origin": "REF", "event_date": "2026-07-21T03:00:00Z" },
+    { "ref_event_id": "41db8863-3d2c-4e9f-a3ab-f162f27fb116", "person_id": null, "event_type": "casamento", "origin": "REF", "event_date": "2019-06-15T00:00:00Z" }
+  ],
+  "evidence_nodes": [
+    { "evidence_id": "1f48ad7c-3e75-4da4-8759-c35425f5def4", "evidence_type": "EVENT_TYPE_MATCH", "claim_event_id": "79b0ef6e-d1db-4396-beb8-cc61188f9575", "relationships": ["ABOUT", "DERIVED_FROM"] },
+    { "evidence_id": "e4fd2b50-8758-46ad-aea6-bd871e0f4786", "evidence_type": "EVENT_DATE_WITHIN_CLAIM_INTERVAL", "claim_event_id": "79b0ef6e-d1db-4396-beb8-cc61188f9575", "relationships": ["ABOUT", "DERIVED_FROM"] },
+    { "evidence_id": "0e8fe67c-e836-400f-aeac-f3e9ca142237", "evidence_type": "NO_MATCHING_REF_EVENT_TYPE", "claim_event_id": "082984b8-4c7f-4d76-818b-7242817b46fc", "relationships": ["ABOUT"] },
+    { "evidence_id": "8fa36622-6854-422d-9c51-1f18d629a931", "evidence_type": "NO_MATCHING_REF_EVENT_TYPE", "claim_event_id": "0e150789-1b0c-4ff6-a33f-ed42a48d4e6f", "relationships": ["ABOUT"] },
+    { "evidence_id": "c5dba4ac-acfd-4da3-af87-67b937b64213", "evidence_type": "EVENT_TYPE_MATCH", "claim_event_id": "e33ad773-b82b-4714-8c23-8443a73fe431", "relationships": ["ABOUT", "DERIVED_FROM"] },
+    { "evidence_id": "2e24a8ca-7625-4d9a-8236-8215fa74e54a", "evidence_type": "EVENT_DATE_OUTSIDE_CLAIM_INTERVAL", "claim_event_id": "e33ad773-b82b-4714-8c23-8443a73fe431", "relationships": ["ABOUT", "DERIVED_FROM"] }
+  ]
+}

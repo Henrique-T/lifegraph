@@ -17,6 +17,9 @@ textarea, select, input { width: 100%; border: 1px solid #52637d; border-radius:
 textarea { margin: 12px 0; resize: vertical; line-height: 1.5; }
 textarea:focus, select:focus, input:focus, button:focus-visible { outline: 3px solid #60a5fa; outline-offset: 2px; }
 .primary, .secondary, .link-button { border-radius: 8px; padding: 10px 14px; font-weight: 750; }
+.narrative-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.demo-guide ol { padding-left: 22px; }
+.demo-guide li { margin: 6px 0; }
 .primary { border: 1px solid #3b82f6; color: white; background: #2563eb; }
 .secondary { border: 1px solid #64748b; color: #e2e8f0; background: transparent; }
 .link-button { padding-left: 0; border: 0; color: #93c5fd; background: transparent; text-decoration: underline; }

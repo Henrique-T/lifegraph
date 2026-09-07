@@ -1,0 +1,32 @@
+{
+  "demo_version": "LIFEGRAPH_CANONICAL_DEMO_V1",
+  "mode": "ONE_RUN_PER_DATASET",
+  "narrative": "Nasci em 1988, casei em 2010 e me casei novamente em 2019.",
+  "target_person": {
+    "person_id": "c737622b-ca61-45e0-afbe-1e224f1b9519",
+    "display_name": "Reconciliation Demo",
+    "stable_fixture_identity": true
+  },
+  "required_imported_ref_events": [
+    {
+      "ref_event_id": "768427a1-0dc1-4819-88e7-b9fc3609d36e",
+      "external_ref_id": "synthetic-reconciliation-act-001",
+      "event_type": "casamento",
+      "event_date": "2019-06-15T00:00:00Z",
+      "registration_date": "2019-06-16T00:00:00Z"
+    }
+  ],
+  "expected_candidates": [
+    { "event_type": "nascimento", "date_expression": "1988", "subject_text": "__NARRATOR__", "expected_reconciliation": "UNVERIFIED" },
+    { "event_type": "casamento", "date_expression": "2010", "subject_text": "__NARRATOR__", "expected_reconciliation": "DIVERGENT" },
+    { "event_type": "casamento", "date_expression": "2019", "subject_text": "__NARRATOR__", "expected_reconciliation": "CONFIRMED" }
+  ],
+  "setup_assumptions": [
+    "The target Person and required RefEvent already exist in LifeGraph Neo4j.",
+    "The Person participates in the required RefEvent.",
+    "REF HTTP is not required during extraction, acceptance, or reconciliation.",
+    "The operator explicitly selects the target Person and accepts/reconciles candidates one at a time."
+  ],
+  "runtime_generated_ids": ["extraction_id", "candidate_id", "accepted claim_event_id", "conversation_turn_id"],
+  "automatic_actions": []
+}

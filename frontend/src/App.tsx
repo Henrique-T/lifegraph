@@ -4,6 +4,8 @@ import type { CandidateAcceptanceRequest, ExtractionReview, GraphResponse, Perso
 import { CandidateCard } from "./components/CandidateCard";
 import { GraphView } from "./components/GraphView";
 
+const canonicalDemoNarrative = "Nasci em 1988, casei em 2010 e me casei novamente em 2019.";
+
 export default function App() {
   const [text, setText] = useState("Eu me casei com Ana em 2019.");
   const [review, setReview] = useState<ExtractionReview | null>(null);
@@ -37,6 +39,12 @@ export default function App() {
     return result;
   }
 
+  function loadCanonicalDemo() {
+    setText(canonicalDemoNarrative);
+    setReview(null);
+    setError(null);
+  }
+
   return <main>
     <header className="hero">
       <p className="eyebrow">INE5448 · UFSC · LifeGraph</p>
@@ -48,8 +56,14 @@ export default function App() {
       <h2 id="narrative-title">Narrativa</h2>
       <label htmlFor="narrative">Texto em português</label>
       <textarea id="narrative" rows={4} value={text} onChange={(event) => setText(event.target.value)} disabled={loading} />
-      <button className="primary" type="button" onClick={extract} disabled={loading || !text.trim()}>{loading ? "Extraindo…" : "Extrair narrativa"}</button>
+      <div className="narrative-actions">
+        <button className="primary" type="button" onClick={extract} disabled={loading || !text.trim()}>{loading ? "Extraindo…" : "Extrair narrativa"}</button>
+        <button className="secondary" type="button" onClick={loadCanonicalDemo} disabled={loading}>Carregar narrativa de demonstração</button>
+      </div>
       <p className="hint">A extração cria apenas candidatos temporários e não altera o grafo.</p>
+      <details className="demo-guide"><summary>Roteiro canônico de demonstração</summary>
+        <ol><li>Carregue e extraia a narrativa.</li><li>Revise os três candidatos e selecione explicitamente <strong>Reconciliation Demo</strong>.</li><li>Aceite cada candidato como declaração e observe todos em <strong>DECLARED</strong>.</li><li>Reconcilie cada ClaimEvent individualmente no grafo.</li><li>Compare os resultados UNVERIFIED, DIVERGENT e CONFIRMED e suas evidências.</li></ol>
+      </details>
       {error && <p className="error" role="alert">{error}</p>}
     </section>
 
