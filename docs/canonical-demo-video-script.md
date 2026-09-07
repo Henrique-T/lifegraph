@@ -1,50 +1,49 @@
-# Roteiro de vídeo — demo canônico LifeGraph
+# Video script — LifeGraph canonical demo
 
-Tempo estimado: 2–3 minutos (aproximadamente 320 palavras).
+Estimated duration: 2–3 minutes (approximately 320 words).
 
-## Narração e ações
+## Narration and actions
 
-**[Abertura — 0:00]**
+**[Opening — 0:00]**
 
-O LifeGraph investiga como narrativas pessoais podem ser organizadas em um grafo
-temporal sem confundir o que uma inteligência artificial extrai com o que foi
-declarado por uma pessoa ou confirmado por uma fonte registral. A regra central
-é simples: candidato da IA não é declaração aceita, e declaração aceita não é
-fato confirmado.
+LifeGraph explores how personal narratives can be organized in a temporal graph
+without confusing what artificial intelligence extracts with what a person has
+declared or what a civil-registry source has confirmed. The central rule is
+simple: an AI candidate is not an accepted declaration, and an accepted
+declaration is not a confirmed fact.
 
-**[Narrativa e extração — 0:20]**
+**[Narrative and extraction — 0:20]**
 
-Vou carregar a narrativa canônica: “Nasci em 1988, casei em 2010 e me casei
-novamente em 2019”. O botão apenas preenche o texto. A extração só começa quando
-eu seleciono “Extrair narrativa” e não grava nada no grafo.
+I will load the canonical narrative: “Nasci em 1988, casei em 2010 e me casei
+novamente em 2019.” The button only fills in the text. Extraction starts only
+when I select **Extrair narrativa**, and it does not write anything to the graph.
 
-O pipeline identifica três candidatos: um nascimento e dois casamentos. Cada
-card mostra evento, sujeito, data e o motivo determinístico da associação. Esses
-resultados continuam sendo candidatos temporários da IA.
+The pipeline identifies three candidates: one birth and two marriages. Each card
+shows the event, subject, date, and deterministic reason for the association.
+These results remain temporary AI candidates.
 
-**[Revisão e aceitação — 0:55]**
+**[Review and acceptance — 0:55]**
 
-Agora reviso cada candidato e escolho explicitamente a pessoa “Reconciliation
-Demo”. Nenhuma pessoa é selecionada automaticamente. Aceito cada item
-individualmente usando “Aceitar como declaração”. Neste momento surgem três
-ClaimEvents no grafo, todos com origem CONVERSATION e status DECLARED. Isso
-registra uma declaração revisada, não confirma um fato e não consulta o REF.
+I now review each candidate and explicitly select the **Reconciliation Demo**
+Person. No Person is selected automatically. I accept each item individually by
+using **Aceitar como declaração**. Three ClaimEvents now appear in the graph,
+all with `origin = CONVERSATION` and `verification_status = DECLARED`. This
+records a reviewed declaration; it neither confirms a fact nor queries REF.
 
-**[Reconciliação — 1:30]**
+**[Reconciliation — 1:30]**
 
-Seleciono cada declaração no grafo e aciono, separadamente, “Reconciliar com
-evidência registral”. A comparação determinística usa apenas RefEvents já
-importados para a mesma pessoa e o mesmo tipo de evento.
+I select each declaration in the graph and separately use **Reconciliar com
+evidência registral**. The deterministic comparison uses only RefEvents already
+imported for the same Person and the same event type.
 
-O nascimento de 1988 fica UNVERIFIED: a evidência é insuficiente, o que não
-significa que a declaração seja falsa. O casamento de 2010 fica DIVERGENT: ele
-diverge da evidência atualmente disponível, sem afirmar que a pessoa só poderia
-ter um casamento. O casamento de 2019 fica CONFIRMED e exibe a evidência
-registral compatível.
+The 1988 birth remains `UNVERIFIED`: the evidence is insufficient, which does
+not mean that the declaration is false. The 2010 marriage becomes `DIVERGENT`:
+it diverges from the evidence currently available, without asserting that the
+Person could have had only one marriage. The 2019 marriage becomes `CONFIRMED`
+and displays the compatible civil-registry evidence.
 
-**[Encerramento — 2:15]**
+**[Closing — 2:15]**
 
-Em todos os casos, a origem continua CONVERSATION. O que muda é apenas o estado
-de verificação. Assim, o LifeGraph torna visíveis a revisão humana, a proveniência
-e os limites da evidência, sem transformar automaticamente uma inferência da IA
-em fato.
+In every case, the origin remains `CONVERSATION`. Only the verification status
+changes. LifeGraph therefore makes human review, provenance, and the limits of
+the evidence visible without automatically turning an AI inference into a fact.

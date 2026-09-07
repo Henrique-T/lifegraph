@@ -1,36 +1,36 @@
-# Checklist do demo canônico LifeGraph
+# LifeGraph canonical demo checklist
 
-## Antes da gravação
+## Before recording
 
-- [ ] Usar um volume Neo4j preparado e preservado para o demo.
-- [ ] Confirmar `neo4j`, `gliner`, `backend` e `frontend` em execução.
-- [ ] Confirmar Neo4j e GLiNER saudáveis antes de abrir a interface.
-- [ ] Abrir `http://localhost:5173` e confirmar resposta HTTP 200.
-- [ ] Ajustar o navegador para 100% de zoom em viewport desktop 1080p.
-- [ ] Confirmar a existência da Person sintética **Reconciliation Demo**.
-- [ ] Confirmar que o RefEvent importado de casamento/2019 está no LifeGraph.
-- [ ] Não iniciar nem depender do REF HTTP durante a apresentação.
+- [ ] Use a prepared and preserved Neo4j demo volume.
+- [ ] Confirm that `neo4j`, `gliner`, `backend`, and `frontend` are running.
+- [ ] Confirm that Neo4j and GLiNER are healthy before opening the interface.
+- [ ] Open `http://localhost:5173` and confirm an HTTP 200 response.
+- [ ] Set the browser to 100% zoom in a 1080p desktop viewport.
+- [ ] Confirm that the synthetic **Reconciliation Demo** Person exists.
+- [ ] Confirm that the imported marriage/2019 RefEvent exists in LifeGraph.
+- [ ] Do not start or depend on live REF HTTP during the presentation.
 
-## Sequência esperada
+## Expected sequence
 
-- [ ] Carregar: “Nasci em 1988, casei em 2010 e me casei novamente em 2019.”
-- [ ] Selecionar **Extrair narrativa** manualmente.
-- [ ] Conferir três candidatos: nascimento/1988, casamento/2010 e casamento/2019.
-- [ ] Selecionar **Reconciliation Demo** explicitamente em cada candidato.
-- [ ] Aceitar cada candidato individualmente como declaração.
-- [ ] Pausar e mostrar os três ClaimEvents como `CONVERSATION + DECLARED`.
-- [ ] Reconciliar cada ClaimEvent individualmente.
-- [ ] Conferir nascimento/1988 → `UNVERIFIED`.
-- [ ] Conferir casamento/2010 → `DIVERGENT`.
-- [ ] Conferir casamento/2019 → `CONFIRMED`.
-- [ ] Mostrar razões determinísticas, RefEvent e origem ainda `CONVERSATION`.
+- [ ] Load: “Nasci em 1988, casei em 2010 e me casei novamente em 2019.”
+- [ ] Select **Extrair narrativa** manually.
+- [ ] Verify three candidates: birth/1988, marriage/2010, and marriage/2019.
+- [ ] Explicitly select **Reconciliation Demo** for each candidate.
+- [ ] Accept each candidate individually as a declaration.
+- [ ] Pause and show all three ClaimEvents as `CONVERSATION + DECLARED`.
+- [ ] Reconcile each ClaimEvent individually.
+- [ ] Verify birth/1988 → `UNVERIFIED`.
+- [ ] Verify marriage/2010 → `DIVERGENT`.
+- [ ] Verify marriage/2019 → `CONFIRMED`.
+- [ ] Show the deterministic reasons, RefEvent, and unchanged `CONVERSATION` origin.
 
-## Segurança e replay
+## Safety and replay
 
-- [ ] Explicar que candidato da IA, declaração aceita e fato confirmado são estados distintos.
-- [ ] Explicar que `UNVERIFIED` não significa falso.
-- [ ] Explicar que `DIVERGENT` é relativo à evidência registral disponível.
-- [ ] Não usar ações em lote ou reconciliação automática.
-- [ ] Respeitar `ONE_RUN_PER_DATASET`: uma nova execução aceita cria novos claims.
-- [ ] Para repetir, restaurar uma cópia limpa do volume preparado; nunca usar
-      `docker compose down -v` como rotina de replay.
+- [ ] Explain that an AI candidate, accepted declaration, and confirmed fact are distinct states.
+- [ ] Explain that `UNVERIFIED` does not mean false.
+- [ ] Explain that `DIVERGENT` is relative to the civil-registry evidence currently available.
+- [ ] Do not use bulk actions or automatic reconciliation.
+- [ ] Respect `ONE_RUN_PER_DATASET`: accepting a new run creates new claims.
+- [ ] To replay the demo, restore a clean copy of the prepared volume; never use
+      `docker compose down -v` as a routine replay mechanism.
