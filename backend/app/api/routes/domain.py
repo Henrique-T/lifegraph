@@ -34,6 +34,11 @@ async def create_person(data: PersonCreate, repository: Repository) -> PersonRea
     return await repository.create_person(data)
 
 
+@router.get("/persons", response_model=list[PersonRead])
+async def list_persons(repository: Repository) -> list[PersonRead]:
+    return await repository.list_persons()
+
+
 @router.get("/persons/{person_id}", response_model=PersonRead)
 async def get_person(person_id: str, repository: Repository) -> PersonRead:
     return await repository.get_person(person_id)

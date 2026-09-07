@@ -127,6 +127,16 @@ class GraphRepository:
             read_model=PersonRead,
         )
 
+    async def list_persons(self) -> list[PersonRead]:
+        records, _, _ = await self._driver.execute_query(
+            """
+            MATCH (person:Person)
+            RETURN properties(person) AS node
+            ORDER BY toLower(person.display_name), person.person_id
+            """
+        )
+        return [PersonRead.model_validate(record["node"]) for record in records]
+
     async def bind_external_ref_person(
         self, person_id: str, external_ref_person_id: str
     ) -> PersonRead:

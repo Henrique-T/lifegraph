@@ -2,6 +2,8 @@
 
 The approved non-persistent extraction and explicit acceptance workflow is documented
 in [docs/extraction-review-acceptance.md](docs/extraction-review-acceptance.md).
+The minimal browser review workflow is documented in
+[docs/review-ui.md](docs/review-ui.md).
 
 ## Purpose
 
