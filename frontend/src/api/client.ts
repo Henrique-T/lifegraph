@@ -4,6 +4,7 @@ import type {
   ExtractionReview,
   GraphResponse,
   Person,
+  ReconciliationResult,
 } from "./types";
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8100";
@@ -35,6 +36,10 @@ export const extractNarrative = (text: string) =>
 export const getExtraction = (id: string) => request<ExtractionReview>(`/extractions/${id}`);
 export const listPersons = () => request<Person[]>("/persons");
 export const getGraph = () => request<GraphResponse>("/graph");
+export const reconcileClaimEvent = (claimEventId: string) =>
+  request<ReconciliationResult>(`/claim-events/${claimEventId}/reconcile`, { method: "POST" });
+export const getClaimReconciliation = (claimEventId: string) =>
+  request<ReconciliationResult>(`/claim-events/${claimEventId}/reconciliation`);
 
 export const acceptCandidate = (extractionId: string, candidateId: string, data: CandidateAcceptanceRequest) =>
   request<CandidateAcceptanceResult>(`/extractions/${extractionId}/candidates/${candidateId}/accept`, {
@@ -54,4 +59,11 @@ export function friendlyError(error: unknown): string {
   if (error.status === 422) return "Revise a pessoa e os campos corrigidos.";
   if (error.status === 503) return "O modelo de extração está indisponível no momento.";
   return error.message;
+}
+
+export function friendlyReconciliationError(error: unknown): string {
+  if (!(error instanceof ApiError)) return "Não foi possível executar a reconciliação.";
+  if (error.status === 404) return "A declaração não foi encontrada ou ainda não possui reconciliação.";
+  if (error.status === 422) return "O identificador da declaração é inválido.";
+  return "Não foi possível executar a comparação determinística com a evidência registral importada.";
 }

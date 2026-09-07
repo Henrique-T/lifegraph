@@ -72,6 +72,27 @@ export interface CandidateAcceptanceResult {
   created: boolean;
 }
 
+export type VerificationStatus = "DECLARED" | "PROBABLE" | "CONFIRMED" | "DIVERGENT" | "UNVERIFIED";
+
+export type ReconciliationReasonCode =
+  | "NO_MATCHING_REF_EVENT_TYPE"
+  | "EVENT_TYPE_MATCH"
+  | "EVENT_DATE_WITHIN_CLAIM_INTERVAL"
+  | "EVENT_DATE_OUTSIDE_CLAIM_INTERVAL"
+  | "INSUFFICIENT_TEMPORAL_EVIDENCE"
+  | "UNIQUE_TEMPORALLY_COMPATIBLE_CANDIDATE"
+  | "NO_TEMPORALLY_COMPATIBLE_REF_EVENT"
+  | "AMBIGUOUS_MULTIPLE_REF_CANDIDATES";
+
+export interface ReconciliationResult {
+  claim_event_id: string;
+  status: VerificationStatus;
+  matched_ref_event_id: string | null;
+  candidate_ref_event_ids: string[];
+  reason_codes: ReconciliationReasonCode[];
+  reconciled_at: string;
+}
+
 export interface GraphNode {
   id: string;
   type: "Person" | "ClaimEvent" | "RefEvent" | "ConversationTurn" | "Evidence";

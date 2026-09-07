@@ -1,6 +1,7 @@
 import cytoscape from "cytoscape";
 import { useEffect, useRef, useState } from "react";
-import type { GraphNode, GraphResponse } from "../api/types";
+import type { GraphNode, GraphResponse, ReconciliationResult } from "../api/types";
+import { ReconciliationPanel } from "./ReconciliationPanel";
 
 const nodeColors: Record<string, string> = {
   Person: "#2563eb", ClaimEvent: "#7c3aed", RefEvent: "#047857",
@@ -16,12 +17,18 @@ function nodeLabel(node: GraphNode): string {
   return `Evidência\n${String(p.evidence_type ?? "")}`;
 }
 
-export function GraphView({ graph }: { graph: GraphResponse | null }) {
+interface Props {
+  graph: GraphResponse | null;
+  onReconcile: (claimEventId: string) => Promise<ReconciliationResult>;
+}
+
+export function GraphView({ graph, onReconcile }: Props) {
   const container = useRef<HTMLDivElement>(null);
-  const [selected, setSelected] = useState<GraphNode | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const selected = graph?.nodes.find((node) => node.id === selectedId) ?? null;
+  const claims = graph?.nodes.filter((node) => node.type === "ClaimEvent") ?? [];
   useEffect(() => {
     if (!container.current || !graph) return;
-    const byId = new Map(graph.nodes.map((node) => [node.id, node]));
     const cy = cytoscape({
       container: container.current,
       elements: [
@@ -34,7 +41,7 @@ export function GraphView({ graph }: { graph: GraphResponse | null }) {
         { selector: "edge", style: { width: 2, "line-color": "#64748b", "target-arrow-color": "#64748b", "target-arrow-shape": "triangle", "curve-style": "bezier", label: "data(label)", "font-size": 8, color: "#cbd5e1", "text-background-color": "#0f172a", "text-background-opacity": 0.85 } },
       ],
     });
-    cy.on("tap", "node", (event) => setSelected(byId.get(event.target.id()) ?? null));
+    cy.on("tap", "node", (event) => setSelectedId(event.target.id()));
     return () => cy.destroy();
   }, [graph]);
 
@@ -42,6 +49,14 @@ export function GraphView({ graph }: { graph: GraphResponse | null }) {
     <div ref={container} className="graph-canvas" role="img" aria-label="Grafo LifeGraph com tipos identificados por texto e cor" />
     <aside className="provenance" aria-live="polite">
       <h3>Proveniência</h3>
+      <label className="claim-selector">Declaração para inspeção
+        <select value={selected?.type === "ClaimEvent" ? selected.id : ""} onChange={(event) => setSelectedId(event.target.value || null)}>
+          <option value="">Selecione no grafo ou nesta lista…</option>
+          {claims.map((claim) => <option key={claim.id} value={claim.id}>
+            {String(claim.properties.event_type ?? "evento")} · {String(claim.properties.verification_status ?? "sem estado")} · {claim.id.slice(0, 8)}
+          </option>)}
+        </select>
+      </label>
       {!selected && <p>Selecione um nó para inspecionar.</p>}
       {selected && <>
         <strong>{nodeLabel(selected).replace("\n", " — ")}</strong>
@@ -51,7 +66,9 @@ export function GraphView({ graph }: { graph: GraphResponse | null }) {
           <div><dt>Trigger original</dt><dd>{String(selected.properties.original_trigger_text ?? "—")}</dd></div>
           <div><dt>Pipeline</dt><dd>{String(selected.properties.pipeline_id ?? "—")}</dd></div>
           <div><dt>Correção</dt><dd>{selected.properties.reviewer_correction_applied ? "Sim" : "Não"}</dd></div>
+          <div><dt>Data declarada</dt><dd>{String(selected.properties.claimed_date_start ?? "—")} até {String(selected.properties.claimed_date_end ?? "—")}</dd></div>
         </dl>}
+        {selected.type === "ClaimEvent" && <ReconciliationPanel key={selected.id} claim={selected} graph={graph!} onReconcile={onReconcile} />}
       </>}
     </aside>
   </div>;

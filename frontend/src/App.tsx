@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import { acceptCandidate, extractNarrative, friendlyError, getGraph, listPersons, rejectCandidate } from "./api/client";
-import type { CandidateAcceptanceRequest, ExtractionReview, GraphResponse, Person } from "./api/types";
+import { acceptCandidate, extractNarrative, friendlyError, getGraph, listPersons, reconcileClaimEvent, rejectCandidate } from "./api/client";
+import type { CandidateAcceptanceRequest, ExtractionReview, GraphResponse, Person, ReconciliationResult } from "./api/types";
 import { CandidateCard } from "./components/CandidateCard";
 import { GraphView } from "./components/GraphView";
 
@@ -29,6 +29,12 @@ export default function App() {
     try { setReview(await extractNarrative(text.trim())); }
     catch (caught) { setError(friendlyError(caught)); }
     finally { setLoading(false); }
+  }
+
+  async function reconcile(claimEventId: string): Promise<ReconciliationResult> {
+    const result = await reconcileClaimEvent(claimEventId);
+    await refreshGraph();
+    return result;
   }
 
   return <main>
@@ -73,7 +79,7 @@ export default function App() {
 
     <section className="panel graph-panel" aria-labelledby="graph-title">
       <div className="section-heading"><div><h2 id="graph-title">LifeGraph</h2><p>{graph ? `${graph.nodes.length} nós · ${graph.edges.length} relações` : "Carregando grafo…"}</p></div><button className="secondary" type="button" onClick={() => void refreshGraph()}>Atualizar grafo</button></div>
-      <GraphView graph={graph} />
+      <GraphView graph={graph} onReconcile={reconcile} />
       <div className="legend" aria-label="Significado dos estados">
         <p><strong>DECLARED</strong> Informação aceita da narrativa; ainda não confirmada por fonte registral.</p>
         <p><strong>CONFIRMED</strong> Declaração compatível com evidência REF após reconciliação.</p>
