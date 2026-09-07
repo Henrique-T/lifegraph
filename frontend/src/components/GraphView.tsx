@@ -32,13 +32,18 @@ export function GraphView({ graph, onReconcile }: Props) {
     const cy = cytoscape({
       container: container.current,
       elements: [
-        ...graph.nodes.map((node) => ({ data: { id: node.id, label: nodeLabel(node), type: node.type } })),
+        ...graph.nodes.map((node) => ({ data: { id: node.id, label: nodeLabel(node), type: node.type, status: String(node.properties.verification_status ?? "") } })),
         ...graph.edges.map((edge, index) => ({ data: { id: `edge-${index}-${edge.source}-${edge.target}`, source: edge.source, target: edge.target, label: edge.type } })),
       ],
       layout: { name: "cose", animate: false, padding: 24 },
       style: [
-        { selector: "node", style: { "background-color": (element) => nodeColors[element.data("type")] ?? "#475569", label: "data(label)", color: "#f8fafc", "font-size": 10, "text-wrap": "wrap", "text-valign": "center", width: 74, height: 74 } },
-        { selector: "edge", style: { width: 2, "line-color": "#64748b", "target-arrow-color": "#64748b", "target-arrow-shape": "triangle", "curve-style": "bezier", label: "data(label)", "font-size": 8, color: "#cbd5e1", "text-background-color": "#0f172a", "text-background-opacity": 0.85 } },
+        { selector: "node", style: { "background-color": (element) => nodeColors[element.data("type")] ?? "#475569", label: "data(label)", color: "#f8fafc", "font-size": 11, "font-weight": 650, "text-wrap": "wrap", "text-valign": "center", width: 82, height: 82, "border-width": 2, "border-color": "#cbd5e1" } },
+        { selector: 'node[type = "ClaimEvent"][status = "CONFIRMED"]', style: { "border-color": "#34d399", "border-width": 5 } },
+        { selector: 'node[type = "ClaimEvent"][status = "DIVERGENT"]', style: { "border-color": "#fb7185", "border-width": 5 } },
+        { selector: 'node[type = "ClaimEvent"][status = "UNVERIFIED"]', style: { "border-color": "#fbbf24", "border-width": 5 } },
+        { selector: 'node[type = "ClaimEvent"][status = "DECLARED"]', style: { "border-color": "#60a5fa", "border-width": 5 } },
+        { selector: "node:selected", style: { "border-color": "#ffffff", "border-width": 7, "overlay-color": "#93c5fd", "overlay-opacity": 0.15 } },
+        { selector: "edge", style: { width: 2, "line-color": "#64748b", "target-arrow-color": "#64748b", "target-arrow-shape": "triangle", "curve-style": "bezier", label: "data(label)", "font-size": 9, color: "#e2e8f0", "text-background-color": "#0f172a", "text-background-opacity": 0.92, "text-background-padding": "2px" } },
       ],
     });
     cy.on("tap", "node", (event) => setSelectedId(event.target.id()));
@@ -47,8 +52,8 @@ export function GraphView({ graph, onReconcile }: Props) {
 
   return <div className="graph-layout">
     <div ref={container} className="graph-canvas" role="img" aria-label="Grafo LifeGraph com tipos identificados por texto e cor" />
-    <aside className="provenance" aria-live="polite">
-      <h3>Proveniência</h3>
+    <aside className={`provenance ${selected?.type === "ClaimEvent" ? "claim-selected" : ""}`} aria-live="polite">
+      <p className="stage-label">Inspeção do nó selecionado</p><h3>Proveniência</h3>
       <label className="claim-selector">Declaração para inspeção
         <select value={selected?.type === "ClaimEvent" ? selected.id : ""} onChange={(event) => setSelectedId(event.target.value || null)}>
           <option value="">Selecione no grafo ou nesta lista…</option>
@@ -62,7 +67,7 @@ export function GraphView({ graph, onReconcile }: Props) {
         <strong>{nodeLabel(selected).replace("\n", " — ")}</strong>
         {selected.type === "ClaimEvent" && <dl>
           <div><dt>Origem</dt><dd>{String(selected.properties.origin ?? "—")}</dd></div>
-          <div><dt>Verificação</dt><dd>{String(selected.properties.verification_status ?? "—")}</dd></div>
+          <div><dt>Status</dt><dd><span className={`inline-status ${String(selected.properties.verification_status ?? "").toLowerCase()}`}>{String(selected.properties.verification_status ?? "—")}</span></dd></div>
           <div><dt>Trigger original</dt><dd>{String(selected.properties.original_trigger_text ?? "—")}</dd></div>
           <div><dt>Pipeline</dt><dd>{String(selected.properties.pipeline_id ?? "—")}</dd></div>
           <div><dt>Correção</dt><dd>{selected.properties.reviewer_correction_applied ? "Sim" : "Não"}</dd></div>

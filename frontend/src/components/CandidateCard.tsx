@@ -84,7 +84,7 @@ export function CandidateCard({ candidate, people, disabled, onAccept, onReject 
 
   const done = disabled || rejected || accepted !== null;
   return (
-    <article className={`candidate ${candidate.subject_resolution.toLowerCase()}`}>
+    <article className={`candidate ${candidate.subject_resolution.toLowerCase()}`} aria-live="polite">
       <header className="candidate-header">
         <div><span className="kicker">Evento</span><h3>{eventLabels[candidate.event_type]}</h3></div>
         <span className={`status ${accepted ? "accepted" : rejected ? "rejected" : candidate.subject_resolution.toLowerCase()}`}>
@@ -101,7 +101,7 @@ export function CandidateCard({ candidate, people, disabled, onAccept, onReject 
       <p className="reason">{reasonLabels[candidate.subject_reason] ?? "Associação conservadora; revise antes de aceitar."}</p>
 
       {candidate.subject_resolution === "UNRESOLVED" && !done && <p className="safety-note">Abstenção segura: selecione a Pessoa correta ou rejeite o candidato.</p>}
-      {!done && <label> Pessoa LifeGraph que é sujeito
+      {!done && <label> Pessoa à qual esta declaração se refere
         <select value={personId} onChange={(event) => setPersonId(event.target.value)}>
           <option value="">Selecione explicitamente…</option>
           {people.map((person) => <option key={person.person_id} value={person.person_id}>{person.display_name}</option>)}
@@ -117,11 +117,11 @@ export function CandidateCard({ candidate, people, disabled, onAccept, onReject 
         <label>Texto exibido do sujeito<input value={subjectText} onChange={(e) => setSubjectText(e.target.value)} /></label>
         <label>Participantes (separados por vírgula)<input value={participants} onChange={(e) => setParticipants(e.target.value)} /></label>
         <label>Ano normalizado<input inputMode="numeric" pattern="\d{4}" maxLength={4} value={year} onChange={(e) => setYear(e.target.value)} placeholder="AAAA" /></label>
-        {changed && <div className="comparison"><strong>Original da IA preservado</strong><span>{eventLabels[candidate.event_type]} · {candidate.subject_text ?? "não resolvido"} · {candidate.date_expression ?? "sem data"}</span></div>}
+        {changed && <div className="comparison"><strong>Original da IA</strong><span>{eventLabels[candidate.event_type]} · {candidate.subject_text ?? "não resolvido"} · {candidate.date_expression ?? "sem data"}</span><strong>Valor revisado</strong><span>{eventLabels[eventType]} · {subjectText || "não resolvido"} · {year || candidate.date_expression || "sem data"}</span></div>}
       </fieldset>}
 
       {error && <p className="error" role="alert">{error}</p>}
-      {accepted && <p className="success">Declaração criada: <code>{accepted.claim_event_id}</code>. Estado: DECLARED.</p>}
+      {accepted && <p className="success" role="status">Declaração criada: <code>{accepted.claim_event_id}</code>. Estado: DECLARED.</p>}
       <div className="actions">
         <button type="button" className="primary" disabled={done || busy || !personId} onClick={accept}>Aceitar como declaração</button>
         <button type="button" className="secondary" disabled={done || busy} onClick={reject}>Rejeitar</button>

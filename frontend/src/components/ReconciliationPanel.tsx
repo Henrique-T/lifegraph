@@ -5,8 +5,8 @@ import type { GraphNode, GraphResponse, ReconciliationReasonCode, Reconciliation
 const statusDescriptions: Record<VerificationStatus, string> = {
   DECLARED: "Declaração aceita da narrativa; ainda não reconciliada.",
   CONFIRMED: "Declaração compatível com evidência registral.",
-  DIVERGENT: "Declaração em conflito com evidência registral.",
-  UNVERIFIED: "Evidência insuficiente para confirmar ou divergir.",
+  DIVERGENT: "Diverge da evidência registral disponível.",
+  UNVERIFIED: "Evidência insuficiente — não significa que a declaração seja falsa.",
   PROBABLE: "Estado reservado; não produzido atualmente.",
 };
 

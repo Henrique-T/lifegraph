@@ -49,11 +49,14 @@ export default function App() {
     <header className="hero">
       <p className="eyebrow">INE5448 · UFSC · LifeGraph</p>
       <h1>LifeGraph Conversacional</h1>
-      <p className="principle">Candidato da IA ≠ declaração aceita ≠ fato registral confirmado.</p>
+      <p className="hero-summary">Narrativas pessoais, declarações revisadas e evidência registral em um grafo temporal com proveniência explícita.</p>
+      <div className="epistemic-banner" role="note" aria-label="Princípio epistemológico do LifeGraph">
+        <span>Candidato da IA</span><strong aria-hidden="true">≠</strong><span>Declaração aceita</span><strong aria-hidden="true">≠</strong><span>Fato confirmado</span>
+      </div>
     </header>
 
-    <section className="panel" aria-labelledby="narrative-title">
-      <h2 id="narrative-title">Narrativa</h2>
+    <section className="panel stage-panel" aria-labelledby="narrative-title">
+      <div className="stage-heading"><span className="stage-number" aria-hidden="true">A</span><div><p className="stage-label">Narrativa e extração</p><h2 id="narrative-title">Conte sua trajetória</h2></div></div>
       <label htmlFor="narrative">Texto em português</label>
       <textarea id="narrative" rows={4} value={text} onChange={(event) => setText(event.target.value)} disabled={loading} />
       <div className="narrative-actions">
@@ -61,14 +64,14 @@ export default function App() {
         <button className="secondary" type="button" onClick={loadCanonicalDemo} disabled={loading}>Carregar narrativa de demonstração</button>
       </div>
       <p className="hint">A extração cria apenas candidatos temporários e não altera o grafo.</p>
-      <details className="demo-guide"><summary>Roteiro canônico de demonstração</summary>
-        <ol><li>Carregue e extraia a narrativa.</li><li>Revise os três candidatos e selecione explicitamente <strong>Reconciliation Demo</strong>.</li><li>Aceite cada candidato como declaração e observe todos em <strong>DECLARED</strong>.</li><li>Reconcilie cada ClaimEvent individualmente no grafo.</li><li>Compare os resultados UNVERIFIED, DIVERGENT e CONFIRMED e suas evidências.</li></ol>
+      <details className="demo-guide"><summary>Ver roteiro canônico em 5 passos</summary>
+        <ol className="demo-steps"><li><span>1</span>Carregar narrativa</li><li><span>2</span>Extrair candidatos</li><li><span>3</span>Revisar e aceitar</li><li><span>4</span>Observar DECLARED</li><li><span>5</span>Reconciliar explicitamente</li></ol>
       </details>
       {error && <p className="error" role="alert">{error}</p>}
     </section>
 
-    <section className="panel" aria-labelledby="review-title">
-      <div className="section-heading"><div><h2 id="review-title">Candidatos extraídos</h2>{review && <p>{review.candidates.length} candidato(s) · pipeline {review.pipeline_id}</p>}</div></div>
+    <section className="panel stage-panel" aria-labelledby="review-title">
+      <div className="section-heading"><div className="stage-heading"><span className="stage-number" aria-hidden="true">B</span><div><p className="stage-label">Revisão e declaração</p><h2 id="review-title">Candidatos extraídos</h2>{review && <p>{review.candidates.length} candidato(s) · pipeline {review.pipeline_id}</p>}</div></div></div>
       {!review && <p className="empty">Execute uma extração para iniciar uma revisão.</p>}
       {review && <>
         <p className="expiry">Revisão temporária até {new Date(review.expires_at).toLocaleTimeString("pt-BR")}. Reiniciar o backend também a invalida.</p>
@@ -91,15 +94,16 @@ export default function App() {
       </>}
     </section>
 
-    <section className="panel graph-panel" aria-labelledby="graph-title">
-      <div className="section-heading"><div><h2 id="graph-title">LifeGraph</h2><p>{graph ? `${graph.nodes.length} nós · ${graph.edges.length} relações` : "Carregando grafo…"}</p></div><button className="secondary" type="button" onClick={() => void refreshGraph()}>Atualizar grafo</button></div>
+    <section className="panel graph-panel stage-panel" aria-labelledby="graph-title">
+      <div className="section-heading"><div className="stage-heading"><span className="stage-number" aria-hidden="true">C</span><div><p className="stage-label">Grafo e reconciliação</p><h2 id="graph-title">LifeGraph e proveniência</h2><p>{graph ? `${graph.nodes.length} nós · ${graph.edges.length} relações` : "Carregando grafo…"}</p></div></div><button className="secondary" type="button" onClick={() => void refreshGraph()}>Atualizar grafo</button></div>
       <GraphView graph={graph} onReconcile={reconcile} />
       <div className="legend" aria-label="Significado dos estados">
-        <p><strong>DECLARED</strong> Informação aceita da narrativa; ainda não confirmada por fonte registral.</p>
-        <p><strong>CONFIRMED</strong> Declaração compatível com evidência REF após reconciliação.</p>
-        <p><strong>DIVERGENT</strong> Declaração em conflito com evidência REF.</p>
-        <p><strong>UNVERIFIED</strong> Evidência insuficiente. <strong>PROBABLE</strong> não é produzido atualmente.</p>
+        <p><strong className="legend-status declared">DECLARED</strong><span>Declaração aceita; ainda não confirmada por evidência registral.</span></p>
+        <p><strong className="legend-status confirmed">CONFIRMED</strong><span>Compatível com evidência registral.</span></p>
+        <p><strong className="legend-status divergent">DIVERGENT</strong><span>Diverge da evidência registral disponível.</span></p>
+        <p><strong className="legend-status unverified">UNVERIFIED</strong><span>Evidência insuficiente — não significa falso.</span></p>
       </div>
+      <p className="probable-note"><strong>PROBABLE</strong> é um estado reservado e não é produzido atualmente.</p>
     </section>
   </main>;
 }
