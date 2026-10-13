@@ -1,0 +1,144 @@
+{
+  "protocol_id": "LIFEGRAPH_FINAL_EXTRACTION_EVALUATION_V1",
+  "freeze_date": "2026-09-07",
+  "final_evaluation_protocol_frozen": true,
+  "final_model_comparison_authorized": false,
+  "execution_config_path": "evaluation/final_protocol/execution_config.json",
+  "execution_config_sha256": "DA897BB4BB6AF17E7D30B3EF52B410F64073C05080F0A3CCE4B4E2724AA18D34",
+  "research_questions": [
+    "RQ1: How accurately does the LifeGraph extraction pipeline identify civil-life events in Portuguese narratives?",
+    "RQ2: How accurately and safely does the pipeline associate each event with the correct subject?",
+    "RQ3: How often does the conservative strategy abstain instead of making an unsafe subject attribution?",
+    "RQ4: How well does the pipeline extract temporal expressions and normalize supported dates?",
+    "RQ5: How does the approved GLiNER plus S1C pipeline compare with the preregistered baselines?",
+    "RQ6: Does the conservative strategy reduce unsafe narrator or third-party attribution at the cost of coverage?"
+  ],
+  "data": {
+    "held_out_dataset": "evaluation/final_protocol/heldout_v1.json",
+    "held_out_sha256": "050575D1BFECAF40FDD7489A1C84C7D425FBAAA6980CD2FA7F82D5A773D9C247",
+    "characterization": "CONTROLLED_SYNTHETIC_HELD_OUT_CHALLENGE_SET",
+    "held_out_from_post_freeze_tuning": true,
+    "population_representative": false,
+    "enrichment": "Intentionally enriched for safety-relevant Portuguese phenomena including pro-drop, subject continuity and switching, reported speech, incidental people, coordinated subjects, ambiguity, and distractor dates.",
+    "development_datasets": ["DEV_ORIGINAL", "DEV_V2", "DEV_V3"],
+    "scope": ["nascimento", "casamento", "obito", "natimorto"],
+    "single_annotator_ground_truth": true,
+    "single_annotator_meaning": "One AI-assisted authoring/review provenance stream; this does not mean one human annotator.",
+    "human_ground_truth_review": false,
+    "ai_assisted_ground_truth_authoring": true,
+    "ai_assisted_ground_truth_review": true,
+    "natimorto_count": 2,
+    "natimorto_class_specific_conclusion": "DESCRIPTIVE_ONLY_INSUFFICIENT_FOR_STRONG_CLASS_SPECIFIC_CONCLUSION"
+  },
+  "systems": {
+    "A": {
+      "name": "Approved LifeGraph",
+      "model_id": "fastino/gliner2.5-multi-v1",
+      "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+      "pipeline_id": "LIFEGRAPH_PT_CIVIL_V1",
+      "stage_1": "B_LINGUISTIC_EVENT_SPANS",
+      "stage_2": "S1C_CONSERVATIVE_GUARDS",
+      "execution_config_ref": "execution_config.json#system_a",
+      "evaluation_scope": "all event, subject, temporal, participant, safety, and end-to-end metrics"
+    },
+    "B": {
+      "name": "Portuguese NER shared-task baseline",
+      "model_id": "lfcc/bert-portuguese-ner",
+      "model_revision": "62e38bcb90c1b0e8e520aa73d73afe67cae67c7c",
+      "comparison_mode": "B1",
+      "execution_config_ref": "execution_config.json#system_b",
+      "evaluation_scope": "person-span and date-span precision, recall, and F1 only",
+      "ground_truth_policy": "PERSON means proper-name spans only; pronouns, kinship common nouns, and narrator markers are excluded. DATE includes complete annotated temporal expressions and distractor years.",
+      "not_applicable": ["event detection", "trigger", "subject association", "safety", "normalization", "end-to-end"]
+    },
+    "C": {
+      "name": "Frozen structured generative baseline",
+      "model_id": "google/gemma-3-4b-it",
+      "model_revision": "093f9f388b31de276ce2de164bdc2081324b9767",
+      "prompt_path": "evaluation/final_protocol/gemma_prompt.txt",
+      "prompt_sha256": "13E9FD71CBAEA28D296667782B1550BB790F8660EAB8C3E59C83811F9F85ED68",
+      "execution_config_ref": "execution_config.json#system_c",
+      "generation": {"decoding": "GREEDY", "do_sample": false, "temperature": "NOT_APPLICABLE", "top_p": "NOT_APPLICABLE", "seed": "NOT_REQUIRED_FOR_GREEDY_OUTPUT", "max_new_tokens": 512, "generations_per_narrative": 1},
+      "span_adapter": "exact returned substrings only; assign repeated identical substrings left-to-right without fuzzy repair; otherwise MODEL_OUTPUT_INVALID",
+      "evaluation_scope": "all metrics supported by valid structured output"
+    },
+    "D": {"model_id": "Babelscape/mrebel-large", "decision": "EXCLUDED", "reason": "optional relation baseline does not materially improve the core comparison and would expand runtime and adapter scope"}
+  },
+  "matching": {
+    "assignment": "deterministic maximum-score one-to-one dynamic-programming assignment per narrative",
+    "candidate_requirement": "same event_type and either positive trigger-span overlap or exact normalized date-expression text",
+    "score_priority": ["trigger overlap present", "date expression equal", "trigger overlap character count"],
+    "tie_break": ["expected event_id ascending", "prediction array index ascending"],
+    "list_position_only": false,
+    "manual_post_hoc_matching": false
+  },
+  "primary_metrics_priority": [
+    "event_f1",
+    "wrong_resolved_subject_rate",
+    "false_narrator_attribution_rate",
+    "subject_end_to_end_accuracy",
+    "correct_abstention_rate",
+    "normalized_interval_exact_accuracy",
+    "e2e_core_accuracy"
+  ],
+  "metric_definitions": {
+    "event_precision": "matched expected events / all predicted events",
+    "event_recall": "matched expected events / all expected events",
+    "event_f1": "harmonic mean of event precision and recall",
+    "subject_coverage": "resolved matched predictions / detectable expected events",
+    "subject_end_to_end_accuracy": "correctly resolved subjects / detectable expected events; correct abstentions are excluded from the numerator",
+    "wrong_resolved_subject_rate": "incorrect resolved subjects, including unsafe resolutions / all resolved subjects",
+    "narrator_recall": "correct narrator resolutions / expected narrator events",
+    "false_narrator_attribution_rate": "narrator predictions on expected third-party or unresolved events / expected third-party plus unresolved events",
+    "third_party_subject_accuracy": "correct-role and exact-text third-party resolutions / expected third-party events",
+    "correct_abstention_rate": "UNRESOLVED predictions / expected UNRESOLVED events",
+    "unsafe_resolution_on_ambiguous_rate": "resolved narrator or third-party predictions / expected UNRESOLVED events",
+    "reported_speech_leakage_rate": "matched events assigned to an annotated reporting subject / reported-speech expected events",
+    "incidental_person_leakage_rate": "matched events assigned to an annotated incidental person / incidental-person expected events",
+    "coordinated_subject_unsafe_reduction_rate": "coordinated-subject events reduced to one annotated member / coordinated-subject expected events",
+    "date_expression_exact_span_accuracy": "exact date-expression spans / expected date expressions",
+    "normalized_interval_exact_accuracy": "exact start, end, precision, and uncertainty / supported normalization cases",
+    "year_accuracy": "correct normalized year / expected YEAR cases",
+    "precision_classification_accuracy": "correct DAY or YEAR precision / supported normalization cases",
+    "e2e_core_accuracy": "matched event with correct subject outcome and exact normalized-time object / all expected events",
+    "e2e_strict_span_accuracy": "E2E core plus exact trigger span / all expected events"
+  },
+  "secondary_metrics": ["trigger exact span accuracy", "trigger relaxed-overlap accuracy", "participant textual span precision/recall/F1 (exploratory)", "category breakdown", "median latency", "p95 latency", "raw confidence summary"],
+  "unresolved_semantics": {
+    "expected_unresolved_predicted_unresolved": "correct abstention, never a resolved exact-subject success",
+    "expected_unresolved_predicted_resolved": "unsafe resolution",
+    "missing_event": "false negative and not a correct abstention"
+  },
+  "temporal_policy": {
+    "supported": ["exact YEAR", "exact full date mapped to DAY"],
+    "unsupported": ["approximate expressions"],
+    "unsupported_expected_behavior": "retain expression if detected but do not invent an interval; precision UNSUPPORTED and null interval",
+    "distractor_dates": "only the annotated event-linked expression is correct"
+  },
+  "participant_policy": "exploratory textual mention scoring only; no identity resolution",
+  "failure_semantics": {
+    "invalid_json_or_schema": "MODEL_OUTPUT_INVALID",
+    "timeout": "MODEL_TIMEOUT",
+    "service_unavailable": "MODEL_SERVICE_FAILURE",
+    "rule": "failures are counted and represented as empty predictions for recall; they are never silently discarded"
+  },
+  "latency": {"warmup": "one untimed request per model", "measured_runs": "one primary inference per narrative", "statistics": ["median", "p95"], "cross_backend_caveat_required": true},
+  "runtime_fairness": {"quality_metrics_independent_of_runtime": true, "multiple_generations": false, "semantic_quality_retries": false, "manual_output_correction": false, "technical_retries": "At most one for MODEL_TIMEOUT or MODEL_SERVICE_FAILURE as defined in execution_config.json; never retry MODEL_OUTPUT_INVALID.", "latency": "descriptive only unless hardware and runtime are comparable"},
+  "statistics": {"point_estimates": true, "confidence_intervals": false, "significance_tests": false, "rationale": "fixed 100-narrative study; report exact numerators and denominators rather than adding underpowered inferential claims"},
+  "category_breakdown": ["narrator", "third-party", "pro-drop", "multi-event", "reported speech", "incidental person", "ambiguity/UNRESOLVED", "negative/no-event"],
+  "leakage_policy": {
+    "forbidden_uses": ["alter S1C rules", "change GLiNER labels", "adjust parsing", "change normalization", "change Gemma prompt", "create or tune a BERT adapter", "choose thresholds"],
+    "metric_bug": "metric/tooling-only fixes are permitted if versioned and justified before interpreting results",
+    "behavior_driven_change": "contaminates this held-out set; relabel it DEV and create a new held-out set"
+  },
+  "runtime_record_requirements": ["model ID", "exact revision", "runtime and package versions", "quantization", "device", "prompt or configuration hash", "OS", "CPU", "RAM", "GPU or iGPU"],
+  "reference_hardware_snapshot": {
+    "os": "Microsoft Windows 11 Home 10.0.26200 64-bit",
+    "cpu": "Intel Core Ultra 7 258V, 8 cores, 8 logical processors",
+    "ram_bytes": 33804771328,
+    "gpu": "Intel Arc 140V GPU (driver-reported AdapterRAM 2147479552 bytes; shared-memory reporting caveat)",
+    "final_run_runtime": "must be recorded at execution time"
+  },
+  "product_dependencies_required": {"ref": false, "neo4j": false, "backend": false, "frontend": false},
+  "final_run_rule": "No final system may run until an independent review authorizes the frozen protocol and dataset."
+}

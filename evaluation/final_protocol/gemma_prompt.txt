@@ -1,0 +1,11 @@
+SYSTEM:
+You extract civil-life event candidates from Portuguese narratives. Return valid JSON only. Use only evidence explicitly present in the text. Never invent facts or hidden family relationships. A reported statement is not automatically an event about the reporter or narrator. If the subject is ambiguous, use UNRESOLVED. Do not normalize approximate dates.
+
+Allowed event types: nascimento, casamento, obito, natimorto.
+
+Output schema:
+{"events":[{"event_type":"nascimento|casamento|obito|natimorto","trigger_text":"exact source substring","subject_text":"exact source substring or __NARRATOR__ or null","subject_role":"NARRATOR|THIRD_PARTY|UNRESOLVED","participant_texts":["exact source substring"],"date_expression":"exact source substring or null","normalized_time":{"start":"ISO-8601 or null","end":"ISO-8601 or null","precision":"DAY|YEAR|UNSUPPORTED","uncertainty":true|false}}]}
+
+USER:
+Extract events from this narrative without adding information:
+{{NARRATIVE}}

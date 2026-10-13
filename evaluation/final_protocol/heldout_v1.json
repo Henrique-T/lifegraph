@@ -1,0 +1,6689 @@
+{
+  "dataset_id": "LIFEGRAPH_PT_CIVIL_FINAL_HELDOUT_V1",
+  "schema_version": "LIFEGRAPH_FINAL_GT_V1",
+  "language": "pt-BR",
+  "synthetic": true,
+  "narratives": [
+    {
+      "narrative_id": "heldout_001",
+      "text": "Nasci em 1981.",
+      "categories": [
+        "SIMPLE_NARRATOR",
+        "EXACT_YEAR",
+        "PRO_DROP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e001_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "Nasci",
+            "start": 0,
+            "end": 5
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1981",
+            "start": 9,
+            "end": 13
+          },
+          "normalized_time": {
+            "start": "1981-01-01T00:00:00Z",
+            "end": "1981-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": true,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "1981",
+            "start": 9,
+            "end": 13
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_002",
+      "text": "Casei em 2004.",
+      "categories": [
+        "SIMPLE_NARRATOR",
+        "EXACT_YEAR",
+        "PRO_DROP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e002_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "Casei",
+            "start": 0,
+            "end": 5
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2004",
+            "start": 9,
+            "end": 13
+          },
+          "normalized_time": {
+            "start": "2004-01-01T00:00:00Z",
+            "end": "2004-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": true,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "2004",
+            "start": 9,
+            "end": 13
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_003",
+      "text": "Em 1993, nasci numa manhã fria.",
+      "categories": [
+        "SIMPLE_NARRATOR",
+        "EXACT_YEAR",
+        "PRO_DROP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e003_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasci",
+            "start": 9,
+            "end": 14
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1993",
+            "start": 3,
+            "end": 7
+          },
+          "normalized_time": {
+            "start": "1993-01-01T00:00:00Z",
+            "end": "1993-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": true,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "1993",
+            "start": 3,
+            "end": 7
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_004",
+      "text": "No verão de 2011, casei.",
+      "categories": [
+        "SIMPLE_NARRATOR",
+        "EXACT_YEAR",
+        "PRO_DROP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e004_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "casei",
+            "start": 18,
+            "end": 23
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2011",
+            "start": 12,
+            "end": 16
+          },
+          "normalized_time": {
+            "start": "2011-01-01T00:00:00Z",
+            "end": "2011-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": true,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "2011",
+            "start": 12,
+            "end": 16
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_005",
+      "text": "Nasci somente em 1979.",
+      "categories": [
+        "SIMPLE_NARRATOR",
+        "EXACT_YEAR",
+        "PRO_DROP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e005_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "Nasci",
+            "start": 0,
+            "end": 5
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1979",
+            "start": 17,
+            "end": 21
+          },
+          "normalized_time": {
+            "start": "1979-01-01T00:00:00Z",
+            "end": "1979-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": true,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "1979",
+            "start": 17,
+            "end": 21
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_006",
+      "text": "Casei pela primeira vez em 1998.",
+      "categories": [
+        "SIMPLE_NARRATOR",
+        "EXACT_YEAR",
+        "PRO_DROP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e006_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "Casei",
+            "start": 0,
+            "end": 5
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1998",
+            "start": 27,
+            "end": 31
+          },
+          "normalized_time": {
+            "start": "1998-01-01T00:00:00Z",
+            "end": "1998-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": true,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "1998",
+            "start": 27,
+            "end": 31
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_007",
+      "text": "Foi em 2001 que nasci.",
+      "categories": [
+        "SIMPLE_NARRATOR",
+        "EXACT_YEAR",
+        "PRO_DROP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e007_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasci",
+            "start": 16,
+            "end": 21
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2001",
+            "start": 7,
+            "end": 11
+          },
+          "normalized_time": {
+            "start": "2001-01-01T00:00:00Z",
+            "end": "2001-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": true,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "2001",
+            "start": 7,
+            "end": 11
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_008",
+      "text": "Em 2016, me casei.",
+      "categories": [
+        "SIMPLE_NARRATOR",
+        "EXACT_YEAR",
+        "PRO_DROP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e008_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "me casei",
+            "start": 9,
+            "end": 17
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2016",
+            "start": 3,
+            "end": 7
+          },
+          "normalized_time": {
+            "start": "2016-01-01T00:00:00Z",
+            "end": "2016-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": true,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "2016",
+            "start": 3,
+            "end": 7
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_009",
+      "text": "Nasci no interior em 1967.",
+      "categories": [
+        "SIMPLE_NARRATOR",
+        "EXACT_YEAR",
+        "PRO_DROP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e009_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "Nasci",
+            "start": 0,
+            "end": 5
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1967",
+            "start": 21,
+            "end": 25
+          },
+          "normalized_time": {
+            "start": "1967-01-01T00:00:00Z",
+            "end": "1967-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": true,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "1967",
+            "start": 21,
+            "end": 25
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_010",
+      "text": "Casei numa cerimônia simples em 2021.",
+      "categories": [
+        "SIMPLE_NARRATOR",
+        "EXACT_YEAR",
+        "PRO_DROP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e010_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "Casei",
+            "start": 0,
+            "end": 5
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2021",
+            "start": 32,
+            "end": 36
+          },
+          "normalized_time": {
+            "start": "2021-01-01T00:00:00Z",
+            "end": "2021-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": true,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "2021",
+            "start": 32,
+            "end": 36
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_011",
+      "text": "Quando chegou 1986, nasci.",
+      "categories": [
+        "SIMPLE_NARRATOR",
+        "EXACT_YEAR",
+        "PRO_DROP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e011_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasci",
+            "start": 20,
+            "end": 25
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1986",
+            "start": 14,
+            "end": 18
+          },
+          "normalized_time": {
+            "start": "1986-01-01T00:00:00Z",
+            "end": "1986-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": true,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "1986",
+            "start": 14,
+            "end": 18
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_012",
+      "text": "Sem festa, casei em 2009.",
+      "categories": [
+        "SIMPLE_NARRATOR",
+        "EXACT_YEAR",
+        "PRO_DROP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e012_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "casei",
+            "start": 11,
+            "end": 16
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2009",
+            "start": 20,
+            "end": 24
+          },
+          "normalized_time": {
+            "start": "2009-01-01T00:00:00Z",
+            "end": "2009-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": true,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "2009",
+            "start": 20,
+            "end": 24
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_013",
+      "text": "Nasci em casa no ano de 1958.",
+      "categories": [
+        "SIMPLE_NARRATOR",
+        "EXACT_YEAR",
+        "PRO_DROP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e013_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "Nasci",
+            "start": 0,
+            "end": 5
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1958",
+            "start": 24,
+            "end": 28
+          },
+          "normalized_time": {
+            "start": "1958-01-01T00:00:00Z",
+            "end": "1958-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": true,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "1958",
+            "start": 24,
+            "end": 28
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_014",
+      "text": "Depois de muitos planos, casei em 2013.",
+      "categories": [
+        "SIMPLE_NARRATOR",
+        "EXACT_YEAR",
+        "PRO_DROP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e014_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "casei",
+            "start": 25,
+            "end": 30
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2013",
+            "start": 34,
+            "end": 38
+          },
+          "normalized_time": {
+            "start": "2013-01-01T00:00:00Z",
+            "end": "2013-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": true,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "2013",
+            "start": 34,
+            "end": 38
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_015",
+      "text": "Nasci, segundo minha certidão, em 1996.",
+      "categories": [
+        "SIMPLE_NARRATOR",
+        "EXACT_YEAR",
+        "PRO_DROP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e015_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "Nasci",
+            "start": 0,
+            "end": 5
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1996",
+            "start": 34,
+            "end": 38
+          },
+          "normalized_time": {
+            "start": "1996-01-01T00:00:00Z",
+            "end": "1996-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": true,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "1996",
+            "start": 34,
+            "end": 38
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_016",
+      "text": "Eu nasci em 1989.",
+      "categories": [
+        "SIMPLE_NARRATOR",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e016_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasci",
+            "start": 3,
+            "end": 8
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1989",
+            "start": 12,
+            "end": 16
+          },
+          "normalized_time": {
+            "start": "1989-01-01T00:00:00Z",
+            "end": "1989-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "1989",
+            "start": 12,
+            "end": 16
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_017",
+      "text": "Eu me casei em 2017.",
+      "categories": [
+        "SIMPLE_NARRATOR",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e017_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "me casei",
+            "start": 3,
+            "end": 11
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2017",
+            "start": 15,
+            "end": 19
+          },
+          "normalized_time": {
+            "start": "2017-01-01T00:00:00Z",
+            "end": "2017-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "2017",
+            "start": 15,
+            "end": 19
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_018",
+      "text": "Em 1972, eu nasci.",
+      "categories": [
+        "SIMPLE_NARRATOR",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e018_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasci",
+            "start": 12,
+            "end": 17
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1972",
+            "start": 3,
+            "end": 7
+          },
+          "normalized_time": {
+            "start": "1972-01-01T00:00:00Z",
+            "end": "1972-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "1972",
+            "start": 3,
+            "end": 7
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_019",
+      "text": "Eu finalmente me casei em 2006.",
+      "categories": [
+        "SIMPLE_NARRATOR",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e019_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "me casei",
+            "start": 14,
+            "end": 22
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2006",
+            "start": 26,
+            "end": 30
+          },
+          "normalized_time": {
+            "start": "2006-01-01T00:00:00Z",
+            "end": "2006-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "2006",
+            "start": 26,
+            "end": 30
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_020",
+      "text": "Eu nasci durante o inverno de 1990.",
+      "categories": [
+        "SIMPLE_NARRATOR",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e020_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasci",
+            "start": 3,
+            "end": 8
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1990",
+            "start": 30,
+            "end": 34
+          },
+          "normalized_time": {
+            "start": "1990-01-01T00:00:00Z",
+            "end": "1990-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "1990",
+            "start": 30,
+            "end": 34
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_021",
+      "text": "Ana recorda que seu irmão foi natimorto em 1951.",
+      "categories": [
+        "EXPLICIT_THIRD_PARTY",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS",
+        "KINSHIP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e021_1",
+          "event_type": "natimorto",
+          "trigger": {
+            "text": "natimorto",
+            "start": 30,
+            "end": 39
+          },
+          "subject": {
+            "expected_text": "seu irmão",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1951",
+            "start": 43,
+            "end": 47
+          },
+          "normalized_time": {
+            "start": "1951-01-01T00:00:00Z",
+            "end": "1951-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Ana",
+            "start": 0,
+            "end": 3
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "1951",
+            "start": 43,
+            "end": 47
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_022",
+      "text": "Bruno acompanhou meu pai, que morreu em 2003.",
+      "categories": [
+        "EXPLICIT_THIRD_PARTY",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS",
+        "KINSHIP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e022_1",
+          "event_type": "obito",
+          "trigger": {
+            "text": "morreu",
+            "start": 30,
+            "end": 36
+          },
+          "subject": {
+            "expected_text": "meu pai",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2003",
+            "start": 40,
+            "end": 44
+          },
+          "normalized_time": {
+            "start": "2003-01-01T00:00:00Z",
+            "end": "2003-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Bruno",
+            "start": 0,
+            "end": 5
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2003",
+            "start": 40,
+            "end": 44
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_023",
+      "text": "Contei a Carla que meu irmão se casou em 2014.",
+      "categories": [
+        "EXPLICIT_THIRD_PARTY",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS",
+        "KINSHIP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e023_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casou",
+            "start": 29,
+            "end": 37
+          },
+          "subject": {
+            "expected_text": "meu irmão",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2014",
+            "start": 41,
+            "end": 45
+          },
+          "normalized_time": {
+            "start": "2014-01-01T00:00:00Z",
+            "end": "2014-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Carla",
+            "start": 9,
+            "end": 14
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2014",
+            "start": 41,
+            "end": 45
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_024",
+      "text": "Davi visitou minha filha depois que ela nasceu em 2020.",
+      "categories": [
+        "EXPLICIT_THIRD_PARTY",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS",
+        "KINSHIP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e024_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 40,
+            "end": 46
+          },
+          "subject": {
+            "expected_text": "minha filha",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2020",
+            "start": 50,
+            "end": 54
+          },
+          "normalized_time": {
+            "start": "2020-01-01T00:00:00Z",
+            "end": "2020-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Davi",
+            "start": 0,
+            "end": 4
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2020",
+            "start": 50,
+            "end": 54
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_025",
+      "text": "Elisa conheceu nosso avô antes de ele morrer em 1997.",
+      "categories": [
+        "EXPLICIT_THIRD_PARTY",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS",
+        "KINSHIP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e025_1",
+          "event_type": "obito",
+          "trigger": {
+            "text": "morrer",
+            "start": 38,
+            "end": 44
+          },
+          "subject": {
+            "expected_text": "nosso avô",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1997",
+            "start": 48,
+            "end": 52
+          },
+          "normalized_time": {
+            "start": "1997-01-01T00:00:00Z",
+            "end": "1997-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Elisa",
+            "start": 0,
+            "end": 5
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "1997",
+            "start": 48,
+            "end": 52
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_026",
+      "text": "Fábio fotografou minha irmã quando ela se casou em 2012.",
+      "categories": [
+        "EXPLICIT_THIRD_PARTY",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS",
+        "KINSHIP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e026_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casou",
+            "start": 39,
+            "end": 47
+          },
+          "subject": {
+            "expected_text": "minha irmã",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2012",
+            "start": 51,
+            "end": 55
+          },
+          "normalized_time": {
+            "start": "2012-01-01T00:00:00Z",
+            "end": "2012-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Fábio",
+            "start": 0,
+            "end": 5
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2012",
+            "start": 51,
+            "end": 55
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_027",
+      "text": "Gabriela cuidou do meu marido, que morreu em 2024.",
+      "categories": [
+        "EXPLICIT_THIRD_PARTY",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS",
+        "KINSHIP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e027_1",
+          "event_type": "obito",
+          "trigger": {
+            "text": "morreu",
+            "start": 35,
+            "end": 41
+          },
+          "subject": {
+            "expected_text": "meu marido",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2024",
+            "start": 45,
+            "end": 49
+          },
+          "normalized_time": {
+            "start": "2024-01-01T00:00:00Z",
+            "end": "2024-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Gabriela",
+            "start": 0,
+            "end": 8
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2024",
+            "start": 45,
+            "end": 49
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_028",
+      "text": "Henrique viu nossa filha nascer em 2019.",
+      "categories": [
+        "EXPLICIT_THIRD_PARTY",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS",
+        "KINSHIP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e028_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nascer",
+            "start": 25,
+            "end": 31
+          },
+          "subject": {
+            "expected_text": "nossa filha",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2019",
+            "start": 35,
+            "end": 39
+          },
+          "normalized_time": {
+            "start": "2019-01-01T00:00:00Z",
+            "end": "2019-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Henrique",
+            "start": 0,
+            "end": 8
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2019",
+            "start": 35,
+            "end": 39
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_029",
+      "text": "Iara encontrou meu filho após ele se casar em 2023.",
+      "categories": [
+        "EXPLICIT_THIRD_PARTY",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS",
+        "KINSHIP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e029_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casar",
+            "start": 34,
+            "end": 42
+          },
+          "subject": {
+            "expected_text": "meu filho",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2023",
+            "start": 46,
+            "end": 50
+          },
+          "normalized_time": {
+            "start": "2023-01-01T00:00:00Z",
+            "end": "2023-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Iara",
+            "start": 0,
+            "end": 4
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2023",
+            "start": 46,
+            "end": 50
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_030",
+      "text": "Jonas falou de minha avó, que nasceu em 1940.",
+      "categories": [
+        "EXPLICIT_THIRD_PARTY",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS",
+        "KINSHIP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e030_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 30,
+            "end": 36
+          },
+          "subject": {
+            "expected_text": "minha avó",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1940",
+            "start": 40,
+            "end": 44
+          },
+          "normalized_time": {
+            "start": "1940-01-01T00:00:00Z",
+            "end": "1940-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Jonas",
+            "start": 0,
+            "end": 5
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "1940",
+            "start": 40,
+            "end": 44
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_031",
+      "text": "Karen escreveu sobre meu tio, falecido em 2008.",
+      "categories": [
+        "EXPLICIT_THIRD_PARTY",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS",
+        "KINSHIP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e031_1",
+          "event_type": "obito",
+          "trigger": {
+            "text": "falecido",
+            "start": 30,
+            "end": 38
+          },
+          "subject": {
+            "expected_text": "meu tio",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2008",
+            "start": 42,
+            "end": 46
+          },
+          "normalized_time": {
+            "start": "2008-01-01T00:00:00Z",
+            "end": "2008-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Karen",
+            "start": 0,
+            "end": 5
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2008",
+            "start": 42,
+            "end": 46
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_032",
+      "text": "Lucas encontrou nossa mãe após o casamento dela em 1985.",
+      "categories": [
+        "EXPLICIT_THIRD_PARTY",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS",
+        "KINSHIP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e032_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "casamento",
+            "start": 33,
+            "end": 42
+          },
+          "subject": {
+            "expected_text": "nossa mãe",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1985",
+            "start": 51,
+            "end": 55
+          },
+          "normalized_time": {
+            "start": "1985-01-01T00:00:00Z",
+            "end": "1985-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Lucas",
+            "start": 0,
+            "end": 5
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "1985",
+            "start": 51,
+            "end": 55
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_033",
+      "text": "Marina abraçou meu irmão quando o bebê dele nasceu em 2016.",
+      "categories": [
+        "EXPLICIT_THIRD_PARTY",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS",
+        "KINSHIP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e033_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 44,
+            "end": 50
+          },
+          "subject": {
+            "expected_text": "o bebê dele",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2016",
+            "start": 54,
+            "end": 58
+          },
+          "normalized_time": {
+            "start": "2016-01-01T00:00:00Z",
+            "end": "2016-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Marina",
+            "start": 0,
+            "end": 6
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2016",
+            "start": 54,
+            "end": 58
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_034",
+      "text": "Nuno conheceu minha esposa, nascida em 1982.",
+      "categories": [
+        "EXPLICIT_THIRD_PARTY",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS",
+        "KINSHIP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e034_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nascida",
+            "start": 28,
+            "end": 35
+          },
+          "subject": {
+            "expected_text": "minha esposa",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1982",
+            "start": 39,
+            "end": 43
+          },
+          "normalized_time": {
+            "start": "1982-01-01T00:00:00Z",
+            "end": "1982-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Nuno",
+            "start": 0,
+            "end": 4
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "1982",
+            "start": 39,
+            "end": 43
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_035",
+      "text": "Olívia visitou nosso pai pouco antes de ele morrer em 2010.",
+      "categories": [
+        "EXPLICIT_THIRD_PARTY",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS",
+        "KINSHIP"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e035_1",
+          "event_type": "obito",
+          "trigger": {
+            "text": "morrer",
+            "start": 44,
+            "end": 50
+          },
+          "subject": {
+            "expected_text": "nosso pai",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2010",
+            "start": 54,
+            "end": 58
+          },
+          "normalized_time": {
+            "start": "2010-01-01T00:00:00Z",
+            "end": "2010-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Olívia",
+            "start": 0,
+            "end": 6
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2010",
+            "start": 54,
+            "end": 58
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_036",
+      "text": "Paula contou que Renato nasceu em 1974.",
+      "categories": [
+        "EXPLICIT_THIRD_PARTY",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e036_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 24,
+            "end": 30
+          },
+          "subject": {
+            "expected_text": "Renato",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1974",
+            "start": 34,
+            "end": 38
+          },
+          "normalized_time": {
+            "start": "1974-01-01T00:00:00Z",
+            "end": "1974-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Paula",
+            "start": 0,
+            "end": 5
+          },
+          {
+            "text": "Renato",
+            "start": 17,
+            "end": 23
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "1974",
+            "start": 34,
+            "end": 38
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_037",
+      "text": "Quésia viu Sérgio se casar com Talita em 2000.",
+      "categories": [
+        "EXPLICIT_THIRD_PARTY",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e037_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casar",
+            "start": 18,
+            "end": 26
+          },
+          "subject": {
+            "expected_text": "Sérgio",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [
+            "Talita"
+          ],
+          "date_expression": {
+            "text": "2000",
+            "start": 41,
+            "end": 45
+          },
+          "normalized_time": {
+            "start": "2000-01-01T00:00:00Z",
+            "end": "2000-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Quésia",
+            "start": 0,
+            "end": 6
+          },
+          {
+            "text": "Sérgio",
+            "start": 11,
+            "end": 17
+          },
+          {
+            "text": "Talita",
+            "start": 31,
+            "end": 37
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2000",
+            "start": 41,
+            "end": 45
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_038",
+      "text": "Rita encontrou Tadeu antes de ele morrer em 2018.",
+      "categories": [
+        "EXPLICIT_THIRD_PARTY",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e038_1",
+          "event_type": "obito",
+          "trigger": {
+            "text": "morrer",
+            "start": 34,
+            "end": 40
+          },
+          "subject": {
+            "expected_text": "Tadeu",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2018",
+            "start": 44,
+            "end": 48
+          },
+          "normalized_time": {
+            "start": "2018-01-01T00:00:00Z",
+            "end": "2018-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Rita",
+            "start": 0,
+            "end": 4
+          },
+          {
+            "text": "Tadeu",
+            "start": 15,
+            "end": 20
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2018",
+            "start": 44,
+            "end": 48
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_039",
+      "text": "Ubirajara conheceu Vera, que nasceu em 1995.",
+      "categories": [
+        "EXPLICIT_THIRD_PARTY",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e039_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 29,
+            "end": 35
+          },
+          "subject": {
+            "expected_text": "Vera",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1995",
+            "start": 39,
+            "end": 43
+          },
+          "normalized_time": {
+            "start": "1995-01-01T00:00:00Z",
+            "end": "1995-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Ubirajara",
+            "start": 0,
+            "end": 9
+          },
+          {
+            "text": "Vera",
+            "start": 19,
+            "end": 23
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "1995",
+            "start": 39,
+            "end": 43
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_040",
+      "text": "Wesley assistiu Xavier se casar em 2022.",
+      "categories": [
+        "EXPLICIT_THIRD_PARTY",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e040_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casar",
+            "start": 23,
+            "end": 31
+          },
+          "subject": {
+            "expected_text": "Xavier",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2022",
+            "start": 35,
+            "end": 39
+          },
+          "normalized_time": {
+            "start": "2022-01-01T00:00:00Z",
+            "end": "2022-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Wesley",
+            "start": 0,
+            "end": 6
+          },
+          {
+            "text": "Xavier",
+            "start": 16,
+            "end": 22
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2022",
+            "start": 35,
+            "end": 39
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_041",
+      "text": "Meu filho nasceu em 1980 e minha filha nasceu em 1981.",
+      "categories": [
+        "MULTI_EVENT",
+        "COORDINATED_EVENTS",
+        "REPEATED_SAME_TYPE",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e041_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 10,
+            "end": 16
+          },
+          "subject": {
+            "expected_text": "Meu filho",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1980",
+            "start": 20,
+            "end": 24
+          },
+          "normalized_time": {
+            "start": "1980-01-01T00:00:00Z",
+            "end": "1980-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        },
+        {
+          "event_id": "e041_2",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 39,
+            "end": 45
+          },
+          "subject": {
+            "expected_text": "minha filha",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1981",
+            "start": 49,
+            "end": 53
+          },
+          "normalized_time": {
+            "start": "1981-01-01T00:00:00Z",
+            "end": "1981-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "1980",
+            "start": 20,
+            "end": 24
+          },
+          {
+            "text": "1981",
+            "start": 49,
+            "end": 53
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_042",
+      "text": "Casei em 2002 e me casei novamente em 2015.",
+      "categories": [
+        "MULTI_EVENT",
+        "COORDINATED_EVENTS",
+        "REPEATED_SAME_TYPE",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e042_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "Casei",
+            "start": 0,
+            "end": 5
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2002",
+            "start": 9,
+            "end": 13
+          },
+          "normalized_time": {
+            "start": "2002-01-01T00:00:00Z",
+            "end": "2002-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        },
+        {
+          "event_id": "e042_2",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "me casei",
+            "start": 16,
+            "end": 24
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2015",
+            "start": 38,
+            "end": 42
+          },
+          "normalized_time": {
+            "start": "2015-01-01T00:00:00Z",
+            "end": "2015-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "2002",
+            "start": 9,
+            "end": 13
+          },
+          {
+            "text": "2015",
+            "start": 38,
+            "end": 42
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_043",
+      "text": "Ana e Beatriz se casaram em 1990 e se casaram novamente em 2010.",
+      "categories": [
+        "MULTI_EVENT",
+        "COORDINATED_EVENTS",
+        "REPEATED_SAME_TYPE",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e043_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casaram",
+            "start": 14,
+            "end": 24
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "UNRESOLVED"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1990",
+            "start": 28,
+            "end": 32
+          },
+          "normalized_time": {
+            "start": "1990-01-01T00:00:00Z",
+            "end": "1990-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        },
+        {
+          "event_id": "e043_2",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casaram",
+            "start": 35,
+            "end": 45
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "UNRESOLVED"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2010",
+            "start": 59,
+            "end": 63
+          },
+          "normalized_time": {
+            "start": "2010-01-01T00:00:00Z",
+            "end": "2010-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": true,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": [
+          "Ana",
+          "Beatriz"
+        ]
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Ana",
+            "start": 0,
+            "end": 3
+          },
+          {
+            "text": "Beatriz",
+            "start": 6,
+            "end": 13
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "1990",
+            "start": 28,
+            "end": 32
+          },
+          {
+            "text": "2010",
+            "start": 59,
+            "end": 63
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_044",
+      "text": "Pedro se casou em 1999 e seu filho se casou em 2021.",
+      "categories": [
+        "MULTI_EVENT",
+        "COORDINATED_EVENTS",
+        "REPEATED_SAME_TYPE",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e044_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casou",
+            "start": 6,
+            "end": 14
+          },
+          "subject": {
+            "expected_text": "Pedro",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1999",
+            "start": 18,
+            "end": 22
+          },
+          "normalized_time": {
+            "start": "1999-01-01T00:00:00Z",
+            "end": "1999-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        },
+        {
+          "event_id": "e044_2",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casou",
+            "start": 35,
+            "end": 43
+          },
+          "subject": {
+            "expected_text": "seu filho",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2021",
+            "start": 47,
+            "end": 51
+          },
+          "normalized_time": {
+            "start": "2021-01-01T00:00:00Z",
+            "end": "2021-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Pedro",
+            "start": 0,
+            "end": 5
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "1999",
+            "start": 18,
+            "end": 22
+          },
+          {
+            "text": "2021",
+            "start": 47,
+            "end": 51
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_045",
+      "text": "Minha avó nasceu em 1930, e minha mãe nasceu em 1955.",
+      "categories": [
+        "MULTI_EVENT",
+        "COORDINATED_EVENTS",
+        "REPEATED_SAME_TYPE",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e045_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 10,
+            "end": 16
+          },
+          "subject": {
+            "expected_text": "Minha avó",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1930",
+            "start": 20,
+            "end": 24
+          },
+          "normalized_time": {
+            "start": "1930-01-01T00:00:00Z",
+            "end": "1930-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        },
+        {
+          "event_id": "e045_2",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 38,
+            "end": 44
+          },
+          "subject": {
+            "expected_text": "minha mãe",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1955",
+            "start": 48,
+            "end": 52
+          },
+          "normalized_time": {
+            "start": "1955-01-01T00:00:00Z",
+            "end": "1955-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "1930",
+            "start": 20,
+            "end": 24
+          },
+          {
+            "text": "1955",
+            "start": 48,
+            "end": 52
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_046",
+      "text": "Casei em 1988; décadas depois, casei em 2018.",
+      "categories": [
+        "MULTI_EVENT",
+        "COORDINATED_EVENTS",
+        "REPEATED_SAME_TYPE",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e046_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "Casei",
+            "start": 0,
+            "end": 5
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1988",
+            "start": 9,
+            "end": 13
+          },
+          "normalized_time": {
+            "start": "1988-01-01T00:00:00Z",
+            "end": "1988-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        },
+        {
+          "event_id": "e046_2",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "casei",
+            "start": 31,
+            "end": 36
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2018",
+            "start": 40,
+            "end": 44
+          },
+          "normalized_time": {
+            "start": "2018-01-01T00:00:00Z",
+            "end": "2018-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "1988",
+            "start": 9,
+            "end": 13
+          },
+          {
+            "text": "2018",
+            "start": 40,
+            "end": 44
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_047",
+      "text": "Clara morreu em 2001 e o marido dela morreu em 2006.",
+      "categories": [
+        "MULTI_EVENT",
+        "COORDINATED_EVENTS",
+        "REPEATED_SAME_TYPE",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e047_1",
+          "event_type": "obito",
+          "trigger": {
+            "text": "morreu",
+            "start": 6,
+            "end": 12
+          },
+          "subject": {
+            "expected_text": "Clara",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2001",
+            "start": 16,
+            "end": 20
+          },
+          "normalized_time": {
+            "start": "2001-01-01T00:00:00Z",
+            "end": "2001-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        },
+        {
+          "event_id": "e047_2",
+          "event_type": "obito",
+          "trigger": {
+            "text": "morreu",
+            "start": 37,
+            "end": 43
+          },
+          "subject": {
+            "expected_text": "o marido dela",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2006",
+            "start": 47,
+            "end": 51
+          },
+          "normalized_time": {
+            "start": "2006-01-01T00:00:00Z",
+            "end": "2006-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Clara",
+            "start": 0,
+            "end": 5
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2001",
+            "start": 16,
+            "end": 20
+          },
+          {
+            "text": "2006",
+            "start": 47,
+            "end": 51
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_048",
+      "text": "João e Maria se casaram em 1977; Pedro e Laura se casaram em 1979.",
+      "categories": [
+        "MULTI_EVENT",
+        "COORDINATED_EVENTS",
+        "REPEATED_SAME_TYPE",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e048_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casaram",
+            "start": 13,
+            "end": 23
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "UNRESOLVED"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1977",
+            "start": 27,
+            "end": 31
+          },
+          "normalized_time": {
+            "start": "1977-01-01T00:00:00Z",
+            "end": "1977-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        },
+        {
+          "event_id": "e048_2",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casaram",
+            "start": 47,
+            "end": 57
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "UNRESOLVED"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1979",
+            "start": 61,
+            "end": 65
+          },
+          "normalized_time": {
+            "start": "1979-01-01T00:00:00Z",
+            "end": "1979-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": true,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": [
+          "João",
+          "Maria",
+          "Pedro",
+          "Laura"
+        ]
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "João",
+            "start": 0,
+            "end": 4
+          },
+          {
+            "text": "Maria",
+            "start": 7,
+            "end": 12
+          },
+          {
+            "text": "Pedro",
+            "start": 33,
+            "end": 38
+          },
+          {
+            "text": "Laura",
+            "start": 41,
+            "end": 46
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "1977",
+            "start": 27,
+            "end": 31
+          },
+          {
+            "text": "1979",
+            "start": 61,
+            "end": 65
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_049",
+      "text": "Eu me casei em 2005 e me casei outra vez em 2020.",
+      "categories": [
+        "MULTI_EVENT",
+        "COORDINATED_EVENTS",
+        "REPEATED_SAME_TYPE",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e049_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "me casei",
+            "start": 3,
+            "end": 11
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2005",
+            "start": 15,
+            "end": 19
+          },
+          "normalized_time": {
+            "start": "2005-01-01T00:00:00Z",
+            "end": "2005-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        },
+        {
+          "event_id": "e049_2",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "me casei",
+            "start": 22,
+            "end": 30
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2020",
+            "start": 44,
+            "end": 48
+          },
+          "normalized_time": {
+            "start": "2020-01-01T00:00:00Z",
+            "end": "2020-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "2005",
+            "start": 15,
+            "end": 19
+          },
+          {
+            "text": "2020",
+            "start": 44,
+            "end": 48
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_050",
+      "text": "Luís faleceu em 2011; seu irmão faleceu em 2019.",
+      "categories": [
+        "MULTI_EVENT",
+        "COORDINATED_EVENTS",
+        "REPEATED_SAME_TYPE",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e050_1",
+          "event_type": "obito",
+          "trigger": {
+            "text": "faleceu",
+            "start": 5,
+            "end": 12
+          },
+          "subject": {
+            "expected_text": "Luís",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2011",
+            "start": 16,
+            "end": 20
+          },
+          "normalized_time": {
+            "start": "2011-01-01T00:00:00Z",
+            "end": "2011-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        },
+        {
+          "event_id": "e050_2",
+          "event_type": "obito",
+          "trigger": {
+            "text": "faleceu",
+            "start": 32,
+            "end": 39
+          },
+          "subject": {
+            "expected_text": "seu irmão",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2019",
+            "start": 43,
+            "end": 47
+          },
+          "normalized_time": {
+            "start": "2019-01-01T00:00:00Z",
+            "end": "2019-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Luís",
+            "start": 0,
+            "end": 4
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2011",
+            "start": 16,
+            "end": 20
+          },
+          {
+            "text": "2019",
+            "start": 43,
+            "end": 47
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_051",
+      "text": "Ana nasceu em 1983 e Bruno se casou em 2010.",
+      "categories": [
+        "MULTI_EVENT",
+        "EXPLICIT_SUBJECT_OVERRIDE",
+        "EXACT_YEAR",
+        "COORDINATED_EVENTS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e051_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 4,
+            "end": 10
+          },
+          "subject": {
+            "expected_text": "Ana",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1983",
+            "start": 14,
+            "end": 18
+          },
+          "normalized_time": {
+            "start": "1983-01-01T00:00:00Z",
+            "end": "1983-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        },
+        {
+          "event_id": "e051_2",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casou",
+            "start": 27,
+            "end": 35
+          },
+          "subject": {
+            "expected_text": "Bruno",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2010",
+            "start": 39,
+            "end": 43
+          },
+          "normalized_time": {
+            "start": "2010-01-01T00:00:00Z",
+            "end": "2010-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Ana",
+            "start": 0,
+            "end": 3
+          },
+          {
+            "text": "Bruno",
+            "start": 21,
+            "end": 26
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "1983",
+            "start": 14,
+            "end": 18
+          },
+          {
+            "text": "2010",
+            "start": 39,
+            "end": 43
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_052",
+      "text": "Minha mãe nasceu em 1950, mas Carlos morreu em 2020.",
+      "categories": [
+        "MULTI_EVENT",
+        "EXPLICIT_SUBJECT_OVERRIDE",
+        "EXACT_YEAR",
+        "COORDINATED_EVENTS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e052_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 10,
+            "end": 16
+          },
+          "subject": {
+            "expected_text": "Minha mãe",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1950",
+            "start": 20,
+            "end": 24
+          },
+          "normalized_time": {
+            "start": "1950-01-01T00:00:00Z",
+            "end": "1950-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        },
+        {
+          "event_id": "e052_2",
+          "event_type": "obito",
+          "trigger": {
+            "text": "morreu",
+            "start": 37,
+            "end": 43
+          },
+          "subject": {
+            "expected_text": "Carlos",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2020",
+            "start": 47,
+            "end": 51
+          },
+          "normalized_time": {
+            "start": "2020-01-01T00:00:00Z",
+            "end": "2020-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Carlos",
+            "start": 30,
+            "end": 36
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "1950",
+            "start": 20,
+            "end": 24
+          },
+          {
+            "text": "2020",
+            "start": 47,
+            "end": 51
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_053",
+      "text": "Dora se casou em 1992. Eduardo nasceu em 1994.",
+      "categories": [
+        "MULTI_EVENT",
+        "EXPLICIT_SUBJECT_OVERRIDE",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e053_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casou",
+            "start": 5,
+            "end": 13
+          },
+          "subject": {
+            "expected_text": "Dora",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1992",
+            "start": 17,
+            "end": 21
+          },
+          "normalized_time": {
+            "start": "1992-01-01T00:00:00Z",
+            "end": "1992-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        },
+        {
+          "event_id": "e053_2",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 31,
+            "end": 37
+          },
+          "subject": {
+            "expected_text": "Eduardo",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1994",
+            "start": 41,
+            "end": 45
+          },
+          "normalized_time": {
+            "start": "1994-01-01T00:00:00Z",
+            "end": "1994-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Dora",
+            "start": 0,
+            "end": 4
+          },
+          {
+            "text": "Eduardo",
+            "start": 23,
+            "end": 30
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "1992",
+            "start": 17,
+            "end": 21
+          },
+          {
+            "text": "1994",
+            "start": 41,
+            "end": 45
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_054",
+      "text": "Fátima nasceu em 1966; depois, meu irmão se casou em 2001.",
+      "categories": [
+        "MULTI_EVENT",
+        "EXPLICIT_SUBJECT_OVERRIDE",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e054_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 7,
+            "end": 13
+          },
+          "subject": {
+            "expected_text": "Fátima",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1966",
+            "start": 17,
+            "end": 21
+          },
+          "normalized_time": {
+            "start": "1966-01-01T00:00:00Z",
+            "end": "1966-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        },
+        {
+          "event_id": "e054_2",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casou",
+            "start": 41,
+            "end": 49
+          },
+          "subject": {
+            "expected_text": "meu irmão",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2001",
+            "start": 53,
+            "end": 57
+          },
+          "normalized_time": {
+            "start": "2001-01-01T00:00:00Z",
+            "end": "2001-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Fátima",
+            "start": 0,
+            "end": 6
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "1966",
+            "start": 17,
+            "end": 21
+          },
+          {
+            "text": "2001",
+            "start": 53,
+            "end": 57
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_055",
+      "text": "Gustavo morreu em 2012, enquanto Helena nasceu em 2013.",
+      "categories": [
+        "MULTI_EVENT",
+        "EXPLICIT_SUBJECT_OVERRIDE",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e055_1",
+          "event_type": "obito",
+          "trigger": {
+            "text": "morreu",
+            "start": 8,
+            "end": 14
+          },
+          "subject": {
+            "expected_text": "Gustavo",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2012",
+            "start": 18,
+            "end": 22
+          },
+          "normalized_time": {
+            "start": "2012-01-01T00:00:00Z",
+            "end": "2012-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        },
+        {
+          "event_id": "e055_2",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 40,
+            "end": 46
+          },
+          "subject": {
+            "expected_text": "Helena",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2013",
+            "start": 50,
+            "end": 54
+          },
+          "normalized_time": {
+            "start": "2013-01-01T00:00:00Z",
+            "end": "2013-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Gustavo",
+            "start": 0,
+            "end": 7
+          },
+          {
+            "text": "Helena",
+            "start": 33,
+            "end": 39
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2012",
+            "start": 18,
+            "end": 22
+          },
+          {
+            "text": "2013",
+            "start": 50,
+            "end": 54
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_056",
+      "text": "Irene se casou em 1987; já Jonas nasceu em 1990.",
+      "categories": [
+        "MULTI_EVENT",
+        "EXPLICIT_SUBJECT_OVERRIDE",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e056_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casou",
+            "start": 6,
+            "end": 14
+          },
+          "subject": {
+            "expected_text": "Irene",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1987",
+            "start": 18,
+            "end": 22
+          },
+          "normalized_time": {
+            "start": "1987-01-01T00:00:00Z",
+            "end": "1987-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        },
+        {
+          "event_id": "e056_2",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 33,
+            "end": 39
+          },
+          "subject": {
+            "expected_text": "Jonas",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1990",
+            "start": 43,
+            "end": 47
+          },
+          "normalized_time": {
+            "start": "1990-01-01T00:00:00Z",
+            "end": "1990-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Irene",
+            "start": 0,
+            "end": 5
+          },
+          {
+            "text": "Jonas",
+            "start": 27,
+            "end": 32
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "1987",
+            "start": 18,
+            "end": 22
+          },
+          {
+            "text": "1990",
+            "start": 43,
+            "end": 47
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_057",
+      "text": "Minha filha nasceu em 2015 e eu me casei em 2018.",
+      "categories": [
+        "MULTI_EVENT",
+        "EXPLICIT_SUBJECT_OVERRIDE",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e057_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 12,
+            "end": 18
+          },
+          "subject": {
+            "expected_text": "Minha filha",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2015",
+            "start": 22,
+            "end": 26
+          },
+          "normalized_time": {
+            "start": "2015-01-01T00:00:00Z",
+            "end": "2015-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        },
+        {
+          "event_id": "e057_2",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "me casei",
+            "start": 32,
+            "end": 40
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2018",
+            "start": 44,
+            "end": 48
+          },
+          "normalized_time": {
+            "start": "2018-01-01T00:00:00Z",
+            "end": "2018-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "2015",
+            "start": 22,
+            "end": 26
+          },
+          {
+            "text": "2018",
+            "start": 44,
+            "end": 48
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_058",
+      "text": "Eu nasci em 1970, mas Laura se casou em 1995.",
+      "categories": [
+        "MULTI_EVENT",
+        "EXPLICIT_SUBJECT_OVERRIDE",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e058_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasci",
+            "start": 3,
+            "end": 8
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1970",
+            "start": 12,
+            "end": 16
+          },
+          "normalized_time": {
+            "start": "1970-01-01T00:00:00Z",
+            "end": "1970-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        },
+        {
+          "event_id": "e058_2",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casou",
+            "start": 28,
+            "end": 36
+          },
+          "subject": {
+            "expected_text": "Laura",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1995",
+            "start": 40,
+            "end": 44
+          },
+          "normalized_time": {
+            "start": "1995-01-01T00:00:00Z",
+            "end": "1995-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Laura",
+            "start": 22,
+            "end": 27
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "1970",
+            "start": 12,
+            "end": 16
+          },
+          {
+            "text": "1995",
+            "start": 40,
+            "end": 44
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_059",
+      "text": "Marcos nasceu em 1988. Minha esposa morreu em 2022.",
+      "categories": [
+        "MULTI_EVENT",
+        "EXPLICIT_SUBJECT_OVERRIDE",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e059_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 7,
+            "end": 13
+          },
+          "subject": {
+            "expected_text": "Marcos",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1988",
+            "start": 17,
+            "end": 21
+          },
+          "normalized_time": {
+            "start": "1988-01-01T00:00:00Z",
+            "end": "1988-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        },
+        {
+          "event_id": "e059_2",
+          "event_type": "obito",
+          "trigger": {
+            "text": "morreu",
+            "start": 36,
+            "end": 42
+          },
+          "subject": {
+            "expected_text": "Minha esposa",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2022",
+            "start": 46,
+            "end": 50
+          },
+          "normalized_time": {
+            "start": "2022-01-01T00:00:00Z",
+            "end": "2022-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Marcos",
+            "start": 0,
+            "end": 6
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "1988",
+            "start": 17,
+            "end": 21
+          },
+          {
+            "text": "2022",
+            "start": 46,
+            "end": 50
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_060",
+      "text": "Nádia morreu em 2007; Otávio se casou em 2009.",
+      "categories": [
+        "MULTI_EVENT",
+        "EXPLICIT_SUBJECT_OVERRIDE",
+        "EXACT_YEAR"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e060_1",
+          "event_type": "obito",
+          "trigger": {
+            "text": "morreu",
+            "start": 6,
+            "end": 12
+          },
+          "subject": {
+            "expected_text": "Nádia",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2007",
+            "start": 16,
+            "end": 20
+          },
+          "normalized_time": {
+            "start": "2007-01-01T00:00:00Z",
+            "end": "2007-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        },
+        {
+          "event_id": "e060_2",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casou",
+            "start": 29,
+            "end": 37
+          },
+          "subject": {
+            "expected_text": "Otávio",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2009",
+            "start": 41,
+            "end": 45
+          },
+          "normalized_time": {
+            "start": "2009-01-01T00:00:00Z",
+            "end": "2009-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Nádia",
+            "start": 0,
+            "end": 5
+          },
+          {
+            "text": "Otávio",
+            "start": 22,
+            "end": 28
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2007",
+            "start": 16,
+            "end": 20
+          },
+          {
+            "text": "2009",
+            "start": 41,
+            "end": 45
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_061",
+      "text": "Clara disse a Paulo que nasci em 14 de março de 1991.",
+      "categories": [
+        "REPORTED_SPEECH",
+        "FULL_DATE",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e061_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasci",
+            "start": 24,
+            "end": 29
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "14 de março de 1991",
+            "start": 33,
+            "end": 52
+          },
+          "normalized_time": {
+            "start": "1991-03-14T00:00:00Z",
+            "end": "1991-03-14T23:59:59.999999Z",
+            "precision": "DAY",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": true,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [
+          "Clara"
+        ],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Clara",
+            "start": 0,
+            "end": 5
+          },
+          {
+            "text": "Paulo",
+            "start": 14,
+            "end": 19
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "14 de março de 1991",
+            "start": 33,
+            "end": 52
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_062",
+      "text": "Rui contou que Helena se casou em 2 de abril de 2018.",
+      "categories": [
+        "REPORTED_SPEECH",
+        "FULL_DATE",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e062_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casou",
+            "start": 22,
+            "end": 30
+          },
+          "subject": {
+            "expected_text": "Helena",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2 de abril de 2018",
+            "start": 34,
+            "end": 52
+          },
+          "normalized_time": {
+            "start": "2018-04-02T00:00:00Z",
+            "end": "2018-04-02T23:59:59.999999Z",
+            "precision": "DAY",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": true,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [
+          "Rui"
+        ],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Rui",
+            "start": 0,
+            "end": 3
+          },
+          {
+            "text": "Helena",
+            "start": 15,
+            "end": 21
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2 de abril de 2018",
+            "start": 34,
+            "end": 52
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_063",
+      "text": "Ivo afirmou a Joana que meu pai morreu em 7 de setembro de 1976.",
+      "categories": [
+        "REPORTED_SPEECH",
+        "FULL_DATE",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e063_1",
+          "event_type": "obito",
+          "trigger": {
+            "text": "morreu",
+            "start": 32,
+            "end": 38
+          },
+          "subject": {
+            "expected_text": "meu pai",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "7 de setembro de 1976",
+            "start": 42,
+            "end": 63
+          },
+          "normalized_time": {
+            "start": "1976-09-07T00:00:00Z",
+            "end": "1976-09-07T23:59:59.999999Z",
+            "precision": "DAY",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": true,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [
+          "Ivo"
+        ],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Ivo",
+            "start": 0,
+            "end": 3
+          },
+          {
+            "text": "Joana",
+            "start": 14,
+            "end": 19
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "7 de setembro de 1976",
+            "start": 42,
+            "end": 63
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_064",
+      "text": "Karen declarou que sua filha nasceu em 21 de janeiro de 2020.",
+      "categories": [
+        "REPORTED_SPEECH",
+        "FULL_DATE",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e064_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 29,
+            "end": 35
+          },
+          "subject": {
+            "expected_text": "sua filha",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "21 de janeiro de 2020",
+            "start": 39,
+            "end": 60
+          },
+          "normalized_time": {
+            "start": "2020-01-21T00:00:00Z",
+            "end": "2020-01-21T23:59:59.999999Z",
+            "precision": "DAY",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": true,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [
+          "Karen"
+        ],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Karen",
+            "start": 0,
+            "end": 5
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "21 de janeiro de 2020",
+            "start": 39,
+            "end": 60
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_065",
+      "text": "Lucas disse a Marta que casei em 30 de junho de 1984.",
+      "categories": [
+        "REPORTED_SPEECH",
+        "FULL_DATE",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e065_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "casei",
+            "start": 24,
+            "end": 29
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "30 de junho de 1984",
+            "start": 33,
+            "end": 52
+          },
+          "normalized_time": {
+            "start": "1984-06-30T00:00:00Z",
+            "end": "1984-06-30T23:59:59.999999Z",
+            "precision": "DAY",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": true,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [
+          "Lucas"
+        ],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Lucas",
+            "start": 0,
+            "end": 5
+          },
+          {
+            "text": "Marta",
+            "start": 14,
+            "end": 19
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "30 de junho de 1984",
+            "start": 33,
+            "end": 52
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_066",
+      "text": "Nina contou que Roberto se casou em 5 de maio de 2015.",
+      "categories": [
+        "REPORTED_SPEECH",
+        "FULL_DATE",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e066_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casou",
+            "start": 24,
+            "end": 32
+          },
+          "subject": {
+            "expected_text": "Roberto",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "5 de maio de 2015",
+            "start": 36,
+            "end": 53
+          },
+          "normalized_time": {
+            "start": "2015-05-05T00:00:00Z",
+            "end": "2015-05-05T23:59:59.999999Z",
+            "precision": "DAY",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": true,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [
+          "Nina"
+        ],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Nina",
+            "start": 0,
+            "end": 4
+          },
+          {
+            "text": "Roberto",
+            "start": 16,
+            "end": 23
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "5 de maio de 2015",
+            "start": 36,
+            "end": 53
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_067",
+      "text": "Olga afirmou a Pedro que minha mãe nasceu em 12 de outubro de 1999.",
+      "categories": [
+        "REPORTED_SPEECH",
+        "FULL_DATE",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e067_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 35,
+            "end": 41
+          },
+          "subject": {
+            "expected_text": "minha mãe",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "12 de outubro de 1999",
+            "start": 45,
+            "end": 66
+          },
+          "normalized_time": {
+            "start": "1999-10-12T00:00:00Z",
+            "end": "1999-10-12T23:59:59.999999Z",
+            "precision": "DAY",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": true,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [
+          "Olga"
+        ],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Olga",
+            "start": 0,
+            "end": 4
+          },
+          {
+            "text": "Pedro",
+            "start": 15,
+            "end": 20
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "12 de outubro de 1999",
+            "start": 45,
+            "end": 66
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_068",
+      "text": "Quim declarou que Teresa morreu em 8 de fevereiro de 2008.",
+      "categories": [
+        "REPORTED_SPEECH",
+        "FULL_DATE",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e068_1",
+          "event_type": "obito",
+          "trigger": {
+            "text": "morreu",
+            "start": 25,
+            "end": 31
+          },
+          "subject": {
+            "expected_text": "Teresa",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "8 de fevereiro de 2008",
+            "start": 35,
+            "end": 57
+          },
+          "normalized_time": {
+            "start": "2008-02-08T00:00:00Z",
+            "end": "2008-02-08T23:59:59.999999Z",
+            "precision": "DAY",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": true,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [
+          "Quim"
+        ],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Quim",
+            "start": 0,
+            "end": 4
+          },
+          {
+            "text": "Teresa",
+            "start": 18,
+            "end": 24
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "8 de fevereiro de 2008",
+            "start": 35,
+            "end": 57
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_069",
+      "text": "Ursula contou a Vítor que nasci em 19 de novembro de 1968.",
+      "categories": [
+        "REPORTED_SPEECH",
+        "FULL_DATE",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e069_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasci",
+            "start": 26,
+            "end": 31
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "19 de novembro de 1968",
+            "start": 35,
+            "end": 57
+          },
+          "normalized_time": {
+            "start": "1968-11-19T00:00:00Z",
+            "end": "1968-11-19T23:59:59.999999Z",
+            "precision": "DAY",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": true,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [
+          "Ursula"
+        ],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Ursula",
+            "start": 0,
+            "end": 6
+          },
+          {
+            "text": "Vítor",
+            "start": 16,
+            "end": 21
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "19 de novembro de 1968",
+            "start": 35,
+            "end": 57
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_070",
+      "text": "Wanda disse que Xavier se casou em 3 de agosto de 2022.",
+      "categories": [
+        "REPORTED_SPEECH",
+        "FULL_DATE",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e070_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casou",
+            "start": 23,
+            "end": 31
+          },
+          "subject": {
+            "expected_text": "Xavier",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "3 de agosto de 2022",
+            "start": 35,
+            "end": 54
+          },
+          "normalized_time": {
+            "start": "2022-08-03T00:00:00Z",
+            "end": "2022-08-03T23:59:59.999999Z",
+            "precision": "DAY",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": true,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [
+          "Wanda"
+        ],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Wanda",
+            "start": 0,
+            "end": 5
+          },
+          {
+            "text": "Xavier",
+            "start": 16,
+            "end": 22
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "3 de agosto de 2022",
+            "start": 35,
+            "end": 54
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_071",
+      "text": "Depois de falar com Ana em 2010, casei em 2018.",
+      "categories": [
+        "INCIDENTAL_PERSON",
+        "DISTRACTOR_DATE",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e071_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "casei",
+            "start": 33,
+            "end": 38
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2018",
+            "start": 42,
+            "end": 46
+          },
+          "normalized_time": {
+            "start": "2018-01-01T00:00:00Z",
+            "end": "2018-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": true,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [
+          "Ana"
+        ],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Ana",
+            "start": 20,
+            "end": 23
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2010",
+            "start": 27,
+            "end": 31
+          },
+          {
+            "text": "2018",
+            "start": 42,
+            "end": 46
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_072",
+      "text": "Após visitar Bruno em 1999, Carla nasceu em 2001.",
+      "categories": [
+        "INCIDENTAL_PERSON",
+        "DISTRACTOR_DATE",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e072_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 34,
+            "end": 40
+          },
+          "subject": {
+            "expected_text": "Carla",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2001",
+            "start": 44,
+            "end": 48
+          },
+          "normalized_time": {
+            "start": "2001-01-01T00:00:00Z",
+            "end": "2001-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": true,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [
+          "Bruno"
+        ],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Bruno",
+            "start": 13,
+            "end": 18
+          },
+          {
+            "text": "Carla",
+            "start": 28,
+            "end": 33
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "1999",
+            "start": 22,
+            "end": 26
+          },
+          {
+            "text": "2001",
+            "start": 44,
+            "end": 48
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_073",
+      "text": "Conversei com Davi em 2015 e minha irmã se casou em 2020.",
+      "categories": [
+        "INCIDENTAL_PERSON",
+        "DISTRACTOR_DATE",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e073_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casou",
+            "start": 40,
+            "end": 48
+          },
+          "subject": {
+            "expected_text": "minha irmã",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2020",
+            "start": 52,
+            "end": 56
+          },
+          "normalized_time": {
+            "start": "2020-01-01T00:00:00Z",
+            "end": "2020-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": true,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [
+          "Davi"
+        ],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Davi",
+            "start": 14,
+            "end": 18
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2015",
+            "start": 22,
+            "end": 26
+          },
+          {
+            "text": "2020",
+            "start": 52,
+            "end": 56
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_074",
+      "text": "Fui com Elisa ao hospital em 2017; meu pai morreu em 2019.",
+      "categories": [
+        "INCIDENTAL_PERSON",
+        "DISTRACTOR_DATE",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e074_1",
+          "event_type": "obito",
+          "trigger": {
+            "text": "morreu",
+            "start": 43,
+            "end": 49
+          },
+          "subject": {
+            "expected_text": "meu pai",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2019",
+            "start": 53,
+            "end": 57
+          },
+          "normalized_time": {
+            "start": "2019-01-01T00:00:00Z",
+            "end": "2019-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": true,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [
+          "Elisa"
+        ],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Elisa",
+            "start": 8,
+            "end": 13
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2017",
+            "start": 29,
+            "end": 33
+          },
+          {
+            "text": "2019",
+            "start": 53,
+            "end": 57
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_075",
+      "text": "Escrevi para Fábio em 2004 antes de me casar em 2008.",
+      "categories": [
+        "INCIDENTAL_PERSON",
+        "DISTRACTOR_DATE",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e075_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "me casar",
+            "start": 36,
+            "end": 44
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2008",
+            "start": 48,
+            "end": 52
+          },
+          "normalized_time": {
+            "start": "2008-01-01T00:00:00Z",
+            "end": "2008-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": true,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [
+          "Fábio"
+        ],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Fábio",
+            "start": 13,
+            "end": 18
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2004",
+            "start": 22,
+            "end": 26
+          },
+          {
+            "text": "2008",
+            "start": 48,
+            "end": 52
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_076",
+      "text": "Gabriela falou sobre Henrique em 1990, e Iara nasceu em 1992.",
+      "categories": [
+        "INCIDENTAL_PERSON",
+        "DISTRACTOR_DATE",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e076_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 46,
+            "end": 52
+          },
+          "subject": {
+            "expected_text": "Iara",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1992",
+            "start": 56,
+            "end": 60
+          },
+          "normalized_time": {
+            "start": "1992-01-01T00:00:00Z",
+            "end": "1992-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": true,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [
+          "Gabriela",
+          "Henrique"
+        ],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Gabriela",
+            "start": 0,
+            "end": 8
+          },
+          {
+            "text": "Henrique",
+            "start": 21,
+            "end": 29
+          },
+          {
+            "text": "Iara",
+            "start": 41,
+            "end": 45
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "1990",
+            "start": 33,
+            "end": 37
+          },
+          {
+            "text": "1992",
+            "start": 56,
+            "end": 60
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_077",
+      "text": "Viajei com Jonas em 2011; depois, casei em 2016.",
+      "categories": [
+        "INCIDENTAL_PERSON",
+        "DISTRACTOR_DATE",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e077_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "casei",
+            "start": 34,
+            "end": 39
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "NARRATOR"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2016",
+            "start": 43,
+            "end": 47
+          },
+          "normalized_time": {
+            "start": "2016-01-01T00:00:00Z",
+            "end": "2016-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": true,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [
+          "Jonas"
+        ],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Jonas",
+            "start": 11,
+            "end": 16
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2011",
+            "start": 20,
+            "end": 24
+          },
+          {
+            "text": "2016",
+            "start": 43,
+            "end": 47
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_078",
+      "text": "Karen enviou cartas para Lucas em 2002 antes de Maria morrer em 2007.",
+      "categories": [
+        "INCIDENTAL_PERSON",
+        "DISTRACTOR_DATE",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e078_1",
+          "event_type": "obito",
+          "trigger": {
+            "text": "morrer",
+            "start": 54,
+            "end": 60
+          },
+          "subject": {
+            "expected_text": "Maria",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2007",
+            "start": 64,
+            "end": 68
+          },
+          "normalized_time": {
+            "start": "2007-01-01T00:00:00Z",
+            "end": "2007-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": true,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [
+          "Karen",
+          "Lucas"
+        ],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Karen",
+            "start": 0,
+            "end": 5
+          },
+          {
+            "text": "Lucas",
+            "start": 25,
+            "end": 30
+          },
+          {
+            "text": "Maria",
+            "start": 48,
+            "end": 53
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2002",
+            "start": 34,
+            "end": 38
+          },
+          {
+            "text": "2007",
+            "start": 64,
+            "end": 68
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_079",
+      "text": "Após conversar sobre Nuno em 1980, Olívia se casou em 1988.",
+      "categories": [
+        "INCIDENTAL_PERSON",
+        "DISTRACTOR_DATE",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e079_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casou",
+            "start": 42,
+            "end": 50
+          },
+          "subject": {
+            "expected_text": "Olívia",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "1988",
+            "start": 54,
+            "end": 58
+          },
+          "normalized_time": {
+            "start": "1988-01-01T00:00:00Z",
+            "end": "1988-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": true,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [
+          "Nuno"
+        ],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Nuno",
+            "start": 21,
+            "end": 25
+          },
+          {
+            "text": "Olívia",
+            "start": 35,
+            "end": 41
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "1980",
+            "start": 29,
+            "end": 33
+          },
+          {
+            "text": "1988",
+            "start": 54,
+            "end": 58
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_080",
+      "text": "Pedro encontrou Quésia em 2019; Renato nasceu em 2021.",
+      "categories": [
+        "INCIDENTAL_PERSON",
+        "DISTRACTOR_DATE",
+        "EXACT_YEAR",
+        "MULTIPLE_PERSONS"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e080_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 39,
+            "end": 45
+          },
+          "subject": {
+            "expected_text": "Renato",
+            "normalized_role": "THIRD_PARTY"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "2021",
+            "start": 49,
+            "end": 53
+          },
+          "normalized_time": {
+            "start": "2021-01-01T00:00:00Z",
+            "end": "2021-12-31T23:59:59.999999Z",
+            "precision": "YEAR",
+            "uncertainty": false
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": true,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [
+          "Pedro",
+          "Quésia"
+        ],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Pedro",
+            "start": 0,
+            "end": 5
+          },
+          {
+            "text": "Quésia",
+            "start": 16,
+            "end": 22
+          },
+          {
+            "text": "Renato",
+            "start": 32,
+            "end": 38
+          }
+        ],
+        "date_spans": [
+          {
+            "text": "2019",
+            "start": 26,
+            "end": 30
+          },
+          {
+            "text": "2021",
+            "start": 49,
+            "end": 53
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_081",
+      "text": "Depois da festa, casou-se por volta de 2018.",
+      "categories": [
+        "AMBIGUOUS",
+        "APPROXIMATE_TIME"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e081_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "casou-se",
+            "start": 17,
+            "end": 25
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "UNRESOLVED"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "por volta de 2018",
+            "start": 26,
+            "end": 43
+          },
+          "normalized_time": {
+            "start": null,
+            "end": null,
+            "precision": "UNSUPPORTED",
+            "uncertainty": true
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": true,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "por volta de 2018",
+            "start": 26,
+            "end": 43
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_082",
+      "text": "Naquela família, nasceu alguém no início de 2005.",
+      "categories": [
+        "AMBIGUOUS",
+        "APPROXIMATE_TIME"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e082_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 17,
+            "end": 23
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "UNRESOLVED"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "no início de 2005",
+            "start": 31,
+            "end": 48
+          },
+          "normalized_time": {
+            "start": null,
+            "end": null,
+            "precision": "UNSUPPORTED",
+            "uncertainty": true
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": true,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "no início de 2005",
+            "start": 31,
+            "end": 48
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_083",
+      "text": "Disseram que morreu aproximadamente em 1990.",
+      "categories": [
+        "AMBIGUOUS",
+        "APPROXIMATE_TIME"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e083_1",
+          "event_type": "obito",
+          "trigger": {
+            "text": "morreu",
+            "start": 13,
+            "end": 19
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "UNRESOLVED"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "aproximadamente em 1990",
+            "start": 20,
+            "end": 43
+          },
+          "normalized_time": {
+            "start": null,
+            "end": null,
+            "precision": "UNSUPPORTED",
+            "uncertainty": true
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": true,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "aproximadamente em 1990",
+            "start": 20,
+            "end": 43
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_084",
+      "text": "Sem indicar quem, registraram um natimorto perto de 2012.",
+      "categories": [
+        "AMBIGUOUS",
+        "APPROXIMATE_TIME"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e084_1",
+          "event_type": "natimorto",
+          "trigger": {
+            "text": "natimorto",
+            "start": 33,
+            "end": 42
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "UNRESOLVED"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "perto de 2012",
+            "start": 43,
+            "end": 56
+          },
+          "normalized_time": {
+            "start": null,
+            "end": null,
+            "precision": "UNSUPPORTED",
+            "uncertainty": true
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": true,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "perto de 2012",
+            "start": 43,
+            "end": 56
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_085",
+      "text": "Entre os irmãos, um se casou lá por 2016.",
+      "categories": [
+        "AMBIGUOUS",
+        "APPROXIMATE_TIME"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e085_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casou",
+            "start": 20,
+            "end": 28
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "UNRESOLVED"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "lá por 2016",
+            "start": 29,
+            "end": 40
+          },
+          "normalized_time": {
+            "start": null,
+            "end": null,
+            "precision": "UNSUPPORTED",
+            "uncertainty": true
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": true,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "lá por 2016",
+            "start": 29,
+            "end": 40
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_086",
+      "text": "Conta-se que nasceu durante a década de 1970.",
+      "categories": [
+        "AMBIGUOUS",
+        "APPROXIMATE_TIME"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e086_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 13,
+            "end": 19
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "UNRESOLVED"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "durante a década de 1970",
+            "start": 20,
+            "end": 44
+          },
+          "normalized_time": {
+            "start": null,
+            "end": null,
+            "precision": "UNSUPPORTED",
+            "uncertainty": true
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": true,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "durante a década de 1970",
+            "start": 20,
+            "end": 44
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_087",
+      "text": "Depois da mudança, faleceu em torno de 2021.",
+      "categories": [
+        "AMBIGUOUS",
+        "APPROXIMATE_TIME"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e087_1",
+          "event_type": "obito",
+          "trigger": {
+            "text": "faleceu",
+            "start": 19,
+            "end": 26
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "UNRESOLVED"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "em torno de 2021",
+            "start": 27,
+            "end": 43
+          },
+          "normalized_time": {
+            "start": null,
+            "end": null,
+            "precision": "UNSUPPORTED",
+            "uncertainty": true
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": true,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "em torno de 2021",
+            "start": 27,
+            "end": 43
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_088",
+      "text": "Alguém da casa se casou no fim de 1999.",
+      "categories": [
+        "AMBIGUOUS",
+        "APPROXIMATE_TIME"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e088_1",
+          "event_type": "casamento",
+          "trigger": {
+            "text": "se casou",
+            "start": 15,
+            "end": 23
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "UNRESOLVED"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "no fim de 1999",
+            "start": 24,
+            "end": 38
+          },
+          "normalized_time": {
+            "start": null,
+            "end": null,
+            "precision": "UNSUPPORTED",
+            "uncertainty": true
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": true,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "no fim de 1999",
+            "start": 24,
+            "end": 38
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_089",
+      "text": "Não ficou claro quem nasceu perto do ano 2000.",
+      "categories": [
+        "AMBIGUOUS",
+        "APPROXIMATE_TIME"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e089_1",
+          "event_type": "nascimento",
+          "trigger": {
+            "text": "nasceu",
+            "start": 21,
+            "end": 27
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "UNRESOLVED"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "perto do ano 2000",
+            "start": 28,
+            "end": 45
+          },
+          "normalized_time": {
+            "start": null,
+            "end": null,
+            "precision": "UNSUPPORTED",
+            "uncertainty": true
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": true,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "perto do ano 2000",
+            "start": 28,
+            "end": 45
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_090",
+      "text": "Uma das pessoas morreu por volta de 1985.",
+      "categories": [
+        "AMBIGUOUS",
+        "APPROXIMATE_TIME"
+      ],
+      "expected_events": [
+        {
+          "event_id": "e090_1",
+          "event_type": "obito",
+          "trigger": {
+            "text": "morreu",
+            "start": 16,
+            "end": 22
+          },
+          "subject": {
+            "expected_text": null,
+            "normalized_role": "UNRESOLVED"
+          },
+          "participants": [],
+          "date_expression": {
+            "text": "por volta de 1985",
+            "start": 23,
+            "end": 40
+          },
+          "normalized_time": {
+            "start": null,
+            "end": null,
+            "precision": "UNSUPPORTED",
+            "uncertainty": true
+          }
+        }
+      ],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": true,
+        "negative_case": false
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": [
+          {
+            "text": "por volta de 1985",
+            "start": 23,
+            "end": 40
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "heldout_091",
+      "text": "A certidão ficou guardada na gaveta.",
+      "categories": [
+        "NEGATIVE"
+      ],
+      "expected_events": [],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": true
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": []
+      }
+    },
+    {
+      "narrative_id": "heldout_092",
+      "text": "A vitrine exibia vestidos de casamento.",
+      "categories": [
+        "NEGATIVE"
+      ],
+      "expected_events": [],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": true
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": []
+      }
+    },
+    {
+      "narrative_id": "heldout_093",
+      "text": "O livro descreve nascimentos no Brasil colonial.",
+      "categories": [
+        "NEGATIVE"
+      ],
+      "expected_events": [],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": true
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": []
+      }
+    },
+    {
+      "narrative_id": "heldout_094",
+      "text": "Depois da morte do personagem, fechei o romance.",
+      "categories": [
+        "NEGATIVE"
+      ],
+      "expected_events": [],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": true
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": []
+      }
+    },
+    {
+      "narrative_id": "heldout_095",
+      "text": "A palavra natimorto apareceu no relatório antigo.",
+      "categories": [
+        "NEGATIVE"
+      ],
+      "expected_events": [],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": true
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": []
+      }
+    },
+    {
+      "narrative_id": "heldout_096",
+      "text": "Conversamos sobre a festa de casamento durante o almoço.",
+      "categories": [
+        "NEGATIVE"
+      ],
+      "expected_events": [],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": true
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": []
+      }
+    },
+    {
+      "narrative_id": "heldout_097",
+      "text": "Maria comprou flores e voltou para casa.",
+      "categories": [
+        "NEGATIVE"
+      ],
+      "expected_events": [],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": true
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Maria",
+            "start": 0,
+            "end": 5
+          }
+        ],
+        "date_spans": []
+      }
+    },
+    {
+      "narrative_id": "heldout_098",
+      "text": "O museu expõe uma certidão de nascimento fictícia.",
+      "categories": [
+        "NEGATIVE"
+      ],
+      "expected_events": [],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": true
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": []
+      }
+    },
+    {
+      "narrative_id": "heldout_099",
+      "text": "Pedro trabalha no setor de registros civis.",
+      "categories": [
+        "NEGATIVE"
+      ],
+      "expected_events": [],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": true
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [
+          {
+            "text": "Pedro",
+            "start": 0,
+            "end": 5
+          }
+        ],
+        "date_spans": []
+      }
+    },
+    {
+      "narrative_id": "heldout_100",
+      "text": "A palestra discutiu estatísticas de óbitos sem citar pessoas.",
+      "categories": [
+        "NEGATIVE"
+      ],
+      "expected_events": [],
+      "evaluation_flags": {
+        "reported_speech": false,
+        "incidental_person": false,
+        "coordinated_subject": false,
+        "pro_drop": false,
+        "ambiguous": false,
+        "negative_case": true
+      },
+      "safety_annotations": {
+        "excluded_subject_texts": [],
+        "coordinated_subject_members": []
+      },
+      "shared_ner_ground_truth": {
+        "person_spans": [],
+        "date_spans": []
+      }
+    }
+  ]
+}
