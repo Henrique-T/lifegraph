@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date, datetime
 from uuid import UUID
 
 from pydantic import BaseModel, ConfigDict
@@ -12,6 +12,15 @@ class RefTrailEvent(BaseModel):
     papel: str
     data_evento: datetime | None
     data_registro: datetime
+
+
+class RefPersonSummary(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
+    id_pessoa: UUID
+    cpn: str
+    nome: str
+    data_nascimento: date
 
 
 class RefImportRequest(BaseModel):

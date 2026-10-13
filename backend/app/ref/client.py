@@ -4,7 +4,7 @@ import httpx
 from pydantic import TypeAdapter, ValidationError
 
 from app.core.config import Settings
-from app.ref.schemas import RefTrailEvent
+from app.ref.schemas import RefPersonSummary, RefTrailEvent
 
 
 class RefIntegrationError(Exception):
@@ -47,13 +47,35 @@ class RefClient:
             transport=transport,
         )
 
-    async def get_person_trail(self, ref_person_id: UUID) -> list[RefTrailEvent]:
+    def _authorization_headers(self) -> dict[str, str]:
         if not self._token:
             raise RefNotConfiguredError("REF bearer token is not configured")
+        return {"Authorization": f"Bearer {self._token}"}
+
+    async def list_people(self, limit: int = 50) -> list[RefPersonSummary]:
+        try:
+            response = await self._client.get(
+                "/pessoas/recent",
+                params={"limit": limit},
+                headers=self._authorization_headers(),
+            )
+        except httpx.RequestError as exc:
+            raise RefUnavailableError("REF is unavailable") from exc
+
+        if response.status_code in {401, 403}:
+            raise RefAuthenticationError("REF rejected authentication")
+        if response.status_code >= 400:
+            raise RefUnavailableError(f"REF returned HTTP {response.status_code}")
+        try:
+            return TypeAdapter(list[RefPersonSummary]).validate_python(response.json())
+        except (ValueError, ValidationError) as exc:
+            raise RefMalformedResponseError("REF returned a malformed person list") from exc
+
+    async def get_person_trail(self, ref_person_id: UUID) -> list[RefTrailEvent]:
         try:
             response = await self._client.get(
                 f"/pessoas/{ref_person_id}/trilha",
-                headers={"Authorization": f"Bearer {self._token}"},
+                headers=self._authorization_headers(),
             )
         except httpx.RequestError as exc:
             raise RefUnavailableError("REF is unavailable") from exc

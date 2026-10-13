@@ -7,6 +7,7 @@ import pytest
 
 from app.core.config import Settings
 from app.ref.client import (
+    RefAuthenticationError,
     RefClient,
     RefMalformedResponseError,
     RefPersonNotFoundError,
@@ -14,6 +15,66 @@ from app.ref.client import (
 )
 
 PERSON_ID = UUID("73bacb7c-2806-457a-b910-62d93a4b9959")
+
+
+def test_lists_ref_people_with_explicit_limit_and_bearer_token() -> None:
+    asyncio.run(_test_lists_ref_people_with_explicit_limit_and_bearer_token())
+
+
+async def _test_lists_ref_people_with_explicit_limit_and_bearer_token() -> None:
+    seen: list[httpx.Request] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        seen.append(request)
+        return httpx.Response(200, json=[{
+            "id_pessoa": str(PERSON_ID),
+            "cpn": "A1B2C3O",
+            "nome": "Pessoa de Teste",
+            "cpf": None,
+            "data_nascimento": "1990-01-01",
+            "sexo": "F",
+        }])
+
+    client = RefClient(settings(), transport=httpx.MockTransport(handler))
+    try:
+        people = await client.list_people(50)
+    finally:
+        await client.close()
+
+    assert people[0].id_pessoa == PERSON_ID
+    assert people[0].nome == "Pessoa de Teste"
+    assert len(seen) == 1
+    assert seen[0].url.path == "/pessoas/recent"
+    assert seen[0].url.params["limit"] == "50"
+    assert seen[0].headers["Authorization"] == "Bearer test-token"
+
+
+def test_maps_ref_people_authentication_failure() -> None:
+    asyncio.run(_test_maps_ref_people_authentication_failure())
+
+
+async def _test_maps_ref_people_authentication_failure() -> None:
+    client = RefClient(
+        settings(), transport=httpx.MockTransport(lambda _request: httpx.Response(401))
+    )
+    with pytest.raises(RefAuthenticationError):
+        await client.list_people()
+    await client.close()
+
+
+def test_rejects_malformed_ref_person_list() -> None:
+    asyncio.run(_test_rejects_malformed_ref_person_list())
+
+
+async def _test_rejects_malformed_ref_person_list() -> None:
+    client = RefClient(
+        settings(), transport=httpx.MockTransport(
+            lambda _request: httpx.Response(200, json=[{"nome": "Sem identificador"}])
+        )
+    )
+    with pytest.raises(RefMalformedResponseError):
+        await client.list_people()
+    await client.close()
 
 
 def settings() -> Settings:

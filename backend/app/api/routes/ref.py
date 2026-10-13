@@ -1,8 +1,9 @@
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, Request
+from fastapi import APIRouter, Depends, Query, Request
 
-from app.ref.schemas import RefImportRequest, RefImportResult
+from app.ref.client import RefClient
+from app.ref.schemas import RefImportRequest, RefImportResult, RefPersonSummary
 from app.ref.service import RefImportService
 
 router = APIRouter()
@@ -12,7 +13,21 @@ def get_import_service(request: Request) -> RefImportService:
     return request.app.state.ref_import_service
 
 
+def get_ref_client(request: Request) -> RefClient:
+    return request.app.state.ref_client
+
+
 ImportService = Annotated[RefImportService, Depends(get_import_service)]
+RefClientDependency = Annotated[RefClient, Depends(get_ref_client)]
+
+
+@router.get("/ref/persons", response_model=list[RefPersonSummary])
+async def list_ref_people(
+    client: RefClientDependency,
+    limit: Annotated[int, Query(ge=1, le=50)] = 50,
+) -> list[RefPersonSummary]:
+    """List REF identities for an explicit user-selected LifeGraph binding."""
+    return await client.list_people(limit)
 
 
 @router.post("/persons/{person_id}/ref/import", response_model=RefImportResult)
