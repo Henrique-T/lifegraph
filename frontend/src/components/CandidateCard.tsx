@@ -26,18 +26,24 @@ const reasonLabels: Record<string, string> = {
   SENTENCE_BOUNDARY: "Continuidade interrompida entre sentenças",
 };
 
+function normalizeSearchText(value: string) {
+  return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("pt-BR");
+}
+
 interface Props {
   candidate: ReviewCandidate;
   people: Person[];
   disabled: boolean;
+  onPersonSelectionChange: (personId: string) => void;
   onAccept: (request: CandidateAcceptanceRequest) => Promise<CandidateAcceptanceResult>;
   onReject: () => Promise<void>;
 }
 
-export function CandidateCard({ candidate, people, disabled, onAccept, onReject }: Props) {
+export function CandidateCard({ candidate, people, disabled, onPersonSelectionChange, onAccept, onReject }: Props) {
   const originalYear = candidate.normalized_time_candidate?.temporal_precision === "YEAR"
     ? candidate.normalized_time_candidate.start.slice(0, 4) : "";
   const [personId, setPersonId] = useState("");
+  const [personSearch, setPersonSearch] = useState("");
   const [editing, setEditing] = useState(false);
   const [eventType, setEventType] = useState<CivilEventType>(candidate.event_type);
   const [subjectText, setSubjectText] = useState(candidate.subject_text ?? "");
@@ -83,6 +89,12 @@ export function CandidateCard({ candidate, people, disabled, onAccept, onReject 
   }
 
   const done = disabled || rejected || accepted !== null;
+  const normalizedPersonSearch = normalizeSearchText(personSearch.trim());
+  const visiblePeople = normalizedPersonSearch
+    ? people.filter((person) => person.person_id === personId
+      || normalizeSearchText(person.display_name).includes(normalizedPersonSearch))
+    : people;
+
   return (
     <article className={`candidate ${candidate.subject_resolution.toLowerCase()}`} aria-live="polite">
       <header className="candidate-header">
@@ -101,14 +113,32 @@ export function CandidateCard({ candidate, people, disabled, onAccept, onReject 
       <p className="reason">{reasonLabels[candidate.subject_reason] ?? "Associação conservadora; revise antes de aceitar."}</p>
 
       {candidate.subject_resolution === "UNRESOLVED" && !done && <p className="safety-note">Abstenção segura: selecione a Pessoa correta ou rejeite o candidato.</p>}
-      {!done && <label> Pessoa à qual esta declaração se refere
-        <select value={personId} onChange={(event) => setPersonId(event.target.value)}>
-          <option value="">Selecione explicitamente…</option>
-          {people.map((person) => <option key={person.person_id} value={person.person_id}>{person.display_name}</option>)}
-        </select>
-      </label>}
+      {!done && <div className="person-selector">
+        <label>Pesquisar pessoa por nome
+          <input
+            type="search"
+            value={personSearch}
+            onChange={(event) => setPersonSearch(event.target.value)}
+            placeholder="Digite parte do nome"
+            autoComplete="off"
+          />
+        </label>
+        <label>Pessoa à qual esta declaração se refere
+          <select value={personId} onChange={(event) => {
+            setPersonId(event.target.value);
+            onPersonSelectionChange(event.target.value);
+          }}>
+            <option value="">Selecione explicitamente…</option>
+            {visiblePeople.map((person) => <option key={person.person_id} value={person.person_id}>{person.display_name}</option>)}
+          </select>
+          <small className="field-help">
+            {personSearch.trim() && `${visiblePeople.length} pessoa(s) encontrada(s). `}
+            Escolha uma pessoa que já existe no grafo. A declaração aceita será vinculada a ela.
+          </small>
+        </label>
+      </div>}
 
-      {!done && <button className="link-button" type="button" onClick={() => setEditing(!editing)}>{editing ? "Fechar correções" : "Corrigir campos"}</button>}
+      {!done && <button className="link-button" type="button" onClick={() => setEditing(!editing)}>{editing ? "Fechar edição" : "Editar dados antes de aceitar"}</button>}
       {editing && !done && <fieldset className="corrections">
         <legend>Correções explícitas do revisor</legend>
         <label>Tipo do evento<select value={eventType} onChange={(e) => setEventType(e.target.value as CivilEventType)}>
