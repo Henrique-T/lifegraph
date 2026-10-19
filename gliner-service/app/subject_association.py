@@ -1,3 +1,5 @@
+"""Deterministic and calibration-only subject-association strategies."""
+
 import asyncio
 import re
 from time import perf_counter
@@ -14,6 +16,7 @@ RELATIONS = {
 
 
 def stage1_spans(raw):
+    """Split raw entity output into triggers, people, and dates."""
     entities = raw.get("entities", {})
     triggers = []
     for label, event_type in B_EVENT_MAP.items():
@@ -23,6 +26,7 @@ def stage1_spans(raw):
 
 
 def deterministic_association(text, triggers, people, dates):
+    """Apply the initial deterministic subject-association strategy."""
     results=[]; carried=None
     for index,t in enumerate(triggers):
         prev_end=triggers[index-1]["trigger_end"] if index else 0
@@ -56,11 +60,13 @@ _FIRST_PERSON_EVENT_FORMS = {
 
 
 def _sentence_start(text, position):
+    """Return the start offset of the sentence containing a position."""
     boundary = max(text.rfind(mark, 0, position) for mark in ".!?")
     return boundary + 1
 
 
 def _same_sentence(text, left, right):
+    """Return whether an interval contains no sentence boundary."""
     return not re.search(r"[.!?]", text[left:right])
 
 
@@ -80,11 +86,11 @@ def _coordinated_connector(text, previous_trigger, trigger, dates):
         if start < end:
             chars[start:end] = " " * (end - start)
     connector = "".join(chars)
-    return bool(re.search(r",|\be\b|\bdepois\b", connector, re.I))
+    return bool(re.search(r",|\be\b|\bdepois\b|\benquanto\b", connector, re.I))
 
 
 def portuguese_continuity_association(text, triggers, people, dates):
-    """Conservative S1 extension for explicit first-person forms and coordination."""
+    """Handle explicit first-person forms and coordinated continuity."""
     results = []
     carried = None
     previous_trigger = None
@@ -152,13 +158,14 @@ def portuguese_continuity_association(text, triggers, people, dates):
     return results
 
 
-_REPORTING_VERBS = ("disse", "contou", "afirmou", "falou", "declarou")
+_REPORTING_VERBS = ("disse", "disseram", "contou", "afirmou", "falou", "declarou")
 _KINSHIP_NOUNS = ("mãe", "pai", "irmão", "irmã", "marido", "esposa", "filho", "filha", "avó", "avô")
 _KINSHIP_MODIFIERS = ("meu", "minha", "meus", "minhas", "nosso", "nossa", "nossos", "nossas", "o", "a", "os", "as")
 _PLURAL_EVENT_FORMS = re.compile(r"\b(?:se\s+)?(?:casaram|nasceram|morreram|faleceram)\b", re.I)
 
 
 def _reconstruct_kinship_people(text, people):
+    """Expand detected kinship nouns to include nearby modifiers."""
     reconstructed = []
     noun_pattern = "|".join(map(re.escape, _KINSHIP_NOUNS))
     modifier_pattern = "|".join(map(re.escape, _KINSHIP_MODIFIERS))
@@ -176,6 +183,7 @@ def _reconstruct_kinship_people(text, people):
 
 
 def _reported_clause_start(text, sentence_start, trigger_start):
+    """Locate the start of the nearest reported-speech clause."""
     segment = text[sentence_start:trigger_start]
     verbs = "|".join(_REPORTING_VERBS)
     matches = list(re.finditer(rf"\b(?:{verbs})\b[^,.!?;:]{{0,60}}?\bque\b", segment, re.I))
@@ -183,11 +191,13 @@ def _reported_clause_start(text, sentence_start, trigger_start):
 
 
 def _is_incidental_person(text, person, clause_start):
+    """Return whether a person mention is governed by an incidental preposition."""
     prefix = text[clause_start:person["start"]]
     return bool(re.search(r"\b(?:com|para|sobre)\s+$", prefix, re.I))
 
 
 def _possible_coordinated_subject(text, clause_start, trigger, eligible_people):
+    """Detect plural coordinated subjects that require abstention."""
     if not _PLURAL_EVENT_FORMS.search(trigger["trigger_text"]):
         return False
     left = text[clause_start:trigger["trigger_start"]]
@@ -196,8 +206,29 @@ def _possible_coordinated_subject(text, clause_start, trigger, eligible_people):
     return bool(eligible_people)
 
 
+def _local_subject_boundary(text, clause_start, trigger_start):
+    """Return the last recognized boundary that starts a local event clause."""
+    segment = text[clause_start:trigger_start]
+    boundaries = [match.end() for match in re.finditer(r",|\bantes\s+de\b", segment, re.I)]
+    return clause_start + boundaries[-1] if boundaries else None
+
+
+def _explicit_local_subject_after_boundary(text, local_start, trigger_start, eligible_people):
+    """Return one subject directly tied to the event after a safe local boundary."""
+    if local_start is None:
+        return None
+    local_people = [person for person in eligible_people if person["start"] >= local_start]
+    if len(local_people) != 1:
+        return None
+    candidate = local_people[0]
+    # Adjacency prevents a merely nearby mention from becoming the event subject.
+    if text[candidate["end"]:trigger_start].strip():
+        return None
+    return candidate
+
+
 def conservative_guards_association(text, triggers, people, dates):
-    """S1C: S1B continuity plus conservative surface guards and abstention."""
+    """Apply conservative surface guards and abstain on unsafe attribution."""
     people = _reconstruct_kinship_people(text, people)
     results = []
     carried = None
@@ -227,6 +258,13 @@ def conservative_guards_association(text, triggers, people, dates):
             and pattern.search(trigger["trigger_text"])
         )
         coordinated_ambiguity = _possible_coordinated_subject(text, effective_start, trigger, eligible)
+        local_boundary = _local_subject_boundary(text, effective_start, trigger["trigger_start"])
+        local_subject = _explicit_local_subject_after_boundary(
+            text,
+            local_boundary,
+            trigger["trigger_start"],
+            eligible,
+        )
 
         subject = None
         reason = "NO_SAFE_SUBJECT_EVIDENCE"
@@ -236,6 +274,12 @@ def conservative_guards_association(text, triggers, people, dates):
         elif explicit_narrator:
             subject = "__NARRATOR__"
             reason = "EXPLICIT_FIRST_PERSON_PRONOUN"
+        elif local_subject is not None:
+            subject = local_subject["text"]
+            reason = "EXPLICIT_LOCAL_SUBJECT"
+        elif local_boundary is not None and eligible:
+            reason = "NO_LOCAL_SUBJECT_AFTER_BOUNDARY"
+            warnings.append("NO_LOCAL_SUBJECT_AFTER_BOUNDARY")
         elif len(eligible) > 1:
             reason = "CONFLICTING_SUBJECT_EVIDENCE"
             warnings.append("CONFLICTING_SUBJECT_EVIDENCE")
@@ -288,10 +332,12 @@ def conservative_guards_association(text, triggers, people, dates):
 
 
 def _overlaps(item, trigger):
+    """Return whether two span dictionaries overlap."""
     return item.get("start",-1) < trigger["trigger_end"] and item.get("end",-1) > trigger["trigger_start"]
 
 
 async def relation_association(service, text, triggers):
+    """Associate each trigger through calibration-only relation extraction."""
     out=[]
     for t in triggers:
         async with service._lock:
@@ -310,6 +356,7 @@ async def relation_association(service, text, triggers):
 
 
 def record_schema(model):
+    """Build the calibration-only event-association record schema."""
     s=model.create_schema(); r=s.structure("event_association",mode="natural",anchor="subject_text")
     r.field("subject_text",dtype="str",description="Exact text naming the person who experiences the supplied event trigger",cardinality="optional_one")
     r.field("participant_texts",dtype="list",description="Other people explicitly participating in the supplied event",cardinality="zero_or_more")
@@ -317,10 +364,13 @@ def record_schema(model):
     return s
 
 
-def _value(v): return v.get("text") if isinstance(v,dict) else v
+def _value(v):
+    """Read text from either a span object or scalar value."""
+    return v.get("text") if isinstance(v, dict) else v
 
 
 async def record_association(service,text,triggers):
+    """Associate triggers through calibration-only structured extraction."""
     out=[]
     for t in triggers:
         context=f"Evento conhecido: {t['trigger_text']}\nNarrativa: {text}"
@@ -334,6 +384,7 @@ async def record_association(service,text,triggers):
 
 
 async def associate(service,strategy_id,text):
+    """Run one predefined subject-association strategy."""
     started=perf_counter(); stage1=await extract_configuration(service,CONFIGURATIONS["B_LINGUISTIC_EVENT_SPANS"],text)
     triggers,people,dates=stage1_spans(stage1["raw_output"]); s1=deterministic_association(text,triggers,people,dates); calls=0
     if strategy_id=="S1_DETERMINISTIC": result=s1
