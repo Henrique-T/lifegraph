@@ -1,0 +1,34 @@
+{
+  "R1": {
+    "conditions": "global end-to-end recall >= 0.50",
+    "passes": {
+      "A0_ORIGINAL": true,
+      "B": false,
+      "C": false
+    }
+  },
+  "R2": {
+    "conditions": "persistible-oracle recall >= 0.50",
+    "passes": {
+      "A0_ORIGINAL": true,
+      "B": false,
+      "C": false
+    }
+  },
+  "R3": {
+    "conditions": "persistible-oracle recall >= 0.50 and every relation type >= 0.30",
+    "passes": {
+      "A0_ORIGINAL": true,
+      "B": false,
+      "C": false
+    }
+  },
+  "R4": {
+    "conditions": "R3 plus every positive critical phenomenon family >= 0.20",
+    "passes": {
+      "A0_ORIGINAL": false,
+      "B": false,
+      "C": false
+    }
+  }
+}

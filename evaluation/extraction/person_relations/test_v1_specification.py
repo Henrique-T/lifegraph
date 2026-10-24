@@ -8,6 +8,7 @@ from pathlib import Path
 
 
 CORPUS = Path(__file__).with_name("v1_adversarial.jsonl")
+CHECKPOINT_B_EXPANSION = Path(__file__).with_name("checkpoint_b_expansion.jsonl")
 RELATION_TYPES = {
     "FATHER_OF", "MOTHER_OF", "SON_OF", "DAUGHTER_OF",
     "BROTHER_OF", "SISTER_OF", "SPOUSE_OF",
@@ -48,7 +49,13 @@ CORRECTION_FIXTURES = (
 
 def load_cases() -> list[dict]:
     """Load independent JSON objects without accessing final-protocol artifacts."""
-    return [json.loads(line) for line in CORPUS.read_text(encoding="utf-8").splitlines() if line.strip()]
+    paths = (CORPUS, CHECKPOINT_B_EXPANSION)
+    return [
+        json.loads(line)
+        for path in paths
+        for line in path.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
 
 
 def candidates(cases: list[dict]):
@@ -75,9 +82,9 @@ def binding_is_eligible(endpoint_a_person_id: str | None, endpoint_b_person_id: 
 def test_corpus_size_identity_and_structure() -> None:
     """Freeze the intended development-corpus size and basic shape."""
     cases = load_cases()
-    assert len(cases) == 124
-    assert len({case["case_id"] for case in cases}) == 124
-    assert [case["case_id"] for case in cases] == [f"PR-{index:03d}" for index in range(1, 125)]
+    assert len(cases) == 180
+    assert len({case["case_id"] for case in cases}) == 180
+    assert [case["case_id"] for case in cases] == [f"PR-{index:03d}" for index in range(1, 181)]
     assert all(set(case) == {"case_id", "narrative", "expected_relation_candidates", "tags"} for case in cases)
     assert all(case["narrative"].strip() and case["tags"] for case in cases)
 
@@ -85,7 +92,7 @@ def test_corpus_size_identity_and_structure() -> None:
 def test_candidate_domains_and_balanced_vocabulary() -> None:
     """Require closed compositional domains and balanced relation coverage."""
     rows = list(candidates(load_cases()))
-    assert len(rows) == 109
+    assert len(rows) == 165
     assert all(set(candidate) == REQUIRED_CANDIDATE_FIELDS for _, candidate in rows)
     assert all(candidate["relation_type"] in RELATION_TYPES for _, candidate in rows)
     assert all(candidate["polarity"] in POLARITIES for _, candidate in rows)
@@ -93,8 +100,8 @@ def test_candidate_domains_and_balanced_vocabulary() -> None:
     assert all(candidate["reporting_mode"] in REPORTING_MODES for _, candidate in rows)
     assert all(candidate["temporal_scope"] in TEMPORAL_SCOPES for _, candidate in rows)
     assert Counter(candidate["relation_type"] for _, candidate in rows) == Counter({
-        "FATHER_OF": 16, "MOTHER_OF": 15, "SON_OF": 15, "DAUGHTER_OF": 15,
-        "BROTHER_OF": 16, "SISTER_OF": 16, "SPOUSE_OF": 16,
+        "FATHER_OF": 25, "MOTHER_OF": 23, "SON_OF": 22, "DAUGHTER_OF": 23,
+        "BROTHER_OF": 24, "SISTER_OF": 24, "SPOUSE_OF": 24,
     })
 
 
@@ -102,7 +109,7 @@ def test_persistence_eligibility_is_conservative() -> None:
     """Ensure only direct, positive, asserted, complete, non-past candidates qualify."""
     rows = list(candidates(load_cases()))
     persistible = [(case, candidate) for case, candidate in rows if candidate["persistible_in_v1"]]
-    assert len(persistible) == 45
+    assert len(persistible) == 64
     for case, candidate in rows:
         allowed = (
             candidate["polarity"] == "POSITIVE"
@@ -111,6 +118,8 @@ def test_persistence_eligibility_is_conservative() -> None:
             and candidate["temporal_scope"] == "CURRENT_OR_UNSPECIFIED"
             and candidate["endpoint_a_mention"] is not None
             and candidate["endpoint_b_mention"] is not None
+            and "partial_endpoint" not in case["tags"]
+            and "pronoun" not in case["tags"]
         )
         assert candidate["persistible_in_v1"] is allowed, case["case_id"]
 
@@ -123,12 +132,15 @@ def test_every_blocking_dimension_has_nonpersistible_examples() -> None:
         "uncertain": [candidate for _, candidate in rows if candidate["epistemic_status"] == "UNCERTAIN"],
         "hypothetical": [candidate for _, candidate in rows if candidate["epistemic_status"] == "HYPOTHETICAL"],
         "reported": [candidate for _, candidate in rows if candidate["reporting_mode"] == "REPORTED"],
-        "partial": [candidate for _, candidate in rows if None in (candidate["endpoint_a_mention"], candidate["endpoint_b_mention"])],
+        "partial": [
+            candidate for case, candidate in rows
+            if "partial_endpoint" in case["tags"] or "pronoun" in case["tags"]
+        ],
         "past": [candidate for _, candidate in rows if candidate["temporal_scope"] == "PAST"],
     }
     assert {name: len(group) for name, group in blocked_groups.items()} == {
-        "negated": 7, "uncertain": 21, "hypothetical": 7,
-        "reported": 14, "partial": 14, "past": 8,
+        "negated": 14, "uncertain": 30, "hypothetical": 7,
+        "reported": 24, "partial": 21, "past": 18,
     }
     assert all(not candidate["persistible_in_v1"] for group in blocked_groups.values() for candidate in group)
 
@@ -156,7 +168,9 @@ def test_no_fake_identity_ref_or_event_derived_relation() -> None:
         not case["expected_relation_candidates"]
         for case in cases if "event_only" in case["tags"]
     )
-    serialized = CORPUS.read_text(encoding="utf-8").casefold()
+    serialized = "\n".join(
+        path.read_text(encoding="utf-8") for path in (CORPUS, CHECKPOINT_B_EXPANSION)
+    ).casefold()
     assert "ref_event" not in serialized and "refevent" not in serialized
     assert "person_id" not in serialized
 
@@ -166,8 +180,8 @@ def test_negative_and_multirelation_counts_are_deterministic() -> None:
     cases = load_cases()
     no_relation = [case for case in cases if not case["expected_relation_candidates"]]
     multi = [case for case in cases if len(case["expected_relation_candidates"]) > 1]
-    assert len(no_relation) == 22
-    assert len(multi) == 7
+    assert len(no_relation) == 29
+    assert len(multi) == 14
     assert all(len(case["expected_relation_candidates"]) == 2 for case in multi)
     assert all("multiple_relations" in case["tags"] for case in multi)
 
@@ -213,6 +227,14 @@ def test_current_and_past_spouse_cases_have_distinct_temporal_eligibility() -> N
     past_b = by_id["PR-124"]["expected_relation_candidates"][0]
     assert (current["temporal_scope"], current["persistible_in_v1"]) == ("CURRENT_OR_UNSPECIFIED", True)
     assert all((item["temporal_scope"], item["persistible_in_v1"]) == ("PAST", False) for item in (past_a, past_b))
+
+
+def test_past_negation_retains_past_temporal_scope() -> None:
+    """Keep PR-018 aligned with equivalent explicit past-copula constructions."""
+    item = {case["case_id"]: case for case in load_cases()}["PR-018"]["expected_relation_candidates"][0]
+    assert (item["polarity"], item["temporal_scope"], item["persistible_in_v1"]) == (
+        "NEGATED", "PAST", False,
+    )
 
 
 def test_required_phenomena_are_represented() -> None:

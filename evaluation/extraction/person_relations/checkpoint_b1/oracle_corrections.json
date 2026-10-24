@@ -1,0 +1,17 @@
+{
+  "corrections": [
+    {
+      "case_id": "PR-018",
+      "field": "temporal_scope",
+      "old_value": "CURRENT_OR_UNSPECIFIED",
+      "new_value": "PAST",
+      "verdict": "ORACLE_ERROR_CONFIRMED",
+      "rationale": "The explicit past copula 'foi' has the same scope as the equivalent PR-133 and PR-137 constructions.",
+      "unchanged_safety": {
+        "polarity": "NEGATED",
+        "persistible_in_v1": false
+      }
+    }
+  ],
+  "ambiguous_requires_review": []
+}

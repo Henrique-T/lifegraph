@@ -1,0 +1,305 @@
+{
+  "metrics": {
+    "detector": {
+      "precision": 0.942857,
+      "recall": 0.942857,
+      "f1": 0.942857,
+      "exact_span": 1.0,
+      "overlap_span": 0.942857,
+      "false_positives": 2,
+      "false_negatives": 2
+    },
+    "end_to_end": {
+      "precision": 0.942857,
+      "recall": 0.942857,
+      "f1": 0.942857,
+      "relation_type_accuracy": 1.0,
+      "surface_accuracy": 1.0,
+      "endpoint_a_accuracy": 1.0,
+      "endpoint_b_accuracy": 1.0,
+      "both_endpoint_accuracy": 1.0,
+      "polarity_accuracy": 1.0,
+      "epistemic_accuracy": 1.0,
+      "reporting_accuracy": 1.0,
+      "temporal_accuracy": 1.0,
+      "false_relation_candidates": 2,
+      "missed_relation_candidates": 2,
+      "wrong_resolved_endpoint": 0,
+      "safe_abstentions": 1,
+      "unsafe_persistible_false_positive": 0
+    },
+    "failure_taxonomy": {
+      "DETECTION_FALSE_NEGATIVE": 2,
+      "DETECTION_FALSE_POSITIVE": 2,
+      "QUESTION_FACTUALIZED": 2,
+      "SAFE_ENDPOINT_ABSTENTION": 1,
+      "UNSAFE_PERSISTIBLE_FALSE_POSITIVE": 0
+    },
+    "by_phenomenon": {
+      "apposition": {
+        "expected": 2,
+        "predicted": 0,
+        "matched": 0
+      },
+      "contracted_preposition": {
+        "expected": 5,
+        "predicted": 5,
+        "matched": 5
+      },
+      "direct": {
+        "expected": 5,
+        "predicted": 5,
+        "matched": 5
+      },
+      "discontinuous": {
+        "expected": 4,
+        "predicted": 4,
+        "matched": 4
+      },
+      "emphatic_negation": {
+        "expected": 1,
+        "predicted": 0,
+        "matched": 0
+      },
+      "event_only": {
+        "expected": 0,
+        "predicted": 0,
+        "matched": 0
+      },
+      "incidental_kinship": {
+        "expected": 0,
+        "predicted": 0,
+        "matched": 0
+      },
+      "metaphor": {
+        "expected": 0,
+        "predicted": 0,
+        "matched": 0
+      },
+      "narrator": {
+        "expected": 8,
+        "predicted": 8,
+        "matched": 8
+      },
+      "negated": {
+        "expected": 1,
+        "predicted": 0,
+        "matched": 0
+      },
+      "no_relation": {
+        "expected": 0,
+        "predicted": 2,
+        "matched": 0
+      },
+      "parent_child": {
+        "expected": 20,
+        "predicted": 18,
+        "matched": 18
+      },
+      "partial_endpoint": {
+        "expected": 1,
+        "predicted": 1,
+        "matched": 1
+      },
+      "past": {
+        "expected": 5,
+        "predicted": 4,
+        "matched": 4
+      },
+      "possessive": {
+        "expected": 8,
+        "predicted": 8,
+        "matched": 8
+      },
+      "pronoun": {
+        "expected": 1,
+        "predicted": 2,
+        "matched": 1
+      },
+      "question": {
+        "expected": 0,
+        "predicted": 2,
+        "matched": 0
+      },
+      "quotation": {
+        "expected": 0,
+        "predicted": 0,
+        "matched": 0
+      },
+      "reordered": {
+        "expected": 10,
+        "predicted": 10,
+        "matched": 10
+      },
+      "reported": {
+        "expected": 16,
+        "predicted": 16,
+        "matched": 16
+      },
+      "reporting_negative_control": {
+        "expected": 0,
+        "predicted": 0,
+        "matched": 0
+      },
+      "sentence_boundary_control": {
+        "expected": 1,
+        "predicted": 1,
+        "matched": 1
+      },
+      "sibling": {
+        "expected": 10,
+        "predicted": 10,
+        "matched": 10
+      },
+      "spouse_surface": {
+        "expected": 5,
+        "predicted": 5,
+        "matched": 5
+      },
+      "ter_como": {
+        "expected": 7,
+        "predicted": 7,
+        "matched": 7
+      },
+      "uncertain": {
+        "expected": 5,
+        "predicted": 5,
+        "matched": 5
+      },
+      "unknown_people": {
+        "expected": 0,
+        "predicted": 0,
+        "matched": 0
+      }
+    },
+    "coverage": {
+      "persistible_oracle_expected": 8,
+      "persistible_oracle_correct": 8,
+      "persistible_oracle_recall": 1.0,
+      "per_relation_type_recall": {
+        "BROTHER_OF": 1.0,
+        "DAUGHTER_OF": 1.0,
+        "FATHER_OF": 0.857143,
+        "MOTHER_OF": 0.8,
+        "SISTER_OF": 1.0,
+        "SON_OF": 1.0,
+        "SPOUSE_OF": 1.0
+      },
+      "per_phenomenon_recall": {
+        "apposition": 0.0,
+        "contracted_preposition": 1.0,
+        "direct": 1.0,
+        "discontinuous": 1.0,
+        "emphatic_negation": 0.0,
+        "narrator": 1.0,
+        "negated": 0.0,
+        "parent_child": 0.9,
+        "partial_endpoint": 1.0,
+        "past": 0.8,
+        "possessive": 1.0,
+        "pronoun": 1.0,
+        "reordered": 1.0,
+        "reported": 1.0,
+        "sentence_boundary_control": 1.0,
+        "sibling": 1.0,
+        "spouse_surface": 1.0,
+        "ter_como": 1.0,
+        "uncertain": 1.0
+      },
+      "safe_abstention_count": 1,
+      "safe_abstention_rate": 1.0,
+      "unnecessary_abstention_count": 0,
+      "unnecessary_abstention_rate": 0.0,
+      "total_detector_candidate_miss": 2
+    },
+    "b3_safety": {
+      "wrong_narrator_role_resolution": 0,
+      "graph_person_autobind_from_narrator": 0,
+      "narrator_targets_expected": 8,
+      "narrator_targets_correct": 8,
+      "reported_mode_lost": 0
+    }
+  },
+  "r4": {
+    "checks": {
+      "persistible_oracle_recall": true,
+      "every_relation_type": true,
+      "populated_critical_phenomena": false
+    },
+    "overall": false,
+    "phenomena": {
+      "direct": {
+        "status": "PASS",
+        "denominator": 5,
+        "recall": 1.0
+      },
+      "reordered": {
+        "status": "PASS",
+        "denominator": 10,
+        "recall": 1.0
+      },
+      "possessive": {
+        "status": "PASS",
+        "denominator": 8,
+        "recall": 1.0
+      },
+      "apposition": {
+        "status": "FAIL",
+        "denominator": 2,
+        "recall": 0.0
+      },
+      "ter_como": {
+        "status": "PASS",
+        "denominator": 7,
+        "recall": 1.0
+      },
+      "contracted_preposition": {
+        "status": "PASS",
+        "denominator": 5,
+        "recall": 1.0
+      },
+      "discontinuous": {
+        "status": "PASS",
+        "denominator": 4,
+        "recall": 1.0
+      },
+      "coordination": {
+        "status": "N/A_SMALL_DENOMINATOR",
+        "denominator": 0,
+        "recall": null
+      },
+      "multiple_relations": {
+        "status": "N/A_SMALL_DENOMINATOR",
+        "denominator": 0,
+        "recall": null
+      },
+      "reported": {
+        "status": "PASS",
+        "denominator": 16,
+        "recall": 1.0
+      },
+      "spouse_surface": {
+        "status": "PASS",
+        "denominator": 5,
+        "recall": 1.0
+      },
+      "sibling": {
+        "status": "PASS",
+        "denominator": 10,
+        "recall": 1.0
+      },
+      "parent_child": {
+        "status": "PASS",
+        "denominator": 20,
+        "recall": 0.9
+      },
+      "narrator": {
+        "status": "PASS",
+        "denominator": 8,
+        "recall": 1.0
+      }
+    },
+    "minimum_relation_type_value": 0.8,
+    "minimum_populated_critical_value": 0.0
+  }
+}

@@ -5,6 +5,10 @@ import type {
   GraphResponse,
   Person,
   ReconciliationResult,
+  RelationAcceptanceRequest,
+  RelationActionResult,
+  RelationPersistenceResult,
+  RelationReviewSession,
 } from "./types";
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8100";
@@ -50,6 +54,17 @@ export const rejectCandidate = (extractionId: string, candidateId: string) =>
   request<{ review_status: "REJECTED" }>(`/extractions/${extractionId}/candidates/${candidateId}/reject`, {
     method: "POST",
   });
+
+export const extractRelations = (text: string) => request<RelationReviewSession>("/relation-extractions", {
+  method: "POST", body: JSON.stringify({ text }),
+});
+export const getRelationReview = (reviewId: string) => request<RelationReviewSession>(`/relation-reviews/${reviewId}`);
+export const acceptRelationCandidate = (reviewId: string, candidateId: string, data: RelationAcceptanceRequest) =>
+  request<RelationActionResult>(`/relation-reviews/${reviewId}/candidates/${candidateId}/accept`, { method: "POST", body: JSON.stringify(data) });
+export const rejectRelationCandidate = (reviewId: string, candidateId: string, reason?: string) =>
+  request<RelationActionResult>(`/relation-reviews/${reviewId}/candidates/${candidateId}/reject`, { method: "POST", body: JSON.stringify({ reason: reason || null }) });
+export const persistRelationCandidate = (reviewId: string, candidateId: string) =>
+  request<RelationPersistenceResult>(`/relation-reviews/${reviewId}/candidates/${candidateId}/persist`, { method: "POST", body: "{}" });
 
 export function friendlyError(error: unknown): string {
   if (!(error instanceof ApiError)) return "Ocorreu uma falha inesperada.";

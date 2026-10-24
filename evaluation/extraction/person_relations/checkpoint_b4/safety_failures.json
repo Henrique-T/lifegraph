@@ -1,0 +1,16 @@
+{
+  "combined_existing": [],
+  "b2_challenge": [],
+  "b3_regression": [],
+  "b4_unseen": [],
+  "hard_gates": {
+    "WRONG_RESOLVED_ENDPOINT": 0,
+    "UNSAFE_PERSISTIBLE_FALSE_POSITIVE": 0,
+    "QUESTION_UNSAFE_PERSISTIBLE": 0,
+    "WRONG_NARRATOR_ROLE_RESOLUTION": 0,
+    "GRAPH_PERSON_AUTOBIND_FROM_NARRATOR": 0,
+    "REPORTED_MODE_LOST": 0,
+    "RELATIVE_APPOSITION_WRONG_ENDPOINT": 0,
+    "RELATIVE_APPOSITION_UNSAFE_PERSISTIBLE": 0
+  }
+}

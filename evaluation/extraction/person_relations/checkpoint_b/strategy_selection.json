@@ -1,0 +1,17 @@
+{
+  "selected_strategy": "B",
+  "selected_threshold": 0.5,
+  "safety_gates": {
+    "unsafe_persistible_false_positive": 0,
+    "wrong_resolved_endpoint": 0
+  },
+  "frozen_priority_decision": [
+    "all selected configurations tie at zero unsafe persistible false positives",
+    "all selected configurations tie at zero wrong resolved endpoints",
+    "all selected configurations tie at zero downstream false relation candidates",
+    "all selected configurations tie at 1.0 end-to-end precision",
+    "B has the highest endpoint-pair accuracy: 0.969697"
+  ],
+  "coverage_warning": "B end-to-end recall is 0.2; the frozen selection order defines no minimum recall gate.",
+  "auto_promoted": false
+}

@@ -1,0 +1,18 @@
+{
+  "checkpoint": "B.3",
+  "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+  "detector": "deterministic structural A0_B2 family",
+  "gliner_primary_path": false,
+  "model_fallback": null,
+  "unseen_policy": "one-shot; no extraction or oracle changes after first prediction",
+  "r4": {
+    "persistible_oracle_recall_min": 0.5,
+    "per_relation_type_recall_min": 0.3,
+    "positive_critical_phenomenon_recall_min": 0.2,
+    "small_denominator_cutoff": 2
+  },
+  "hard_safety_gates": {
+    "wrong_resolved_endpoint": 0,
+    "unsafe_persistible_false_positive": 0
+  }
+}

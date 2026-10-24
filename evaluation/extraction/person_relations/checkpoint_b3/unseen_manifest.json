@@ -1,0 +1,9 @@
+{
+  "corpus": "checkpoint_b3_unseen.jsonl",
+  "sha256": "1b371b9a58c59899836cd7f8fd4535ddfeaf4793f4f8c0106a173fa7a5278ec9",
+  "narratives": 50,
+  "expected_candidates": 35,
+  "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+  "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+  "evaluation_sequence": "oracle generated -> structural validation -> SHA-256 -> one-shot prediction"
+}

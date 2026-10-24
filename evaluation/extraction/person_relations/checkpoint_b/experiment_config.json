@@ -1,0 +1,32 @@
+{
+  "development_only": true,
+  "corpus_files": [
+    "evaluation/extraction/person_relations/v1_adversarial.jsonl",
+    "evaluation/extraction/person_relations/checkpoint_b_expansion.jsonl"
+  ],
+  "narratives": 180,
+  "expected_candidates": 165,
+  "model_id": "fastino/gliner2.5-multi-v1",
+  "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+  "specific_labels": {
+    "father relation": "Explicit words stating that one person is the father of another person",
+    "mother relation": "Explicit words stating that one person is the mother of another person",
+    "son relation": "Explicit words stating that one person is the son of another person",
+    "daughter relation": "Explicit words stating that one person is the daughter of another person",
+    "sibling relation": "Explicit words stating that one person is a brother or sister of another person",
+    "spouse relation": "Explicit words stating that one person is a husband, wife, or spouse of another person"
+  },
+  "generic_labels": {
+    "person relationship expression": "Explicit phrase that states a family or spouse relationship between people"
+  },
+  "threshold_grid": [
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7
+  ],
+  "configuration_hash": "751065F7F889055AC9186E1BF6302FA765D2FA6C746FDB8A1C039D470F540A00",
+  "shared_downstream": true
+}

@@ -1,0 +1,19 @@
+{
+  "hard_safety_failures": [],
+  "reporting_failures": [],
+  "narrator_failures": [],
+  "unseen_nonpersistible_false_candidates": [
+    {
+      "case_id": "B3-U-034",
+      "category": "QUESTION_FACTUALIZED",
+      "unsafe_persistible": false,
+      "no_fix_applied": true
+    },
+    {
+      "case_id": "B3-U-036",
+      "category": "QUESTION_FACTUALIZED",
+      "unsafe_persistible": false,
+      "no_fix_applied": true
+    }
+  ]
+}

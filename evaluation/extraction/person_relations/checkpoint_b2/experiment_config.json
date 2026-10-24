@@ -1,0 +1,50 @@
+{
+  "development_only": true,
+  "model_id": "fastino/gliner2.5-multi-v1",
+  "model_revision": "aaecfe45db1d828c963717054ccb868e8ad1f1d5",
+  "threshold_grid": [
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7
+  ],
+  "specific_labels": {
+    "father relation": "Explicit words stating that one person is the father of another person",
+    "mother relation": "Explicit words stating that one person is the mother of another person",
+    "son relation": "Explicit words stating that one person is the son of another person",
+    "daughter relation": "Explicit words stating that one person is the daughter of another person",
+    "sibling relation": "Explicit words stating that one person is a brother or sister of another person",
+    "spouse relation": "Explicit words stating that one person is a husband, wife, or spouse of another person"
+  },
+  "generic_labels": {
+    "person relationship expression": "Explicit phrase that states a family or spouse relationship between people"
+  },
+  "d1_labels": {
+    "father role cue": "Word or short phrase denoting the role of father",
+    "mother role cue": "Word or short phrase denoting the role of mother",
+    "son role cue": "Word or short phrase denoting the role of son",
+    "daughter role cue": "Word or short phrase denoting the role of daughter",
+    "brother role cue": "Word or short phrase denoting the role of brother",
+    "sister role cue": "Word or short phrase denoting the role of sister",
+    "spouse role cue": "Word or short phrase denoting husband, wife, or spouse"
+  },
+  "critical_positive_phenomena": [
+    "direct",
+    "reordered",
+    "possessive",
+    "apposition",
+    "existential_have",
+    "contracted_preposition",
+    "discontinuous",
+    "coordination",
+    "multiple_relations",
+    "reported",
+    "spouse_surface",
+    "sibling",
+    "persistible_oracle"
+  ],
+  "shared_b2_downstream": true,
+  "elapsed_seconds": 393.584
+}

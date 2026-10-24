@@ -1,0 +1,1299 @@
+{
+  "A0_ORIGINAL": {
+    "threshold": 1.0,
+    "metrics": {
+      "detector": {
+        "precision": 1.0,
+        "recall": 0.797101,
+        "f1": 0.887096,
+        "exact_span": 1.0,
+        "overlap_span": 0.797101,
+        "false_positives": 0,
+        "false_negatives": 56
+      },
+      "end_to_end": {
+        "precision": 1.0,
+        "recall": 0.802817,
+        "f1": 0.890625,
+        "relation_type_accuracy": 1.0,
+        "surface_accuracy": 1.0,
+        "endpoint_a_accuracy": 0.907895,
+        "endpoint_b_accuracy": 0.969298,
+        "both_endpoint_accuracy": 0.877193,
+        "polarity_accuracy": 0.969298,
+        "epistemic_accuracy": 0.97807,
+        "reporting_accuracy": 0.969298,
+        "temporal_accuracy": 0.969298,
+        "false_relation_candidates": 0,
+        "missed_relation_candidates": 56,
+        "wrong_resolved_endpoint": 0,
+        "safe_abstentions": 7,
+        "unsafe_persistible_false_positive": 12
+      },
+      "failure_taxonomy": {
+        "DETECTION_FALSE_NEGATIVE": 56,
+        "DETECTION_FALSE_POSITIVE": 0,
+        "NEGATION_LOST": 7,
+        "REPORTED_MODE_LOST": 7,
+        "SAFE_ENDPOINT_ABSTENTION": 7,
+        "TEMPORAL_SCOPE_WRONG": 7,
+        "UNCERTAINTY_LOST": 5,
+        "UNSAFE_PERSISTIBLE_FALSE_POSITIVE": 12
+      },
+      "by_phenomenon": {
+        "ambiguous": {
+          "expected": 16,
+          "predicted": 16,
+          "matched": 16
+        },
+        "apposition": {
+          "expected": 7,
+          "predicted": 0,
+          "matched": 0
+        },
+        "appositive_chain": {
+          "expected": 14,
+          "predicted": 7,
+          "matched": 7
+        },
+        "b1_generalization": {
+          "expected": 119,
+          "predicted": 63,
+          "matched": 63
+        },
+        "compositional": {
+          "expected": 3,
+          "predicted": 3,
+          "matched": 3
+        },
+        "contracted_preposition": {
+          "expected": 7,
+          "predicted": 0,
+          "matched": 0
+        },
+        "coordination": {
+          "expected": 42,
+          "predicted": 42,
+          "matched": 42
+        },
+        "copular": {
+          "expected": 14,
+          "predicted": 0,
+          "matched": 0
+        },
+        "definition": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "direct": {
+          "expected": 31,
+          "predicted": 31,
+          "matched": 31
+        },
+        "direction": {
+          "expected": 3,
+          "predicted": 3,
+          "matched": 3
+        },
+        "discontinuous": {
+          "expected": 7,
+          "predicted": 0,
+          "matched": 0
+        },
+        "distractor_heavy": {
+          "expected": 28,
+          "predicted": 14,
+          "matched": 14
+        },
+        "distractors": {
+          "expected": 7,
+          "predicted": 7,
+          "matched": 7
+        },
+        "duplicate_semantics": {
+          "expected": 1,
+          "predicted": 1,
+          "matched": 1
+        },
+        "embedded_clause": {
+          "expected": 7,
+          "predicted": 7,
+          "matched": 7
+        },
+        "event_only": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "existential_have": {
+          "expected": 7,
+          "predicted": 0,
+          "matched": 0
+        },
+        "false_friend": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "form_label": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "hypothetical": {
+          "expected": 7,
+          "predicted": 7,
+          "matched": 7
+        },
+        "incidental_kinship": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "independent_declaration": {
+          "expected": 1,
+          "predicted": 1,
+          "matched": 1
+        },
+        "mentioned_relation": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "metaphor": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "minimal_pair": {
+          "expected": 6,
+          "predicted": 6,
+          "matched": 6
+        },
+        "multiple_people": {
+          "expected": 14,
+          "predicted": 14,
+          "matched": 14
+        },
+        "multiple_relations": {
+          "expected": 56,
+          "predicted": 49,
+          "matched": 49
+        },
+        "named": {
+          "expected": 2,
+          "predicted": 2,
+          "matched": 2
+        },
+        "narrator": {
+          "expected": 9,
+          "predicted": 9,
+          "matched": 9
+        },
+        "negated": {
+          "expected": 7,
+          "predicted": 7,
+          "matched": 7
+        },
+        "negation": {
+          "expected": 14,
+          "predicted": 14,
+          "matched": 14
+        },
+        "negation_variant": {
+          "expected": 7,
+          "predicted": 7,
+          "matched": 7
+        },
+        "negative_case": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "negative_control": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "no_event_derived_relation": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "no_relation": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "partial_endpoint": {
+          "expected": 35,
+          "predicted": 28,
+          "matched": 28
+        },
+        "past": {
+          "expected": 7,
+          "predicted": 7,
+          "matched": 7
+        },
+        "past_relation": {
+          "expected": 18,
+          "predicted": 18,
+          "matched": 18
+        },
+        "persistible_oracle": {
+          "expected": 49,
+          "predicted": 14,
+          "matched": 14
+        },
+        "possessive": {
+          "expected": 16,
+          "predicted": 9,
+          "matched": 9
+        },
+        "pronoun": {
+          "expected": 24,
+          "predicted": 17,
+          "matched": 17
+        },
+        "question": {
+          "expected": 15,
+          "predicted": 8,
+          "matched": 8
+        },
+        "quoted_language": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "reordered": {
+          "expected": 21,
+          "predicted": 0,
+          "matched": 0
+        },
+        "reported": {
+          "expected": 21,
+          "predicted": 21,
+          "matched": 21
+        },
+        "reported_speech": {
+          "expected": 24,
+          "predicted": 24,
+          "matched": 24
+        },
+        "role_play": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "safe_abstention": {
+          "expected": 7,
+          "predicted": 7,
+          "matched": 7
+        },
+        "sibling": {
+          "expected": 8,
+          "predicted": 8,
+          "matched": 8
+        },
+        "social_relation": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "speaker_distractor": {
+          "expected": 29,
+          "predicted": 29,
+          "matched": 29
+        },
+        "spouse_surface": {
+          "expected": 15,
+          "predicted": 15,
+          "matched": 15
+        },
+        "structural_pair": {
+          "expected": 2,
+          "predicted": 2,
+          "matched": 2
+        },
+        "surface_variation": {
+          "expected": 6,
+          "predicted": 6,
+          "matched": 6
+        },
+        "temporal_limitation": {
+          "expected": 15,
+          "predicted": 15,
+          "matched": 15
+        },
+        "temporal_scope": {
+          "expected": 7,
+          "predicted": 7,
+          "matched": 7
+        },
+        "title": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "topic_only": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "uncertain": {
+          "expected": 14,
+          "predicted": 14,
+          "matched": 14
+        },
+        "uncertainty": {
+          "expected": 30,
+          "predicted": 30,
+          "matched": 30
+        },
+        "uncertainty_variant": {
+          "expected": 7,
+          "predicted": 7,
+          "matched": 7
+        },
+        "utf8": {
+          "expected": 56,
+          "predicted": 56,
+          "matched": 56
+        }
+      },
+      "coverage": {
+        "persistible_oracle_expected": 127,
+        "persistible_oracle_correct": 78,
+        "persistible_oracle_recall": 0.614173,
+        "per_relation_type_recall": {
+          "BROTHER_OF": 0.707317,
+          "DAUGHTER_OF": 0.7,
+          "FATHER_OF": 0.714286,
+          "MOTHER_OF": 0.7,
+          "SISTER_OF": 0.707317,
+          "SON_OF": 0.692308,
+          "SPOUSE_OF": 0.707317
+        },
+        "per_phenomenon_recall": {
+          "ambiguous": 0.125,
+          "apposition": 0.0,
+          "appositive_chain": 0.0,
+          "b1_generalization": 0.411765,
+          "compositional": 1.0,
+          "contracted_preposition": 0.0,
+          "coordination": 1.0,
+          "copular": 0.0,
+          "direct": 1.0,
+          "direction": 1.0,
+          "discontinuous": 0.0,
+          "distractor_heavy": 0.25,
+          "distractors": 1.0,
+          "duplicate_semantics": 1.0,
+          "embedded_clause": 1.0,
+          "existential_have": 0.0,
+          "hypothetical": 1.0,
+          "independent_declaration": 1.0,
+          "minimal_pair": 1.0,
+          "multiple_people": 1.0,
+          "multiple_relations": 0.75,
+          "named": 1.0,
+          "narrator": 0.888889,
+          "negated": 1.0,
+          "negation": 1.0,
+          "negation_variant": 1.0,
+          "partial_endpoint": 0.2,
+          "past": 1.0,
+          "past_relation": 1.0,
+          "persistible_oracle": 0.285714,
+          "possessive": 0.5,
+          "pronoun": 0.125,
+          "question": 0.533333,
+          "reordered": 0.0,
+          "reported": 0.666667,
+          "reported_speech": 1.0,
+          "safe_abstention": 1.0,
+          "sibling": 1.0,
+          "speaker_distractor": 1.0,
+          "spouse_surface": 1.0,
+          "structural_pair": 1.0,
+          "surface_variation": 1.0,
+          "temporal_limitation": 1.0,
+          "temporal_scope": 1.0,
+          "uncertain": 1.0,
+          "uncertainty": 1.0,
+          "uncertainty_variant": 1.0,
+          "utf8": 1.0
+        },
+        "safe_abstention_count": 28,
+        "safe_abstention_rate": 1.0,
+        "unnecessary_abstention_count": 7,
+        "unnecessary_abstention_rate": 0.035,
+        "total_detector_candidate_miss": 56
+      }
+    }
+  },
+  "B": {
+    "threshold": 0.7,
+    "metrics": {
+      "detector": {
+        "precision": 0.053061,
+        "recall": 0.094203,
+        "f1": 0.067885,
+        "exact_span": 0.038462,
+        "overlap_span": 0.094203,
+        "false_positives": 464,
+        "false_negatives": 250
+      },
+      "end_to_end": {
+        "precision": 1.0,
+        "recall": 0.080986,
+        "f1": 0.149837,
+        "relation_type_accuracy": 1.0,
+        "surface_accuracy": 1.0,
+        "endpoint_a_accuracy": 0.826087,
+        "endpoint_b_accuracy": 1.0,
+        "both_endpoint_accuracy": 0.826087,
+        "polarity_accuracy": 1.0,
+        "epistemic_accuracy": 1.0,
+        "reporting_accuracy": 1.0,
+        "temporal_accuracy": 0.913043,
+        "false_relation_candidates": 0,
+        "missed_relation_candidates": 261,
+        "wrong_resolved_endpoint": 0,
+        "safe_abstentions": 0,
+        "unsafe_persistible_false_positive": 0
+      },
+      "failure_taxonomy": {
+        "DETECTION_FALSE_NEGATIVE": 250,
+        "DETECTION_FALSE_POSITIVE": 464,
+        "TEMPORAL_SCOPE_WRONG": 2,
+        "UNSAFE_PERSISTIBLE_FALSE_POSITIVE": 0
+      },
+      "by_phenomenon": {
+        "ambiguous": {
+          "expected": 16,
+          "predicted": 2,
+          "matched": 2
+        },
+        "apposition": {
+          "expected": 7,
+          "predicted": 0,
+          "matched": 0
+        },
+        "appositive_chain": {
+          "expected": 14,
+          "predicted": 1,
+          "matched": 1
+        },
+        "b1_generalization": {
+          "expected": 119,
+          "predicted": 6,
+          "matched": 6
+        },
+        "compositional": {
+          "expected": 3,
+          "predicted": 0,
+          "matched": 0
+        },
+        "contracted_preposition": {
+          "expected": 7,
+          "predicted": 0,
+          "matched": 0
+        },
+        "coordination": {
+          "expected": 42,
+          "predicted": 3,
+          "matched": 3
+        },
+        "copular": {
+          "expected": 14,
+          "predicted": 0,
+          "matched": 0
+        },
+        "definition": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "direct": {
+          "expected": 31,
+          "predicted": 3,
+          "matched": 3
+        },
+        "direction": {
+          "expected": 3,
+          "predicted": 0,
+          "matched": 0
+        },
+        "discontinuous": {
+          "expected": 7,
+          "predicted": 0,
+          "matched": 0
+        },
+        "distractor_heavy": {
+          "expected": 28,
+          "predicted": 2,
+          "matched": 2
+        },
+        "distractors": {
+          "expected": 7,
+          "predicted": 2,
+          "matched": 2
+        },
+        "duplicate_semantics": {
+          "expected": 1,
+          "predicted": 0,
+          "matched": 0
+        },
+        "embedded_clause": {
+          "expected": 7,
+          "predicted": 0,
+          "matched": 0
+        },
+        "event_only": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "existential_have": {
+          "expected": 7,
+          "predicted": 0,
+          "matched": 0
+        },
+        "false_friend": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "form_label": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "hypothetical": {
+          "expected": 7,
+          "predicted": 1,
+          "matched": 1
+        },
+        "incidental_kinship": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "independent_declaration": {
+          "expected": 1,
+          "predicted": 0,
+          "matched": 0
+        },
+        "mentioned_relation": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "metaphor": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "minimal_pair": {
+          "expected": 6,
+          "predicted": 0,
+          "matched": 0
+        },
+        "multiple_people": {
+          "expected": 14,
+          "predicted": 3,
+          "matched": 3
+        },
+        "multiple_relations": {
+          "expected": 56,
+          "predicted": 4,
+          "matched": 4
+        },
+        "named": {
+          "expected": 2,
+          "predicted": 0,
+          "matched": 0
+        },
+        "narrator": {
+          "expected": 9,
+          "predicted": 1,
+          "matched": 1
+        },
+        "negated": {
+          "expected": 7,
+          "predicted": 0,
+          "matched": 0
+        },
+        "negation": {
+          "expected": 14,
+          "predicted": 1,
+          "matched": 1
+        },
+        "negation_variant": {
+          "expected": 7,
+          "predicted": 0,
+          "matched": 0
+        },
+        "negative_case": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "negative_control": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "no_event_derived_relation": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "no_relation": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "partial_endpoint": {
+          "expected": 35,
+          "predicted": 2,
+          "matched": 2
+        },
+        "past": {
+          "expected": 7,
+          "predicted": 1,
+          "matched": 1
+        },
+        "past_relation": {
+          "expected": 18,
+          "predicted": 0,
+          "matched": 0
+        },
+        "persistible_oracle": {
+          "expected": 49,
+          "predicted": 2,
+          "matched": 2
+        },
+        "possessive": {
+          "expected": 16,
+          "predicted": 1,
+          "matched": 1
+        },
+        "pronoun": {
+          "expected": 24,
+          "predicted": 2,
+          "matched": 2
+        },
+        "question": {
+          "expected": 15,
+          "predicted": 2,
+          "matched": 2
+        },
+        "quoted_language": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "reordered": {
+          "expected": 21,
+          "predicted": 0,
+          "matched": 0
+        },
+        "reported": {
+          "expected": 21,
+          "predicted": 2,
+          "matched": 2
+        },
+        "reported_speech": {
+          "expected": 24,
+          "predicted": 3,
+          "matched": 3
+        },
+        "role_play": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "safe_abstention": {
+          "expected": 7,
+          "predicted": 0,
+          "matched": 0
+        },
+        "sibling": {
+          "expected": 8,
+          "predicted": 2,
+          "matched": 2
+        },
+        "social_relation": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "speaker_distractor": {
+          "expected": 29,
+          "predicted": 3,
+          "matched": 3
+        },
+        "spouse_surface": {
+          "expected": 15,
+          "predicted": 0,
+          "matched": 0
+        },
+        "structural_pair": {
+          "expected": 2,
+          "predicted": 0,
+          "matched": 0
+        },
+        "surface_variation": {
+          "expected": 6,
+          "predicted": 0,
+          "matched": 0
+        },
+        "temporal_limitation": {
+          "expected": 15,
+          "predicted": 0,
+          "matched": 0
+        },
+        "temporal_scope": {
+          "expected": 7,
+          "predicted": 1,
+          "matched": 1
+        },
+        "title": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "topic_only": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "uncertain": {
+          "expected": 14,
+          "predicted": 0,
+          "matched": 0
+        },
+        "uncertainty": {
+          "expected": 30,
+          "predicted": 6,
+          "matched": 6
+        },
+        "uncertainty_variant": {
+          "expected": 7,
+          "predicted": 0,
+          "matched": 0
+        },
+        "utf8": {
+          "expected": 56,
+          "predicted": 5,
+          "matched": 5
+        }
+      },
+      "coverage": {
+        "persistible_oracle_expected": 127,
+        "persistible_oracle_correct": 7,
+        "persistible_oracle_recall": 0.055118,
+        "per_relation_type_recall": {
+          "BROTHER_OF": 0.341463,
+          "DAUGHTER_OF": 0.0,
+          "FATHER_OF": 0.0,
+          "MOTHER_OF": 0.0,
+          "SISTER_OF": 0.121951,
+          "SON_OF": 0.0,
+          "SPOUSE_OF": 0.0
+        },
+        "per_phenomenon_recall": {
+          "ambiguous": 0.0,
+          "apposition": 0.0,
+          "appositive_chain": 0.0,
+          "b1_generalization": 0.033613,
+          "compositional": 0.0,
+          "contracted_preposition": 0.0,
+          "coordination": 0.047619,
+          "copular": 0.0,
+          "direct": 0.096774,
+          "direction": 0.0,
+          "discontinuous": 0.0,
+          "distractor_heavy": 0.035714,
+          "distractors": 0.285714,
+          "duplicate_semantics": 0.0,
+          "embedded_clause": 0.0,
+          "existential_have": 0.0,
+          "hypothetical": 0.142857,
+          "independent_declaration": 0.0,
+          "minimal_pair": 0.0,
+          "multiple_people": 0.214286,
+          "multiple_relations": 0.035714,
+          "named": 0.0,
+          "narrator": 0.111111,
+          "negated": 0.0,
+          "negation": 0.071429,
+          "negation_variant": 0.0,
+          "partial_endpoint": 0.0,
+          "past": 0.142857,
+          "past_relation": 0.0,
+          "persistible_oracle": 0.040816,
+          "possessive": 0.0625,
+          "pronoun": 0.0,
+          "question": 0.133333,
+          "reordered": 0.0,
+          "reported": 0.047619,
+          "reported_speech": 0.125,
+          "safe_abstention": 0.0,
+          "sibling": 0.25,
+          "speaker_distractor": 0.103448,
+          "spouse_surface": 0.0,
+          "structural_pair": 0.0,
+          "surface_variation": 0.0,
+          "temporal_limitation": 0.0,
+          "temporal_scope": 0.142857,
+          "uncertain": 0.0,
+          "uncertainty": 0.2,
+          "uncertainty_variant": 0.0,
+          "utf8": 0.071429
+        },
+        "safe_abstention_count": 2,
+        "safe_abstention_rate": 1.0,
+        "unnecessary_abstention_count": 2,
+        "unnecessary_abstention_rate": 0.095238,
+        "total_detector_candidate_miss": 261
+      }
+    }
+  },
+  "C": {
+    "threshold": 0.2,
+    "metrics": {
+      "detector": {
+        "precision": 0.057887,
+        "recall": 0.144928,
+        "f1": 0.08273,
+        "exact_span": 0.0,
+        "overlap_span": 0.144928,
+        "false_positives": 651,
+        "false_negatives": 236
+      },
+      "end_to_end": {
+        "precision": 1.0,
+        "recall": 0.112676,
+        "f1": 0.202532,
+        "relation_type_accuracy": 1.0,
+        "surface_accuracy": 1.0,
+        "endpoint_a_accuracy": 0.9375,
+        "endpoint_b_accuracy": 0.96875,
+        "both_endpoint_accuracy": 0.90625,
+        "polarity_accuracy": 0.96875,
+        "epistemic_accuracy": 1.0,
+        "reporting_accuracy": 0.96875,
+        "temporal_accuracy": 0.96875,
+        "false_relation_candidates": 0,
+        "missed_relation_candidates": 252,
+        "wrong_resolved_endpoint": 0,
+        "safe_abstentions": 2,
+        "unsafe_persistible_false_positive": 1
+      },
+      "failure_taxonomy": {
+        "DETECTION_FALSE_NEGATIVE": 236,
+        "DETECTION_FALSE_POSITIVE": 651,
+        "NEGATION_LOST": 1,
+        "REPORTED_MODE_LOST": 1,
+        "SAFE_ENDPOINT_ABSTENTION": 2,
+        "TEMPORAL_SCOPE_WRONG": 1,
+        "UNSAFE_PERSISTIBLE_FALSE_POSITIVE": 1
+      },
+      "by_phenomenon": {
+        "ambiguous": {
+          "expected": 16,
+          "predicted": 1,
+          "matched": 1
+        },
+        "apposition": {
+          "expected": 7,
+          "predicted": 0,
+          "matched": 0
+        },
+        "appositive_chain": {
+          "expected": 14,
+          "predicted": 1,
+          "matched": 1
+        },
+        "b1_generalization": {
+          "expected": 119,
+          "predicted": 6,
+          "matched": 6
+        },
+        "compositional": {
+          "expected": 3,
+          "predicted": 0,
+          "matched": 0
+        },
+        "contracted_preposition": {
+          "expected": 7,
+          "predicted": 0,
+          "matched": 0
+        },
+        "coordination": {
+          "expected": 42,
+          "predicted": 2,
+          "matched": 2
+        },
+        "copular": {
+          "expected": 14,
+          "predicted": 0,
+          "matched": 0
+        },
+        "definition": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "direct": {
+          "expected": 31,
+          "predicted": 7,
+          "matched": 7
+        },
+        "direction": {
+          "expected": 3,
+          "predicted": 0,
+          "matched": 0
+        },
+        "discontinuous": {
+          "expected": 7,
+          "predicted": 0,
+          "matched": 0
+        },
+        "distractor_heavy": {
+          "expected": 28,
+          "predicted": 1,
+          "matched": 1
+        },
+        "distractors": {
+          "expected": 7,
+          "predicted": 1,
+          "matched": 1
+        },
+        "duplicate_semantics": {
+          "expected": 1,
+          "predicted": 0,
+          "matched": 0
+        },
+        "embedded_clause": {
+          "expected": 7,
+          "predicted": 1,
+          "matched": 1
+        },
+        "event_only": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "existential_have": {
+          "expected": 7,
+          "predicted": 0,
+          "matched": 0
+        },
+        "false_friend": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "form_label": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "hypothetical": {
+          "expected": 7,
+          "predicted": 1,
+          "matched": 1
+        },
+        "incidental_kinship": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "independent_declaration": {
+          "expected": 1,
+          "predicted": 0,
+          "matched": 0
+        },
+        "mentioned_relation": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "metaphor": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "minimal_pair": {
+          "expected": 6,
+          "predicted": 1,
+          "matched": 1
+        },
+        "multiple_people": {
+          "expected": 14,
+          "predicted": 1,
+          "matched": 1
+        },
+        "multiple_relations": {
+          "expected": 56,
+          "predicted": 3,
+          "matched": 3
+        },
+        "named": {
+          "expected": 2,
+          "predicted": 1,
+          "matched": 1
+        },
+        "narrator": {
+          "expected": 9,
+          "predicted": 2,
+          "matched": 2
+        },
+        "negated": {
+          "expected": 7,
+          "predicted": 1,
+          "matched": 1
+        },
+        "negation": {
+          "expected": 14,
+          "predicted": 3,
+          "matched": 3
+        },
+        "negation_variant": {
+          "expected": 7,
+          "predicted": 1,
+          "matched": 1
+        },
+        "negative_case": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "negative_control": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "no_event_derived_relation": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "no_relation": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "partial_endpoint": {
+          "expected": 35,
+          "predicted": 4,
+          "matched": 4
+        },
+        "past": {
+          "expected": 7,
+          "predicted": 1,
+          "matched": 1
+        },
+        "past_relation": {
+          "expected": 18,
+          "predicted": 4,
+          "matched": 4
+        },
+        "persistible_oracle": {
+          "expected": 49,
+          "predicted": 0,
+          "matched": 0
+        },
+        "possessive": {
+          "expected": 16,
+          "predicted": 2,
+          "matched": 2
+        },
+        "pronoun": {
+          "expected": 24,
+          "predicted": 2,
+          "matched": 2
+        },
+        "question": {
+          "expected": 15,
+          "predicted": 3,
+          "matched": 3
+        },
+        "quoted_language": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "reordered": {
+          "expected": 21,
+          "predicted": 0,
+          "matched": 0
+        },
+        "reported": {
+          "expected": 21,
+          "predicted": 2,
+          "matched": 2
+        },
+        "reported_speech": {
+          "expected": 24,
+          "predicted": 2,
+          "matched": 2
+        },
+        "role_play": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "safe_abstention": {
+          "expected": 7,
+          "predicted": 2,
+          "matched": 2
+        },
+        "sibling": {
+          "expected": 8,
+          "predicted": 4,
+          "matched": 4
+        },
+        "social_relation": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "speaker_distractor": {
+          "expected": 29,
+          "predicted": 3,
+          "matched": 3
+        },
+        "spouse_surface": {
+          "expected": 15,
+          "predicted": 0,
+          "matched": 0
+        },
+        "structural_pair": {
+          "expected": 2,
+          "predicted": 1,
+          "matched": 1
+        },
+        "surface_variation": {
+          "expected": 6,
+          "predicted": 1,
+          "matched": 1
+        },
+        "temporal_limitation": {
+          "expected": 15,
+          "predicted": 2,
+          "matched": 2
+        },
+        "temporal_scope": {
+          "expected": 7,
+          "predicted": 1,
+          "matched": 1
+        },
+        "title": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "topic_only": {
+          "expected": 0,
+          "predicted": 0,
+          "matched": 0
+        },
+        "uncertain": {
+          "expected": 14,
+          "predicted": 2,
+          "matched": 2
+        },
+        "uncertainty": {
+          "expected": 30,
+          "predicted": 6,
+          "matched": 6
+        },
+        "uncertainty_variant": {
+          "expected": 7,
+          "predicted": 1,
+          "matched": 1
+        },
+        "utf8": {
+          "expected": 56,
+          "predicted": 8,
+          "matched": 8
+        }
+      },
+      "coverage": {
+        "persistible_oracle_expected": 127,
+        "persistible_oracle_correct": 10,
+        "persistible_oracle_recall": 0.07874,
+        "per_relation_type_recall": {
+          "BROTHER_OF": 0.073171,
+          "DAUGHTER_OF": 0.025,
+          "FATHER_OF": 0.02381,
+          "MOTHER_OF": 0.15,
+          "SISTER_OF": 0.439024,
+          "SON_OF": 0.0,
+          "SPOUSE_OF": 0.0
+        },
+        "per_phenomenon_recall": {
+          "ambiguous": 0.0,
+          "apposition": 0.0,
+          "appositive_chain": 0.0,
+          "b1_generalization": 0.033613,
+          "compositional": 0.0,
+          "contracted_preposition": 0.0,
+          "coordination": 0.047619,
+          "copular": 0.0,
+          "direct": 0.225806,
+          "direction": 0.0,
+          "discontinuous": 0.0,
+          "distractor_heavy": 0.0,
+          "distractors": 0.142857,
+          "duplicate_semantics": 0.0,
+          "embedded_clause": 0.142857,
+          "existential_have": 0.0,
+          "hypothetical": 0.142857,
+          "independent_declaration": 0.0,
+          "minimal_pair": 0.166667,
+          "multiple_people": 0.071429,
+          "multiple_relations": 0.035714,
+          "named": 0.5,
+          "narrator": 0.111111,
+          "negated": 0.142857,
+          "negation": 0.214286,
+          "negation_variant": 0.142857,
+          "partial_endpoint": 0.057143,
+          "past": 0.142857,
+          "past_relation": 0.222222,
+          "persistible_oracle": 0.0,
+          "possessive": 0.0625,
+          "pronoun": 0.041667,
+          "question": 0.2,
+          "reordered": 0.0,
+          "reported": 0.047619,
+          "reported_speech": 0.083333,
+          "safe_abstention": 0.285714,
+          "sibling": 0.5,
+          "speaker_distractor": 0.103448,
+          "spouse_surface": 0.0,
+          "structural_pair": 0.5,
+          "surface_variation": 0.166667,
+          "temporal_limitation": 0.133333,
+          "temporal_scope": 0.142857,
+          "uncertain": 0.142857,
+          "uncertainty": 0.2,
+          "uncertainty_variant": 0.142857,
+          "utf8": 0.142857
+        },
+        "safe_abstention_count": 4,
+        "safe_abstention_rate": 1.0,
+        "unnecessary_abstention_count": 1,
+        "unnecessary_abstention_rate": 0.035714,
+        "total_detector_candidate_miss": 252
+      }
+    }
+  }
+}

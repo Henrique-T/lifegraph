@@ -52,6 +52,14 @@ class EndpointMentionResolution(StrEnum):
     UNRESOLVED_MENTION = "UNRESOLVED_MENTION"
 
 
+class EndpointSemanticTarget(StrEnum):
+    """Linguistic endpoint kind, deliberately separate from graph identity."""
+
+    EXPLICIT_MENTION = "EXPLICIT_MENTION"
+    NARRATOR_ROLE = "NARRATOR_ROLE"
+    UNRESOLVED_MENTION = "UNRESOLVED_MENTION"
+
+
 class CanonicalRelationFamily(StrEnum):
     """Structural family used only for grouping relation claims."""
 

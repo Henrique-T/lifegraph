@@ -5,10 +5,12 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from app.domain.enums import Origin, VerificationStatus
+from app.domain.schemas import ConversationTurnRead, PersonRead
 from app.relations.canonical import canonical_pair_key, canonical_relation_family
 from app.relations.enums import (
     CanonicalRelationFamily,
     EndpointMentionResolution,
+    EndpointSemanticTarget,
     EpistemicStatus,
     PersistenceEligibility,
     RelationPolarity,
@@ -68,10 +70,12 @@ class RelationCandidate(RelationModel):
     endpoint_a_span_start: int | None = Field(default=None, ge=0)
     endpoint_a_span_end: int | None = Field(default=None, gt=0)
     endpoint_a_resolution_state: EndpointMentionResolution
+    endpoint_a_semantic_target: EndpointSemanticTarget = EndpointSemanticTarget.EXPLICIT_MENTION
     endpoint_b_mention: str | None = Field(default=None, max_length=500)
     endpoint_b_span_start: int | None = Field(default=None, ge=0)
     endpoint_b_span_end: int | None = Field(default=None, gt=0)
     endpoint_b_resolution_state: EndpointMentionResolution
+    endpoint_b_semantic_target: EndpointSemanticTarget = EndpointSemanticTarget.EXPLICIT_MENTION
     polarity: RelationPolarity
     epistemic_status: EpistemicStatus
     reporting_mode: ReportingMode
@@ -187,17 +191,32 @@ class RelationClaim(RelationModel):
 
     relation_claim_id: str = Field(min_length=1, max_length=200)
     relation_type: RelationType
+    relation_surface_text: str = Field(min_length=1, max_length=500)
+    source_text: str = Field(min_length=1, max_length=10_000)
+    source_reference: str = Field(min_length=1, max_length=200)
+    polarity: RelationPolarity
+    epistemic_status: EpistemicStatus
+    reporting_mode: ReportingMode
+    temporal_scope: RelationTemporalScope
     origin: Origin = Origin.CONVERSATION
     verification_status: VerificationStatus = VerificationStatus.DECLARED
     endpoint_a_person_id: str = Field(min_length=1, max_length=200)
     endpoint_b_person_id: str = Field(min_length=1, max_length=200)
     conversation_turn_id: str = Field(min_length=1, max_length=200)
     original_relation_surface: str = Field(min_length=1, max_length=500)
-    original_endpoint_a_mention: str = Field(min_length=1, max_length=500)
-    original_endpoint_b_mention: str = Field(min_length=1, max_length=500)
+    original_endpoint_a_mention: str | None = Field(default=None, max_length=500)
+    original_endpoint_b_mention: str | None = Field(default=None, max_length=500)
     accepted_relation_surface: str = Field(min_length=1, max_length=500)
     accepted_endpoint_a_mention: str = Field(min_length=1, max_length=500)
     accepted_endpoint_b_mention: str = Field(min_length=1, max_length=500)
+    accepted_relation_span_start: int = Field(ge=0)
+    accepted_relation_span_end: int = Field(gt=0)
+    accepted_endpoint_a_span_start: int = Field(ge=0)
+    accepted_endpoint_a_span_end: int = Field(gt=0)
+    accepted_endpoint_b_span_start: int = Field(ge=0)
+    accepted_endpoint_b_span_end: int = Field(gt=0)
+    endpoint_a_semantic_target: EndpointSemanticTarget
+    endpoint_b_semantic_target: EndpointSemanticTarget
     reviewer_correction_applied: bool
     reviewer_corrections_json: str | None = None
     extraction_id: str = Field(min_length=1, max_length=200)
@@ -207,6 +226,10 @@ class RelationClaim(RelationModel):
     model_revision: str = Field(min_length=1, max_length=200)
     configuration_hash: str = Field(min_length=1, max_length=200)
     acceptance_payload_hash: str = Field(min_length=1, max_length=200)
+    persistence_operation_key: str = Field(min_length=1, max_length=200)
+    review_id: str = Field(min_length=1, max_length=200)
+    reviewed_at: datetime
+    accepted_at: datetime
     canonical_relation_family: CanonicalRelationFamily
     canonical_pair_key: str = Field(min_length=1, max_length=700)
     created_at: datetime
@@ -221,6 +244,14 @@ class RelationClaim(RelationModel):
             raise ValueError("RelationClaim verification status must be DECLARED")
         if self.endpoint_a_person_id == self.endpoint_b_person_id:
             raise ValueError("RelationClaim endpoints must reference different Persons")
+        if self.polarity is not RelationPolarity.POSITIVE:
+            raise ValueError("Persisted RelationClaim polarity must be POSITIVE")
+        if self.epistemic_status is not EpistemicStatus.ASSERTED:
+            raise ValueError("Persisted RelationClaim epistemic status must be ASSERTED")
+        if self.reporting_mode is not ReportingMode.DIRECT:
+            raise ValueError("Persisted RelationClaim reporting mode must be DIRECT")
+        if self.temporal_scope is not RelationTemporalScope.CURRENT_OR_UNSPECIFIED:
+            raise ValueError("Persisted RelationClaim temporal scope is unsupported")
         expected_family = canonical_relation_family(self.relation_type)
         if self.canonical_relation_family is not expected_family:
             raise ValueError("Canonical relation family does not match relation type")
@@ -231,4 +262,22 @@ class RelationClaim(RelationModel):
         )
         if self.canonical_pair_key != expected_key:
             raise ValueError("Canonical pair key does not match relation endpoints")
+        for text, start, end, label in (
+            (self.accepted_relation_surface, self.accepted_relation_span_start, self.accepted_relation_span_end, "Relation"),
+            (self.accepted_endpoint_a_mention, self.accepted_endpoint_a_span_start, self.accepted_endpoint_a_span_end, "Endpoint A"),
+            (self.accepted_endpoint_b_mention, self.accepted_endpoint_b_span_start, self.accepted_endpoint_b_span_end, "Endpoint B"),
+        ):
+            if not 0 <= start < end <= len(self.source_text):
+                raise ValueError(f"{label} span is outside the source narrative")
+            if self.source_text[start:end] != text:
+                raise ValueError(f"{label} span does not match the source narrative")
         return self
+
+
+class RelationClaimGraphRead(RelationModel):
+    """One claim with its two role-specific endpoints and source turn."""
+
+    claim: RelationClaim
+    endpoint_a: PersonRead
+    endpoint_b: PersonRead
+    conversation_turn: ConversationTurnRead

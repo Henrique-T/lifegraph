@@ -1,0 +1,2943 @@
+[
+  {
+    "case": {
+      "case_id": "B3-U-001",
+      "narrative": "Segundo Tiago, o pai de Lúcia é Marcos.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "FATHER_OF",
+          "relation_surface_text": "pai de",
+          "endpoint_a_mention": "Marcos",
+          "endpoint_b_mention": "Lúcia",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "reordered",
+        "reported",
+        "parent_child"
+      ]
+    },
+    "result": {
+      "source_text": "Segundo Tiago, o pai de Lúcia é Marcos.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "pai de",
+          "start": 17,
+          "end": 23,
+          "label": "FATHER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "d90391c73881fd9b929f5ba4b78979f9",
+          "source_reference": "B3-U-001",
+          "source_text": "Segundo Tiago, o pai de Lúcia é Marcos.",
+          "relation_type": "FATHER_OF",
+          "relation_surface_text": "pai de",
+          "relation_span_start": 17,
+          "relation_span_end": 23,
+          "endpoint_a_mention": "Marcos",
+          "endpoint_a_span_start": 32,
+          "endpoint_a_span_end": 38,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Lúcia",
+          "endpoint_b_span_start": 24,
+          "endpoint_b_span_end": 29,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "reporting_source_mention": "Tiago",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "FATHER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_REPORTED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-002",
+      "narrative": "De acordo com Nádia, a mãe de Caio é Helena.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "MOTHER_OF",
+          "relation_surface_text": "mãe de",
+          "endpoint_a_mention": "Helena",
+          "endpoint_b_mention": "Caio",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "reordered",
+        "reported",
+        "parent_child"
+      ]
+    },
+    "result": {
+      "source_text": "De acordo com Nádia, a mãe de Caio é Helena.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "mãe de",
+          "start": 23,
+          "end": 29,
+          "label": "MOTHER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "e22c2c4ed8851c2248220c202a2d3a8b",
+          "source_reference": "B3-U-002",
+          "source_text": "De acordo com Nádia, a mãe de Caio é Helena.",
+          "relation_type": "MOTHER_OF",
+          "relation_surface_text": "mãe de",
+          "relation_span_start": 23,
+          "relation_span_end": 29,
+          "endpoint_a_mention": "Helena",
+          "endpoint_a_span_start": 37,
+          "endpoint_a_span_end": 43,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Caio",
+          "endpoint_b_span_start": 30,
+          "endpoint_b_span_end": 34,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "reporting_source_mention": "Nádia",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "MOTHER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_REPORTED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-003",
+      "narrative": "Segundo Raul, o filho de Marta é Bruno.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "SON_OF",
+          "relation_surface_text": "filho de",
+          "endpoint_a_mention": "Bruno",
+          "endpoint_b_mention": "Marta",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "reordered",
+        "reported",
+        "parent_child"
+      ]
+    },
+    "result": {
+      "source_text": "Segundo Raul, o filho de Marta é Bruno.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "filho de",
+          "start": 16,
+          "end": 24,
+          "label": "SON_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "355dee90a85b4df42e148debc8da7f39",
+          "source_reference": "B3-U-003",
+          "source_text": "Segundo Raul, o filho de Marta é Bruno.",
+          "relation_type": "SON_OF",
+          "relation_surface_text": "filho de",
+          "relation_span_start": 16,
+          "relation_span_end": 24,
+          "endpoint_a_mention": "Bruno",
+          "endpoint_a_span_start": 33,
+          "endpoint_a_span_end": 38,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Marta",
+          "endpoint_b_span_start": 25,
+          "endpoint_b_span_end": 30,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "reporting_source_mention": "Raul",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "SON_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_REPORTED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-004",
+      "narrative": "De acordo com Elisa, a filha de Paulo é Clara.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "DAUGHTER_OF",
+          "relation_surface_text": "filha de",
+          "endpoint_a_mention": "Clara",
+          "endpoint_b_mention": "Paulo",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "reordered",
+        "reported",
+        "parent_child"
+      ]
+    },
+    "result": {
+      "source_text": "De acordo com Elisa, a filha de Paulo é Clara.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "filha de",
+          "start": 23,
+          "end": 31,
+          "label": "DAUGHTER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "8bad6c52f5b12b42d220ccf41fda49a8",
+          "source_reference": "B3-U-004",
+          "source_text": "De acordo com Elisa, a filha de Paulo é Clara.",
+          "relation_type": "DAUGHTER_OF",
+          "relation_surface_text": "filha de",
+          "relation_span_start": 23,
+          "relation_span_end": 31,
+          "endpoint_a_mention": "Clara",
+          "endpoint_a_span_start": 40,
+          "endpoint_a_span_end": 45,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Paulo",
+          "endpoint_b_span_start": 32,
+          "endpoint_b_span_end": 37,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "reporting_source_mention": "Elisa",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "DAUGHTER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_REPORTED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-005",
+      "narrative": "Segundo Laura, o irmão de Bia é André.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "BROTHER_OF",
+          "relation_surface_text": "irmão de",
+          "endpoint_a_mention": "André",
+          "endpoint_b_mention": "Bia",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "reordered",
+        "reported",
+        "sibling"
+      ]
+    },
+    "result": {
+      "source_text": "Segundo Laura, o irmão de Bia é André.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "irmão de",
+          "start": 17,
+          "end": 25,
+          "label": "BROTHER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "8402e11be684ceeb16bc1f9d2919855e",
+          "source_reference": "B3-U-005",
+          "source_text": "Segundo Laura, o irmão de Bia é André.",
+          "relation_type": "BROTHER_OF",
+          "relation_surface_text": "irmão de",
+          "relation_span_start": 17,
+          "relation_span_end": 25,
+          "endpoint_a_mention": "André",
+          "endpoint_a_span_start": 32,
+          "endpoint_a_span_end": 37,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Bia",
+          "endpoint_b_span_start": 26,
+          "endpoint_b_span_end": 29,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "reporting_source_mention": "Laura",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "BROTHER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_REPORTED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-006",
+      "narrative": "De acordo com Ivo, a irmã de Hugo é Sara.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "SISTER_OF",
+          "relation_surface_text": "irmã de",
+          "endpoint_a_mention": "Sara",
+          "endpoint_b_mention": "Hugo",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "reordered",
+        "reported",
+        "sibling"
+      ]
+    },
+    "result": {
+      "source_text": "De acordo com Ivo, a irmã de Hugo é Sara.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "irmã de",
+          "start": 21,
+          "end": 28,
+          "label": "SISTER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "cdb9328d7822234d89aa66251007cb20",
+          "source_reference": "B3-U-006",
+          "source_text": "De acordo com Ivo, a irmã de Hugo é Sara.",
+          "relation_type": "SISTER_OF",
+          "relation_surface_text": "irmã de",
+          "relation_span_start": 21,
+          "relation_span_end": 28,
+          "endpoint_a_mention": "Sara",
+          "endpoint_a_span_start": 36,
+          "endpoint_a_span_end": 40,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Hugo",
+          "endpoint_b_span_start": 29,
+          "endpoint_b_span_end": 33,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "reporting_source_mention": "Ivo",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "SISTER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_REPORTED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-007",
+      "narrative": "Segundo Denise, o marido de Alice é Otávio.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "SPOUSE_OF",
+          "relation_surface_text": "marido de",
+          "endpoint_a_mention": "Otávio",
+          "endpoint_b_mention": "Alice",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "reordered",
+        "reported",
+        "spouse_surface"
+      ]
+    },
+    "result": {
+      "source_text": "Segundo Denise, o marido de Alice é Otávio.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "marido de",
+          "start": 18,
+          "end": 27,
+          "label": "SPOUSE_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "0216105af3b9ad0ab40469f63364a765",
+          "source_reference": "B3-U-007",
+          "source_text": "Segundo Denise, o marido de Alice é Otávio.",
+          "relation_type": "SPOUSE_OF",
+          "relation_surface_text": "marido de",
+          "relation_span_start": 18,
+          "relation_span_end": 27,
+          "endpoint_a_mention": "Otávio",
+          "endpoint_a_span_start": 36,
+          "endpoint_a_span_end": 42,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Alice",
+          "endpoint_b_span_start": 28,
+          "endpoint_b_span_end": 33,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "reporting_source_mention": "Denise",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "SPOUSE_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_REPORTED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-008",
+      "narrative": "Rafael, que não é pai de Luana, saiu cedo.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "FATHER_OF",
+          "relation_surface_text": "pai de",
+          "endpoint_a_mention": "Rafael",
+          "endpoint_b_mention": "Luana",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "NEGATED",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "apposition",
+        "negated",
+        "parent_child"
+      ]
+    },
+    "result": {
+      "source_text": "Rafael, que não é pai de Luana, saiu cedo.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [],
+      "candidates": []
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-009",
+      "narrative": "Bianca, que jamais foi mãe de Davi, respondeu.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "MOTHER_OF",
+          "relation_surface_text": "mãe de",
+          "endpoint_a_mention": "Bianca",
+          "endpoint_b_mention": "Davi",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "NEGATED",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "temporal_scope": "PAST",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "apposition",
+        "emphatic_negation",
+        "past",
+        "parent_child"
+      ]
+    },
+    "result": {
+      "source_text": "Bianca, que jamais foi mãe de Davi, respondeu.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [],
+      "candidates": []
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-010",
+      "narrative": "Talvez Miguel seja filho da Renata.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "SON_OF",
+          "relation_surface_text": "filho da",
+          "endpoint_a_mention": "Miguel",
+          "endpoint_b_mention": "Renata",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "UNCERTAIN",
+          "reporting_mode": "DIRECT",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "contracted_preposition",
+        "uncertain",
+        "parent_child"
+      ]
+    },
+    "result": {
+      "source_text": "Talvez Miguel seja filho da Renata.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "filho da",
+          "start": 19,
+          "end": 27,
+          "label": "SON_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "69597d15fb57f305bb1608c6fabfb86b",
+          "source_reference": "B3-U-010",
+          "source_text": "Talvez Miguel seja filho da Renata.",
+          "relation_type": "SON_OF",
+          "relation_surface_text": "filho da",
+          "relation_span_start": 19,
+          "relation_span_end": 27,
+          "endpoint_a_mention": "Miguel",
+          "endpoint_a_span_start": 7,
+          "endpoint_a_span_end": 13,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Renata",
+          "endpoint_b_span_start": 28,
+          "endpoint_b_span_end": 34,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "UNCERTAIN",
+          "reporting_mode": "DIRECT",
+          "reporting_source_mention": null,
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "SON_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_UNCERTAIN"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-011",
+      "narrative": "É possível que Júlia seja filha do César.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "DAUGHTER_OF",
+          "relation_surface_text": "filha do",
+          "endpoint_a_mention": "Júlia",
+          "endpoint_b_mention": "César",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "UNCERTAIN",
+          "reporting_mode": "DIRECT",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "contracted_preposition",
+        "uncertain",
+        "parent_child"
+      ]
+    },
+    "result": {
+      "source_text": "É possível que Júlia seja filha do César.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "filha do",
+          "start": 26,
+          "end": 34,
+          "label": "DAUGHTER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "30a91bef3ab075eaf12b6e8f780abf61",
+          "source_reference": "B3-U-011",
+          "source_text": "É possível que Júlia seja filha do César.",
+          "relation_type": "DAUGHTER_OF",
+          "relation_surface_text": "filha do",
+          "relation_span_start": 26,
+          "relation_span_end": 34,
+          "endpoint_a_mention": "Júlia",
+          "endpoint_a_span_start": 15,
+          "endpoint_a_span_end": 20,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "César",
+          "endpoint_b_span_start": 35,
+          "endpoint_b_span_end": 40,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "UNCERTAIN",
+          "reporting_mode": "DIRECT",
+          "reporting_source_mention": null,
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "DAUGHTER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_UNCERTAIN"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-012",
+      "narrative": "Parece que Leandro é irmão da Paula.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "BROTHER_OF",
+          "relation_surface_text": "irmão da",
+          "endpoint_a_mention": "Leandro",
+          "endpoint_b_mention": "Paula",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "UNCERTAIN",
+          "reporting_mode": "DIRECT",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "contracted_preposition",
+        "uncertain",
+        "sibling"
+      ]
+    },
+    "result": {
+      "source_text": "Parece que Leandro é irmão da Paula.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "irmão da",
+          "start": 21,
+          "end": 29,
+          "label": "BROTHER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "f149fc9f6c72de77c6da7fb4b129a46c",
+          "source_reference": "B3-U-012",
+          "source_text": "Parece que Leandro é irmão da Paula.",
+          "relation_type": "BROTHER_OF",
+          "relation_surface_text": "irmão da",
+          "relation_span_start": 21,
+          "relation_span_end": 29,
+          "endpoint_a_mention": "Leandro",
+          "endpoint_a_span_start": 11,
+          "endpoint_a_span_end": 18,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Paula",
+          "endpoint_b_span_start": 30,
+          "endpoint_b_span_end": 35,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "UNCERTAIN",
+          "reporting_mode": "DIRECT",
+          "reporting_source_mention": null,
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "BROTHER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_UNCERTAIN"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-013",
+      "narrative": "Pode ser que Sílvia seja irmã do Mateus.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "SISTER_OF",
+          "relation_surface_text": "irmã do",
+          "endpoint_a_mention": "Sílvia",
+          "endpoint_b_mention": "Mateus",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "UNCERTAIN",
+          "reporting_mode": "DIRECT",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "contracted_preposition",
+        "uncertain",
+        "sibling"
+      ]
+    },
+    "result": {
+      "source_text": "Pode ser que Sílvia seja irmã do Mateus.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "irmã do",
+          "start": 25,
+          "end": 32,
+          "label": "SISTER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "ef6a4091b50453e2379b09e6a06e1a77",
+          "source_reference": "B3-U-013",
+          "source_text": "Pode ser que Sílvia seja irmã do Mateus.",
+          "relation_type": "SISTER_OF",
+          "relation_surface_text": "irmã do",
+          "relation_span_start": 25,
+          "relation_span_end": 32,
+          "endpoint_a_mention": "Sílvia",
+          "endpoint_a_span_start": 13,
+          "endpoint_a_span_end": 19,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Mateus",
+          "endpoint_b_span_start": 33,
+          "endpoint_b_span_end": 39,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "UNCERTAIN",
+          "reporting_mode": "DIRECT",
+          "reporting_source_mention": null,
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "SISTER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_UNCERTAIN"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-014",
+      "narrative": "Não tenho certeza se Vítor é marido da Rosa.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "SPOUSE_OF",
+          "relation_surface_text": "marido da",
+          "endpoint_a_mention": "Vítor",
+          "endpoint_b_mention": "Rosa",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "UNCERTAIN",
+          "reporting_mode": "DIRECT",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "contracted_preposition",
+        "uncertain",
+        "spouse_surface"
+      ]
+    },
+    "result": {
+      "source_text": "Não tenho certeza se Vítor é marido da Rosa.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "marido da",
+          "start": 29,
+          "end": 38,
+          "label": "SPOUSE_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "a8fa47fa30880b84d57883ec2308c24e",
+          "source_reference": "B3-U-014",
+          "source_text": "Não tenho certeza se Vítor é marido da Rosa.",
+          "relation_type": "SPOUSE_OF",
+          "relation_surface_text": "marido da",
+          "relation_span_start": 29,
+          "relation_span_end": 38,
+          "endpoint_a_mention": "Vítor",
+          "endpoint_a_span_start": 21,
+          "endpoint_a_span_end": 26,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Rosa",
+          "endpoint_b_span_start": 39,
+          "endpoint_b_span_end": 43,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "UNCERTAIN",
+          "reporting_mode": "DIRECT",
+          "reporting_source_mention": null,
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "SPOUSE_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_UNCERTAIN"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-015",
+      "narrative": "Lia relatou que Marina tem Jorge como pai.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "FATHER_OF",
+          "relation_surface_text": "pai",
+          "endpoint_a_mention": "Jorge",
+          "endpoint_b_mention": "Marina",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "ter_como",
+        "reported",
+        "parent_child"
+      ]
+    },
+    "result": {
+      "source_text": "Lia relatou que Marina tem Jorge como pai.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "pai",
+          "start": 38,
+          "end": 41,
+          "label": "FATHER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "cbec1dd4356ea28073b1491faf53cd5e",
+          "source_reference": "B3-U-015",
+          "source_text": "Lia relatou que Marina tem Jorge como pai.",
+          "relation_type": "FATHER_OF",
+          "relation_surface_text": "pai",
+          "relation_span_start": 38,
+          "relation_span_end": 41,
+          "endpoint_a_mention": "Jorge",
+          "endpoint_a_span_start": 27,
+          "endpoint_a_span_end": 32,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Marina",
+          "endpoint_b_span_start": 16,
+          "endpoint_b_span_end": 22,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "reporting_source_mention": "Lia",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "FATHER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_REPORTED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-016",
+      "narrative": "Rui informou que Fábio tem Teresa como mãe.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "MOTHER_OF",
+          "relation_surface_text": "mãe",
+          "endpoint_a_mention": "Teresa",
+          "endpoint_b_mention": "Fábio",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "ter_como",
+        "reported",
+        "parent_child"
+      ]
+    },
+    "result": {
+      "source_text": "Rui informou que Fábio tem Teresa como mãe.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "mãe",
+          "start": 39,
+          "end": 42,
+          "label": "MOTHER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "becc6e3f5d53c4acea296e8e6864848f",
+          "source_reference": "B3-U-016",
+          "source_text": "Rui informou que Fábio tem Teresa como mãe.",
+          "relation_type": "MOTHER_OF",
+          "relation_surface_text": "mãe",
+          "relation_span_start": 39,
+          "relation_span_end": 42,
+          "endpoint_a_mention": "Teresa",
+          "endpoint_a_span_start": 27,
+          "endpoint_a_span_end": 33,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Fábio",
+          "endpoint_b_span_start": 17,
+          "endpoint_b_span_end": 22,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "reporting_source_mention": "Rui",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "MOTHER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_REPORTED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-017",
+      "narrative": "Eva declarou que Teresa tem Bento como filho.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "SON_OF",
+          "relation_surface_text": "filho",
+          "endpoint_a_mention": "Bento",
+          "endpoint_b_mention": "Teresa",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "ter_como",
+        "reported",
+        "parent_child"
+      ]
+    },
+    "result": {
+      "source_text": "Eva declarou que Teresa tem Bento como filho.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "filho",
+          "start": 39,
+          "end": 44,
+          "label": "SON_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "8af51767a88bb4812b2694a29122ff99",
+          "source_reference": "B3-U-017",
+          "source_text": "Eva declarou que Teresa tem Bento como filho.",
+          "relation_type": "SON_OF",
+          "relation_surface_text": "filho",
+          "relation_span_start": 39,
+          "relation_span_end": 44,
+          "endpoint_a_mention": "Bento",
+          "endpoint_a_span_start": 28,
+          "endpoint_a_span_end": 33,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Teresa",
+          "endpoint_b_span_start": 17,
+          "endpoint_b_span_end": 23,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "reporting_source_mention": "Eva",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "SON_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_REPORTED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-018",
+      "narrative": "Noemi contou que Artur tem Célia como filha.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "DAUGHTER_OF",
+          "relation_surface_text": "filha",
+          "endpoint_a_mention": "Célia",
+          "endpoint_b_mention": "Artur",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "ter_como",
+        "reported",
+        "parent_child"
+      ]
+    },
+    "result": {
+      "source_text": "Noemi contou que Artur tem Célia como filha.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "filha",
+          "start": 38,
+          "end": 43,
+          "label": "DAUGHTER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "06cb20615ad9676eaa030b0074915b8f",
+          "source_reference": "B3-U-018",
+          "source_text": "Noemi contou que Artur tem Célia como filha.",
+          "relation_type": "DAUGHTER_OF",
+          "relation_surface_text": "filha",
+          "relation_span_start": 38,
+          "relation_span_end": 43,
+          "endpoint_a_mention": "Célia",
+          "endpoint_a_span_start": 27,
+          "endpoint_a_span_end": 32,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Artur",
+          "endpoint_b_span_start": 17,
+          "endpoint_b_span_end": 22,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "reporting_source_mention": "Noemi",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "DAUGHTER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_REPORTED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-019",
+      "narrative": "Dora explicou que Lívia tem Mauro como irmão.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "BROTHER_OF",
+          "relation_surface_text": "irmão",
+          "endpoint_a_mention": "Mauro",
+          "endpoint_b_mention": "Lívia",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "ter_como",
+        "reported",
+        "sibling"
+      ]
+    },
+    "result": {
+      "source_text": "Dora explicou que Lívia tem Mauro como irmão.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "irmão",
+          "start": 39,
+          "end": 44,
+          "label": "BROTHER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "c5d84d061b77ba35810542937e0f34a1",
+          "source_reference": "B3-U-019",
+          "source_text": "Dora explicou que Lívia tem Mauro como irmão.",
+          "relation_type": "BROTHER_OF",
+          "relation_surface_text": "irmão",
+          "relation_span_start": 39,
+          "relation_span_end": 44,
+          "endpoint_a_mention": "Mauro",
+          "endpoint_a_span_start": 28,
+          "endpoint_a_span_end": 33,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Lívia",
+          "endpoint_b_span_start": 18,
+          "endpoint_b_span_end": 23,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "reporting_source_mention": "Dora",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "BROTHER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_REPORTED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-020",
+      "narrative": "Caio afirmou que Breno tem Flávia como irmã.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "SISTER_OF",
+          "relation_surface_text": "irmã",
+          "endpoint_a_mention": "Flávia",
+          "endpoint_b_mention": "Breno",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "ter_como",
+        "reported",
+        "sibling"
+      ]
+    },
+    "result": {
+      "source_text": "Caio afirmou que Breno tem Flávia como irmã.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "irmã",
+          "start": 39,
+          "end": 43,
+          "label": "SISTER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "716dc2871edac0d31f1f00d3b0578e06",
+          "source_reference": "B3-U-020",
+          "source_text": "Caio afirmou que Breno tem Flávia como irmã.",
+          "relation_type": "SISTER_OF",
+          "relation_surface_text": "irmã",
+          "relation_span_start": 39,
+          "relation_span_end": 43,
+          "endpoint_a_mention": "Flávia",
+          "endpoint_a_span_start": 27,
+          "endpoint_a_span_end": 33,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Breno",
+          "endpoint_b_span_start": 17,
+          "endpoint_b_span_end": 22,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "reporting_source_mention": "Caio",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "SISTER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_REPORTED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-021",
+      "narrative": "Lúcia disse que Marta tem Raul como marido.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "SPOUSE_OF",
+          "relation_surface_text": "marido",
+          "endpoint_a_mention": "Raul",
+          "endpoint_b_mention": "Marta",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "ter_como",
+        "reported",
+        "spouse_surface"
+      ]
+    },
+    "result": {
+      "source_text": "Lúcia disse que Marta tem Raul como marido.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "marido",
+          "start": 36,
+          "end": 42,
+          "label": "SPOUSE_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "a730365d0b2da20195cf1a418e83473e",
+          "source_reference": "B3-U-021",
+          "source_text": "Lúcia disse que Marta tem Raul como marido.",
+          "relation_type": "SPOUSE_OF",
+          "relation_surface_text": "marido",
+          "relation_span_start": 36,
+          "relation_span_end": 42,
+          "endpoint_a_mention": "Raul",
+          "endpoint_a_span_start": 26,
+          "endpoint_a_span_end": 30,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Marta",
+          "endpoint_b_span_start": 16,
+          "endpoint_b_span_end": 21,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "reporting_source_mention": "Lúcia",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "SPOUSE_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_REPORTED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-022",
+      "narrative": "João era, segundo o registro familiar, pai de Mirela.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "FATHER_OF",
+          "relation_surface_text": "pai de",
+          "endpoint_a_mention": "João",
+          "endpoint_b_mention": "Mirela",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "temporal_scope": "PAST",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "discontinuous",
+        "past",
+        "parent_child"
+      ]
+    },
+    "result": {
+      "source_text": "João era, segundo o registro familiar, pai de Mirela.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "pai de",
+          "start": 39,
+          "end": 45,
+          "label": "FATHER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "bd21cc5d791ba0f2cbfc723785db196b",
+          "source_reference": "B3-U-022",
+          "source_text": "João era, segundo o registro familiar, pai de Mirela.",
+          "relation_type": "FATHER_OF",
+          "relation_surface_text": "pai de",
+          "relation_span_start": 39,
+          "relation_span_end": 45,
+          "endpoint_a_mention": "João",
+          "endpoint_a_span_start": 0,
+          "endpoint_a_span_end": 4,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Mirela",
+          "endpoint_b_span_start": 46,
+          "endpoint_b_span_end": 52,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "reporting_source_mention": null,
+          "temporal_scope": "PAST",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "FATHER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_UNSUPPORTED_TEMPORAL_SCOPE"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-023",
+      "narrative": "Ana foi, segundo os documentos da família, mãe de Lucas.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "MOTHER_OF",
+          "relation_surface_text": "mãe de",
+          "endpoint_a_mention": "Ana",
+          "endpoint_b_mention": "Lucas",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "temporal_scope": "PAST",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "discontinuous",
+        "past",
+        "parent_child"
+      ]
+    },
+    "result": {
+      "source_text": "Ana foi, segundo os documentos da família, mãe de Lucas.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "mãe de",
+          "start": 43,
+          "end": 49,
+          "label": "MOTHER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "0d7c70c0fcbc79e3d36c8a4a3cf0e4d8",
+          "source_reference": "B3-U-023",
+          "source_text": "Ana foi, segundo os documentos da família, mãe de Lucas.",
+          "relation_type": "MOTHER_OF",
+          "relation_surface_text": "mãe de",
+          "relation_span_start": 43,
+          "relation_span_end": 49,
+          "endpoint_a_mention": "Ana",
+          "endpoint_a_span_start": 0,
+          "endpoint_a_span_end": 3,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Lucas",
+          "endpoint_b_span_start": 50,
+          "endpoint_b_span_end": 55,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "reporting_source_mention": null,
+          "temporal_scope": "PAST",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "MOTHER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_UNSUPPORTED_TEMPORAL_SCOPE"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-024",
+      "narrative": "Pedro era, segundo o registro familiar, irmão de Marta.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "BROTHER_OF",
+          "relation_surface_text": "irmão de",
+          "endpoint_a_mention": "Pedro",
+          "endpoint_b_mention": "Marta",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "temporal_scope": "PAST",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "discontinuous",
+        "past",
+        "sibling"
+      ]
+    },
+    "result": {
+      "source_text": "Pedro era, segundo o registro familiar, irmão de Marta.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "irmão de",
+          "start": 40,
+          "end": 48,
+          "label": "BROTHER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "b5ab100aca5318a8683e05f7d65b5746",
+          "source_reference": "B3-U-024",
+          "source_text": "Pedro era, segundo o registro familiar, irmão de Marta.",
+          "relation_type": "BROTHER_OF",
+          "relation_surface_text": "irmão de",
+          "relation_span_start": 40,
+          "relation_span_end": 48,
+          "endpoint_a_mention": "Pedro",
+          "endpoint_a_span_start": 0,
+          "endpoint_a_span_end": 5,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Marta",
+          "endpoint_b_span_start": 49,
+          "endpoint_b_span_end": 54,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "reporting_source_mention": null,
+          "temporal_scope": "PAST",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "BROTHER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_UNSUPPORTED_TEMPORAL_SCOPE"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-025",
+      "narrative": "Carla foi, segundo os documentos da família, esposa de Luís.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "SPOUSE_OF",
+          "relation_surface_text": "esposa de",
+          "endpoint_a_mention": "Carla",
+          "endpoint_b_mention": "Luís",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "temporal_scope": "PAST",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "discontinuous",
+        "past",
+        "spouse_surface"
+      ]
+    },
+    "result": {
+      "source_text": "Carla foi, segundo os documentos da família, esposa de Luís.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "esposa de",
+          "start": 45,
+          "end": 54,
+          "label": "SPOUSE_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "1f4a3b38f2f9305cfcb6e3c886929239",
+          "source_reference": "B3-U-025",
+          "source_text": "Carla foi, segundo os documentos da família, esposa de Luís.",
+          "relation_type": "SPOUSE_OF",
+          "relation_surface_text": "esposa de",
+          "relation_span_start": 45,
+          "relation_span_end": 54,
+          "endpoint_a_mention": "Carla",
+          "endpoint_a_span_start": 0,
+          "endpoint_a_span_end": 5,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Luís",
+          "endpoint_b_span_start": 55,
+          "endpoint_b_span_end": 59,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "reporting_source_mention": null,
+          "temporal_scope": "PAST",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "SPOUSE_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_UNSUPPORTED_TEMPORAL_SCOPE"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-026",
+      "narrative": "João é meu pai.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "FATHER_OF",
+          "relation_surface_text": "meu pai",
+          "endpoint_a_mention": "João",
+          "endpoint_b_mention": "meu",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "NARRATOR_ROLE",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": true,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "direct",
+        "narrator",
+        "possessive",
+        "parent_child"
+      ]
+    },
+    "result": {
+      "source_text": "João é meu pai.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "meu pai",
+          "start": 7,
+          "end": 14,
+          "label": "FATHER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "b092e250f7bbab395af59dc490f1b323",
+          "source_reference": "B3-U-026",
+          "source_text": "João é meu pai.",
+          "relation_type": "FATHER_OF",
+          "relation_surface_text": "meu pai",
+          "relation_span_start": 7,
+          "relation_span_end": 14,
+          "endpoint_a_mention": "João",
+          "endpoint_a_span_start": 0,
+          "endpoint_a_span_end": 4,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "meu",
+          "endpoint_b_span_start": 7,
+          "endpoint_b_span_end": 10,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "NARRATOR_ROLE",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "reporting_source_mention": null,
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "FATHER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "LINGUISTICALLY_ELIGIBLE_REVIEW_AND_BINDING_REQUIRED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-027",
+      "narrative": "Minha mãe é Alice.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "MOTHER_OF",
+          "relation_surface_text": "Minha mãe",
+          "endpoint_a_mention": "Alice",
+          "endpoint_b_mention": "Minha",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "NARRATOR_ROLE",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": true,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "reordered",
+        "narrator",
+        "possessive",
+        "parent_child"
+      ]
+    },
+    "result": {
+      "source_text": "Minha mãe é Alice.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "Minha mãe",
+          "start": 0,
+          "end": 9,
+          "label": "MOTHER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "3fb51a51be5d28bd756d3c5104719109",
+          "source_reference": "B3-U-027",
+          "source_text": "Minha mãe é Alice.",
+          "relation_type": "MOTHER_OF",
+          "relation_surface_text": "Minha mãe",
+          "relation_span_start": 0,
+          "relation_span_end": 9,
+          "endpoint_a_mention": "Alice",
+          "endpoint_a_span_start": 12,
+          "endpoint_a_span_end": 17,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Minha",
+          "endpoint_b_span_start": 0,
+          "endpoint_b_span_end": 5,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "NARRATOR_ROLE",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "reporting_source_mention": null,
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "MOTHER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "LINGUISTICALLY_ELIGIBLE_REVIEW_AND_BINDING_REQUIRED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-028",
+      "narrative": "Bruno é meu filho.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "SON_OF",
+          "relation_surface_text": "meu filho",
+          "endpoint_a_mention": "Bruno",
+          "endpoint_b_mention": "meu",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "NARRATOR_ROLE",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": true,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "direct",
+        "narrator",
+        "possessive",
+        "parent_child"
+      ]
+    },
+    "result": {
+      "source_text": "Bruno é meu filho.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "meu filho",
+          "start": 8,
+          "end": 17,
+          "label": "SON_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "6094bc7ceada75dbbbfaaf25f044c8b9",
+          "source_reference": "B3-U-028",
+          "source_text": "Bruno é meu filho.",
+          "relation_type": "SON_OF",
+          "relation_surface_text": "meu filho",
+          "relation_span_start": 8,
+          "relation_span_end": 17,
+          "endpoint_a_mention": "Bruno",
+          "endpoint_a_span_start": 0,
+          "endpoint_a_span_end": 5,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "meu",
+          "endpoint_b_span_start": 8,
+          "endpoint_b_span_end": 11,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "NARRATOR_ROLE",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "reporting_source_mention": null,
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "SON_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "LINGUISTICALLY_ELIGIBLE_REVIEW_AND_BINDING_REQUIRED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-029",
+      "narrative": "Minha filha é Camila.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "DAUGHTER_OF",
+          "relation_surface_text": "Minha filha",
+          "endpoint_a_mention": "Camila",
+          "endpoint_b_mention": "Minha",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "NARRATOR_ROLE",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": true,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "reordered",
+        "narrator",
+        "possessive",
+        "parent_child"
+      ]
+    },
+    "result": {
+      "source_text": "Minha filha é Camila.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "Minha filha",
+          "start": 0,
+          "end": 11,
+          "label": "DAUGHTER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "2c8674bf577efe3ed686ce488548dfc0",
+          "source_reference": "B3-U-029",
+          "source_text": "Minha filha é Camila.",
+          "relation_type": "DAUGHTER_OF",
+          "relation_surface_text": "Minha filha",
+          "relation_span_start": 0,
+          "relation_span_end": 11,
+          "endpoint_a_mention": "Camila",
+          "endpoint_a_span_start": 14,
+          "endpoint_a_span_end": 20,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Minha",
+          "endpoint_b_span_start": 0,
+          "endpoint_b_span_end": 5,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "NARRATOR_ROLE",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "reporting_source_mention": null,
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "DAUGHTER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "LINGUISTICALLY_ELIGIBLE_REVIEW_AND_BINDING_REQUIRED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-030",
+      "narrative": "Renato é meu irmão.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "BROTHER_OF",
+          "relation_surface_text": "meu irmão",
+          "endpoint_a_mention": "Renato",
+          "endpoint_b_mention": "meu",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "NARRATOR_ROLE",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": true,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "direct",
+        "narrator",
+        "possessive",
+        "sibling"
+      ]
+    },
+    "result": {
+      "source_text": "Renato é meu irmão.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "meu irmão",
+          "start": 9,
+          "end": 18,
+          "label": "BROTHER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "b6040bb6bde0514be1a07995fba70c4f",
+          "source_reference": "B3-U-030",
+          "source_text": "Renato é meu irmão.",
+          "relation_type": "BROTHER_OF",
+          "relation_surface_text": "meu irmão",
+          "relation_span_start": 9,
+          "relation_span_end": 18,
+          "endpoint_a_mention": "Renato",
+          "endpoint_a_span_start": 0,
+          "endpoint_a_span_end": 6,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "meu",
+          "endpoint_b_span_start": 9,
+          "endpoint_b_span_end": 12,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "NARRATOR_ROLE",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "reporting_source_mention": null,
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "BROTHER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "LINGUISTICALLY_ELIGIBLE_REVIEW_AND_BINDING_REQUIRED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-031",
+      "narrative": "Minha irmã é Beatriz.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "SISTER_OF",
+          "relation_surface_text": "Minha irmã",
+          "endpoint_a_mention": "Beatriz",
+          "endpoint_b_mention": "Minha",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "NARRATOR_ROLE",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": true,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "reordered",
+        "narrator",
+        "possessive",
+        "sibling"
+      ]
+    },
+    "result": {
+      "source_text": "Minha irmã é Beatriz.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "Minha irmã",
+          "start": 0,
+          "end": 10,
+          "label": "SISTER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "765be57668989358f342c8b303122578",
+          "source_reference": "B3-U-031",
+          "source_text": "Minha irmã é Beatriz.",
+          "relation_type": "SISTER_OF",
+          "relation_surface_text": "Minha irmã",
+          "relation_span_start": 0,
+          "relation_span_end": 10,
+          "endpoint_a_mention": "Beatriz",
+          "endpoint_a_span_start": 13,
+          "endpoint_a_span_end": 20,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Minha",
+          "endpoint_b_span_start": 0,
+          "endpoint_b_span_end": 5,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "NARRATOR_ROLE",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "reporting_source_mention": null,
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "SISTER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "LINGUISTICALLY_ELIGIBLE_REVIEW_AND_BINDING_REQUIRED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-032",
+      "narrative": "Otávio é meu marido.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "SPOUSE_OF",
+          "relation_surface_text": "meu marido",
+          "endpoint_a_mention": "Otávio",
+          "endpoint_b_mention": "meu",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "NARRATOR_ROLE",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": true,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "direct",
+        "narrator",
+        "possessive",
+        "spouse_surface"
+      ]
+    },
+    "result": {
+      "source_text": "Otávio é meu marido.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "meu marido",
+          "start": 9,
+          "end": 19,
+          "label": "SPOUSE_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "8cc129e65a8657dc50da64c92e13b266",
+          "source_reference": "B3-U-032",
+          "source_text": "Otávio é meu marido.",
+          "relation_type": "SPOUSE_OF",
+          "relation_surface_text": "meu marido",
+          "relation_span_start": 9,
+          "relation_span_end": 19,
+          "endpoint_a_mention": "Otávio",
+          "endpoint_a_span_start": 0,
+          "endpoint_a_span_end": 6,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "meu",
+          "endpoint_b_span_start": 9,
+          "endpoint_b_span_end": 12,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "NARRATOR_ROLE",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "reporting_source_mention": null,
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "SPOUSE_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "LINGUISTICALLY_ELIGIBLE_REVIEW_AND_BINDING_REQUIRED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-033",
+      "narrative": "Segundo Marta, Paulo é meu pai.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "FATHER_OF",
+          "relation_surface_text": "meu pai",
+          "endpoint_a_mention": "Paulo",
+          "endpoint_b_mention": "meu",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "NARRATOR_ROLE",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "reported",
+        "narrator",
+        "possessive",
+        "parent_child"
+      ]
+    },
+    "result": {
+      "source_text": "Segundo Marta, Paulo é meu pai.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "meu pai",
+          "start": 23,
+          "end": 30,
+          "label": "FATHER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "f8d3b0a9ad42ffe060539be05e4a1988",
+          "source_reference": "B3-U-033",
+          "source_text": "Segundo Marta, Paulo é meu pai.",
+          "relation_type": "FATHER_OF",
+          "relation_surface_text": "meu pai",
+          "relation_span_start": 23,
+          "relation_span_end": 30,
+          "endpoint_a_mention": "Paulo",
+          "endpoint_a_span_start": 15,
+          "endpoint_a_span_end": 20,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "meu",
+          "endpoint_b_span_start": 23,
+          "endpoint_b_span_end": 26,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "NARRATOR_ROLE",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "reporting_source_mention": "Marta",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "FATHER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_REPORTED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-034",
+      "narrative": "Ele seria o pai de Marina?",
+      "expected_relation_candidates": [],
+      "tags": [
+        "question",
+        "pronoun",
+        "no_relation"
+      ]
+    },
+    "result": {
+      "source_text": "Ele seria o pai de Marina?",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "pai de",
+          "start": 12,
+          "end": 18,
+          "label": "FATHER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "c24eca2fbdb026887bb01e14daf34464",
+          "source_reference": "B3-U-034",
+          "source_text": "Ele seria o pai de Marina?",
+          "relation_type": "FATHER_OF",
+          "relation_surface_text": "pai de",
+          "relation_span_start": 12,
+          "relation_span_end": 18,
+          "endpoint_a_mention": "Ele",
+          "endpoint_a_span_start": 0,
+          "endpoint_a_span_end": 3,
+          "endpoint_a_resolution_state": "UNRESOLVED_MENTION",
+          "endpoint_a_semantic_target": "UNRESOLVED_MENTION",
+          "endpoint_b_mention": "Marina",
+          "endpoint_b_span_start": 19,
+          "endpoint_b_span_end": 25,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "UNCERTAIN",
+          "reporting_mode": "DIRECT",
+          "reporting_source_mention": null,
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "FATHER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_UNCERTAIN"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-035",
+      "narrative": "Aline disse que ela é irmã de Joana.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "SISTER_OF",
+          "relation_surface_text": "irmã de",
+          "endpoint_a_mention": "ela",
+          "endpoint_b_mention": "Joana",
+          "endpoint_a_semantic_target": "UNRESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": false,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "reported",
+        "pronoun",
+        "partial_endpoint",
+        "sibling"
+      ]
+    },
+    "result": {
+      "source_text": "Aline disse que ela é irmã de Joana.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "irmã de",
+          "start": 22,
+          "end": 29,
+          "label": "SISTER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "ff17024ea4ff9fc71473a77e015e4caf",
+          "source_reference": "B3-U-035",
+          "source_text": "Aline disse que ela é irmã de Joana.",
+          "relation_type": "SISTER_OF",
+          "relation_surface_text": "irmã de",
+          "relation_span_start": 22,
+          "relation_span_end": 29,
+          "endpoint_a_mention": "ela",
+          "endpoint_a_span_start": 16,
+          "endpoint_a_span_end": 19,
+          "endpoint_a_resolution_state": "UNRESOLVED_MENTION",
+          "endpoint_a_semantic_target": "UNRESOLVED_MENTION",
+          "endpoint_b_mention": "Joana",
+          "endpoint_b_span_start": 30,
+          "endpoint_b_span_end": 35,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "REPORTED",
+          "reporting_source_mention": "Aline",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "SISTER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_REPORTED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-036",
+      "narrative": "Quem é o pai de Laura?",
+      "expected_relation_candidates": [],
+      "tags": [
+        "question",
+        "no_relation"
+      ]
+    },
+    "result": {
+      "source_text": "Quem é o pai de Laura?",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "pai de",
+          "start": 9,
+          "end": 15,
+          "label": "FATHER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "ae7412d27b1bbc4691ce01a27988f476",
+          "source_reference": "B3-U-036",
+          "source_text": "Quem é o pai de Laura?",
+          "relation_type": "FATHER_OF",
+          "relation_surface_text": "pai de",
+          "relation_span_start": 9,
+          "relation_span_end": 15,
+          "endpoint_a_mention": "Quem",
+          "endpoint_a_span_start": 0,
+          "endpoint_a_span_end": 4,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Laura",
+          "endpoint_b_span_start": 16,
+          "endpoint_b_span_end": 21,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "UNCERTAIN",
+          "reporting_mode": "DIRECT",
+          "reporting_source_mention": null,
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "FATHER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "NOT_PERSISTIBLE_UNCERTAIN"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-037",
+      "narrative": "Será Marcos irmão de Paula?",
+      "expected_relation_candidates": [],
+      "tags": [
+        "question",
+        "no_relation"
+      ]
+    },
+    "result": {
+      "source_text": "Será Marcos irmão de Paula?",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [],
+      "candidates": []
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-038",
+      "narrative": "No relatório aparece a frase \"João é pai de Maria\".",
+      "expected_relation_candidates": [],
+      "tags": [
+        "quotation",
+        "no_relation"
+      ]
+    },
+    "result": {
+      "source_text": "No relatório aparece a frase \"João é pai de Maria\".",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [],
+      "candidates": []
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-039",
+      "narrative": "O exemplo da aula diz \"Ana é irmã de Pedro\".",
+      "expected_relation_candidates": [],
+      "tags": [
+        "quotation",
+        "no_relation"
+      ]
+    },
+    "result": {
+      "source_text": "O exemplo da aula diz \"Ana é irmã de Pedro\".",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [],
+      "candidates": []
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-040",
+      "narrative": "Encontrei o pai da Renata na praça.",
+      "expected_relation_candidates": [],
+      "tags": [
+        "incidental_kinship",
+        "no_relation"
+      ]
+    },
+    "result": {
+      "source_text": "Encontrei o pai da Renata na praça.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [],
+      "candidates": []
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-041",
+      "narrative": "Lúcia conversou com a irmã do Bruno.",
+      "expected_relation_candidates": [],
+      "tags": [
+        "incidental_kinship",
+        "no_relation"
+      ]
+    },
+    "result": {
+      "source_text": "Lúcia conversou com a irmã do Bruno.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [],
+      "candidates": []
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-042",
+      "narrative": "Mauro é como um pai para a equipe.",
+      "expected_relation_candidates": [],
+      "tags": [
+        "metaphor",
+        "no_relation"
+      ]
+    },
+    "result": {
+      "source_text": "Mauro é como um pai para a equipe.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [],
+      "candidates": []
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-043",
+      "narrative": "Célia virou a mãe do projeto.",
+      "expected_relation_candidates": [],
+      "tags": [
+        "metaphor",
+        "no_relation"
+      ]
+    },
+    "result": {
+      "source_text": "Célia virou a mãe do projeto.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [],
+      "candidates": []
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-044",
+      "narrative": "Paulo trata Renato como um irmão.",
+      "expected_relation_candidates": [],
+      "tags": [
+        "metaphor",
+        "no_relation"
+      ]
+    },
+    "result": {
+      "source_text": "Paulo trata Renato como um irmão.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [],
+      "candidates": []
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-045",
+      "narrative": "João se casou com Vera em 2018.",
+      "expected_relation_candidates": [],
+      "tags": [
+        "event_only",
+        "no_relation"
+      ]
+    },
+    "result": {
+      "source_text": "João se casou com Vera em 2018.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [],
+      "candidates": []
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-046",
+      "narrative": "Maria deu à luz Clara em 2002.",
+      "expected_relation_candidates": [],
+      "tags": [
+        "event_only",
+        "no_relation"
+      ]
+    },
+    "result": {
+      "source_text": "Maria deu à luz Clara em 2002.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [],
+      "candidates": []
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-047",
+      "narrative": "Pedro nasceu em Recife.",
+      "expected_relation_candidates": [],
+      "tags": [
+        "event_only",
+        "no_relation"
+      ]
+    },
+    "result": {
+      "source_text": "Pedro nasceu em Recife.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [],
+      "candidates": []
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-048",
+      "narrative": "O segundo andar pertence a João e Maria.",
+      "expected_relation_candidates": [],
+      "tags": [
+        "reporting_negative_control",
+        "no_relation"
+      ]
+    },
+    "result": {
+      "source_text": "O segundo andar pertence a João e Maria.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [],
+      "candidates": []
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-049",
+      "narrative": "Ana informou a equipe. Marcos é pai de Lúcia.",
+      "expected_relation_candidates": [
+        {
+          "relation_type": "FATHER_OF",
+          "relation_surface_text": "pai de",
+          "endpoint_a_mention": "Marcos",
+          "endpoint_b_mention": "Lúcia",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "persistible_in_v1": true,
+          "rationale": "Explicit relation under the stated modifiers."
+        }
+      ],
+      "tags": [
+        "sentence_boundary_control",
+        "direct",
+        "parent_child"
+      ]
+    },
+    "result": {
+      "source_text": "Ana informou a equipe. Marcos é pai de Lúcia.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [
+        {
+          "text": "pai de",
+          "start": 32,
+          "end": 38,
+          "label": "FATHER_OF",
+          "confidence": 1.0
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "d95a2b75a2cf68ce33e5957bd82498c9",
+          "source_reference": "B3-U-049",
+          "source_text": "Ana informou a equipe. Marcos é pai de Lúcia.",
+          "relation_type": "FATHER_OF",
+          "relation_surface_text": "pai de",
+          "relation_span_start": 32,
+          "relation_span_end": 38,
+          "endpoint_a_mention": "Marcos",
+          "endpoint_a_span_start": 23,
+          "endpoint_a_span_end": 29,
+          "endpoint_a_resolution_state": "RESOLVED_MENTION",
+          "endpoint_a_semantic_target": "EXPLICIT_MENTION",
+          "endpoint_b_mention": "Lúcia",
+          "endpoint_b_span_start": 39,
+          "endpoint_b_span_end": 44,
+          "endpoint_b_resolution_state": "RESOLVED_MENTION",
+          "endpoint_b_semantic_target": "EXPLICIT_MENTION",
+          "polarity": "POSITIVE",
+          "epistemic_status": "ASSERTED",
+          "reporting_mode": "DIRECT",
+          "reporting_source_mention": null,
+          "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+          "warnings": [],
+          "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+          "model_id": "deterministic-structural-baseline",
+          "model_revision": "A0_B2",
+          "configuration_hash": "40C928F58FDF7F86473D060F4DDE01806A17E89E1CC1A1CE59AB6F7705769B44",
+          "detector_strategy": "A0",
+          "detector_label": "FATHER_OF",
+          "detector_confidence": 1.0,
+          "persistence_eligibility": "LINGUISTICALLY_ELIGIBLE_REVIEW_AND_BINDING_REQUIRED"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "case_id": "B3-U-050",
+      "narrative": "Uma pessoa falou sobre outra pessoa sem citar parentesco.",
+      "expected_relation_candidates": [],
+      "tags": [
+        "unknown_people",
+        "no_relation"
+      ]
+    },
+    "result": {
+      "source_text": "Uma pessoa falou sobre outra pessoa sem citar parentesco.",
+      "strategy": "A0",
+      "threshold": 1.0,
+      "detections": [],
+      "candidates": []
+    }
+  }
+]

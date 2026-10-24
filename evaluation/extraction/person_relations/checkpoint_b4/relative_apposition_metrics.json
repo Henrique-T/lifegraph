@@ -1,0 +1,16 @@
+{
+  "b3_regression": {
+    "oracle_positives": 2,
+    "recovered": 2,
+    "recall": 1.0,
+    "wrong_endpoint": 0,
+    "unsafe_persistible": 0
+  },
+  "b4_unseen": {
+    "oracle_positives": 8,
+    "recovered": 8,
+    "recall": 1.0,
+    "wrong_endpoint": 0,
+    "unsafe_persistible": 0
+  }
+}

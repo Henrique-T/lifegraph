@@ -1,0 +1,4974 @@
+[
+  {
+    "case_id": "PR-001",
+    "narrative": "João é pai de Maria.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Explicit direct assertion."
+      }
+    ],
+    "tags": [
+      "direct",
+      "named"
+    ]
+  },
+  {
+    "case_id": "PR-003",
+    "narrative": "Carlos é meu pai.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "meu pai",
+        "endpoint_a_mention": "Carlos",
+        "endpoint_b_mention": "meu",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Possessive marks the narrator endpoint linguistically; identity still requires review."
+      }
+    ],
+    "tags": [
+      "direct",
+      "narrator",
+      "possessive"
+    ]
+  },
+  {
+    "case_id": "PR-005",
+    "narrative": "Acho que João é pai de Maria.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Speaker uncertainty is preserved."
+      }
+    ],
+    "tags": [
+      "uncertainty"
+    ]
+  },
+  {
+    "case_id": "PR-009",
+    "narrative": "João é pai de Maria?",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "A question is not a direct assertion."
+      }
+    ],
+    "tags": [
+      "question",
+      "uncertainty"
+    ]
+  },
+  {
+    "case_id": "PR-010",
+    "narrative": "João é pai de alguém que não conheço.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": null,
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "The child endpoint is unresolved; no placeholder identity is allowed."
+      }
+    ],
+    "tags": [
+      "partial_endpoint"
+    ]
+  },
+  {
+    "case_id": "PR-011",
+    "narrative": "Pedro e Clara chegaram cedo; João é pai de Maria.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Earlier people are distractors outside the relation clause."
+      }
+    ],
+    "tags": [
+      "multiple_people",
+      "distractors"
+    ]
+  },
+  {
+    "case_id": "PR-012",
+    "narrative": "João era pai de Maria naquele relato antigo.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "PAST",
+        "persistible_in_v1": false,
+        "rationale": "Past scope is retained but unsupported for V1 persistence."
+      }
+    ],
+    "tags": [
+      "past_relation",
+      "temporal_limitation"
+    ]
+  },
+  {
+    "case_id": "PR-013",
+    "narrative": "João é pai de Maria e pai de Pedro.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First coordinated relation."
+      },
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Pedro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second coordinated relation becomes a separate candidate."
+      }
+    ],
+    "tags": [
+      "coordination",
+      "multiple_relations"
+    ]
+  },
+  {
+    "case_id": "PR-016",
+    "narrative": "Beatriz é a mãe de Caio.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Beatriz",
+        "endpoint_b_mention": "Caio",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Article does not change canonical type."
+      }
+    ],
+    "tags": [
+      "direct",
+      "surface_variation"
+    ]
+  },
+  {
+    "case_id": "PR-017",
+    "narrative": "Helena é minha mãe.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "minha mãe",
+        "endpoint_a_mention": "Helena",
+        "endpoint_b_mention": "minha",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Possessive linguistically identifies the narrator role."
+      }
+    ],
+    "tags": [
+      "direct",
+      "narrator",
+      "possessive"
+    ]
+  },
+  {
+    "case_id": "PR-018",
+    "narrative": "Ana nunca foi mãe de João.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "João",
+        "polarity": "NEGATED",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "PAST",
+        "persistible_in_v1": false,
+        "rationale": "The past copula in a negated historical assertion retains PAST temporal scope."
+      }
+    ],
+    "tags": [
+      "negation",
+      "past_relation"
+    ]
+  },
+  {
+    "case_id": "PR-020",
+    "narrative": "Se Ana fosse mãe de João, haveria outro registro.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "João",
+        "polarity": "POSITIVE",
+        "epistemic_status": "HYPOTHETICAL",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Conditional relation is hypothetical."
+      }
+    ],
+    "tags": [
+      "hypothetical"
+    ]
+  },
+  {
+    "case_id": "PR-021",
+    "narrative": "Paulo contou que Ana é mãe de João.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "João",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Reporting source is not an endpoint."
+      }
+    ],
+    "tags": [
+      "reported_speech",
+      "speaker_distractor"
+    ]
+  },
+  {
+    "case_id": "PR-022",
+    "narrative": "Paulo contou que talvez Ana seja mãe de João.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "João",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Reported uncertainty remains non-persistible."
+      }
+    ],
+    "tags": [
+      "reported_speech",
+      "uncertainty"
+    ]
+  },
+  {
+    "case_id": "PR-023",
+    "narrative": "Será que Ana é mãe de João?",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "João",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Question does not assert the relation."
+      }
+    ],
+    "tags": [
+      "question",
+      "uncertainty"
+    ]
+  },
+  {
+    "case_id": "PR-024",
+    "narrative": "Ana é mãe de uma pessoa cujo nome esqueci.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": null,
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Unnamed endpoint remains unresolved."
+      }
+    ],
+    "tags": [
+      "partial_endpoint"
+    ]
+  },
+  {
+    "case_id": "PR-025",
+    "narrative": "Carlos falou com Pedro; Ana é mãe de João.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "João",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Distractors do not enter the explicit relation."
+      }
+    ],
+    "tags": [
+      "multiple_people",
+      "distractors"
+    ]
+  },
+  {
+    "case_id": "PR-027",
+    "narrative": "Ana é mãe de João e mãe de Clara.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "João",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First coordinated relation."
+      },
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "Clara",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second relation is a separate candidate."
+      }
+    ],
+    "tags": [
+      "coordination",
+      "multiple_relations"
+    ]
+  },
+  {
+    "case_id": "PR-028",
+    "narrative": "Ana encontrou Beatriz. Ela é mãe de João.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": null,
+        "endpoint_b_mention": "João",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Ambiguous pronoun leaves endpoint A unresolved."
+      }
+    ],
+    "tags": [
+      "pronoun",
+      "partial_endpoint",
+      "ambiguous"
+    ]
+  },
+  {
+    "case_id": "PR-029",
+    "narrative": "Rafael é filho de Ana.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Ana",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Direction runs from son to parent."
+      }
+    ],
+    "tags": [
+      "direct",
+      "direction"
+    ]
+  },
+  {
+    "case_id": "PR-031",
+    "narrative": "Rafael é meu filho.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "meu filho",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "meu",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Possessive marks narrator as parent role linguistically."
+      }
+    ],
+    "tags": [
+      "direct",
+      "narrator",
+      "possessive"
+    ]
+  },
+  {
+    "case_id": "PR-032",
+    "narrative": "Rafael não é filho de Ana.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Ana",
+        "polarity": "NEGATED",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Negation blocks persistence."
+      }
+    ],
+    "tags": [
+      "negation"
+    ]
+  },
+  {
+    "case_id": "PR-034",
+    "narrative": "Se Rafael fosse filho de Ana, moraria com ela.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Ana",
+        "polarity": "POSITIVE",
+        "epistemic_status": "HYPOTHETICAL",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Conditional is hypothetical."
+      }
+    ],
+    "tags": [
+      "hypothetical"
+    ]
+  },
+  {
+    "case_id": "PR-035",
+    "narrative": "Clara afirmou que Rafael é filho de Ana.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Ana",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Speaker Clara is not an endpoint."
+      }
+    ],
+    "tags": [
+      "reported_speech",
+      "speaker_distractor"
+    ]
+  },
+  {
+    "case_id": "PR-036",
+    "narrative": "Clara afirmou que Rafael pode ser filho de Ana.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Ana",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Reported modal claim is uncertain."
+      }
+    ],
+    "tags": [
+      "reported_speech",
+      "uncertainty"
+    ]
+  },
+  {
+    "case_id": "PR-037",
+    "narrative": "Rafael é filho de Ana?",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Ana",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Question is not asserted."
+      }
+    ],
+    "tags": [
+      "question",
+      "uncertainty"
+    ]
+  },
+  {
+    "case_id": "PR-038",
+    "narrative": "Rafael é filho de alguém que não conheceu.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": null,
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Parent endpoint is unresolved."
+      }
+    ],
+    "tags": [
+      "partial_endpoint"
+    ]
+  },
+  {
+    "case_id": "PR-039",
+    "narrative": "Ana encontrou Clara e Pedro; Rafael é filho de Marta.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Marta",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Three earlier names are distractors."
+      }
+    ],
+    "tags": [
+      "multiple_people",
+      "distractors"
+    ]
+  },
+  {
+    "case_id": "PR-040",
+    "narrative": "Rafael foi filho de criação de Ana naquele período.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Ana",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "PAST",
+        "persistible_in_v1": false,
+        "rationale": "Past and qualified wording exceeds V1 persistence semantics."
+      }
+    ],
+    "tags": [
+      "past_relation",
+      "temporal_limitation"
+    ]
+  },
+  {
+    "case_id": "PR-041",
+    "narrative": "Rafael é filho de Ana e Bruno é filho de Marta.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Ana",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First independent relation."
+      },
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Bruno",
+        "endpoint_b_mention": "Marta",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second independent relation."
+      }
+    ],
+    "tags": [
+      "coordination",
+      "multiple_relations"
+    ]
+  },
+  {
+    "case_id": "PR-042",
+    "narrative": "Rafael falou com Bruno. Ele é filho de Ana.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": null,
+        "endpoint_b_mention": "Ana",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Pronoun antecedent is ambiguous."
+      }
+    ],
+    "tags": [
+      "pronoun",
+      "partial_endpoint",
+      "ambiguous"
+    ]
+  },
+  {
+    "case_id": "PR-043",
+    "narrative": "Clara é filha de Pedro.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Clara",
+        "endpoint_b_mention": "Pedro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Direction runs from daughter to parent."
+      }
+    ],
+    "tags": [
+      "direct",
+      "direction"
+    ]
+  },
+  {
+    "case_id": "PR-045",
+    "narrative": "Clara é minha filha.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "minha filha",
+        "endpoint_a_mention": "Clara",
+        "endpoint_b_mention": "minha",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Possessive marks narrator as parent role linguistically."
+      }
+    ],
+    "tags": [
+      "direct",
+      "narrator",
+      "possessive"
+    ]
+  },
+  {
+    "case_id": "PR-048",
+    "narrative": "Se Clara fosse filha de Pedro, conheceria a família.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Clara",
+        "endpoint_b_mention": "Pedro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "HYPOTHETICAL",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Conditional is hypothetical."
+      }
+    ],
+    "tags": [
+      "hypothetical"
+    ]
+  },
+  {
+    "case_id": "PR-050",
+    "narrative": "Ana declarou que talvez Clara seja filha de Pedro.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Clara",
+        "endpoint_b_mention": "Pedro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Reporting and uncertainty compose."
+      }
+    ],
+    "tags": [
+      "reported_speech",
+      "uncertainty"
+    ]
+  },
+  {
+    "case_id": "PR-051",
+    "narrative": "Clara é filha de Pedro?",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Clara",
+        "endpoint_b_mention": "Pedro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Question is not asserted."
+      }
+    ],
+    "tags": [
+      "question",
+      "uncertainty"
+    ]
+  },
+  {
+    "case_id": "PR-055",
+    "narrative": "Clara é filha de Pedro e Luiza é filha de Marta.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Clara",
+        "endpoint_b_mention": "Pedro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First independent relation."
+      },
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Luiza",
+        "endpoint_b_mention": "Marta",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second independent relation."
+      }
+    ],
+    "tags": [
+      "coordination",
+      "multiple_relations"
+    ]
+  },
+  {
+    "case_id": "PR-056",
+    "narrative": "Clara encontrou Luiza. Ela é filha de Pedro.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": null,
+        "endpoint_b_mention": "Pedro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Pronoun antecedent is ambiguous."
+      }
+    ],
+    "tags": [
+      "pronoun",
+      "partial_endpoint",
+      "ambiguous"
+    ]
+  },
+  {
+    "case_id": "PR-057",
+    "narrative": "Lucas é irmão de Marina.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão de",
+        "endpoint_a_mention": "Lucas",
+        "endpoint_b_mention": "Marina",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Explicit brother wording preserves direction."
+      }
+    ],
+    "tags": [
+      "direct",
+      "sibling"
+    ]
+  },
+  {
+    "case_id": "PR-058",
+    "narrative": "Caio é o irmão de Beatriz.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão de",
+        "endpoint_a_mention": "Caio",
+        "endpoint_b_mention": "Beatriz",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Explicit direct assertion."
+      }
+    ],
+    "tags": [
+      "direct",
+      "surface_variation"
+    ]
+  },
+  {
+    "case_id": "PR-059",
+    "narrative": "Lucas é meu irmão.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "meu irmão",
+        "endpoint_a_mention": "Lucas",
+        "endpoint_b_mention": "meu",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Possessive provides narrator-side linguistic role."
+      }
+    ],
+    "tags": [
+      "direct",
+      "narrator",
+      "possessive"
+    ]
+  },
+  {
+    "case_id": "PR-061",
+    "narrative": "Pode ser que Lucas seja irmão de Marina.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão de",
+        "endpoint_a_mention": "Lucas",
+        "endpoint_b_mention": "Marina",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Modal wording is uncertain."
+      }
+    ],
+    "tags": [
+      "uncertainty"
+    ]
+  },
+  {
+    "case_id": "PR-062",
+    "narrative": "Se Lucas fosse irmão de Marina, isso explicaria a semelhança.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão de",
+        "endpoint_a_mention": "Lucas",
+        "endpoint_b_mention": "Marina",
+        "polarity": "POSITIVE",
+        "epistemic_status": "HYPOTHETICAL",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Conditional is hypothetical."
+      }
+    ],
+    "tags": [
+      "hypothetical"
+    ]
+  },
+  {
+    "case_id": "PR-063",
+    "narrative": "Pedro disse que Lucas é irmão de Marina.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão de",
+        "endpoint_a_mention": "Lucas",
+        "endpoint_b_mention": "Marina",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Reporting speaker is not an endpoint."
+      }
+    ],
+    "tags": [
+      "reported_speech",
+      "speaker_distractor"
+    ]
+  },
+  {
+    "case_id": "PR-070",
+    "narrative": "Lucas encontrou Caio. Ele é irmão de Marina.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão de",
+        "endpoint_a_mention": null,
+        "endpoint_b_mention": "Marina",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Pronoun antecedent is ambiguous."
+      }
+    ],
+    "tags": [
+      "pronoun",
+      "partial_endpoint",
+      "ambiguous"
+    ]
+  },
+  {
+    "case_id": "PR-071",
+    "narrative": "Marina é irmã de Lucas.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Marina",
+        "endpoint_b_mention": "Lucas",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Explicit sister wording preserves declared form."
+      }
+    ],
+    "tags": [
+      "direct",
+      "sibling"
+    ]
+  },
+  {
+    "case_id": "PR-073",
+    "narrative": "Marina é minha irmã.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "minha irmã",
+        "endpoint_a_mention": "Marina",
+        "endpoint_b_mention": "minha",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Possessive provides narrator-side role."
+      }
+    ],
+    "tags": [
+      "direct",
+      "narrator",
+      "possessive"
+    ]
+  },
+  {
+    "case_id": "PR-074",
+    "narrative": "Marina não é irmã de Lucas.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Marina",
+        "endpoint_b_mention": "Lucas",
+        "polarity": "NEGATED",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Negation blocks persistence."
+      }
+    ],
+    "tags": [
+      "negation"
+    ]
+  },
+  {
+    "case_id": "PR-075",
+    "narrative": "Acho que Marina é irmã de Lucas.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Marina",
+        "endpoint_b_mention": "Lucas",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Belief framing is uncertain."
+      }
+    ],
+    "tags": [
+      "uncertainty"
+    ]
+  },
+  {
+    "case_id": "PR-080",
+    "narrative": "Marina é irmã de uma pessoa que não lembro.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Marina",
+        "endpoint_b_mention": null,
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Sibling endpoint is unresolved."
+      }
+    ],
+    "tags": [
+      "partial_endpoint"
+    ]
+  },
+  {
+    "case_id": "PR-083",
+    "narrative": "Marina é irmã de Lucas e Beatriz é irmã de Caio.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Marina",
+        "endpoint_b_mention": "Lucas",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First independent relation."
+      },
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Beatriz",
+        "endpoint_b_mention": "Caio",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second independent relation."
+      }
+    ],
+    "tags": [
+      "coordination",
+      "multiple_relations"
+    ]
+  },
+  {
+    "case_id": "PR-085",
+    "narrative": "João é marido de Maria.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Explicit spouse assertion."
+      }
+    ],
+    "tags": [
+      "direct",
+      "spouse_surface"
+    ]
+  },
+  {
+    "case_id": "PR-086",
+    "narrative": "Maria é esposa de João.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "esposa de",
+        "endpoint_a_mention": "Maria",
+        "endpoint_b_mention": "João",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Surface direction is preserved for a symmetric family."
+      }
+    ],
+    "tags": [
+      "direct",
+      "spouse_surface",
+      "direction"
+    ]
+  },
+  {
+    "case_id": "PR-087",
+    "narrative": "João é meu marido.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "meu marido",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "meu",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Possessive marks narrator endpoint linguistically."
+      }
+    ],
+    "tags": [
+      "direct",
+      "narrator",
+      "possessive"
+    ]
+  },
+  {
+    "case_id": "PR-088",
+    "narrative": "João não é cônjuge de Maria.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "cônjuge de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "NEGATED",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Negated spouse relation cannot persist positively."
+      }
+    ],
+    "tags": [
+      "negation",
+      "spouse_surface"
+    ]
+  },
+  {
+    "case_id": "PR-089",
+    "narrative": "Talvez João seja marido de Maria.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Uncertainty is preserved."
+      }
+    ],
+    "tags": [
+      "uncertainty",
+      "spouse_surface"
+    ]
+  },
+  {
+    "case_id": "PR-090",
+    "narrative": "Supondo que João fosse cônjuge de Maria, eles morariam juntos.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "cônjuge de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "HYPOTHETICAL",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Supposition is hypothetical."
+      }
+    ],
+    "tags": [
+      "hypothetical",
+      "spouse_surface"
+    ]
+  },
+  {
+    "case_id": "PR-091",
+    "narrative": "Pedro disse que João é marido de Maria.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Reporting speaker is not a spouse endpoint."
+      }
+    ],
+    "tags": [
+      "reported_speech",
+      "speaker_distractor"
+    ]
+  },
+  {
+    "case_id": "PR-092",
+    "narrative": "Pedro disse que talvez João seja cônjuge de Maria.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "cônjuge de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Reported uncertainty composes."
+      }
+    ],
+    "tags": [
+      "reported_speech",
+      "uncertainty"
+    ]
+  },
+  {
+    "case_id": "PR-093",
+    "narrative": "João é esposo de Maria?",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "esposo de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Question is not asserted."
+      }
+    ],
+    "tags": [
+      "question",
+      "uncertainty",
+      "spouse_surface"
+    ]
+  },
+  {
+    "case_id": "PR-094",
+    "narrative": "Minha mãe é esposa de uma pessoa que não lembro.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "esposa de",
+        "endpoint_a_mention": "minha mãe",
+        "endpoint_b_mention": null,
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Unknown spouse remains an unresolved mention, never a Person."
+      }
+    ],
+    "tags": [
+      "partial_endpoint",
+      "narrator",
+      "possessive"
+    ]
+  },
+  {
+    "case_id": "PR-095",
+    "narrative": "Pedro e Ana chegaram; João é cônjuge de Maria.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "cônjuge de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Distractors do not enter the spouse relation."
+      }
+    ],
+    "tags": [
+      "multiple_people",
+      "distractors"
+    ]
+  },
+  {
+    "case_id": "PR-096",
+    "narrative": "João foi marido de Maria.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "PAST",
+        "persistible_in_v1": false,
+        "rationale": "Past spouse status must not be stored as an unqualified current relation."
+      }
+    ],
+    "tags": [
+      "past_relation",
+      "temporal_limitation"
+    ]
+  },
+  {
+    "case_id": "PR-097",
+    "narrative": "João é marido de Maria e Pedro é cônjuge de Ana.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First independent spouse relation."
+      },
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "cônjuge de",
+        "endpoint_a_mention": "Pedro",
+        "endpoint_b_mention": "Ana",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second independent spouse relation."
+      }
+    ],
+    "tags": [
+      "coordination",
+      "multiple_relations",
+      "spouse_surface"
+    ]
+  },
+  {
+    "case_id": "PR-098",
+    "narrative": "João encontrou Pedro. Ele é marido de Maria.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido de",
+        "endpoint_a_mention": null,
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Ambiguous pronoun prevents endpoint resolution."
+      }
+    ],
+    "tags": [
+      "pronoun",
+      "partial_endpoint",
+      "ambiguous"
+    ]
+  },
+  {
+    "case_id": "PR-099",
+    "narrative": "A frase \"João é pai de Maria\" apareceu no documento.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "quoted_language",
+      "no_relation"
+    ]
+  },
+  {
+    "case_id": "PR-100",
+    "narrative": "O texto menciona as palavras \"mãe de\" sem identificar pessoas.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "quoted_language",
+      "no_relation"
+    ]
+  },
+  {
+    "case_id": "PR-101",
+    "narrative": "João é como um irmão para mim.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "metaphor",
+      "false_friend",
+      "no_relation"
+    ]
+  },
+  {
+    "case_id": "PR-102",
+    "narrative": "Maria faz papel de mãe no projeto.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "metaphor",
+      "false_friend",
+      "no_relation"
+    ]
+  },
+  {
+    "case_id": "PR-103",
+    "narrative": "Pedro chamou Ana de irmã durante a brincadeira.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "mentioned_relation",
+      "false_friend",
+      "no_relation"
+    ]
+  },
+  {
+    "case_id": "PR-104",
+    "narrative": "João trabalha com o pai de Maria.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "incidental_kinship",
+      "no_relation"
+    ]
+  },
+  {
+    "case_id": "PR-105",
+    "narrative": "Ana encontrou a irmã de Pedro na escola.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "incidental_kinship",
+      "no_relation"
+    ]
+  },
+  {
+    "case_id": "PR-106",
+    "narrative": "Pedro conversou com o marido de Carla.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "incidental_kinship",
+      "no_relation"
+    ]
+  },
+  {
+    "case_id": "PR-107",
+    "narrative": "João se casou com Maria em 2019.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "event_only",
+      "no_event_derived_relation"
+    ]
+  },
+  {
+    "case_id": "PR-108",
+    "narrative": "Maria deu à luz João em 2001.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "event_only",
+      "no_event_derived_relation"
+    ]
+  },
+  {
+    "case_id": "PR-111",
+    "narrative": "João falou sobre paternidade com Maria.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "topic_only",
+      "no_relation"
+    ]
+  },
+  {
+    "case_id": "PR-113",
+    "narrative": "Pedro atua como pai na peça teatral.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "role_play",
+      "false_friend",
+      "no_relation"
+    ]
+  },
+  {
+    "case_id": "PR-114",
+    "narrative": "Maria considera Ana uma irmã de coração.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "social_relation",
+      "false_friend",
+      "no_relation"
+    ]
+  },
+  {
+    "case_id": "PR-117",
+    "narrative": "Ana corrigiu a expressão filha de no relatório.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "mentioned_relation",
+      "no_relation"
+    ]
+  },
+  {
+    "case_id": "PR-118",
+    "narrative": "Pedro não sabe quem é João.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "negative_case",
+      "no_relation"
+    ]
+  },
+  {
+    "case_id": "PR-119",
+    "narrative": "Maria, João e Clara viajaram juntos.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "multiple_people",
+      "negative_case",
+      "no_relation"
+    ]
+  },
+  {
+    "case_id": "PR-120",
+    "narrative": "Meu aniversário foi celebrado com Ana e Pedro.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "narrator",
+      "negative_case",
+      "no_relation"
+    ]
+  },
+  {
+    "case_id": "PR-121",
+    "narrative": "João é irmão de Maria.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Brother wording preserves its type and declared direction."
+      }
+    ],
+    "tags": [
+      "direct",
+      "sibling",
+      "structural_pair"
+    ]
+  },
+  {
+    "case_id": "PR-122",
+    "narrative": "Maria é irmã de João.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Maria",
+        "endpoint_b_mention": "João",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "The reversed sibling declaration keeps SISTER_OF while sharing structural pair grouping."
+      }
+    ],
+    "tags": [
+      "direct",
+      "sibling",
+      "structural_pair"
+    ]
+  },
+  {
+    "case_id": "PR-123",
+    "narrative": "João é pai de Maria.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "A separate occurrence may create an independent claim with its own ConversationTurn provenance."
+      }
+    ],
+    "tags": [
+      "direct",
+      "independent_declaration",
+      "duplicate_semantics"
+    ]
+  },
+  {
+    "case_id": "PR-124",
+    "narrative": "Ana era esposa de Pedro.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "esposa de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "Pedro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "PAST",
+        "persistible_in_v1": false,
+        "rationale": "Past spouse wording remains reviewable but cannot persist in V1."
+      }
+    ],
+    "tags": [
+      "past_relation",
+      "temporal_limitation",
+      "spouse_surface"
+    ]
+  },
+  {
+    "case_id": "PR-127",
+    "narrative": "Otávio é filho de Sônia.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Otávio",
+        "endpoint_b_mention": "Sônia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "UTF-8 direct control."
+      }
+    ],
+    "tags": [
+      "direct",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-128",
+    "narrative": "Lívia é filha de Fábio.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Lívia",
+        "endpoint_b_mention": "Fábio",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "UTF-8 direct control."
+      }
+    ],
+    "tags": [
+      "direct",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-131",
+    "narrative": "Mário é cônjuge de Lúcia.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "cônjuge de",
+        "endpoint_a_mention": "Mário",
+        "endpoint_b_mention": "Lúcia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "UTF-8 spouse control."
+      }
+    ],
+    "tags": [
+      "direct",
+      "spouse_surface",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-132",
+    "narrative": "André não é pai de Bianca.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "André",
+        "endpoint_b_mention": "Bianca",
+        "polarity": "NEGATED",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Negation minimal pair."
+      }
+    ],
+    "tags": [
+      "negation",
+      "minimal_pair",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-133",
+    "narrative": "Érica nunca foi mãe de Tiago.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Érica",
+        "endpoint_b_mention": "Tiago",
+        "polarity": "NEGATED",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "PAST",
+        "persistible_in_v1": false,
+        "rationale": "Past negation composition."
+      }
+    ],
+    "tags": [
+      "negation",
+      "past_relation",
+      "compositional",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-134",
+    "narrative": "Otávio não é filho de Sônia.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Otávio",
+        "endpoint_b_mention": "Sônia",
+        "polarity": "NEGATED",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Direct negation."
+      }
+    ],
+    "tags": [
+      "negation",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-136",
+    "narrative": "Ângelo não é irmão de Júlia.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão de",
+        "endpoint_a_mention": "Ângelo",
+        "endpoint_b_mention": "Júlia",
+        "polarity": "NEGATED",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Sibling negation."
+      }
+    ],
+    "tags": [
+      "negation",
+      "minimal_pair",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-137",
+    "narrative": "Júlia nunca foi irmã de Ângelo.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Júlia",
+        "endpoint_b_mention": "Ângelo",
+        "polarity": "NEGATED",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "PAST",
+        "persistible_in_v1": false,
+        "rationale": "Past sibling negation."
+      }
+    ],
+    "tags": [
+      "negation",
+      "past_relation",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-138",
+    "narrative": "Mário não é cônjuge de Lúcia.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "cônjuge de",
+        "endpoint_a_mention": "Mário",
+        "endpoint_b_mention": "Lúcia",
+        "polarity": "NEGATED",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Spouse negation."
+      }
+    ],
+    "tags": [
+      "negation",
+      "minimal_pair",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-139",
+    "narrative": "Talvez André seja pai de Bianca.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "André",
+        "endpoint_b_mention": "Bianca",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Uncertain minimal pair."
+      }
+    ],
+    "tags": [
+      "uncertainty",
+      "minimal_pair",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-140",
+    "narrative": "Acho que Érica é mãe de Tiago.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Érica",
+        "endpoint_b_mention": "Tiago",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Belief is uncertain."
+      }
+    ],
+    "tags": [
+      "uncertainty",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-141",
+    "narrative": "Otávio pode ser filho de Sônia.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Otávio",
+        "endpoint_b_mention": "Sônia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Modal uncertainty."
+      }
+    ],
+    "tags": [
+      "uncertainty",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-142",
+    "narrative": "Não tenho certeza se Lívia é filha de Fábio.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Lívia",
+        "endpoint_b_mention": "Fábio",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Explicit uncertainty."
+      }
+    ],
+    "tags": [
+      "uncertainty",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-143",
+    "narrative": "Será que Ângelo é irmão de Júlia?",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão de",
+        "endpoint_a_mention": "Ângelo",
+        "endpoint_b_mention": "Júlia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Question is uncertain."
+      }
+    ],
+    "tags": [
+      "question",
+      "uncertainty",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-145",
+    "narrative": "Talvez Mário seja marido de Lúcia.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido de",
+        "endpoint_a_mention": "Mário",
+        "endpoint_b_mention": "Lúcia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Spouse uncertainty."
+      }
+    ],
+    "tags": [
+      "uncertainty",
+      "minimal_pair",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-146",
+    "narrative": "Paulo disse que André é pai de Bianca.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "André",
+        "endpoint_b_mention": "Bianca",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Speaker is not endpoint."
+      }
+    ],
+    "tags": [
+      "reported_speech",
+      "speaker_distractor",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-147",
+    "narrative": "Paulo contou que Érica é mãe de Tiago.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Érica",
+        "endpoint_b_mention": "Tiago",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Reported relation."
+      }
+    ],
+    "tags": [
+      "reported_speech",
+      "speaker_distractor",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-149",
+    "narrative": "Clara declarou que Lívia é filha de Fábio.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Lívia",
+        "endpoint_b_mention": "Fábio",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Reported relation."
+      }
+    ],
+    "tags": [
+      "reported_speech",
+      "speaker_distractor",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-150",
+    "narrative": "Carla disse que Ângelo é irmão de Júlia.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão de",
+        "endpoint_a_mention": "Ângelo",
+        "endpoint_b_mention": "Júlia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Reported relation."
+      }
+    ],
+    "tags": [
+      "reported_speech",
+      "speaker_distractor",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-151",
+    "narrative": "Carla contou que Júlia é irmã de Ângelo.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Júlia",
+        "endpoint_b_mention": "Ângelo",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Reported relation."
+      }
+    ],
+    "tags": [
+      "reported_speech",
+      "speaker_distractor",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-152",
+    "narrative": "Rita afirmou que Mário é esposo de Lúcia.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "esposo de",
+        "endpoint_a_mention": "Mário",
+        "endpoint_b_mention": "Lúcia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Reported spouse relation."
+      }
+    ],
+    "tags": [
+      "reported_speech",
+      "speaker_distractor",
+      "spouse_surface",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-153",
+    "narrative": "Paulo conversou com o pai de Bianca.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "incidental_kinship",
+      "no_relation",
+      "minimal_pair",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-156",
+    "narrative": "Mário é como um marido para a equipe.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "metaphor",
+      "false_friend",
+      "no_relation",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-158",
+    "narrative": "André se casou com Bianca em 2020.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "event_only",
+      "no_event_derived_relation",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-160",
+    "narrative": "André foi pai de Bianca naquele registro.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "André",
+        "endpoint_b_mention": "Bianca",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "PAST",
+        "persistible_in_v1": false,
+        "rationale": "Past remains review-only."
+      }
+    ],
+    "tags": [
+      "past_relation",
+      "temporal_limitation",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-161",
+    "narrative": "Érica era mãe de Tiago naquela época.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Érica",
+        "endpoint_b_mention": "Tiago",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "PAST",
+        "persistible_in_v1": false,
+        "rationale": "Past remains review-only."
+      }
+    ],
+    "tags": [
+      "past_relation",
+      "temporal_limitation",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-162",
+    "narrative": "Otávio foi filho de Sônia naquele cadastro.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Otávio",
+        "endpoint_b_mention": "Sônia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "PAST",
+        "persistible_in_v1": false,
+        "rationale": "Past remains review-only."
+      }
+    ],
+    "tags": [
+      "past_relation",
+      "temporal_limitation",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-163",
+    "narrative": "Lívia era filha de Fábio naquela descrição.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Lívia",
+        "endpoint_b_mention": "Fábio",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "PAST",
+        "persistible_in_v1": false,
+        "rationale": "Past remains review-only."
+      }
+    ],
+    "tags": [
+      "past_relation",
+      "temporal_limitation",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-165",
+    "narrative": "Júlia foi irmã de Ângelo naquela narrativa.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Júlia",
+        "endpoint_b_mention": "Ângelo",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "PAST",
+        "persistible_in_v1": false,
+        "rationale": "Past remains review-only."
+      }
+    ],
+    "tags": [
+      "past_relation",
+      "temporal_limitation",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-168",
+    "narrative": "Ela é mãe de Tiago.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Ela",
+        "endpoint_b_mention": "Tiago",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Pronoun endpoint is unresolved."
+      }
+    ],
+    "tags": [
+      "pronoun",
+      "partial_endpoint",
+      "ambiguous",
+      "safe_abstention",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-169",
+    "narrative": "Otávio é filho de alguém que não conheço.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Otávio",
+        "endpoint_b_mention": "alguém que não conheço",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Generic endpoint remains unresolved."
+      }
+    ],
+    "tags": [
+      "partial_endpoint",
+      "safe_abstention",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-170",
+    "narrative": "Lívia é filha de uma pessoa que não lembro.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Lívia",
+        "endpoint_b_mention": "uma pessoa que não lembro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Generic endpoint remains unresolved."
+      }
+    ],
+    "tags": [
+      "partial_endpoint",
+      "safe_abstention",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-171",
+    "narrative": "Paulo disse que ela é irmã de Ana.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "ela",
+        "endpoint_b_mention": "Ana",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Speaker cannot replace pronoun endpoint."
+      }
+    ],
+    "tags": [
+      "reported_speech",
+      "pronoun",
+      "partial_endpoint",
+      "speaker_distractor",
+      "safe_abstention",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-174",
+    "narrative": "André é pai de Bianca e Caio.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "André",
+        "endpoint_b_mention": "Bianca",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First coordinated endpoint."
+      },
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "André",
+        "endpoint_b_mention": "Caio",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second coordinated endpoint."
+      }
+    ],
+    "tags": [
+      "coordination",
+      "multiple_relations",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-175",
+    "narrative": "Érica é mãe de Tiago e mãe de Sônia.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Érica",
+        "endpoint_b_mention": "Tiago",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First predicate."
+      },
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Érica",
+        "endpoint_b_mention": "Sônia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Repeated predicate carries subject."
+      }
+    ],
+    "tags": [
+      "coordination",
+      "multiple_relations",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-177",
+    "narrative": "Lívia é filha de Fábio e irmã de Otávio.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Lívia",
+        "endpoint_b_mention": "Fábio",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First mixed relation."
+      },
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Lívia",
+        "endpoint_b_mention": "Otávio",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second mixed relation."
+      }
+    ],
+    "tags": [
+      "coordination",
+      "multiple_relations",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-179",
+    "narrative": "Mário é marido de Lúcia e Paulo é cônjuge de Rita.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido de",
+        "endpoint_a_mention": "Mário",
+        "endpoint_b_mention": "Lúcia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First spouse relation."
+      },
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "cônjuge de",
+        "endpoint_a_mention": "Paulo",
+        "endpoint_b_mention": "Rita",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second spouse relation."
+      }
+    ],
+    "tags": [
+      "coordination",
+      "multiple_relations",
+      "spouse_surface",
+      "utf8"
+    ]
+  },
+  {
+    "case_id": "PR-181",
+    "narrative": "O pai de Maria é João.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Reordered copular relation remains explicit."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "reordered",
+      "copular",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-182",
+    "narrative": "O mãe de Pedro é Ana.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "Pedro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Reordered copular relation remains explicit."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "reordered",
+      "copular",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-183",
+    "narrative": "O filho de Beatriz é Carlos.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Carlos",
+        "endpoint_b_mention": "Beatriz",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Reordered copular relation remains explicit."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "reordered",
+      "copular",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-184",
+    "narrative": "O filha de Roberto é Luiza.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Luiza",
+        "endpoint_b_mention": "Roberto",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Reordered copular relation remains explicit."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "reordered",
+      "copular",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-186",
+    "narrative": "O irmã de Marcos é Helena.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Helena",
+        "endpoint_b_mention": "Marcos",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Reordered copular relation remains explicit."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "reordered",
+      "copular",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-187",
+    "narrative": "O marido de Sônia é Rafael.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Sônia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Reordered copular relation remains explicit."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "reordered",
+      "copular",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-190",
+    "narrative": "Carlos é o filho dela.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho",
+        "endpoint_a_mention": "Carlos",
+        "endpoint_b_mention": "dela",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Possessive endpoint is explicit text but its antecedent is unresolved."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "possessive",
+      "pronoun",
+      "partial_endpoint"
+    ]
+  },
+  {
+    "case_id": "PR-191",
+    "narrative": "Luiza é o filha dela.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha",
+        "endpoint_a_mention": "Luiza",
+        "endpoint_b_mention": "dela",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Possessive endpoint is explicit text but its antecedent is unresolved."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "possessive",
+      "pronoun",
+      "partial_endpoint"
+    ]
+  },
+  {
+    "case_id": "PR-193",
+    "narrative": "Helena é o irmã dela.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã",
+        "endpoint_a_mention": "Helena",
+        "endpoint_b_mention": "dela",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Possessive endpoint is explicit text but its antecedent is unresolved."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "possessive",
+      "pronoun",
+      "partial_endpoint"
+    ]
+  },
+  {
+    "case_id": "PR-195",
+    "narrative": "Maria tem João como pai.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "The ter-como construction explicitly assigns the relation role."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "existential_have",
+      "reordered",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-196",
+    "narrative": "Pedro tem Ana como mãe.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "Pedro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "The ter-como construction explicitly assigns the relation role."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "existential_have",
+      "reordered",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-197",
+    "narrative": "Beatriz tem Carlos como filho.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho",
+        "endpoint_a_mention": "Carlos",
+        "endpoint_b_mention": "Beatriz",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "The ter-como construction explicitly assigns the relation role."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "existential_have",
+      "reordered",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-199",
+    "narrative": "Carla tem Tiago como irmão.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão",
+        "endpoint_a_mention": "Tiago",
+        "endpoint_b_mention": "Carla",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "The ter-como construction explicitly assigns the relation role."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "existential_have",
+      "reordered",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-200",
+    "narrative": "Marcos tem Helena como irmã.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã",
+        "endpoint_a_mention": "Helena",
+        "endpoint_b_mention": "Marcos",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "The ter-como construction explicitly assigns the relation role."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "existential_have",
+      "reordered",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-202",
+    "narrative": "João, pai de Maria, chegou cedo.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "A restrictive local apposition explicitly states the relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "apposition",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-204",
+    "narrative": "Carlos, filho de Beatriz, chegou cedo.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Carlos",
+        "endpoint_b_mention": "Beatriz",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "A restrictive local apposition explicitly states the relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "apposition",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-205",
+    "narrative": "Luiza, filha de Roberto, chegou cedo.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Luiza",
+        "endpoint_b_mention": "Roberto",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "A restrictive local apposition explicitly states the relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "apposition",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-206",
+    "narrative": "Tiago, irmão de Carla, chegou cedo.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão de",
+        "endpoint_a_mention": "Tiago",
+        "endpoint_b_mention": "Carla",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "A restrictive local apposition explicitly states the relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "apposition",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-207",
+    "narrative": "Helena, irmã de Marcos, chegou cedo.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Helena",
+        "endpoint_b_mention": "Marcos",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "A restrictive local apposition explicitly states the relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "apposition",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-208",
+    "narrative": "Rafael, marido de Sônia, chegou cedo.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Sônia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "A restrictive local apposition explicitly states the relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "apposition",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-209",
+    "narrative": "João é o pai da Maria.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai da",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Contracted Portuguese preposition preserves the canonical relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "contracted_preposition",
+      "copular",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-210",
+    "narrative": "Ana é o mãe do Pedro.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe do",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "Pedro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Contracted Portuguese preposition preserves the canonical relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "contracted_preposition",
+      "copular",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-211",
+    "narrative": "Carlos é o filho do Beatriz.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho do",
+        "endpoint_a_mention": "Carlos",
+        "endpoint_b_mention": "Beatriz",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Contracted Portuguese preposition preserves the canonical relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "contracted_preposition",
+      "copular",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-213",
+    "narrative": "Tiago é o irmão da Carla.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão da",
+        "endpoint_a_mention": "Tiago",
+        "endpoint_b_mention": "Carla",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Contracted Portuguese preposition preserves the canonical relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "contracted_preposition",
+      "copular",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-214",
+    "narrative": "Helena é o irmã do Marcos.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã do",
+        "endpoint_a_mention": "Helena",
+        "endpoint_b_mention": "Marcos",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Contracted Portuguese preposition preserves the canonical relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "contracted_preposition",
+      "copular",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-215",
+    "narrative": "Rafael é o marido da Sônia.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido da",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Sônia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Contracted Portuguese preposition preserves the canonical relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "contracted_preposition",
+      "copular",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-217",
+    "narrative": "Ana é, segundo os documentos da família, mãe de Pedro.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "Pedro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Incidental parenthetical material does not turn the assertion into reported speech."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "discontinuous",
+      "distractor_heavy",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-218",
+    "narrative": "Carlos é, segundo os documentos da família, filho de Beatriz.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Carlos",
+        "endpoint_b_mention": "Beatriz",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Incidental parenthetical material does not turn the assertion into reported speech."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "discontinuous",
+      "distractor_heavy",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-219",
+    "narrative": "Luiza é, segundo os documentos da família, filha de Roberto.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Luiza",
+        "endpoint_b_mention": "Roberto",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Incidental parenthetical material does not turn the assertion into reported speech."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "discontinuous",
+      "distractor_heavy",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-221",
+    "narrative": "Helena é, segundo os documentos da família, irmã de Marcos.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Helena",
+        "endpoint_b_mention": "Marcos",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Incidental parenthetical material does not turn the assertion into reported speech."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "discontinuous",
+      "distractor_heavy",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-222",
+    "narrative": "Rafael é, segundo os documentos da família, marido de Sônia.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Sônia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Incidental parenthetical material does not turn the assertion into reported speech."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "discontinuous",
+      "distractor_heavy",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-223",
+    "narrative": "João é pai de Maria e Fernanda.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First coordinated binary relation."
+      },
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Fernanda",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second coordinated binary relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "coordination",
+      "multiple_relations",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-224",
+    "narrative": "Ana é mãe de Pedro e Fernanda.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "Pedro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First coordinated binary relation."
+      },
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "Fernanda",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second coordinated binary relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "coordination",
+      "multiple_relations",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-226",
+    "narrative": "Luiza é filha de Roberto e Fernanda.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Luiza",
+        "endpoint_b_mention": "Roberto",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First coordinated binary relation."
+      },
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Luiza",
+        "endpoint_b_mention": "Fernanda",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second coordinated binary relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "coordination",
+      "multiple_relations",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-227",
+    "narrative": "Tiago é irmão de Carla e Fernanda.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão de",
+        "endpoint_a_mention": "Tiago",
+        "endpoint_b_mention": "Carla",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First coordinated binary relation."
+      },
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão de",
+        "endpoint_a_mention": "Tiago",
+        "endpoint_b_mention": "Fernanda",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second coordinated binary relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "coordination",
+      "multiple_relations",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-228",
+    "narrative": "Helena é irmã de Marcos e Fernanda.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Helena",
+        "endpoint_b_mention": "Marcos",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First coordinated binary relation."
+      },
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Helena",
+        "endpoint_b_mention": "Fernanda",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second coordinated binary relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "coordination",
+      "multiple_relations",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-229",
+    "narrative": "Rafael é marido de Sônia e Fernanda.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Sônia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First coordinated binary relation."
+      },
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Fernanda",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second coordinated binary relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "coordination",
+      "multiple_relations",
+      "persistible_oracle"
+    ]
+  },
+  {
+    "case_id": "PR-230",
+    "narrative": "João, pai de Maria e mãe de Pedro, chegou.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First appositive relation."
+      },
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Pedro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second appositive relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "appositive_chain",
+      "multiple_relations",
+      "distractor_heavy"
+    ]
+  },
+  {
+    "case_id": "PR-231",
+    "narrative": "Ana, mãe de Pedro e filho de Beatriz, chegou.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "Pedro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First appositive relation."
+      },
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "Beatriz",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second appositive relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "appositive_chain",
+      "multiple_relations",
+      "distractor_heavy"
+    ]
+  },
+  {
+    "case_id": "PR-232",
+    "narrative": "Carlos, filho de Beatriz e filha de Roberto, chegou.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Carlos",
+        "endpoint_b_mention": "Beatriz",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First appositive relation."
+      },
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Carlos",
+        "endpoint_b_mention": "Roberto",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second appositive relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "appositive_chain",
+      "multiple_relations",
+      "distractor_heavy"
+    ]
+  },
+  {
+    "case_id": "PR-233",
+    "narrative": "Luiza, filha de Roberto e irmão de Carla, chegou.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Luiza",
+        "endpoint_b_mention": "Roberto",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First appositive relation."
+      },
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão de",
+        "endpoint_a_mention": "Luiza",
+        "endpoint_b_mention": "Carla",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second appositive relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "appositive_chain",
+      "multiple_relations",
+      "distractor_heavy"
+    ]
+  },
+  {
+    "case_id": "PR-234",
+    "narrative": "Tiago, irmão de Carla e irmã de Marcos, chegou.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão de",
+        "endpoint_a_mention": "Tiago",
+        "endpoint_b_mention": "Carla",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First appositive relation."
+      },
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Tiago",
+        "endpoint_b_mention": "Marcos",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second appositive relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "appositive_chain",
+      "multiple_relations",
+      "distractor_heavy"
+    ]
+  },
+  {
+    "case_id": "PR-235",
+    "narrative": "Helena, irmã de Marcos e marido de Sônia, chegou.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Helena",
+        "endpoint_b_mention": "Marcos",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First appositive relation."
+      },
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido de",
+        "endpoint_a_mention": "Helena",
+        "endpoint_b_mention": "Sônia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second appositive relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "appositive_chain",
+      "multiple_relations",
+      "distractor_heavy"
+    ]
+  },
+  {
+    "case_id": "PR-236",
+    "narrative": "Rafael, marido de Sônia e pai de Maria, chegou.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Sônia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "First appositive relation."
+      },
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": true,
+        "rationale": "Second appositive relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "appositive_chain",
+      "multiple_relations",
+      "distractor_heavy"
+    ]
+  },
+  {
+    "case_id": "PR-237",
+    "narrative": "Paulo explicou que talvez João seja pai de Maria.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Reported speech and uncertainty are independent blockers."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "reported",
+      "uncertain",
+      "embedded_clause",
+      "speaker_distractor"
+    ]
+  },
+  {
+    "case_id": "PR-238",
+    "narrative": "Paulo explicou que talvez Ana seja mãe de Pedro.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "Pedro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Reported speech and uncertainty are independent blockers."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "reported",
+      "uncertain",
+      "embedded_clause",
+      "speaker_distractor"
+    ]
+  },
+  {
+    "case_id": "PR-240",
+    "narrative": "Paulo explicou que talvez Luiza seja filha de Roberto.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Luiza",
+        "endpoint_b_mention": "Roberto",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Reported speech and uncertainty are independent blockers."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "reported",
+      "uncertain",
+      "embedded_clause",
+      "speaker_distractor"
+    ]
+  },
+  {
+    "case_id": "PR-241",
+    "narrative": "Paulo explicou que talvez Tiago seja irmão de Carla.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão de",
+        "endpoint_a_mention": "Tiago",
+        "endpoint_b_mention": "Carla",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Reported speech and uncertainty are independent blockers."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "reported",
+      "uncertain",
+      "embedded_clause",
+      "speaker_distractor"
+    ]
+  },
+  {
+    "case_id": "PR-242",
+    "narrative": "Paulo explicou que talvez Helena seja irmã de Marcos.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Helena",
+        "endpoint_b_mention": "Marcos",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Reported speech and uncertainty are independent blockers."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "reported",
+      "uncertain",
+      "embedded_clause",
+      "speaker_distractor"
+    ]
+  },
+  {
+    "case_id": "PR-243",
+    "narrative": "Paulo explicou que talvez Rafael seja marido de Sônia.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Sônia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Reported speech and uncertainty are independent blockers."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "reported",
+      "uncertain",
+      "embedded_clause",
+      "speaker_distractor"
+    ]
+  },
+  {
+    "case_id": "PR-245",
+    "narrative": "De jeito nenhum Ana é mãe de Pedro.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "Pedro",
+        "polarity": "NEGATED",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Sentence-level emphatic negation scopes over the relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "negated",
+      "negation_variant"
+    ]
+  },
+  {
+    "case_id": "PR-246",
+    "narrative": "De jeito nenhum Carlos é filho de Beatriz.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Carlos",
+        "endpoint_b_mention": "Beatriz",
+        "polarity": "NEGATED",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Sentence-level emphatic negation scopes over the relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "negated",
+      "negation_variant"
+    ]
+  },
+  {
+    "case_id": "PR-247",
+    "narrative": "De jeito nenhum Luiza é filha de Roberto.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Luiza",
+        "endpoint_b_mention": "Roberto",
+        "polarity": "NEGATED",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Sentence-level emphatic negation scopes over the relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "negated",
+      "negation_variant"
+    ]
+  },
+  {
+    "case_id": "PR-249",
+    "narrative": "De jeito nenhum Helena é irmã de Marcos.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Helena",
+        "endpoint_b_mention": "Marcos",
+        "polarity": "NEGATED",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Sentence-level emphatic negation scopes over the relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "negated",
+      "negation_variant"
+    ]
+  },
+  {
+    "case_id": "PR-250",
+    "narrative": "De jeito nenhum Rafael é marido de Sônia.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Sônia",
+        "polarity": "NEGATED",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Sentence-level emphatic negation scopes over the relation."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "negated",
+      "negation_variant"
+    ]
+  },
+  {
+    "case_id": "PR-251",
+    "narrative": "Parece que João seja pai de Maria.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Explicit uncertainty prevents a direct asserted claim."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "uncertain",
+      "uncertainty_variant"
+    ]
+  },
+  {
+    "case_id": "PR-252",
+    "narrative": "É possível que Ana seja mãe de Pedro.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "Pedro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Explicit uncertainty prevents a direct asserted claim."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "uncertain",
+      "uncertainty_variant"
+    ]
+  },
+  {
+    "case_id": "PR-253",
+    "narrative": "Há dúvida se Carlos seja filho de Beatriz.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Carlos",
+        "endpoint_b_mention": "Beatriz",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Explicit uncertainty prevents a direct asserted claim."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "uncertain",
+      "uncertainty_variant"
+    ]
+  },
+  {
+    "case_id": "PR-254",
+    "narrative": "Tudo indica, sem certeza, que Luiza seja filha de Roberto.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Luiza",
+        "endpoint_b_mention": "Roberto",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Explicit uncertainty prevents a direct asserted claim."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "uncertain",
+      "uncertainty_variant"
+    ]
+  },
+  {
+    "case_id": "PR-255",
+    "narrative": "Não se sabe se Tiago seja irmão de Carla.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão de",
+        "endpoint_a_mention": "Tiago",
+        "endpoint_b_mention": "Carla",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Explicit uncertainty prevents a direct asserted claim."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "uncertain",
+      "uncertainty_variant"
+    ]
+  },
+  {
+    "case_id": "PR-257",
+    "narrative": "Pode ser que Rafael seja marido de Sônia.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Sônia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Explicit uncertainty prevents a direct asserted claim."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "uncertain",
+      "uncertainty_variant"
+    ]
+  },
+  {
+    "case_id": "PR-258",
+    "narrative": "É João o pai de Maria?",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Interrogative form is not an asserted positive claim."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "question",
+      "reordered"
+    ]
+  },
+  {
+    "case_id": "PR-259",
+    "narrative": "É Ana o mãe de Pedro?",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "Pedro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Interrogative form is not an asserted positive claim."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "question",
+      "reordered"
+    ]
+  },
+  {
+    "case_id": "PR-261",
+    "narrative": "É Luiza o filha de Roberto?",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Luiza",
+        "endpoint_b_mention": "Roberto",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Interrogative form is not an asserted positive claim."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "question",
+      "reordered"
+    ]
+  },
+  {
+    "case_id": "PR-262",
+    "narrative": "É Tiago o irmão de Carla?",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão de",
+        "endpoint_a_mention": "Tiago",
+        "endpoint_b_mention": "Carla",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Interrogative form is not an asserted positive claim."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "question",
+      "reordered"
+    ]
+  },
+  {
+    "case_id": "PR-263",
+    "narrative": "É Helena o irmã de Marcos?",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Helena",
+        "endpoint_b_mention": "Marcos",
+        "polarity": "POSITIVE",
+        "epistemic_status": "UNCERTAIN",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Interrogative form is not an asserted positive claim."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "question",
+      "reordered"
+    ]
+  },
+  {
+    "case_id": "PR-265",
+    "narrative": "O manual usa a frase \"João é pai de Maria\" como exemplo.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "quoted_language",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-266",
+    "narrative": "O manual usa a frase \"Ana é mãe de Pedro\" como exemplo.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "quoted_language",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-267",
+    "narrative": "O manual usa a frase \"Carlos é filho de Beatriz\" como exemplo.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "quoted_language",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-268",
+    "narrative": "O manual usa a frase \"Luiza é filha de Roberto\" como exemplo.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "quoted_language",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-269",
+    "narrative": "O manual usa a frase \"Tiago é irmão de Carla\" como exemplo.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "quoted_language",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-270",
+    "narrative": "O manual usa a frase \"Helena é irmã de Marcos\" como exemplo.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "quoted_language",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-271",
+    "narrative": "O manual usa a frase \"Rafael é marido de Sônia\" como exemplo.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "quoted_language",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-272",
+    "narrative": "Paulo falou com o pai de Maria ontem.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "incidental_kinship",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-273",
+    "narrative": "Paulo encontrou o mãe de Pedro ontem.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "incidental_kinship",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-274",
+    "narrative": "Paulo telefonou para o filho de Beatriz ontem.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "incidental_kinship",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-275",
+    "narrative": "Paulo viu o filha de Roberto ontem.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "incidental_kinship",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-277",
+    "narrative": "Paulo procurou o irmã de Marcos ontem.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "incidental_kinship",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-278",
+    "narrative": "Paulo ouviu o marido de Sônia ontem.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "incidental_kinship",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-280",
+    "narrative": "Ana faz papel de mãe no projeto.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "metaphor",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-281",
+    "narrative": "Carlos é como um filho para Beatriz.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "metaphor",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-282",
+    "narrative": "Luiza é a filha preferida da empresa.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "metaphor",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-283",
+    "narrative": "Tiago trata Carla como irmão de equipe.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "metaphor",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-284",
+    "narrative": "Helena é como uma irmã para Marcos.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "metaphor",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-286",
+    "narrative": "Paulo contou a Renata, diante de Bruno e Clara, que João é pai de Maria.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": "João",
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Only the embedded local subject and object are relation endpoints."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "reported",
+      "multiple_people",
+      "distractor_heavy",
+      "speaker_distractor"
+    ]
+  },
+  {
+    "case_id": "PR-288",
+    "narrative": "Paulo contou a Renata, diante de Bruno e Clara, que Carlos é filho de Beatriz.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Carlos",
+        "endpoint_b_mention": "Beatriz",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Only the embedded local subject and object are relation endpoints."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "reported",
+      "multiple_people",
+      "distractor_heavy",
+      "speaker_distractor"
+    ]
+  },
+  {
+    "case_id": "PR-289",
+    "narrative": "Paulo contou a Renata, diante de Bruno e Clara, que Luiza é filha de Roberto.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Luiza",
+        "endpoint_b_mention": "Roberto",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Only the embedded local subject and object are relation endpoints."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "reported",
+      "multiple_people",
+      "distractor_heavy",
+      "speaker_distractor"
+    ]
+  },
+  {
+    "case_id": "PR-291",
+    "narrative": "Paulo contou a Renata, diante de Bruno e Clara, que Helena é irmã de Marcos.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Helena",
+        "endpoint_b_mention": "Marcos",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Only the embedded local subject and object are relation endpoints."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "reported",
+      "multiple_people",
+      "distractor_heavy",
+      "speaker_distractor"
+    ]
+  },
+  {
+    "case_id": "PR-292",
+    "narrative": "Paulo contou a Renata, diante de Bruno e Clara, que Rafael é marido de Sônia.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Sônia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "Only the embedded local subject and object are relation endpoints."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "reported",
+      "multiple_people",
+      "distractor_heavy",
+      "speaker_distractor"
+    ]
+  },
+  {
+    "case_id": "PR-293",
+    "narrative": "Paulo encontrou Renato e disse que ele é pai de Maria.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "FATHER_OF",
+        "relation_surface_text": "pai de",
+        "endpoint_a_mention": null,
+        "endpoint_b_mention": "Maria",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "The local pronoun has multiple plausible antecedents."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "pronoun",
+      "partial_endpoint",
+      "ambiguous",
+      "reported"
+    ]
+  },
+  {
+    "case_id": "PR-294",
+    "narrative": "Paulo encontrou Renato e disse que ele é mãe de Pedro.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": null,
+        "endpoint_b_mention": "Pedro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "The local pronoun has multiple plausible antecedents."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "pronoun",
+      "partial_endpoint",
+      "ambiguous",
+      "reported"
+    ]
+  },
+  {
+    "case_id": "PR-297",
+    "narrative": "Paulo encontrou Renato e disse que ele é irmão de Carla.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão de",
+        "endpoint_a_mention": null,
+        "endpoint_b_mention": "Carla",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "The local pronoun has multiple plausible antecedents."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "pronoun",
+      "partial_endpoint",
+      "ambiguous",
+      "reported"
+    ]
+  },
+  {
+    "case_id": "PR-298",
+    "narrative": "Paulo encontrou Renato e disse que ele é irmã de Marcos.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": null,
+        "endpoint_b_mention": "Marcos",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "REPORTED",
+        "temporal_scope": "CURRENT_OR_UNSPECIFIED",
+        "persistible_in_v1": false,
+        "rationale": "The local pronoun has multiple plausible antecedents."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "pronoun",
+      "partial_endpoint",
+      "ambiguous",
+      "reported"
+    ]
+  },
+  {
+    "case_id": "PR-301",
+    "narrative": "Durante muitos anos, Ana foi mãe de Pedro.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "MOTHER_OF",
+        "relation_surface_text": "mãe de",
+        "endpoint_a_mention": "Ana",
+        "endpoint_b_mention": "Pedro",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "PAST",
+        "persistible_in_v1": false,
+        "rationale": "Past copula marks unsupported historical scope for V1 persistence."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "past",
+      "temporal_scope"
+    ]
+  },
+  {
+    "case_id": "PR-302",
+    "narrative": "Durante muitos anos, Carlos foi filho de Beatriz.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SON_OF",
+        "relation_surface_text": "filho de",
+        "endpoint_a_mention": "Carlos",
+        "endpoint_b_mention": "Beatriz",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "PAST",
+        "persistible_in_v1": false,
+        "rationale": "Past copula marks unsupported historical scope for V1 persistence."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "past",
+      "temporal_scope"
+    ]
+  },
+  {
+    "case_id": "PR-303",
+    "narrative": "Durante muitos anos, Luiza foi filha de Roberto.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "DAUGHTER_OF",
+        "relation_surface_text": "filha de",
+        "endpoint_a_mention": "Luiza",
+        "endpoint_b_mention": "Roberto",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "PAST",
+        "persistible_in_v1": false,
+        "rationale": "Past copula marks unsupported historical scope for V1 persistence."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "past",
+      "temporal_scope"
+    ]
+  },
+  {
+    "case_id": "PR-304",
+    "narrative": "Durante muitos anos, Tiago foi irmão de Carla.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "BROTHER_OF",
+        "relation_surface_text": "irmão de",
+        "endpoint_a_mention": "Tiago",
+        "endpoint_b_mention": "Carla",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "PAST",
+        "persistible_in_v1": false,
+        "rationale": "Past copula marks unsupported historical scope for V1 persistence."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "past",
+      "temporal_scope"
+    ]
+  },
+  {
+    "case_id": "PR-305",
+    "narrative": "Durante muitos anos, Helena foi irmã de Marcos.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SISTER_OF",
+        "relation_surface_text": "irmã de",
+        "endpoint_a_mention": "Helena",
+        "endpoint_b_mention": "Marcos",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "PAST",
+        "persistible_in_v1": false,
+        "rationale": "Past copula marks unsupported historical scope for V1 persistence."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "past",
+      "temporal_scope"
+    ]
+  },
+  {
+    "case_id": "PR-306",
+    "narrative": "Durante muitos anos, Rafael foi marido de Sônia.",
+    "expected_relation_candidates": [
+      {
+        "relation_type": "SPOUSE_OF",
+        "relation_surface_text": "marido de",
+        "endpoint_a_mention": "Rafael",
+        "endpoint_b_mention": "Sônia",
+        "polarity": "POSITIVE",
+        "epistemic_status": "ASSERTED",
+        "reporting_mode": "DIRECT",
+        "temporal_scope": "PAST",
+        "persistible_in_v1": false,
+        "rationale": "Past copula marks unsupported historical scope for V1 persistence."
+      }
+    ],
+    "tags": [
+      "b1_generalization",
+      "past",
+      "temporal_scope"
+    ]
+  },
+  {
+    "case_id": "PR-307",
+    "narrative": "João se casou com Maria em 2019.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "event_only",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-308",
+    "narrative": "Ana deu à luz Pedro em 2001.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "event_only",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-309",
+    "narrative": "Carlos nasceu em 1990.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "event_only",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-310",
+    "narrative": "Luiza participou do casamento de Roberto.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "event_only",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-311",
+    "narrative": "Tiago registrou o nascimento de Carla.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "event_only",
+      "no_relation",
+      "negative_control"
+    ]
+  },
+  {
+    "case_id": "PR-312",
+    "narrative": "Helena ficou viúva em 2020.",
+    "expected_relation_candidates": [],
+    "tags": [
+      "b1_generalization",
+      "event_only",
+      "no_relation",
+      "negative_control"
+    ]
+  }
+]

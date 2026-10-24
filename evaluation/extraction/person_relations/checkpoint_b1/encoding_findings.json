@@ -1,0 +1,28 @@
+{
+  "files": [
+    {
+      "file": "v1_adversarial.jsonl",
+      "sha256_note": "Recorded separately by Git/checkpoint workflow",
+      "byte_count": 53389,
+      "strict_utf8": true,
+      "case_count": 124,
+      "literal_u_fffd_count": 0,
+      "literal_u_fffd_case_ids": [],
+      "mojibake_marker_counts": {},
+      "mojibake_case_ids": [],
+      "classification": "VALID_UTF8_CLEAN"
+    },
+    {
+      "file": "checkpoint_b_expansion.jsonl",
+      "sha256_note": "Recorded separately by Git/checkpoint workflow",
+      "byte_count": 26193,
+      "strict_utf8": true,
+      "case_count": 56,
+      "literal_u_fffd_count": 0,
+      "literal_u_fffd_case_ids": [],
+      "mojibake_marker_counts": {},
+      "mojibake_case_ids": [],
+      "classification": "VALID_UTF8_CLEAN"
+    }
+  ]
+}

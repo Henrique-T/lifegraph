@@ -5,7 +5,7 @@ import { ReconciliationPanel } from "./ReconciliationPanel";
 import { presentReason, relationshipLabels } from "./reconciliationPresentation";
 
 const nodeColors: Record<string, string> = {
-  Person: "#2563eb", ClaimEvent: "#7c3aed", RefEvent: "#047857",
+  Person: "#2563eb", ClaimEvent: "#7c3aed", RelationClaim: "#be185d", RefEvent: "#047857",
   ConversationTurn: "#b45309", Evidence: "#475569",
 };
 
@@ -29,7 +29,7 @@ function focusedSubgraph(graph: GraphResponse, personIds: string[]): GraphRespon
     if (selectedPeople.has(edge.target)) included.add(edge.source);
   });
   graph.nodes.forEach((node) => {
-    if (included.has(node.id) && (node.type === "ClaimEvent" || node.type === "RefEvent")) eventIds.add(node.id);
+    if (included.has(node.id) && (node.type === "ClaimEvent" || node.type === "RelationClaim" || node.type === "RefEvent")) eventIds.add(node.id);
   });
   graph.edges.forEach((edge) => {
     if (eventIds.has(edge.source)) included.add(edge.target);
@@ -54,6 +54,7 @@ function nodeLabel(node: GraphNode): string {
     const date = p.original_date_expression ?? (typeof p.claimed_date_start === "string" ? p.claimed_date_start.slice(0, 10) : null);
     return `Declaração\n${String(p.event_type ?? "")} · ${String(p.verification_status ?? "")}${date ? `\n${compactText(date)}` : ""}`;
   }
+  if (node.type === "RelationClaim") return `RelationClaim\n${String(p.relation_type ?? "")} · ${String(p.verification_status ?? "DECLARED")}`;
   if (node.type === "RefEvent") {
     const date = typeof p.event_date === "string" ? p.event_date.slice(0, 10) : null;
     return `Evento REF\n${String(p.event_type ?? "")}${date ? `\n${date}` : ""}`;
@@ -152,6 +153,11 @@ function relatedNode(graph: GraphResponse, claimId: string, edgeType: string, no
 }
 
 function claimOptionLabel(claim: GraphNode, graph: GraphResponse): string {
+  if (claim.type === "RelationClaim") {
+    const endpointA = relatedNode(graph, claim.id, "ENDPOINT_A", "Person");
+    const endpointB = relatedNode(graph, claim.id, "ENDPOINT_B", "Person");
+    return `${String(claim.properties.relation_type ?? "relação")} · DECLARED · ${String(endpointA?.properties.display_name ?? "?")} → ${String(endpointB?.properties.display_name ?? "?")}`;
+  }
   const eventType = String(claim.properties.event_type ?? "evento");
   const status = String(claim.properties.verification_status ?? "sem estado");
   const date = String(claim.properties.original_date_expression ?? "sem data informada");
@@ -179,11 +185,14 @@ export function GraphView({ graph, focusedPersonIds, onReconcile }: Props) {
   const focusedGraph = useMemo(() => graph ? focusedSubgraph(graph, focusedPersonIds) : null, [graph, focusedPersonIds]);
   const visibleGraph = viewMode === "focus" ? focusedGraph : graph;
   const selected = visibleGraph?.nodes.find((node) => node.id === selectedId) ?? null;
-  const claims = visibleGraph?.nodes.filter((node) => node.type === "ClaimEvent") ?? [];
+  const claims = visibleGraph?.nodes.filter((node) => node.type === "ClaimEvent" || node.type === "RelationClaim") ?? [];
   const selectedPerson = selected?.type === "ClaimEvent" && visibleGraph
     ? relatedNode(visibleGraph, selected.id, "SUBJECT_OF", "Person") : null;
   const selectedConversation = selected?.type === "ClaimEvent" && visibleGraph
     ? relatedNode(visibleGraph, selected.id, "EXTRACTED_FROM", "ConversationTurn") : null;
+  const selectedRelationEndpointA = selected?.type === "RelationClaim" && visibleGraph ? relatedNode(visibleGraph, selected.id, "ENDPOINT_A", "Person") : null;
+  const selectedRelationEndpointB = selected?.type === "RelationClaim" && visibleGraph ? relatedNode(visibleGraph, selected.id, "ENDPOINT_B", "Person") : null;
+  const selectedRelationConversation = selected?.type === "RelationClaim" && visibleGraph ? relatedNode(visibleGraph, selected.id, "EXTRACTED_FROM", "ConversationTurn") : null;
   const selectedEvidence = selected?.type === "Evidence" ? presentReason(selected.properties.evidence_type) : null;
   useEffect(() => {
     if (!container.current || !visibleGraph) return;
@@ -202,6 +211,7 @@ export function GraphView({ graph, focusedPersonIds, onReconcile }: Props) {
         { selector: "node", style: { "background-color": (element) => nodeColors[element.data("type")] ?? "#475569", label: "data(label)", color: "#f8fafc", "font-size": 11, "font-weight": 650, "text-wrap": "wrap", "text-valign": "center", width: 82, height: 82, "border-width": 2, "border-color": "#cbd5e1" } },
         { selector: 'node[type = "Person"]', style: { shape: "ellipse", width: 92, height: 92 } },
         { selector: 'node[type = "ClaimEvent"]', style: { shape: "round-rectangle", width: 112, height: 76 } },
+        { selector: 'node[type = "RelationClaim"]', style: { shape: "round-diamond", width: 122, height: 92, "border-color": "#f9a8d4", "border-width": 5 } },
         { selector: 'node[type = "RefEvent"]', style: { shape: "diamond", width: 106, height: 106, "border-width": 3, "border-color": "#d1fae5" } },
         { selector: 'node[type = "ConversationTurn"]', style: { shape: "round-rectangle", width: 116, height: 66 } },
         { selector: 'node[type = "Evidence"]', style: { shape: "hexagon", width: 88, height: 76 } },
@@ -238,7 +248,7 @@ export function GraphView({ graph, focusedPersonIds, onReconcile }: Props) {
       <div ref={container} className="graph-canvas" role="img" aria-label={viewMode === "timeline" ? "Linha do tempo dos eventos do LifeGraph" : viewMode === "focus" ? "Subgrafo das pessoas selecionadas na revisão" : "Grafo LifeGraph com tipos identificados por forma, texto e cor"} />
       <div className="graph-legends" aria-label="Legenda do grafo">
         <section><h4>Tipos de nó</h4><ul>
-          <li><span className="node-key person" />Pessoa</li><li><span className="node-key claim" />Declaração</li><li><span className="node-key ref" />Evento REF</li><li><span className="node-key conversation" />Narrativa</li><li><span className="node-key evidence" />Evidência</li>
+          <li><span className="node-key person" />Pessoa</li><li><span className="node-key claim" />Declaração de evento</li><li><span className="node-key relation-claim" />RelationClaim</li><li><span className="node-key ref" />Evento REF</li><li><span className="node-key conversation" />Narrativa</li><li><span className="node-key evidence" />Evidência</li>
         </ul></section>
         <section><h4>Tipos de evento</h4><ul>
           <li><span className="color-key birth" />Nascimento</li><li><span className="color-key marriage" />Casamento</li><li><span className="color-key death" />Óbito</li><li><span className="color-key stillbirth" />Natimorto</li>
@@ -251,7 +261,7 @@ export function GraphView({ graph, focusedPersonIds, onReconcile }: Props) {
     <aside className={`provenance ${selected?.type === "ClaimEvent" ? "claim-selected" : ""}`} aria-live="polite">
       <p className="stage-label">Inspeção do nó selecionado</p><h3>Proveniência</h3>
       <label className="claim-selector">Inspecionar uma declaração salva
-        <select value={selected?.type === "ClaimEvent" ? selected.id : ""} onChange={(event) => setSelectedId(event.target.value || null)}>
+        <select value={selected?.type === "ClaimEvent" || selected?.type === "RelationClaim" ? selected.id : ""} onChange={(event) => setSelectedId(event.target.value || null)}>
           <option value="">Selecione no grafo ou escolha uma declaração…</option>
           {claims.map((claim) => <option key={claim.id} value={claim.id}>
             {visibleGraph ? claimOptionLabel(claim, visibleGraph) : claim.id}
@@ -277,6 +287,23 @@ export function GraphView({ graph, focusedPersonIds, onReconcile }: Props) {
           <div><dt>Correção</dt><dd>{selected.properties.reviewer_correction_applied ? "Sim" : "Não"}</dd></div>
           <div className="provenance-wide technical-identity"><dt>ID da declaração</dt><dd>{selected.id}</dd></div>
           <div className="provenance-wide technical-identity"><dt>Pipeline</dt><dd>{String(selected.properties.pipeline_id ?? "—")}</dd></div>
+        </dl>}
+        {selected.type === "RelationClaim" && <dl>
+          <div><dt>Endpoint A</dt><dd>{String(selectedRelationEndpointA?.properties.display_name ?? "—")}</dd></div>
+          <div><dt>Endpoint B</dt><dd>{String(selectedRelationEndpointB?.properties.display_name ?? "—")}</dd></div>
+          <div><dt>Tipo declarado</dt><dd>{String(selected.properties.relation_type ?? "—")}</dd></div>
+          <div><dt>Origem</dt><dd>{String(selected.properties.origin ?? "—")}</dd></div>
+          <div><dt>Status</dt><dd><span className="inline-status declared">{String(selected.properties.verification_status ?? "DECLARED")}</span></dd></div>
+          <div className="provenance-wide"><dt>Narrativa original</dt><dd>“{String(selectedRelationConversation?.properties.text ?? selected.properties.source_text ?? "—")}”</dd></div>
+          <div><dt>Evidência aceita</dt><dd>{String(selected.properties.accepted_relation_surface ?? "—")}</dd></div>
+          <div><dt>Evidência original</dt><dd>{String(selected.properties.original_relation_surface ?? "—")}</dd></div>
+          <div><dt>Correção aplicada</dt><dd>{selected.properties.reviewer_correction_applied ? "Sim" : "Não"}</dd></div>
+          <div><dt>Família estrutural</dt><dd>{String(selected.properties.canonical_relation_family ?? "—")}</dd></div>
+          <div className="provenance-wide technical-identity"><dt>Claim ID</dt><dd><code>{selected.id}</code></dd></div>
+          <div className="provenance-wide technical-identity"><dt>ConversationTurn</dt><dd><code>{selectedRelationConversation?.id ?? "—"}</code></dd></div>
+          <div className="provenance-wide technical-identity"><dt>Review / candidato</dt><dd><code>{String(selected.properties.review_id ?? "—")} / {String(selected.properties.candidate_id ?? "—")}</code></dd></div>
+          <div className="provenance-wide technical-identity"><dt>Pipeline / configuração</dt><dd><code>{String(selected.properties.pipeline_id ?? "—")} / {String(selected.properties.configuration_hash ?? "—")}</code></dd></div>
+          <div className="provenance-wide technical-identity"><dt>Canonical pair key</dt><dd><code>{String(selected.properties.canonical_pair_key ?? "—")}</code></dd></div>
         </dl>}
         {selected.type === "Evidence" && selectedEvidence && <>
           <div className={`evidence-summary evidence-${selectedEvidence.tone}`}>

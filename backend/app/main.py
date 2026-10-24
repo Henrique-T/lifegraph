@@ -11,6 +11,7 @@ from app.api.routes.health import router as health_router
 from app.api.routes.extraction import router as extraction_router
 from app.api.routes.ref import router as ref_router
 from app.api.routes.reconciliation import router as reconciliation_router
+from app.api.routes.relation_review import router as relation_review_router
 from app.core.config import get_settings
 from app.graph.client import Neo4jClient
 from app.graph.repository import (
@@ -36,6 +37,8 @@ from app.ref.client import (
 )
 from app.ref.service import RefImportService
 from app.reconciliation.engine import ReconciliationEngine
+from app.relation_review.client import RelationExtractionClient
+from app.relation_review.service import RelationReviewService
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s %(message)s")
 
@@ -63,7 +66,14 @@ def create_app(
         application.state.extraction_service = ExtractionService(
             extraction_client, application.state.graph_repository
         )
+        relation_extraction_client = RelationExtractionClient(settings)
+        application.state.relation_extraction_client = relation_extraction_client
+        application.state.relation_review_service = RelationReviewService(
+            relation_extraction_client,
+            application.state.graph_repository,
+        )
         yield
+        await relation_extraction_client.close()
         await extraction_client.close()
         await ref_client.close()
         await graph_client.close()
@@ -155,6 +165,7 @@ def create_app(
     application.include_router(domain_router)
     application.include_router(ref_router)
     application.include_router(reconciliation_router)
+    application.include_router(relation_review_router)
     return application
 
 

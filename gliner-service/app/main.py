@@ -8,6 +8,8 @@ from app.model import GLiNERModel
 from app.calibration import CONFIGURATIONS, extract_configuration
 from app.schemas import ApprovedExtractionResult, AssociationRequest, CalibrationRequest, ExtractRequest
 from app.subject_association import associate
+from app.relation_extraction_b2 import extract_relations_b2
+from app.relation_schemas import RelationExtractRequest, RelationExtractionResult
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s %(message)s")
 
@@ -56,6 +58,16 @@ def create_app(model_factory=GLiNERModel) -> FastAPI:
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail="inference failed",
             ) from exc
+
+    @app.post("/relation-extract", response_model=RelationExtractionResult)
+    async def relation_extract(data: RelationExtractRequest) -> RelationExtractionResult:
+        """Run the frozen deterministic V1 relation extractor without GLiNER."""
+
+        return extract_relations_b2(
+            data.text,
+            data.source_reference,
+            "A0_B2",
+        )
 
     @app.post("/calibration/extract")
     async def calibration_extract(data: CalibrationRequest, request: Request) -> dict:

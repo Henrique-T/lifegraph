@@ -1,0 +1,23 @@
+{
+  "combined_existing": {
+    "safe_abstention_count": 35,
+    "safe_abstention_rate": 1.0,
+    "unnecessary_abstention_count": 0,
+    "unnecessary_abstention_rate": 0.0,
+    "total_miss_count": 17
+  },
+  "b2_challenge": {
+    "safe_abstention_count": 14,
+    "safe_abstention_rate": 1.0,
+    "unnecessary_abstention_count": 0,
+    "unnecessary_abstention_rate": 0.0,
+    "total_miss_count": 4
+  },
+  "b3_unseen": {
+    "safe_abstention_count": 1,
+    "safe_abstention_rate": 1.0,
+    "unnecessary_abstention_count": 0,
+    "unnecessary_abstention_rate": 0.0,
+    "total_miss_count": 2
+  }
+}

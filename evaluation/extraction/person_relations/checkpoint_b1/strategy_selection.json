@@ -1,0 +1,21 @@
+{
+  "historical_context": "B_SELECTED_BY_ORIGINAL_CHECKPOINT_B_ORDER",
+  "recommended_coverage_policy": "R4",
+  "coverage_policy_basis": {
+    "global": "At least half of safely persistible development claims must be recovered.",
+    "relation_floor": "No approved relation type may have less than 30% correct recovery.",
+    "phenomenon_floor": "No positive critical stress family may be entirely ignored; a 20% lower bound is intentionally minimal."
+  },
+  "safety_gate_pass": {
+    "A0_ORIGINAL": false,
+    "B": true,
+    "C": false
+  },
+  "coverage_gate_pass": {
+    "A0_ORIGINAL": false,
+    "B": false,
+    "C": false
+  },
+  "production_selection": "NO_STRATEGY_PASSES_COVERAGE_GATE",
+  "integrated": false
+}

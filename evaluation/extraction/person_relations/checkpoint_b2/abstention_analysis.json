@@ -1,0 +1,117 @@
+{
+  "A0_ORIGINAL": {
+    "tuning": {
+      "safe_count": 18,
+      "safe_rate": 1.0,
+      "unnecessary_count": 7,
+      "unnecessary_rate": 0.047945,
+      "total_miss_count": 43
+    },
+    "challenge": {
+      "safe_count": 10,
+      "safe_rate": 1.0,
+      "unnecessary_count": 0,
+      "unnecessary_rate": 0.0,
+      "total_miss_count": 13
+    },
+    "combined": {
+      "safe_count": 28,
+      "safe_rate": 1.0,
+      "unnecessary_count": 7,
+      "unnecessary_rate": 0.035,
+      "total_miss_count": 56
+    }
+  },
+  "A0_B2": {
+    "tuning": {
+      "safe_count": 21,
+      "safe_rate": 1.0,
+      "unnecessary_count": 0,
+      "unnecessary_rate": 0.0,
+      "total_miss_count": 20
+    },
+    "challenge": {
+      "safe_count": 14,
+      "safe_rate": 1.0,
+      "unnecessary_count": 0,
+      "unnecessary_rate": 0.0,
+      "total_miss_count": 4
+    },
+    "combined": {
+      "safe_count": 35,
+      "safe_rate": 1.0,
+      "unnecessary_count": 0,
+      "unnecessary_rate": 0.0,
+      "total_miss_count": 24
+    }
+  },
+  "B_B2": {
+    "tuning": {
+      "safe_count": 8,
+      "safe_rate": 1.0,
+      "unnecessary_count": 0,
+      "unnecessary_rate": 0.0,
+      "total_miss_count": 148
+    },
+    "challenge": {
+      "safe_count": 2,
+      "safe_rate": 1.0,
+      "unnecessary_count": 0,
+      "unnecessary_rate": 0.0,
+      "total_miss_count": 51
+    },
+    "combined": {
+      "safe_count": 10,
+      "safe_rate": 1.0,
+      "unnecessary_count": 0,
+      "unnecessary_rate": 0.0,
+      "total_miss_count": 199
+    }
+  },
+  "C_B2": {
+    "tuning": {
+      "safe_count": 4,
+      "safe_rate": 1.0,
+      "unnecessary_count": 0,
+      "unnecessary_rate": 0.0,
+      "total_miss_count": 181
+    },
+    "challenge": {
+      "safe_count": 1,
+      "safe_rate": 1.0,
+      "unnecessary_count": 0,
+      "unnecessary_rate": 0.0,
+      "total_miss_count": 64
+    },
+    "combined": {
+      "safe_count": 5,
+      "safe_rate": 1.0,
+      "unnecessary_count": 0,
+      "unnecessary_rate": 0.0,
+      "total_miss_count": 245
+    }
+  },
+  "D1": {
+    "tuning": {
+      "safe_count": 2,
+      "safe_rate": 1.0,
+      "unnecessary_count": 0,
+      "unnecessary_rate": 0.0,
+      "total_miss_count": 183
+    },
+    "challenge": {
+      "safe_count": 2,
+      "safe_rate": 1.0,
+      "unnecessary_count": 0,
+      "unnecessary_rate": 0.0,
+      "total_miss_count": 63
+    },
+    "combined": {
+      "safe_count": 4,
+      "safe_rate": 1.0,
+      "unnecessary_count": 0,
+      "unnecessary_rate": 0.0,
+      "total_miss_count": 246
+    }
+  }
+}

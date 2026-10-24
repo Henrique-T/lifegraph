@@ -35,6 +35,16 @@ textarea:focus, select:focus, input:focus, button:focus-visible { outline: 3px s
 .section-heading p { margin: 5px 0 0; }
 .candidate-list { display: grid; gap: 16px; margin-top: 18px; }
 .candidate { border: 1px solid #41516b; border-left: 5px solid #34d399; border-radius: 12px; padding: 20px; background: #111c2e; box-shadow: 0 8px 24px rgba(0,0,0,.14); }
+.relation-candidate { border-left-color: #f472b6; }
+.candidate-kind { display: inline-block; margin-bottom: 5px; border-radius: 999px; padding: 4px 8px; font-size: .7rem; font-weight: 850; letter-spacing: .08em; }
+.relation-kind { color: #fce7f3; background: #831843; }
+.source-narrative { margin: 14px 0; padding: 12px; border-left: 3px solid #f472b6; color: #e2e8f0; background: #0b1424; }
+.blocker { border-radius: 8px; padding: 10px; color: #fef3c7; background: #422006; }
+.relation-bindings { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.relation-corrections { display: grid; gap: 12px; padding: 12px; }
+.span-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; border: 1px solid #52637d; border-radius: 8px; }
+.span-fields output { grid-column: 1 / -1; color: #bfdbfe; }
+.persist { border-color: #db2777; background: #be185d; }
 .candidate.unresolved { border-left-color: #fbbf24; }
 .kicker { color: #94a3b8; font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; }
 .status { border-radius: 999px; padding: 6px 9px; color: #bbf7d0; background: #14532d; font-size: .72rem; font-weight: 850; }
@@ -75,6 +85,7 @@ summary { cursor: pointer; }
 .node-key, .color-key, .status-key { display: inline-block; flex: 0 0 auto; width: 14px; height: 14px; border: 2px solid #cbd5e1; background: #475569; }
 .node-key.person { border-radius: 50%; background: #2563eb; }
 .node-key.claim { width: 17px; border-radius: 4px; background: #7c3aed; }
+.node-key.relation-claim { transform: rotate(45deg) scale(.75); background: #be185d; border-color: #f9a8d4; }
 .node-key.ref { transform: rotate(45deg) scale(.75); background: #047857; }
 .node-key.conversation { width: 17px; border-radius: 4px; background: #b45309; }
 .node-key.evidence { clip-path: polygon(25% 7%, 75% 7%, 100% 50%, 75% 93%, 25% 93%, 0 50%); background: #475569; }
@@ -133,7 +144,7 @@ summary { cursor: pointer; }
   .panel { padding: 17px; }
   .candidate-header, .section-heading { align-items: flex-start; flex-direction: column; }
   .demo-steps { grid-template-columns: 1fr; }
-  .candidate-facts, .corrections, .legend, .graph-layout, .person-selector { grid-template-columns: 1fr; }
+  .candidate-facts, .corrections, .legend, .graph-layout, .person-selector, .relation-bindings { grid-template-columns: 1fr; }
   .graph-legends { grid-template-columns: 1fr; }
   .graph-canvas { min-height: 420px; }
 }

@@ -28,10 +28,16 @@ SCHEMA_STATEMENTS = (
     "FOR (n:ClaimEvent) REQUIRE n.accepted_extraction_candidate_key IS UNIQUE",
     "CREATE CONSTRAINT review_extraction_turn_unique IF NOT EXISTS "
     "FOR (n:ConversationTurn) REQUIRE n.review_extraction_id IS UNIQUE",
+    "CREATE CONSTRAINT relation_claim_id_unique IF NOT EXISTS "
+    "FOR (n:RelationClaim) REQUIRE n.relation_claim_id IS UNIQUE",
+    "CREATE CONSTRAINT relation_claim_operation_unique IF NOT EXISTS "
+    "FOR (n:RelationClaim) REQUIRE n.persistence_operation_key IS UNIQUE",
     "CREATE INDEX claim_event_type_index IF NOT EXISTS "
     "FOR (n:ClaimEvent) ON (n.event_type)",
     "CREATE INDEX claim_verification_status_index IF NOT EXISTS "
     "FOR (n:ClaimEvent) ON (n.verification_status)",
+    "CREATE INDEX relation_claim_type_index IF NOT EXISTS "
+    "FOR (n:RelationClaim) ON (n.relation_type)",
     "CREATE INDEX ref_event_type_index IF NOT EXISTS "
     "FOR (n:RefEvent) ON (n.event_type)",
 )

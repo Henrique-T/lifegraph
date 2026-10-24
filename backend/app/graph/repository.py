@@ -30,6 +30,7 @@ from app.reconciliation.schemas import (
     ReconciliationDecision,
     ReconciliationResult,
 )
+from app.relations.schemas import RelationClaim, RelationClaimGraphRead
 
 logger = logging.getLogger(__name__)
 ReadModel = TypeVar("ReadModel", bound=BaseModel)
@@ -187,6 +188,136 @@ class GraphRepository:
             id_field="conversation_turn_id",
             object_id=conversation_turn_id,
             read_model=ConversationTurnRead,
+        )
+
+    async def ensure_relation_review_turn(
+        self,
+        *,
+        review_id: str,
+        source_text: str,
+    ) -> ConversationTurnRead:
+        """Create or resolve the immutable USER turn backing one relation review."""
+
+        turn_id = _new_id()
+        properties = {
+            "conversation_turn_id": turn_id,
+            "created_at": _utc_now(),
+            "text": source_text,
+            "speaker": "USER",
+            "review_extraction_id": review_id,
+        }
+        query = """
+        MERGE (turn:ConversationTurn {review_extraction_id: $review_id})
+          ON CREATE SET turn = $properties
+        WITH turn
+        WHERE turn.text = $source_text AND turn.speaker = 'USER'
+        RETURN properties(turn) AS node
+        """
+        try:
+            records, _, _ = await self._driver.execute_query(
+                query,
+                review_id=review_id,
+                source_text=source_text,
+                properties=properties,
+            )
+        except Neo4jError as exc:
+            raise DomainPersistenceError("Graph persistence failed") from exc
+        if not records:
+            raise DomainConflictError("RELATION_REVIEW_TURN_CONFLICT")
+        return ConversationTurnRead.model_validate(records[0]["node"])
+
+    async def persist_relation_claim(
+        self,
+        claim: RelationClaim,
+    ) -> tuple[RelationClaimGraphRead, bool]:
+        """Atomically persist one reviewed declaration and all required edges."""
+
+        properties = claim.model_dump(mode="json")
+        creation_token = _new_id()
+        query = """
+        MATCH (endpoint_a:Person {person_id: $endpoint_a_person_id})
+        MATCH (endpoint_b:Person {person_id: $endpoint_b_person_id})
+        MATCH (turn:ConversationTurn {conversation_turn_id: $conversation_turn_id})
+        WHERE endpoint_a.person_id <> endpoint_b.person_id
+          AND turn.review_extraction_id = $review_id
+          AND turn.text = $source_text
+        MERGE (claim:RelationClaim {persistence_operation_key: $operation_key})
+          ON CREATE SET claim = $properties, claim._creation_token = $creation_token
+        WITH endpoint_a, endpoint_b, turn, claim
+        WHERE claim.acceptance_payload_hash = $acceptance_payload_hash
+          AND claim.review_id = $review_id
+          AND claim.candidate_id = $candidate_id
+        MERGE (claim)-[:ENDPOINT_A]->(endpoint_a)
+        MERGE (claim)-[:ENDPOINT_B]->(endpoint_b)
+        MERGE (claim)-[:EXTRACTED_FROM]->(turn)
+        WITH endpoint_a, endpoint_b, turn, claim,
+             claim._creation_token = $creation_token AS created
+        REMOVE claim._creation_token
+        RETURN properties(claim) AS claim,
+               properties(endpoint_a) AS endpoint_a,
+               properties(endpoint_b) AS endpoint_b,
+               properties(turn) AS conversation_turn,
+               created AS created
+        """
+        try:
+            records, _, _ = await self._driver.execute_query(
+                query,
+                endpoint_a_person_id=claim.endpoint_a_person_id,
+                endpoint_b_person_id=claim.endpoint_b_person_id,
+                conversation_turn_id=claim.conversation_turn_id,
+                review_id=claim.review_id,
+                source_text=claim.source_text,
+                operation_key=claim.persistence_operation_key,
+                acceptance_payload_hash=claim.acceptance_payload_hash,
+                candidate_id=claim.candidate_id,
+                creation_token=creation_token,
+                properties=properties,
+            )
+        except ConstraintError as exc:
+            raise DomainConflictError("RELATION_CLAIM_PERSISTENCE_CONFLICT") from exc
+        except Neo4jError as exc:
+            logger.exception("Persistence error creating RelationClaim")
+            raise DomainPersistenceError("Graph persistence failed") from exc
+        if not records:
+            raise DomainNotFoundError(
+                "RelationClaim endpoint Person or source ConversationTurn not found"
+            )
+        row = records[0]
+        graph = RelationClaimGraphRead(
+            claim=RelationClaim.model_validate(row["claim"]),
+            endpoint_a=PersonRead.model_validate(row["endpoint_a"]),
+            endpoint_b=PersonRead.model_validate(row["endpoint_b"]),
+            conversation_turn=ConversationTurnRead.model_validate(row["conversation_turn"]),
+        )
+        return graph, bool(row["created"])
+
+    async def get_relation_claim_graph(
+        self,
+        relation_claim_id: str,
+    ) -> RelationClaimGraphRead:
+        """Read a RelationClaim with both endpoints and its source provenance."""
+
+        query = """
+        MATCH (claim:RelationClaim {relation_claim_id: $relation_claim_id})
+              -[:ENDPOINT_A]->(endpoint_a:Person)
+        MATCH (claim)-[:ENDPOINT_B]->(endpoint_b:Person)
+        MATCH (claim)-[:EXTRACTED_FROM]->(turn:ConversationTurn)
+        RETURN properties(claim) AS claim,
+               properties(endpoint_a) AS endpoint_a,
+               properties(endpoint_b) AS endpoint_b,
+               properties(turn) AS conversation_turn
+        """
+        records, _, _ = await self._driver.execute_query(
+            query, relation_claim_id=relation_claim_id
+        )
+        if not records:
+            raise DomainNotFoundError("RelationClaim not found or incomplete")
+        row = records[0]
+        return RelationClaimGraphRead(
+            claim=RelationClaim.model_validate(row["claim"]),
+            endpoint_a=PersonRead.model_validate(row["endpoint_a"]),
+            endpoint_b=PersonRead.model_validate(row["endpoint_b"]),
+            conversation_turn=ConversationTurnRead.model_validate(row["conversation_turn"]),
         )
 
     async def create_claim_event(self, data: ClaimEventCreate) -> ClaimEventRead:
@@ -690,17 +821,17 @@ class GraphRepository:
         WHERE type(r) IN $relationships
         RETURN coalesce(
                  source.person_id, source.claim_event_id, source.ref_event_id,
-                 source.conversation_turn_id, source.evidence_id
+                 source.relation_claim_id, source.conversation_turn_id, source.evidence_id
                ) AS source,
                coalesce(
                  target.person_id, target.claim_event_id, target.ref_event_id,
-                 target.conversation_turn_id, target.evidence_id
+                 target.relation_claim_id, target.conversation_turn_id, target.evidence_id
                ) AS target,
                type(r) AS type,
                properties(r) AS properties
         ORDER BY type, source, target
         """
-        labels = ["Person", "ClaimEvent", "RefEvent", "ConversationTurn", "Evidence"]
+        labels = ["Person", "ClaimEvent", "RelationClaim", "RefEvent", "ConversationTurn", "Evidence"]
         relationships = [
             "SUBJECT_OF",
             "EXTRACTED_FROM",
@@ -709,6 +840,8 @@ class GraphRepository:
             "DERIVED_FROM",
             "SUPPORTED_BY",
             "CONTRADICTS",
+            "ENDPOINT_A",
+            "ENDPOINT_B",
         ]
         node_records, _, _ = await self._driver.execute_query(
             node_query, labels=labels
@@ -719,6 +852,7 @@ class GraphRepository:
         id_fields = {
             "Person": "person_id",
             "ClaimEvent": "claim_event_id",
+            "RelationClaim": "relation_claim_id",
             "RefEvent": "ref_event_id",
             "ConversationTurn": "conversation_turn_id",
             "Evidence": "evidence_id",

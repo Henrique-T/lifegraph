@@ -3,6 +3,7 @@ import { acceptCandidate, extractNarrative, friendlyError, getGraph, listPersons
 import type { CandidateAcceptanceRequest, ExtractionReview, GraphResponse, Person, ReconciliationResult } from "./api/types";
 import { CandidateCard } from "./components/CandidateCard";
 import { GraphView } from "./components/GraphView";
+import { RelationReviewPanel } from "./components/RelationReviewPanel";
 
 const canonicalDemoNarrative = "Nasci em 1988, casei em 2010 e me casei novamente em 2019.";
 
@@ -14,6 +15,7 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [reviewPersonSelections, setReviewPersonSelections] = useState<Record<string, string>>({});
+  const [relationPersonSelections, setRelationPersonSelections] = useState<string[]>([]);
 
   const refreshGraph = useCallback(async () => {
     try { setGraph(await getGraph()); }
@@ -92,9 +94,11 @@ export default function App() {
       </>}
     </section>
 
+    <RelationReviewPanel people={people} onGraphRefresh={refreshGraph} onPersonFocus={setRelationPersonSelections} />
+
     <section className="panel graph-panel stage-panel" aria-labelledby="graph-title">
       <div className="section-heading"><div className="stage-heading"><span className="stage-number" aria-hidden="true">C</span><div><p className="stage-label">Grafo e reconciliação</p><h2 id="graph-title">LifeGraph e proveniência</h2><p>{graph ? `${graph.nodes.length} nós · ${graph.edges.length} relações` : "Carregando grafo…"}</p></div></div><button className="secondary" type="button" onClick={() => void refreshGraph()}>Atualizar grafo</button></div>
-      <GraphView graph={graph} focusedPersonIds={[...new Set(Object.values(reviewPersonSelections).filter(Boolean))]} onReconcile={reconcile} />
+      <GraphView graph={graph} focusedPersonIds={[...new Set([...Object.values(reviewPersonSelections).filter(Boolean), ...relationPersonSelections])]} onReconcile={reconcile} />
       <div className="legend" aria-label="Significado dos estados">
         <p><strong className="legend-status declared">DECLARED</strong><span>Declaração aceita; ainda não confirmada por evidência registral.</span></p>
         <p><strong className="legend-status confirmed">CONFIRMED</strong><span>Compatível com evidência registral.</span></p>

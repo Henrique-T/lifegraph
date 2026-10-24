@@ -1,0 +1,8 @@
+{
+  "corpus": "checkpoint_b4_unseen.jsonl",
+  "sha256": "0e3a6fd000fc6b7730f63df222ecb4bef446a000d324cd9712569fc8237722de",
+  "narratives": 26,
+  "expected_candidates": 20,
+  "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+  "sequence": "code freeze -> oracle validation -> SHA-256 -> one-shot prediction"
+}

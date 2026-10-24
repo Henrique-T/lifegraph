@@ -1,0 +1,1465 @@
+{
+  "A0": {
+    "failures": [
+      {
+        "case_id": "PR-010",
+        "category": "WRONG_ENDPOINT_B",
+        "field": "endpoint_b_mention"
+      },
+      {
+        "case_id": "PR-014",
+        "category": "WRONG_ENDPOINT_A",
+        "field": "endpoint_a_mention"
+      },
+      {
+        "case_id": "PR-018",
+        "category": "TEMPORAL_SCOPE_WRONG",
+        "field": "temporal_scope"
+      },
+      {
+        "case_id": "PR-024",
+        "category": "WRONG_ENDPOINT_B",
+        "field": "endpoint_b_mention"
+      },
+      {
+        "case_id": "PR-028",
+        "category": "WRONG_ENDPOINT_A",
+        "field": "endpoint_a_mention"
+      },
+      {
+        "case_id": "PR-038",
+        "category": "WRONG_ENDPOINT_B",
+        "field": "endpoint_b_mention"
+      },
+      {
+        "case_id": "PR-042",
+        "category": "WRONG_ENDPOINT_A",
+        "field": "endpoint_a_mention"
+      },
+      {
+        "case_id": "PR-052",
+        "category": "WRONG_ENDPOINT_B",
+        "field": "endpoint_b_mention"
+      },
+      {
+        "case_id": "PR-056",
+        "category": "WRONG_ENDPOINT_A",
+        "field": "endpoint_a_mention"
+      },
+      {
+        "case_id": "PR-066",
+        "category": "WRONG_ENDPOINT_B",
+        "field": "endpoint_b_mention"
+      },
+      {
+        "case_id": "PR-070",
+        "category": "WRONG_ENDPOINT_A",
+        "field": "endpoint_a_mention"
+      },
+      {
+        "case_id": "PR-080",
+        "category": "WRONG_ENDPOINT_B",
+        "field": "endpoint_b_mention"
+      },
+      {
+        "case_id": "PR-084",
+        "category": "WRONG_ENDPOINT_A",
+        "field": "endpoint_a_mention"
+      },
+      {
+        "case_id": "PR-094",
+        "category": "WRONG_ENDPOINT_B",
+        "field": "endpoint_b_mention"
+      },
+      {
+        "case_id": "PR-098",
+        "category": "WRONG_ENDPOINT_A",
+        "field": "endpoint_a_mention"
+      }
+    ],
+    "abstentions": [
+      {
+        "case_id": "PR-010",
+        "endpoint_a": "João",
+        "endpoint_b": "alguém que não conheço"
+      },
+      {
+        "case_id": "PR-014",
+        "endpoint_a": "Ele",
+        "endpoint_b": "Maria"
+      },
+      {
+        "case_id": "PR-024",
+        "endpoint_a": "Ana",
+        "endpoint_b": "uma pessoa cujo nome esqueci"
+      },
+      {
+        "case_id": "PR-028",
+        "endpoint_a": "Ela",
+        "endpoint_b": "João"
+      },
+      {
+        "case_id": "PR-038",
+        "endpoint_a": "Rafael",
+        "endpoint_b": "alguém que não conheceu"
+      },
+      {
+        "case_id": "PR-042",
+        "endpoint_a": "Ele",
+        "endpoint_b": "Ana"
+      },
+      {
+        "case_id": "PR-052",
+        "endpoint_a": "Clara",
+        "endpoint_b": "uma pessoa que não lembro"
+      },
+      {
+        "case_id": "PR-056",
+        "endpoint_a": "Ela",
+        "endpoint_b": "Pedro"
+      },
+      {
+        "case_id": "PR-066",
+        "endpoint_a": "Lucas",
+        "endpoint_b": "alguém cujo nome desconheço"
+      },
+      {
+        "case_id": "PR-070",
+        "endpoint_a": "Ele",
+        "endpoint_b": "Marina"
+      },
+      {
+        "case_id": "PR-080",
+        "endpoint_a": "Marina",
+        "endpoint_b": "uma pessoa que não lembro"
+      },
+      {
+        "case_id": "PR-084",
+        "endpoint_a": "Ela",
+        "endpoint_b": "Lucas"
+      },
+      {
+        "case_id": "PR-094",
+        "endpoint_a": "Minha mãe",
+        "endpoint_b": "uma pessoa que não lembro"
+      },
+      {
+        "case_id": "PR-098",
+        "endpoint_a": "Ele",
+        "endpoint_b": "Maria"
+      },
+      {
+        "case_id": "PR-167",
+        "endpoint_a": "Ele",
+        "endpoint_b": "Bianca"
+      },
+      {
+        "case_id": "PR-168",
+        "endpoint_a": "Ela",
+        "endpoint_b": "Tiago"
+      },
+      {
+        "case_id": "PR-169",
+        "endpoint_a": "Otávio",
+        "endpoint_b": "alguém que não conheço"
+      },
+      {
+        "case_id": "PR-170",
+        "endpoint_a": "Lívia",
+        "endpoint_b": "uma pessoa que não lembro"
+      },
+      {
+        "case_id": "PR-171",
+        "endpoint_a": "ela",
+        "endpoint_b": "Ana"
+      },
+      {
+        "case_id": "PR-172",
+        "endpoint_a": "Minha mãe",
+        "endpoint_b": "alguém que eu não conheço"
+      },
+      {
+        "case_id": "PR-173",
+        "endpoint_a": "Mário",
+        "endpoint_b": "uma pessoa não identificada"
+      }
+    ]
+  },
+  "B": {
+    "failures": [
+      {
+        "case_id": "PR-001",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-002",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-003",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-004",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-005",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-006",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-007",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-008",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-009",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-010",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-011",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-012",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-013",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-014",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-015",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-016",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-017",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-018",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-021",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-022",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-024",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-025",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-027",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-028",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-029",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-030",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-031",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-032",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-033",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-034",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-035",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-036",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-037",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-038",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-039",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-040",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-041",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-042",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-043",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-044",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-045",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-046",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-047",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-048",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-049",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-050",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-051",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-052",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-053",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-054",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-055",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-056",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-058",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-066",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-068",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-070",
+        "category": "WRONG_ENDPOINT_A",
+        "field": "endpoint_a_mention"
+      },
+      {
+        "case_id": "PR-071",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-073",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-074",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-076",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-080",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-082",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-083",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-084",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-085",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-086",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-087",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-088",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-089",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-090",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-091",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-092",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-093",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-094",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-095",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-096",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-097",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-098",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-122",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-123",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-124",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-125",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-126",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-127",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-130",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-131",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-132",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-133",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-134",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-135",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-137",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-138",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-139",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-140",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-141",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-142",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-145",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-146",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-147",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-148",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-149",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-151",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-152",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-160",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-161",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-162",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-165",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-166",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-167",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-168",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-169",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-170",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-171",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-172",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-173",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-174",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-175",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-176",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-178",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-179",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-180",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      }
+    ],
+    "abstentions": [
+      {
+        "case_id": "PR-070",
+        "endpoint_a": "Ele",
+        "endpoint_b": "Marina"
+      }
+    ]
+  },
+  "C": {
+    "failures": [
+      {
+        "case_id": "PR-001",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-002",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-003",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-004",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-005",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-006",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-007",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-008",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-009",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-010",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-011",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-012",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-013",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-014",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-016",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-017",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-018",
+        "category": "TEMPORAL_SCOPE_WRONG",
+        "field": "temporal_scope"
+      },
+      {
+        "case_id": "PR-021",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-022",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-024",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-025",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-027",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-028",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-029",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-030",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-031",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-032",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-033",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-034",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-035",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-036",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-037",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-038",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-039",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-040",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-041",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-042",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-043",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-044",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-045",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-046",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-047",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-048",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-049",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-050",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-051",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-052",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-053",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-054",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-055",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-056",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-058",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-059",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-061",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-062",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-063",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-064",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-066",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-067",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-068",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-069",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-070",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-073",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-074",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-076",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-077",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-078",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-080",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-082",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-084",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-085",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-086",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-087",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-088",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-089",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-090",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-091",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-092",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-093",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-094",
+        "category": "WRONG_ENDPOINT_B",
+        "field": "endpoint_b_mention"
+      },
+      {
+        "case_id": "PR-095",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-096",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-097",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-098",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-121",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-123",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-124",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-126",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-127",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-128",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-129",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-131",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-132",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-133",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-134",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-135",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-136",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-138",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-139",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-140",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-141",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-142",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-143",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-145",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-146",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-147",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-148",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-149",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-150",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-152",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-160",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-161",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-162",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-163",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-164",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-166",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-167",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-168",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-169",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-170",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-173",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 1
+      },
+      {
+        "case_id": "PR-174",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-175",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-176",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-177",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-178",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-179",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      },
+      {
+        "case_id": "PR-180",
+        "category": "DETECTION_FALSE_NEGATIVE",
+        "count": 2
+      }
+    ],
+    "abstentions": [
+      {
+        "case_id": "PR-094",
+        "endpoint_a": "Minha mãe",
+        "endpoint_b": "uma pessoa que não lembro"
+      },
+      {
+        "case_id": "PR-171",
+        "endpoint_a": "ela",
+        "endpoint_b": "Ana"
+      },
+      {
+        "case_id": "PR-172",
+        "endpoint_a": "Minha mãe",
+        "endpoint_b": "alguém que eu não conheço"
+      }
+    ]
+  }
+}

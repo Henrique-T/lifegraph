@@ -1,0 +1,13 @@
+{
+  "historical_checkpoint_b": "B_SELECTED_BY_ORIGINAL_CHECKPOINT_B_ORDER",
+  "checkpoint_b1": "NO_STRATEGY_PASSES_COVERAGE_GATE",
+  "checkpoint_b2": "A0_B2",
+  "basis": [
+    "A0_B2 passes both hard safety gates on tuning, challenge, and combined development data",
+    "A0_B2 passes all three R4 coverage components on tuning, challenge, and combined development data",
+    "B_B2, C_B2, and D1 fail R4 coverage",
+    "No detector was integrated into application behavior"
+  ],
+  "production_selection": "A0_B2",
+  "integration_performed": false
+}

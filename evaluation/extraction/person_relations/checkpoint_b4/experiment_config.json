@@ -1,0 +1,12 @@
+{
+  "checkpoint": "B.4",
+  "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+  "revision": "A0_B2+B3+B4",
+  "configuration_hash_before_micro_challenge": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+  "primary_detector": "DETERMINISTIC_STRUCTURAL",
+  "gliner_primary": false,
+  "gliner_fallback": false,
+  "question_policy": "candidate allowed; UNCERTAIN; never automatically factual or persistible",
+  "relative_apposition_policy": "local head + que + bounded approved predicate + complement + closing comma",
+  "micro_challenge_policy": "one-shot; no extraction or oracle changes after first prediction"
+}
