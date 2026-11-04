@@ -1,12 +1,16 @@
+"""Test metrics."""
+
 from metrics import match_events, score_dataset, score_shared_ner, score_subjects, score_temporal, subject_outcome
 from adapters import adapt_gemma_events
 
 
 def event(event_id, kind="casamento", start=0, end=5, role="NARRATOR", subject=None, date="2019"):
+    """Create an event fixture for the test."""
     return {"event_id": event_id, "event_type": kind, "trigger": {"text": "x", "start": start, "end": end}, "subject": {"expected_text": subject, "normalized_role": role}, "date_expression": {"text": date, "start": 0, "end": 4}, "normalized_time":{"start":f"{date}-01-01T00:00:00Z","end":f"{date}-12-31T23:59:59.999999Z","precision":"YEAR","uncertainty":False}}
 
 
 def test_duplicate_same_type_matching_uses_span_not_list_position():
+    """Verify duplicate same type matching uses span not list position."""
     expected = [event("a", start=0, end=5, date="2010"), event("b", start=20, end=25, date="2019")]
     predicted = [{"event_type":"casamento","trigger":{"start":20,"end":25},"date_expression":"2019"},{"event_type":"casamento","trigger":{"start":0,"end":5},"date_expression":"2010"}]
     pairs, extra = match_events(expected, predicted)
@@ -14,6 +18,7 @@ def test_duplicate_same_type_matching_uses_span_not_list_position():
 
 
 def test_unresolved_is_abstention_not_resolved_exact_success():
+    """Verify unresolved is abstention not resolved exact success."""
     expected = event("a", role="UNRESOLVED")
     prediction = {"subject_role":"UNRESOLVED", "subject_text":None}
     metrics = score_subjects([(expected, prediction)])
@@ -22,6 +27,7 @@ def test_unresolved_is_abstention_not_resolved_exact_success():
 
 
 def test_unsafe_narrator_on_unresolved():
+    """Verify unsafe narrator on unresolved."""
     expected = event("a", role="UNRESOLVED")
     prediction = {"subject_role":"NARRATOR", "subject_text":"__NARRATOR__"}
     assert subject_outcome(expected, prediction) == "UNSAFE_RESOLUTION"
@@ -31,6 +37,7 @@ def test_unsafe_narrator_on_unresolved():
 
 
 def test_false_narrator_and_wrong_resolved_rate():
+    """Verify false narrator and wrong resolved rate."""
     expected = event("a", role="THIRD_PARTY", subject="Meu irmão")
     prediction = {"subject_role":"NARRATOR", "subject_text":"__NARRATOR__"}
     metrics = score_subjects([(expected, prediction)])
@@ -39,6 +46,7 @@ def test_false_narrator_and_wrong_resolved_rate():
 
 
 def test_temporal_signal_breaks_same_type_tie():
+    """Verify temporal signal breaks same type tie."""
     expected = [event("a", start=0, end=5, date="2010")]
     predicted = [{"event_type":"casamento","trigger":{"start":50,"end":55},"date_expression":"2019"},{"event_type":"casamento","trigger":{"start":50,"end":55},"date_expression":"2010"}]
     pairs, _ = match_events(expected, predicted)
@@ -46,16 +54,19 @@ def test_temporal_signal_breaks_same_type_tie():
 
 
 def test_negative_case_predictions_remain_false_positives():
+    """Verify negative case predictions remain false positives."""
     pairs, extras = match_events([], [{"event_type":"obito"}])
     assert pairs == [] and len(extras) == 1
 
 
 def test_same_type_without_span_or_date_is_not_matched():
+    """Verify same type without span or date is not matched."""
     pairs, extras = match_events([event("a", start=0, end=5, date="2019")], [{"event_type":"casamento","trigger":{"start":20,"end":25},"date_expression":"2018"}])
     assert pairs[0][1] is None and len(extras) == 1
 
 
 def test_supported_temporal_interval_and_year_are_exact():
+    """Verify supported temporal interval and year are exact."""
     expected = event("a")
     prediction = {"date_expression":{"text":"2019","start":0,"end":4},"normalized_time":expected["normalized_time"]}
     metrics = score_temporal([(expected, prediction)])
@@ -64,6 +75,7 @@ def test_supported_temporal_interval_and_year_are_exact():
 
 
 def test_tiny_oracle_dry_run_scores_runner_mechanics():
+    """Verify tiny oracle dry run scores runner mechanics."""
     expected = event("a")
     expected["participants"] = []
     narrative = {"narrative_id":"dummy_001","categories":["SIMPLE_NARRATOR"],"expected_events":[expected],"evaluation_flags":{"negative_case":False,"reported_speech":False,"incidental_person":False,"coordinated_subject":False},"safety_annotations":{"excluded_subject_texts":[],"coordinated_subject_members":[]}}
@@ -74,11 +86,13 @@ def test_tiny_oracle_dry_run_scores_runner_mechanics():
 
 
 def test_gemma_adapter_assigns_repeated_exact_triggers_left_to_right():
+    """Verify gemma adapter assigns repeated exact triggers left to right."""
     events = adapt_gemma_events("casei em 2001 e casei em 2010.", [{"trigger_text":"casei"},{"trigger_text":"casei"}])
     assert [event["trigger"]["start"] for event in events] == [0, 16]
 
 
 def test_shared_ner_scores_exact_and_relaxed_spans():
+    """Verify shared ner scores exact and relaxed spans."""
     dataset={"narratives":[{"narrative_id":"x","shared_ner_ground_truth":{"person_spans":[{"start":0,"end":4}],"date_spans":[]}}]}
     result=score_shared_ner(dataset,{"x":{"person_spans":[{"start":0,"end":3}],"date_spans":[]}})
     assert result["person_spans"]["exact"]["f1"] == 0

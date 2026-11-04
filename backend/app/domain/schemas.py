@@ -1,3 +1,5 @@
+"""Validated API and persistence schemas for LifeGraph domain entities."""
+
 from datetime import datetime
 from typing import Any
 
@@ -13,35 +15,42 @@ from app.domain.enums import (
 
 
 def _is_aware(value: datetime) -> bool:
+    """Return whether a datetime contains timezone information."""
     return value.tzinfo is not None and value.utcoffset() is not None
 
 
 class DomainModel(BaseModel):
+    """Base model that rejects undeclared fields."""
     model_config = ConfigDict(extra="forbid")
 
 
 class PersonCreate(DomainModel):
+    """Input used to create a person."""
     display_name: str = Field(min_length=1, max_length=200)
 
 
 class PersonRead(PersonCreate):
+    """Persisted person representation."""
     person_id: str
     created_at: datetime
     external_ref_person_id: str | None = None
 
 
 class ConversationTurnCreate(DomainModel):
+    """Input used to persist an accepted narrative turn."""
     text: str = Field(min_length=1, max_length=10_000)
     speaker: Speaker
 
 
 class ConversationTurnRead(ConversationTurnCreate):
+    """Persisted conversation-turn representation."""
     conversation_turn_id: str
     created_at: datetime
     review_extraction_id: str | None = None
 
 
 class ClaimEventCreate(DomainModel):
+    """Input used to create a conversational civil-event claim."""
     event_type: CivilEventType
     origin: Origin = Origin.CONVERSATION
     verification_status: VerificationStatus = VerificationStatus.DECLARED
@@ -52,6 +61,7 @@ class ClaimEventCreate(DomainModel):
 
     @model_validator(mode="after")
     def validate_temporal_interval(self) -> "ClaimEventCreate":
+        """Enforce complete, ordered, timezone-aware temporal intervals."""
         has_start = self.claimed_date_start is not None
         has_end = self.claimed_date_end is not None
         if self.temporal_precision is TemporalPrecision.UNKNOWN:
@@ -70,6 +80,7 @@ class ClaimEventCreate(DomainModel):
 
 
 class ClaimEventRead(ClaimEventCreate):
+    """Persisted claim with extraction and reconciliation provenance."""
     claim_event_id: str
     created_at: datetime
     reconciled_at: datetime | None = None
@@ -96,6 +107,7 @@ class ClaimEventRead(ClaimEventCreate):
 
 
 class RefEventCreate(DomainModel):
+    """Input used to persist an event imported from REF."""
     external_ref_id: str = Field(min_length=1, max_length=200)
     event_type: CivilEventType
     origin: Origin = Origin.REF
@@ -104,6 +116,7 @@ class RefEventCreate(DomainModel):
 
     @model_validator(mode="after")
     def require_ref_origin(self) -> "RefEventCreate":
+        """Require REF provenance and timezone-aware registral dates."""
         if self.origin is not Origin.REF:
             raise ValueError("RefEvent origin must be REF")
         if self.event_date is not None and not _is_aware(self.event_date):
@@ -114,11 +127,13 @@ class RefEventCreate(DomainModel):
 
 
 class RefEventRead(RefEventCreate):
+    """Persisted REF event representation."""
     ref_event_id: str
     created_at: datetime
 
 
 class EvidenceCreate(DomainModel):
+    """Input used to create inspectable reconciliation evidence."""
     evidence_type: str = Field(min_length=1, max_length=100)
     description: str = Field(min_length=1, max_length=1_000)
     source: str | None = Field(default=None, min_length=1, max_length=100)
@@ -126,15 +141,18 @@ class EvidenceCreate(DomainModel):
 
 
 class EvidenceRead(EvidenceCreate):
+    """Persisted evidence representation."""
     evidence_id: str
     created_at: datetime
 
 
 class ParticipationCreate(DomainModel):
+    """Role assigned to a person participating in a REF event."""
     role: str = Field(min_length=1, max_length=100)
 
 
 class RelationshipRead(DomainModel):
+    """Normalized relationship returned by write endpoints."""
     source: str
     relationship: str
     target: str
@@ -142,12 +160,14 @@ class RelationshipRead(DomainModel):
 
 
 class GraphNode(DomainModel):
+    """Node representation returned by the graph endpoint."""
     id: str
     type: str
     properties: dict[str, Any]
 
 
 class GraphEdge(DomainModel):
+    """Edge representation returned by the graph endpoint."""
     source: str
     target: str
     type: str
@@ -155,5 +175,6 @@ class GraphEdge(DomainModel):
 
 
 class GraphRead(DomainModel):
+    """Complete graph response consumed by the frontend."""
     nodes: list[GraphNode]
     edges: list[GraphEdge]

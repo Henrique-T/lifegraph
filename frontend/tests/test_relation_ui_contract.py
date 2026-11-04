@@ -55,14 +55,13 @@ def test_server_blocker_is_rendered():
 
 
 def test_immutable_dimensions_have_no_inputs():
-    correction_section = PANEL.split("Correções fundamentadas no texto", 1)[1]
     for field in ("polarity", "epistemic_status", "reporting_mode", "temporal_scope", "origin", "verification_status"):
-        assert f'name="{field}"' not in correction_section
+        assert f'name="{field}"' not in PANEL
 
 
 def test_declared_claim_language():
-    assert "ainda não é um fato confirmado" in PANEL
-    assert "status DECLARED" in PANEL
+    assert "Ainda não é um fato confirmado" in PANEL
+    assert 'setMessage("DECLARADO oficialmente")' in PANEL
 
 
 def test_relation_claim_graph_type():
@@ -101,9 +100,10 @@ def test_expiration_message_requires_new_extraction():
     assert "Esta revisão expirou. Execute a extração novamente." in CLIENT
 
 
-def test_idempotent_replay_displays_existing_claim():
-    assert "result.idempotent_replay" in PANEL
-    assert "Declaração já persistida" in PANEL
+def test_persistence_success_hides_technical_replay_and_uuid_details():
+    assert "result.idempotent_replay" not in PANEL
+    assert 'setMessage("DECLARADO oficialmente")' in PANEL
+    assert 'setMessage(`' not in PANEL
 
 
 def test_graph_does_not_collapse_canonical_pairs():
@@ -113,15 +113,15 @@ def test_graph_does_not_collapse_canonical_pairs():
 
 
 def test_action_loading_states_are_visible():
-    for label in ("Extraindo relações…", "Aceitando…", "Rejeitando…", "Persistindo…"):
+    assert "Extraindo eventos e relações…" in APP
+    for label in ("Aceitando…", "Rejeitando…", "Persistindo…"):
         assert label in PANEL
 
 
-def test_allowed_correction_controls_are_present():
-    assert "Tipo aceito" in PANEL
-    assert "Evidência da relação" in PANEL
-    assert "Menção do endpoint A" in PANEL and "Menção do endpoint B" in PANEL
-    assert "Trocar papéis A/B" in PANEL
+def test_advanced_relation_correction_controls_are_hidden_in_simplified_ui():
+    for label in ("Tipo aceito", "Evidência da relação", "Menção do endpoint A", "Menção do endpoint B", "Trocar papéis A/B"):
+        assert label not in PANEL
+    assert "corrections: {}" in PANEL
 
 
 def test_origin_and_verification_are_not_sent_by_acceptance():
@@ -132,3 +132,44 @@ def test_origin_and_verification_are_not_sent_by_acceptance():
 def test_graph_relation_claim_has_text_and_shape_distinction():
     assert "RelationClaim\\n" in GRAPH
     assert 'node[type = "RelationClaim"]' in GRAPH
+
+
+def test_single_narrative_submission_starts_both_specialized_extractions():
+    assert "Promise.all([extractNarrative(text.trim()), extractRelations(text.trim())])" in APP
+    assert "Eventos civis extraídos" in APP
+    assert "Relações familiares extraídas" in PANEL
+
+
+def test_progressive_review_and_graph_stages_are_distinct():
+    assert 'type WorkflowStage = "narrative" | "review" | "graph" | "complete"' in APP
+    assert 'setWorkflowStage("review")' in APP
+    assert 'setWorkflowStage("graph")' in APP
+
+
+def test_independent_graph_consultation_is_always_available():
+    assert "always-available-graph" in APP
+    assert 'variant="explorer"' in APP
+    assert "independentemente da narrativa atual" in APP
+
+
+def test_person_search_filters_but_does_not_bind_until_explicit_selection():
+    change = GRAPH.split("onChange={(event) => {", 1)[1].split("}}", 1)[0]
+    assert "setExplorerPersonSearch(event.target.value)" in change
+    assert 'setExplorerPersonId("")' in change
+    option = GRAPH.split('role="option"', 1)[1].split("}}>", 1)[0]
+    assert "setExplorerPersonId(person.id)" in option
+
+
+def test_timeline_is_person_scoped_and_chronologically_ordered():
+    assert "timelineSubgraph(graph, explorerPersonId)" in GRAPH
+    assert 'node.type !== "RelationClaim"' in GRAPH
+    assert 'node.type !== "Person" || node.id === personId' in GRAPH
+    assert ".sort((left, right) => Date.parse(left) - Date.parse(right))" in GRAPH
+
+
+def test_graph_timeline_switching_is_local_view_state_only():
+    assert 'setViewMode("focus")' in GRAPH
+    assert 'setViewMode("timeline")' in GRAPH
+    switching = "\n".join(line for line in GRAPH.splitlines() if "setViewMode" in line)
+    for mutation in ("accept", "persist", "reconcile", "fetch("):
+        assert mutation not in switching.lower()

@@ -13,15 +13,15 @@ This document preregisters the final LifeGraph extraction comparison. Independen
 | Material | Size | Narratives / expected events | Role | Influenced selection? |
 |---|---:|---:|---|---:|
 | `evaluation/extraction/gliner_calibration.json` | 10 KB | 35 / 35 | `DEV_ORIGINAL` benchmark | Yes: Stage 1 and labels |
-| `evaluation/extraction/results/*` | 321 KB | Original predictions | Stage-1 calibration results and review | Yes |
+| `evaluation/extraction/results/*` | 321 KB | Original predictions | Stage-1 calibration results | Yes |
 | `evaluation/extraction/run_calibration.py`, test, snapshots | 10 KB | N/A | calibration tools/configuration | Yes |
-| `evaluation/extraction/subject_association/*` | 239 KB | Original predictions | S1–S4 development results and review | Yes |
+| `evaluation/extraction/subject_association/*` | 239 KB | Original predictions | S1–S4 development results | Yes |
 | `subject_association/v2/portuguese_continuity_adversarial.json` | 10 KB | 26 / 47 | `DEV_V2` adversarial benchmark | Yes: S1B |
-| `subject_association/v2/*` results, runner, review, snapshot | 239 KB | V2 and Original predictions | S1/S1B development evidence | Yes |
-| `subject_association/v3/safety_guards_adversarial.json` | 9 KB | 30 / 35 | `DEV_V3` adversarial benchmark | Yes: S1C |
-| `subject_association/v3/*` results, runner, review, snapshot | 451 KB | V3, V2, and Original predictions | S1/S1B/S1C development evidence | Yes |
+| `subject_association/v2/*` results, runner, snapshot | 239 KB | V2 and Original predictions | S1/S1B development evidence | Yes |
+| `subject_association/v3/safety_guards_adversarial.json` | 9 KB | 30 / 35 | `DEV_V3` adversarial benchmark | Yes: safety guards |
+| `subject_association/v3/*` results, runner, snapshot | 451 KB | V3, V2, and Original predictions | subject-association development evidence | Yes |
 
-Caches and bytecode under evaluation directories are generated artifacts, not experimental evidence. Original, V2, and V3 are valuable development evidence, but none is an unbiased final test: they were used to select Stage 1, design S1B/S1C, and repair metrics.
+Caches and bytecode under evaluation directories are generated artifacts, not experimental evidence. Original, V2, and V3 are valuable development evidence, but none is an unbiased final test: they were used to select the event detector, develop the continuity and safety guards, and repair metrics.
 
 ## Research questions
 
@@ -29,7 +29,7 @@ Caches and bytecode under evaluation directories are generated artifacts, not ex
 2. RQ2 — How accurately and safely does it associate events with subjects?
 3. RQ3 — How often does the conservative strategy abstain instead of making unsafe attributions?
 4. RQ4 — How well does it extract and normalize supported temporal expressions?
-5. RQ5 — How does approved GLiNER + S1C compare with the preregistered baselines?
+5. RQ5 — How does the approved GLiNER pipeline with conservative subject-association safety guards compare with the preregistered baselines?
 6. RQ6 — Does safety reduce unsafe attribution at the cost of coverage?
 
 ## Held-out dataset
@@ -52,7 +52,7 @@ Sampling strata are not an exhaustive linguistic tag set. The schema's flags and
 
 Each narrative stores an ID, text, categories, expected events, evaluation flags, safety annotations, and shared NER ground truth. Each event stores an ID/type; exact trigger text and offsets; subject role (`NARRATOR`, `THIRD_PARTY`, `UNRESOLVED`) and exact third-party text where supported; textual participants; date text/offsets; normalized start/end/precision/uncertainty. Approximate expressions use `UNSUPPORTED` with no invented interval. The B1 NER layer contains 88 proper-name PERSON spans and 120 DATE spans. PERSON excludes pronouns, kinship common nouns, and narrator markers; DATE includes full annotated expressions and distractor years.
 
-An AI agent authored and reviewed all 100 records; there is no evidence of a full human review. Therefore `HUMAN_GROUND_TRUTH_REVIEW = NO`, `AI_ASSISTED_GROUND_TRUTH_AUTHORING = YES`, and `AI_ASSISTED_GROUND_TRUTH_REVIEW = YES`. `SINGLE_ANNOTATOR_GROUND_TRUTH = YES` denotes one AI-assisted provenance stream, not one human annotator. No agreement statistic is claimed. The concise provenance record is in `evaluation/final_protocol/human_review.md`.
+All 100 records were authored and reviewed with AI assistance; there is no evidence of a full human review. Therefore `HUMAN_GROUND_TRUTH_REVIEW = NO`, `AI_ASSISTED_GROUND_TRUTH_AUTHORING = YES`, and `AI_ASSISTED_GROUND_TRUTH_REVIEW = YES`. `SINGLE_ANNOTATOR_GROUND_TRUTH = YES` denotes one AI-assisted provenance stream, not one human annotator. No agreement statistic is claimed.
 
 Only two expected events are `natimorto`. Any per-class result for it is `DESCRIPTIVE_ONLY_INSUFFICIENT_FOR_STRONG_CLASS_SPECIFIC_CONCLUSION`.
 
@@ -74,7 +74,7 @@ Safety breakdowns include reported-person leakage, incidental-person leakage, co
 
 ## Frozen systems
 
-- **A — approved LifeGraph:** `fastino/gliner2.5-multi-v1` revision `aaecfe45db1d828c963717054ccb868e8ad1f1d5`, `B_LINGUISTIC_EVENT_SPANS + S1C_CONSERVATIVE_GUARDS`, pipeline `LIFEGRAPH_PT_CIVIL_V1`. It runs on CPU in float32 with `gliner2==2.0.0`, PyTorch `2.9.1+cpu`, threshold 0.5, exact frozen labels, one worker, serialized inference, and zero Stage-2 model calls.
+- **A — approved LifeGraph:** `fastino/gliner2.5-multi-v1` revision `aaecfe45db1d828c963717054ccb868e8ad1f1d5`, combined with the frozen linguistic event detector and conservative subject-association safety guards in pipeline `LIFEGRAPH_PT_CIVIL_V1`. It runs on CPU in float32 with `gliner2==2.0.0`, PyTorch `2.9.1+cpu`, threshold 0.5, exact frozen labels, one worker, serialized inference, and no additional model calls after event detection.
 - **B — Portuguese NER baseline:** `lfcc/bert-portuguese-ner` revision `62e38bcb90c1b0e8e520aa73d73afe67cae67c7c`. Mode B1 evaluates only shared person/date span precision, recall, and F1. It uses Transformers 5.8.0 on CPU/float32, the fast tokenizer at the same revision, and `aggregation_strategy=simple`. `Pessoa` maps to PERSON and `Data` maps to DATE; all other groups are discarded. Exact tokenizer offsets are retained without fuzzy repair. Event and subject metrics are `NOT_APPLICABLE`.
 - **C — structured generative baseline:** `google/gemma-3-4b-it` revision `093f9f388b31de276ce2de164bdc2081324b9767`. It uses Transformers 5.8.0, `Gemma3ForConditionalGeneration`, CPU bfloat16, no quantization, the exact frozen prompt, and one greedy generation (`do_sample=false`). Temperature and top-p are not applicable, and a seed is not required for greedy output. Maximum generated tokens are 512.
 - **D — mREBEL:** excluded. Its task adapter and runtime cost would expand scope without answering a primary RQ.

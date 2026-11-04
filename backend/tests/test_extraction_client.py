@@ -1,3 +1,5 @@
+"""Unit tests for extraction-service error handling."""
+
 import asyncio
 
 import httpx
@@ -12,12 +14,16 @@ from app.extraction.client import (
 
 
 def settings() -> Settings:
+    """Create a settings fixture for the test."""
     return Settings(neo4j_password="test")
 
 
 def test_unavailable_model_service_is_clean_error() -> None:
+    """Verify unavailable model service is clean error."""
     async def run() -> None:
+        """Run the asynchronous test scenario."""
         def fail(_request):
+            """Provide the test fail callback."""
             raise httpx.ConnectError("offline")
 
         client = ExtractionClient(settings(), transport=httpx.MockTransport(fail))
@@ -29,7 +35,9 @@ def test_unavailable_model_service_is_clean_error() -> None:
 
 
 def test_malformed_model_output_is_rejected() -> None:
+    """Verify malformed model output is rejected."""
     async def run() -> None:
+        """Run the asynchronous test scenario."""
         client = ExtractionClient(
             settings(),
             transport=httpx.MockTransport(

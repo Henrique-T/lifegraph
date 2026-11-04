@@ -37,16 +37,17 @@ interface Props {
   onPersonSelectionChange: (personId: string) => void;
   onAccept: (request: CandidateAcceptanceRequest) => Promise<CandidateAcceptanceResult>;
   onReject: () => Promise<void>;
+  onReviewComplete?: () => void;
 }
 
-export function CandidateCard({ candidate, people, disabled, onPersonSelectionChange, onAccept, onReject }: Props) {
+export function CandidateCard({ candidate, people, disabled, onPersonSelectionChange, onAccept, onReject, onReviewComplete }: Props) {
   const originalYear = candidate.normalized_time_candidate?.temporal_precision === "YEAR"
     ? candidate.normalized_time_candidate.start.slice(0, 4) : "";
   const [personId, setPersonId] = useState("");
   const [personSearch, setPersonSearch] = useState("");
+  const [personMenuOpen, setPersonMenuOpen] = useState(false);
   const [editing, setEditing] = useState(false);
   const [eventType, setEventType] = useState<CivilEventType>(candidate.event_type);
-  const [subjectText, setSubjectText] = useState(candidate.subject_text ?? "");
   const [participants, setParticipants] = useState(candidate.participant_texts.join(", "));
   const [year, setYear] = useState(originalYear);
   const [busy, setBusy] = useState(false);
@@ -54,7 +55,7 @@ export function CandidateCard({ candidate, people, disabled, onPersonSelectionCh
   const [accepted, setAccepted] = useState<CandidateAcceptanceResult | null>(null);
   const [rejected, setRejected] = useState(candidate.review_status === "REJECTED");
 
-  const changed = eventType !== candidate.event_type || subjectText !== (candidate.subject_text ?? "")
+  const changed = eventType !== candidate.event_type
     || participants !== candidate.participant_texts.join(", ") || year !== originalYear;
 
   async function accept() {
@@ -65,7 +66,6 @@ export function CandidateCard({ candidate, people, disabled, onPersonSelectionCh
     }
     const corrections: CandidateAcceptanceRequest["corrections"] = {};
     if (eventType !== candidate.event_type) corrections.event_type = eventType;
-    if (subjectText !== (candidate.subject_text ?? "")) corrections.subject_text = subjectText || null;
     if (participants !== candidate.participant_texts.join(", ")) {
       corrections.participant_texts = participants.split(",").map((item) => item.trim()).filter(Boolean);
     }
@@ -76,15 +76,15 @@ export function CandidateCard({ candidate, people, disabled, onPersonSelectionCh
       corrections.temporal_precision = "YEAR";
     }
     setBusy(true); setError(null);
-    try { setAccepted(await onAccept({ person_id: personId, corrections })); }
-    catch (caught) { setError(caught instanceof Error ? caught.message : "Falha ao aceitar candidato."); }
+    try { setAccepted(await onAccept({ person_id: personId, corrections })); onReviewComplete?.(); }
+    catch (caught) { setError(caught instanceof Error ? caught.message : "Falha ao aceitar o evento extraído."); }
     finally { setBusy(false); }
   }
 
   async function reject() {
     setBusy(true); setError(null);
-    try { await onReject(); setRejected(true); }
-    catch (caught) { setError(caught instanceof Error ? caught.message : "Falha ao rejeitar candidato."); }
+    try { await onReject(); setRejected(true); onReviewComplete?.(); }
+    catch (caught) { setError(caught instanceof Error ? caught.message : "Falha ao rejeitar o evento extraído."); }
     finally { setBusy(false); }
   }
 
@@ -96,11 +96,11 @@ export function CandidateCard({ candidate, people, disabled, onPersonSelectionCh
     : people;
 
   return (
-    <article className={`candidate ${candidate.subject_resolution.toLowerCase()}`} aria-live="polite">
+    <article className={`candidate ${candidate.subject_resolution.toLowerCase()}${accepted ? " accepted" : ""}`} aria-live="polite">
       <header className="candidate-header">
         <div><span className="kicker">Evento</span><h3>{eventLabels[candidate.event_type]}</h3></div>
         <span className={`status ${accepted ? "accepted" : rejected ? "rejected" : candidate.subject_resolution.toLowerCase()}`}>
-          {accepted ? "ACEITO COMO DECLARAÇÃO" : rejected ? "REJEITADO" : candidate.subject_resolution === "RESOLVED" ? "SUJEITO IDENTIFICADO" : "SUJEITO NÃO RESOLVIDO"}
+          {accepted ? "ACEITO COMO DECLARAÇÃO" : rejected ? "REJEITADO" : candidate.subject_resolution === "RESOLVED" ? "SUJEITO A IDENTIFICAR" : "SUJEITO NÃO RESOLVIDO"}
         </span>
       </header>
 
@@ -110,32 +110,39 @@ export function CandidateCard({ candidate, people, disabled, onPersonSelectionCh
         <div><dt>Participantes</dt><dd>{candidate.participant_texts.join(", ") || "Nenhum identificado"}</dd></div>
         <div><dt>Data extraída</dt><dd>{candidate.date_expression ?? "Não identificada"}</dd></div>
       </dl>
-      <p className="reason">{reasonLabels[candidate.subject_reason] ?? "Associação conservadora; revise antes de aceitar."}</p>
+      {candidate.subject_reason !== "FIRST_PERSON_VERB_FORM" && <p className="reason">{reasonLabels[candidate.subject_reason] ?? "Associação conservadora; revise antes de aceitar."}</p>}
 
-      {candidate.subject_resolution === "UNRESOLVED" && !done && <p className="safety-note">Abstenção segura: selecione a Pessoa correta ou rejeite o candidato.</p>}
-      {!done && <div className="person-selector">
-        <label>Pesquisar pessoa por nome
-          <input
-            type="search"
-            value={personSearch}
-            onChange={(event) => setPersonSearch(event.target.value)}
-            placeholder="Digite parte do nome"
-            autoComplete="off"
-          />
-        </label>
+      {candidate.subject_resolution === "UNRESOLVED" && !done && <p className="safety-note">Não foi possível determinar o sujeito com segurança. Selecione a pessoa correta ou rejeite o evento extraído.</p>}
+      {!done && <div className="person-combobox">
         <label>Pessoa à qual esta declaração se refere
-          <select value={personId} onChange={(event) => {
-            setPersonId(event.target.value);
-            onPersonSelectionChange(event.target.value);
-          }}>
-            <option value="">Selecione explicitamente…</option>
-            {visiblePeople.map((person) => <option key={person.person_id} value={person.person_id}>{person.display_name}</option>)}
-          </select>
-          <small className="field-help">
-            {personSearch.trim() && `${visiblePeople.length} pessoa(s) encontrada(s). `}
-            Escolha uma pessoa que já existe no grafo. A declaração aceita será vinculada a ela.
-          </small>
+          <span className="combobox-input-wrap">
+            <input
+              type="search"
+              value={personSearch}
+              onFocus={() => setPersonMenuOpen(true)}
+              onChange={(event) => {
+                setPersonSearch(event.target.value);
+                setPersonId("");
+                setPersonMenuOpen(true);
+                onPersonSelectionChange("");
+              }}
+              placeholder="Selecione ou digite um nome"
+              autoComplete="off"
+              role="combobox"
+              aria-expanded={personMenuOpen}
+              aria-controls={`person-options-${candidate.candidate_id}`}
+            />
+            <button type="button" className="combobox-toggle" aria-label="Mostrar lista de pessoas" aria-expanded={personMenuOpen} onClick={() => setPersonMenuOpen((open) => !open)}>⌄</button>
+          </span>
         </label>
+        {personMenuOpen && <div id={`person-options-${candidate.candidate_id}`} className="person-options" role="listbox" aria-label="Pessoas disponíveis">
+          {visiblePeople.length > 0 ? visiblePeople.map((person) => <button key={person.person_id} type="button" role="option" aria-selected="false" onClick={() => {
+            setPersonId(person.person_id);
+            setPersonSearch(person.display_name);
+            setPersonMenuOpen(false);
+            onPersonSelectionChange(person.person_id);
+          }}><strong>{person.display_name}</strong></button>) : <p>Nenhuma pessoa encontrada.</p>}
+        </div>}
       </div>}
 
       {!done && <button className="link-button" type="button" onClick={() => setEditing(!editing)}>{editing ? "Fechar edição" : "Editar dados antes de aceitar"}</button>}
@@ -144,19 +151,17 @@ export function CandidateCard({ candidate, people, disabled, onPersonSelectionCh
         <label>Tipo do evento<select value={eventType} onChange={(e) => setEventType(e.target.value as CivilEventType)}>
           {Object.entries(eventLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
         </select></label>
-        <label>Texto exibido do sujeito<input value={subjectText} onChange={(e) => setSubjectText(e.target.value)} /></label>
         <label>Participantes (separados por vírgula)<input value={participants} onChange={(e) => setParticipants(e.target.value)} /></label>
         <label>Ano normalizado<input inputMode="numeric" pattern="\d{4}" maxLength={4} value={year} onChange={(e) => setYear(e.target.value)} placeholder="AAAA" /></label>
-        {changed && <div className="comparison"><strong>Original da IA</strong><span>{eventLabels[candidate.event_type]} · {candidate.subject_text ?? "não resolvido"} · {candidate.date_expression ?? "sem data"}</span><strong>Valor revisado</strong><span>{eventLabels[eventType]} · {subjectText || "não resolvido"} · {year || candidate.date_expression || "sem data"}</span></div>}
+        {changed && <div className="comparison"><strong>Original da IA</strong><span>{eventLabels[candidate.event_type]} · {candidate.subject_text ?? "não resolvido"} · {candidate.date_expression ?? "sem data"}</span><strong>Valor revisado</strong><span>{eventLabels[eventType]} · {candidate.subject_text ?? "não resolvido"} · {year || candidate.date_expression || "sem data"}</span></div>}
       </fieldset>}
 
       {error && <p className="error" role="alert">{error}</p>}
-      {accepted && <p className="success" role="status">Declaração criada: <code>{accepted.claim_event_id}</code>. Estado: DECLARED.</p>}
+      {accepted && <p className="success" role="status">Declaração criada. Estado: DECLARADO.</p>}
       <div className="actions">
         <button type="button" className="primary" disabled={done || busy || !personId} onClick={accept}>Aceitar como declaração</button>
         <button type="button" className="secondary" disabled={done || busy} onClick={reject}>Rejeitar</button>
       </div>
-      <details><summary>Detalhes técnicos</summary><code>{candidate.subject_reason}</code><br/><small>Candidato: {candidate.candidate_id}</small></details>
     </article>
   );
 }

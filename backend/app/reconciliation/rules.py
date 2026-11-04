@@ -1,9 +1,12 @@
+"""Pure deterministic rules for comparing claims with REF events."""
+
 from app.domain.enums import TemporalPrecision, VerificationStatus
 from app.domain.schemas import ClaimEventRead, RefEventRead
 from app.reconciliation.schemas import ReasonCode, ReconciliationDecision
 
 
 def _claim_has_interval(claim: ClaimEventRead) -> bool:
+    """Return whether a claim has a usable temporal interval."""
     return (
         claim.temporal_precision is not TemporalPrecision.UNKNOWN
         and claim.claimed_date_start is not None
@@ -12,6 +15,7 @@ def _claim_has_interval(claim: ClaimEventRead) -> bool:
 
 
 def _inside_claim_interval(claim: ClaimEventRead, event: RefEventRead) -> bool:
+    """Return whether a dated REF event falls within a claim interval."""
     assert claim.claimed_date_start is not None
     assert claim.claimed_date_end is not None
     assert event.event_date is not None
@@ -21,6 +25,7 @@ def _inside_claim_interval(claim: ClaimEventRead, event: RefEventRead) -> bool:
 def reconcile_candidates(
     claim: ClaimEventRead, candidates: list[RefEventRead]
 ) -> ReconciliationDecision:
+    """Reconcile one claim against same-person candidate REF events."""
     # The repository supplies same-person candidates; this second filter makes
     # the same-event-type invariant explicit at the rule boundary too.
     candidates = [item for item in candidates if item.event_type == claim.event_type]

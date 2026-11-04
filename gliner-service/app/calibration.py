@@ -1,3 +1,5 @@
+"""Frozen GLiNER calibration configurations and extraction adapters."""
+
 import asyncio
 from dataclasses import dataclass
 from time import perf_counter
@@ -11,6 +13,7 @@ EVENT_TYPES = ("nascimento", "casamento", "obito", "natimorto")
 
 @dataclass(frozen=True)
 class CalibrationConfiguration:
+    """Immutable definition of one approved calibration configuration."""
     configuration_id: str
     mode: Literal["entities", "records", "relations"]
     definition: dict
@@ -70,6 +73,7 @@ E_EVENT_MAP = {
 
 
 def _entity_events(raw: dict, event_map: dict[str, str], mode: str) -> list[dict]:
+    """Convert entity spans into comparable event records."""
     entities = raw.get("entities", {})
     people = entities.get("person", [])
     dates = entities.get("date", [])
@@ -90,12 +94,14 @@ def _entity_events(raw: dict, event_map: dict[str, str], mode: str) -> list[dict
 
 
 def _record_events(raw: dict, mode: str) -> list[dict]:
+    """Convert structured model records into comparable events."""
     records = raw.get("civil_event", [])
     if isinstance(records, dict):
         records = [records]
     events = []
     for record in records if isinstance(records, list) else []:
         def value(item):
+            """Read text from either a span object or a scalar value."""
             return item.get("text") if isinstance(item, dict) else item
         event_type = str(value(record.get("event_type", ""))).strip().casefold()
         if event_type not in EVENT_TYPES:
@@ -117,6 +123,7 @@ def _record_events(raw: dict, mode: str) -> list[dict]:
 
 
 def _relation_events(raw: dict, mode: str) -> list[dict]:
+    """Convert extracted relations into comparable event records."""
     rels = raw.get("relation_extraction", {})
     events = []
     for label, event_type in E_EVENT_MAP.items():
@@ -136,6 +143,7 @@ def _relation_events(raw: dict, mode: str) -> list[dict]:
 
 
 def build_record_schema(model, constrained: bool):
+    """Build the structured civil-event schema used for calibration."""
     schema = model.create_schema()
     record = schema.structure("civil_event", mode="natural", anchor="event_type")
     choices = list(EVENT_TYPES) if constrained else None
@@ -148,6 +156,7 @@ def build_record_schema(model, constrained: bool):
 
 
 async def extract_configuration(service, config: CalibrationConfiguration, text: str) -> dict:
+    """Execute one immutable calibration configuration."""
     started = perf_counter()
     async with service._lock:
         if config.mode == "entities":

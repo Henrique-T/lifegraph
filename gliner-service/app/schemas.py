@@ -1,3 +1,5 @@
+"""Strict request and response schemas for GLiNER inference."""
+
 from datetime import datetime
 from typing import Literal
 
@@ -5,14 +7,17 @@ from pydantic import BaseModel, ConfigDict, Field
 
 
 class StrictModel(BaseModel):
+    """Base model that rejects undeclared fields."""
     model_config = ConfigDict(extra="forbid")
 
 
 class ExtractRequest(StrictModel):
+    """Narrative submitted to production extraction."""
     text: str = Field(min_length=1, max_length=10_000)
 
 
 class ModelSpan(StrictModel):
+    """Validated character span returned by the model."""
     label: str
     text: str
     start: int = Field(ge=0)
@@ -21,6 +26,7 @@ class ModelSpan(StrictModel):
 
 
 class NormalizedTimeCandidate(StrictModel):
+    """Deterministically normalized candidate year interval."""
     start: datetime
     end: datetime
     temporal_precision: Literal["YEAR"]
@@ -28,6 +34,7 @@ class NormalizedTimeCandidate(StrictModel):
 
 
 class ApprovedCandidate(StrictModel):
+    """Candidate emitted by the approved production pipeline."""
     event_type: Literal["nascimento", "casamento", "obito", "natimorto"]
     trigger_text: str
     trigger_start: int = Field(ge=0)
@@ -43,6 +50,7 @@ class ApprovedCandidate(StrictModel):
 
 
 class ApprovedExtractionResult(StrictModel):
+    """Complete result returned by production extraction."""
     source_text: str
     model_id: str
     model_revision: str
@@ -53,6 +61,7 @@ class ApprovedExtractionResult(StrictModel):
 
 
 class ExtractedEventCandidate(StrictModel):
+    """Legacy candidate used by calibration output mapping."""
     candidate_id: str
     event_type: Literal["nascimento", "casamento", "obito", "natimorto"]
     raw_event_text: str
@@ -65,6 +74,7 @@ class ExtractedEventCandidate(StrictModel):
 
 
 class ExtractionResult(StrictModel):
+    """Legacy entity-based extraction result."""
     extraction_id: str
     source_text: str
     model_id: str
@@ -76,6 +86,7 @@ class ExtractionResult(StrictModel):
 
 
 class CalibrationRequest(StrictModel):
+    """Request restricted to an immutable calibration configuration."""
     text: str = Field(min_length=1, max_length=10_000)
     configuration_id: Literal[
         "A_ENTITY_EVENT_BASELINE",
@@ -87,6 +98,7 @@ class CalibrationRequest(StrictModel):
 
 
 class AssociationRequest(StrictModel):
+    """Request restricted to a predefined association strategy."""
     text: str = Field(min_length=1, max_length=10_000)
     strategy_id: Literal[
         "S1_DETERMINISTIC",

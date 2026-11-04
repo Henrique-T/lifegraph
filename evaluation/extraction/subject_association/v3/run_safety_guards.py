@@ -1,3 +1,5 @@
+"""Evaluate conservative subject-association safety guards."""
+
 import json
 import re
 import statistics
@@ -20,14 +22,17 @@ INCIDENTAL = re.compile(r"\b(?:com|para|sobre)\s+([A-ZÁÉÍÓÚÂÊÔÃÕÇ][\w
 
 
 def norm(value):
+    """Normalize optional text for deterministic comparison."""
     return " ".join(value.casefold().split()).strip(".,;:!?") if isinstance(value, str) else None
 
 
 def target(event):
+    """Return the canonical expected subject representation."""
     return "__narrator__" if event["belongs_to_narrator"] else norm(event.get("subject_text"))
 
 
 def call(strategy, text):
+    """Call the association endpoint for one strategy and narrative."""
     body = json.dumps({"strategy_id": strategy, "text": text}, ensure_ascii=False).encode()
     request = urllib.request.Request(URL, data=body, headers={"Content-Type": "application/json"})
     with urllib.request.urlopen(request, timeout=180) as response:
@@ -35,6 +40,7 @@ def call(strategy, text):
 
 
 def pairs(expected, detected):
+    """Pair expected and detected events deterministically."""
     remaining = list(enumerate(detected)); matched = []
     for event in expected:
         hit = next(((index, item) for index, item in remaining if item["event_type"] == event["event_type"]), None)
@@ -46,6 +52,7 @@ def pairs(expected, detected):
 
 
 def classify(event, candidate):
+    """Classify one subject-association outcome."""
     if candidate is None:
         return "STAGE1_MISS"
     actual = norm(candidate.get("subject_text")); expected = target(event)
@@ -65,6 +72,7 @@ def classify(event, candidate):
 
 
 def metrics(rows):
+    """Aggregate general subject-association metrics."""
     c = Counter(); latencies = []
     for row in rows:
         event_pairs = pairs(row["expected_events"], row["result"]["associated_events"])
@@ -112,6 +120,7 @@ def metrics(rows):
 
 
 def v3_safety_metrics(rows):
+    """Aggregate safety metrics specific to the adversarial dataset."""
     c = Counter()
     for row in rows:
         categories = set(row["categories"])
@@ -144,6 +153,7 @@ def v3_safety_metrics(rows):
 
 
 def run_dataset(name, path):
+    """Run configured strategies against one named dataset."""
     benchmark = json.loads(path.read_text(encoding="utf-8")); outputs = {}
     for strategy in STRATEGIES:
         rows = [{**case, "result": call(strategy, case["text"])} for case in benchmark["cases"]]
@@ -155,6 +165,7 @@ def run_dataset(name, path):
 
 
 def render_case(lines, section, dataset, row_b, row_c):
+    """Append one comparison case to the review document."""
     lines.extend([f"## {section}: {dataset}/{row_c['id']}", f"- Source: {row_c['text']}"])
     for (expected, before), (_, after) in zip(pairs(row_b["expected_events"], row_b["result"]["associated_events"]), pairs(row_c["expected_events"], row_c["result"]["associated_events"])):
         lines.extend([
@@ -167,6 +178,7 @@ def render_case(lines, section, dataset, row_b, row_c):
 
 
 def human_review(all_outputs):
+    """Render selected safety cases for manual inspection."""
     lines = ["# S1C safety-guard human review", ""]
     emitted = set()
     for dataset, outputs in all_outputs.items():
@@ -193,6 +205,7 @@ def human_review(all_outputs):
 
 
 def main():
+    """Run safety benchmarks and write result artifacts."""
     started = time.time(); outputs = {name: run_dataset(name, path) for name, path in DATASETS.items()}; human_review(outputs)
     summary = {
         "duration_seconds": time.time() - started,

@@ -10,6 +10,13 @@ const statusDescriptions: Record<VerificationStatus, string> = {
   UNVERIFIED: "Evidência insuficiente — não significa que a declaração seja falsa.",
   PROBABLE: "Estado reservado; não produzido atualmente.",
 };
+const statusLabels: Record<VerificationStatus, string> = {
+  DECLARED: "DECLARADO",
+  CONFIRMED: "CONFIRMADO",
+  DIVERGENT: "DIVERGE",
+  UNVERIFIED: "NÃO VERIFICADO",
+  PROBABLE: "PROVÁVEL",
+};
 
 function stringArray(value: unknown): string[] {
   return Array.isArray(value) ? value.filter((item): item is string => typeof item === "string") : [];
@@ -61,7 +68,7 @@ export function ReconciliationPanel({ claim, graph, onReconcile }: Props) {
   return <section className="reconciliation" aria-labelledby={`reconcile-${claim.id}`}>
     <h4 id={`reconcile-${claim.id}`}>Reconciliação determinística</h4>
     <div className={`reconciliation-status status-${status.toLowerCase()}`}>
-      <strong>{status}</strong><span>{statusDescriptions[status]}</span>
+      <strong>{statusLabels[status]}</strong><span>{statusDescriptions[status]}</span>
     </div>
     <p className="hint">Compara somente RefEvents já importados para a mesma Pessoa e o mesmo tipo de evento.</p>
     <button type="button" className="primary" disabled={busy} onClick={reconcile}>
@@ -76,7 +83,7 @@ export function ReconciliationPanel({ claim, graph, onReconcile }: Props) {
       {reasonCodes.map((code) => <li key={code}><code>{code}</code></li>)}
     </ul></details></div>}
     {matched && <div className="registral-evidence"><h5>Evidência registral selecionada pelo motor</h5><RefEventDetails node={matched} /></div>}
-    {candidates.length > 0 && <details><summary>Candidatos registrais considerados ({candidates.length})</summary>
+    {candidates.length > 0 && <details><summary>Eventos registrais considerados ({candidates.length})</summary>
       {candidates.map((node) => <div key={node.id} className="candidate-ref"><RefEventDetails node={node} /></div>)}
     </details>}
     {evidence.length > 0 && <details><summary>Evidência determinística persistida ({evidence.length})</summary><ul>

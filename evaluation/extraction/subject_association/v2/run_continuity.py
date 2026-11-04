@@ -1,3 +1,5 @@
+"""Evaluate Portuguese subject continuity strategies."""
+
 import json
 import statistics
 import time
@@ -13,14 +15,17 @@ STRATEGIES = ("S1_DETERMINISTIC", "S1B_PORTUGUESE_CONTINUITY")
 
 
 def norm(value):
+    """Normalize optional text for deterministic comparison."""
     return " ".join(value.casefold().split()).strip(".,;:!?") if isinstance(value, str) else None
 
 
 def expected_subject(event):
+    """Return the canonical expected subject representation."""
     return "__narrator__" if event["belongs_to_narrator"] else norm(event.get("subject_text"))
 
 
 def call(strategy, text):
+    """Call the association endpoint for one strategy and narrative."""
     body = json.dumps({"strategy_id": strategy, "text": text}, ensure_ascii=False).encode()
     request = urllib.request.Request(URL, data=body, headers={"Content-Type": "application/json"})
     with urllib.request.urlopen(request, timeout=180) as response:
@@ -28,6 +33,7 @@ def call(strategy, text):
 
 
 def pair_events(expected, detected):
+    """Pair expected and detected events deterministically."""
     remaining = list(enumerate(detected))
     pairs = []
     for event in expected:
@@ -39,6 +45,7 @@ def pair_events(expected, detected):
 
 
 def expected_participants(case, event):
+    """Return participant text expected for a benchmark event."""
     if "participant_texts" in event:
         return [norm(item) for item in event["participant_texts"]]
     if event["event_type"] == "casamento" and " com " in case["text"].casefold():
@@ -47,6 +54,7 @@ def expected_participants(case, event):
 
 
 def metrics(rows):
+    """Aggregate subject, participant, and latency metrics."""
     counts = Counter()
     stage2_latencies = []
     for row in rows:
@@ -117,6 +125,7 @@ def metrics(rows):
 
 
 def category_accuracy(rows, category):
+    """Compute subject accuracy for one benchmark category."""
     selected = [row for row in rows if category in row["categories"]]
     correct = total = 0
     for row in selected:
@@ -127,6 +136,7 @@ def category_accuracy(rows, category):
 
 
 def cross_sentence_errors(rows):
+    """Count unsafe subject propagation across sentence boundaries."""
     selected = [row for row in rows if "SENTENCE_BOUNDARY" in row["categories"]]
     errors = 0
     for row in selected:
@@ -136,6 +146,7 @@ def cross_sentence_errors(rows):
 
 
 def run_dataset(path, label):
+    """Run all configured strategies against one dataset."""
     benchmark = json.loads(path.read_text(encoding="utf-8"))
     outputs = {}
     for strategy in STRATEGIES:
@@ -162,6 +173,7 @@ def run_dataset(path, label):
 
 
 def human_review(datasets):
+    """Render selected strategy outputs for manual inspection."""
     lines = ["# S1B Portuguese continuity human review", "", "Every subject newly resolved by S1B compared with frozen S1 is listed below.", ""]
     newly_resolved = []
     for dataset_name, outputs in datasets.items():
@@ -196,6 +208,7 @@ def human_review(datasets):
 
 
 def main():
+    """Run the continuity benchmark and write its artifacts."""
     started = time.time()
     datasets = {
         "original_35": run_dataset(ORIGINAL, "original_35"),

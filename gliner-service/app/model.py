@@ -1,3 +1,5 @@
+"""GLiNER model lifecycle and production output mapping."""
+
 import asyncio
 import logging
 import re
@@ -37,6 +39,7 @@ EVENT_LABEL_MAP = {
 
 
 def normalize_year(expression: str | None) -> NormalizedTimeCandidate | None:
+    """Normalize an isolated four-digit year into a UTC interval."""
     if expression is None or re.fullmatch(r"\d{4}", expression.strip()) is None:
         return None
     year = int(expression.strip())
@@ -50,6 +53,7 @@ def normalize_year(expression: str | None) -> NormalizedTimeCandidate | None:
 
 
 def _spans(raw: dict) -> list[ModelSpan]:
+    """Validate and order model entity spans."""
     spans: list[ModelSpan] = []
     for label, values in raw.get("entities", {}).items():
         if label not in ENTITY_LABELS or not isinstance(values, list):
@@ -68,6 +72,7 @@ def _spans(raw: dict) -> list[ModelSpan]:
 
 
 def map_raw_output(text: str, raw: dict, latency_ms: float) -> ExtractionResult:
+    """Map raw entity output into the legacy extraction result schema."""
     spans = _spans(raw)
     people = [item for item in spans if item.label == "person"]
     dates = [item for item in spans if item.label == "date"]
@@ -106,7 +111,10 @@ def map_raw_output(text: str, raw: dict, latency_ms: float) -> ExtractionResult:
 
 
 class GLiNERModel:
+    """Own the CPU model and serialize inference calls."""
+
     def __init__(self) -> None:
+        """Initialize unloaded model state."""
         self._model = None
         self._load_error: str | None = None
         self._lock = asyncio.Lock()
@@ -114,13 +122,16 @@ class GLiNERModel:
 
     @property
     def ready(self) -> bool:
+        """Return whether the model loaded successfully."""
         return self._model is not None
 
     @property
     def load_failed(self) -> bool:
+        """Return whether a model load attempt failed."""
         return self._load_error is not None
 
     async def load(self) -> None:
+        """Load the pinned model revision on CPU."""
         started = perf_counter()
         try:
             from gliner2 import AutoExtractor
@@ -142,6 +153,7 @@ class GLiNERModel:
             logger.exception("GLiNER model failed to load model_id=%s", MODEL_ID)
 
     async def extract(self, text: str) -> ApprovedExtractionResult:
+        """Extract approved candidates with conservative subject guards."""
         if self._model is None:
             raise RuntimeError("model unavailable")
         # Local import avoids the model/calibration module cycle. The approved

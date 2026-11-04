@@ -1,3 +1,5 @@
+"""Test freeze."""
+
 import hashlib
 import json
 from collections import Counter
@@ -9,10 +11,12 @@ HERE = Path(__file__).parent
 
 
 def digest(path):
+    """Calculate the SHA-256 digest of a fixture file."""
     return hashlib.sha256(path.read_bytes()).hexdigest().upper()
 
 
 def test_frozen_dataset_matches_schema_manifest_and_quotas():
+    """Verify frozen dataset matches schema manifest and quotas."""
     dataset_path = HERE / "heldout_v1.json"
     dataset = json.loads(dataset_path.read_text(encoding="utf-8"))
     manifest = json.loads((HERE / "dataset_manifest.json").read_text(encoding="utf-8"))
@@ -24,6 +28,7 @@ def test_frozen_dataset_matches_schema_manifest_and_quotas():
 
 
 def test_frozen_protocol_and_prompt_hashes():
+    """Verify frozen protocol and prompt hashes."""
     protocol = json.loads((HERE / "protocol.json").read_text(encoding="utf-8"))
     recorded_protocol_hash = (HERE / "protocol.sha256").read_text(encoding="ascii").split()[0]
     assert digest(HERE / "protocol.json") == recorded_protocol_hash

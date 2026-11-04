@@ -1,3 +1,5 @@
+"""Routes for deliberate deterministic reconciliation."""
+
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, Request
@@ -9,6 +11,7 @@ router = APIRouter()
 
 
 def get_engine(request: Request) -> ReconciliationEngine:
+    """Resolve the application-scoped reconciliation engine."""
     return request.app.state.reconciliation_engine
 
 
@@ -22,6 +25,7 @@ Engine = Annotated[ReconciliationEngine, Depends(get_engine)]
 async def reconcile_claim(
     claim_event_id: str, engine: Engine
 ) -> ReconciliationResult:
+    """Reconcile one claim through an explicit request."""
     return await engine.reconcile(claim_event_id)
 
 
@@ -32,4 +36,5 @@ async def reconcile_claim(
 async def get_reconciliation(
     claim_event_id: str, engine: Engine
 ) -> ReconciliationResult:
+    """Read the current reconciliation outcome for one claim."""
     return await engine.get_current(claim_event_id)

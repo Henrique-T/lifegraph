@@ -1,3 +1,5 @@
+"""Schemas and reason codes for deterministic reconciliation."""
+
 from datetime import datetime
 from enum import StrEnum
 
@@ -7,6 +9,7 @@ from app.domain.enums import VerificationStatus
 
 
 class ReasonCode(StrEnum):
+    """Inspectable reasons emitted by reconciliation rules."""
     NO_MATCHING_REF_EVENT_TYPE = "NO_MATCHING_REF_EVENT_TYPE"
     EVENT_TYPE_MATCH = "EVENT_TYPE_MATCH"
     EVENT_DATE_WITHIN_CLAIM_INTERVAL = "EVENT_DATE_WITHIN_CLAIM_INTERVAL"
@@ -20,6 +23,7 @@ class ReasonCode(StrEnum):
 
 
 class ReconciliationDecision(BaseModel):
+    """Pure rule decision before graph persistence."""
     model_config = ConfigDict(extra="forbid")
 
     status: VerificationStatus
@@ -30,6 +34,7 @@ class ReconciliationDecision(BaseModel):
 
 
 class ReconciliationResult(BaseModel):
+    """Persisted reconciliation state returned to clients."""
     model_config = ConfigDict(extra="forbid")
 
     claim_event_id: str

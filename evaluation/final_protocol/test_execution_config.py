@@ -1,3 +1,5 @@
+"""Test execution config."""
+
 import hashlib
 import json
 from pathlib import Path
@@ -6,6 +8,7 @@ HERE = Path(__file__).parent
 
 
 def test_execution_config_hash_and_non_sampling_semantics():
+    """Verify execution config hash and non sampling semantics."""
     protocol = json.loads((HERE / "protocol.json").read_text(encoding="utf-8"))
     path = HERE / "execution_config.json"
     config = json.loads(path.read_text(encoding="utf-8"))

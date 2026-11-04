@@ -70,7 +70,7 @@ export function friendlyError(error: unknown): string {
   if (!(error instanceof ApiError)) return "Ocorreu uma falha inesperada.";
   if (error.status === 404 && /person/i.test(error.message)) return "A Pessoa LifeGraph selecionada não foi encontrada.";
   if (error.status === 404 || error.status === 410) return "Esta revisão expirou. Execute a extração novamente.";
-  if (error.status === 409) return "Este candidato já foi aceito com dados diferentes.";
+  if (error.status === 409) return "Este evento extraído já foi aceito com dados diferentes.";
   if (error.status === 422) return "Revise a pessoa e os campos corrigidos.";
   if (error.status === 503) return "O modelo de extração está indisponível no momento.";
   return error.message;

@@ -16,7 +16,25 @@ const eventColors: Record<string, string> = {
   natimorto: "#d97706",
 };
 
-type GraphViewMode = "focus" | "graph" | "timeline";
+type GraphViewMode = "focus" | "timeline";
+type GraphViewVariant = "review" | "explorer";
+
+const verificationStatusLabels: Record<string, string> = {
+  DECLARED: "DECLARADO",
+  CONFIRMED: "CONFIRMADO",
+  DIVERGENT: "DIVERGE",
+  UNVERIFIED: "NÃO VERIFICADO",
+  PROBABLE: "PROVÁVEL",
+};
+
+function displayVerificationStatus(value: unknown): string {
+  const status = String(value ?? "");
+  return verificationStatusLabels[status] ?? status;
+}
+
+function normalizeSearchText(value: string): string {
+  return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("pt-BR");
+}
 
 function focusedSubgraph(graph: GraphResponse, personIds: string[]): GraphResponse {
   const selectedPeople = new Set(personIds);
@@ -42,6 +60,17 @@ function focusedSubgraph(graph: GraphResponse, personIds: string[]): GraphRespon
   };
 }
 
+function timelineSubgraph(graph: GraphResponse, personId: string): GraphResponse {
+  const focused = focusedSubgraph(graph, personId ? [personId] : []);
+  const included = new Set(focused.nodes
+    .filter((node) => node.type !== "RelationClaim" && (node.type !== "Person" || node.id === personId))
+    .map((node) => node.id));
+  return {
+    nodes: focused.nodes.filter((node) => included.has(node.id)),
+    edges: focused.edges.filter((edge) => included.has(edge.source) && included.has(edge.target)),
+  };
+}
+
 function compactText(value: unknown, maximum = 28): string {
   const text = String(value ?? "").trim();
   return text.length > maximum ? `${text.slice(0, maximum - 1)}…` : text;
@@ -52,9 +81,9 @@ function nodeLabel(node: GraphNode): string {
   if (node.type === "Person") return `Pessoa\n${String(p.display_name ?? "")}`;
   if (node.type === "ClaimEvent") {
     const date = p.original_date_expression ?? (typeof p.claimed_date_start === "string" ? p.claimed_date_start.slice(0, 10) : null);
-    return `Declaração\n${String(p.event_type ?? "")} · ${String(p.verification_status ?? "")}${date ? `\n${compactText(date)}` : ""}`;
+    return `Declaração\n${String(p.event_type ?? "")} · ${displayVerificationStatus(p.verification_status)}${date ? `\n${compactText(date)}` : ""}`;
   }
-  if (node.type === "RelationClaim") return `RelationClaim\n${String(p.relation_type ?? "")} · ${String(p.verification_status ?? "DECLARED")}`;
+  if (node.type === "RelationClaim") return `RelationClaim\n${String(p.relation_type ?? "")} · ${displayVerificationStatus(p.verification_status ?? "DECLARED")}`;
   if (node.type === "RefEvent") {
     const date = typeof p.event_date === "string" ? p.event_date.slice(0, 10) : null;
     return `Evento REF\n${String(p.event_type ?? "")}${date ? `\n${date}` : ""}`;
@@ -156,10 +185,10 @@ function claimOptionLabel(claim: GraphNode, graph: GraphResponse): string {
   if (claim.type === "RelationClaim") {
     const endpointA = relatedNode(graph, claim.id, "ENDPOINT_A", "Person");
     const endpointB = relatedNode(graph, claim.id, "ENDPOINT_B", "Person");
-    return `${String(claim.properties.relation_type ?? "relação")} · DECLARED · ${String(endpointA?.properties.display_name ?? "?")} → ${String(endpointB?.properties.display_name ?? "?")}`;
+    return `${String(claim.properties.relation_type ?? "relação")} · DECLARADO · ${String(endpointA?.properties.display_name ?? "?")} → ${String(endpointB?.properties.display_name ?? "?")}`;
   }
   const eventType = String(claim.properties.event_type ?? "evento");
-  const status = String(claim.properties.verification_status ?? "sem estado");
+  const status = displayVerificationStatus(claim.properties.verification_status ?? "sem estado");
   const date = String(claim.properties.original_date_expression ?? "sem data informada");
   const person = relatedNode(graph, claim.id, "SUBJECT_OF", "Person");
   const personName = String(person?.properties.display_name ?? "pessoa não identificada");
@@ -176,14 +205,33 @@ interface Props {
   graph: GraphResponse | null;
   focusedPersonIds: string[];
   onReconcile: (claimEventId: string) => Promise<ReconciliationResult>;
+  variant?: GraphViewVariant;
 }
 
-export function GraphView({ graph, focusedPersonIds, onReconcile }: Props) {
+export function GraphView({ graph, focusedPersonIds, onReconcile, variant = "review" }: Props) {
   const container = useRef<HTMLDivElement>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<GraphViewMode>("focus");
-  const focusedGraph = useMemo(() => graph ? focusedSubgraph(graph, focusedPersonIds) : null, [graph, focusedPersonIds]);
-  const visibleGraph = viewMode === "focus" ? focusedGraph : graph;
+  const [reviewPersonId, setReviewPersonId] = useState("");
+  const [explorerPersonId, setExplorerPersonId] = useState("");
+  const [explorerPersonSearch, setExplorerPersonSearch] = useState("");
+  const [explorerPersonMenuOpen, setExplorerPersonMenuOpen] = useState(false);
+  const availablePeople = useMemo(() => graph?.nodes.filter((node) => node.type === "Person") ?? [], [graph]);
+  const normalizedExplorerSearch = normalizeSearchText(explorerPersonSearch.trim());
+  const visibleExplorerPeople = normalizedExplorerSearch
+    ? availablePeople.filter((person) => person.id === explorerPersonId
+      || normalizeSearchText(String(person.properties.display_name ?? person.id)).includes(normalizedExplorerSearch))
+    : availablePeople;
+  useEffect(() => {
+    if (!focusedPersonIds.includes(reviewPersonId)) setReviewPersonId(focusedPersonIds[0] ?? "");
+  }, [focusedPersonIds, reviewPersonId]);
+  const reviewGraph = useMemo(() => graph ? focusedSubgraph(graph, reviewPersonId ? [reviewPersonId] : []) : null, [graph, reviewPersonId]);
+  const reviewTimeline = useMemo(() => graph ? timelineSubgraph(graph, reviewPersonId) : null, [graph, reviewPersonId]);
+  const explorerGraph = useMemo(() => graph ? focusedSubgraph(graph, explorerPersonId ? [explorerPersonId] : []) : null, [graph, explorerPersonId]);
+  const explorerTimeline = useMemo(() => graph ? timelineSubgraph(graph, explorerPersonId) : null, [graph, explorerPersonId]);
+  const visibleGraph = variant === "explorer"
+    ? viewMode === "timeline" ? explorerTimeline : explorerGraph
+    : viewMode === "timeline" ? reviewTimeline : reviewGraph;
   const selected = visibleGraph?.nodes.find((node) => node.id === selectedId) ?? null;
   const claims = visibleGraph?.nodes.filter((node) => node.type === "ClaimEvent" || node.type === "RelationClaim") ?? [];
   const selectedPerson = selected?.type === "ClaimEvent" && visibleGraph
@@ -237,15 +285,57 @@ export function GraphView({ graph, focusedPersonIds, onReconcile }: Props) {
 
   return <div className="graph-layout">
     <section className="graph-visual" aria-label="Visualização do LifeGraph">
-      <div className="graph-toolbar" role="group" aria-label="Modo de visualização do grafo">
+      {variant === "review" ? <>
+      {focusedPersonIds.length > 0 && <label className="graph-person-selector">Pessoa da revisão<select value={reviewPersonId} onChange={(event) => setReviewPersonId(event.target.value)}>{focusedPersonIds.map((personId) => {
+        const person = graph?.nodes.find((node) => node.type === "Person" && node.id === personId);
+        return <option key={personId} value={personId}>{String(person?.properties.display_name ?? personId)}</option>;
+      })}</select></label>}
+      <div className="graph-toolbar" role="group" aria-label="Modo de visualização do grafo da revisão">
         <button type="button" className={viewMode === "focus" ? "view-mode active" : "view-mode"} aria-pressed={viewMode === "focus"} onClick={() => setViewMode("focus")}>Foco da revisão</button>
-        <button type="button" className={viewMode === "graph" ? "view-mode active" : "view-mode"} aria-pressed={viewMode === "graph"} onClick={() => setViewMode("graph")}>Grafo relacional</button>
         <button type="button" className={viewMode === "timeline" ? "view-mode active" : "view-mode"} aria-pressed={viewMode === "timeline"} onClick={() => setViewMode("timeline")}>Linha do tempo</button>
       </div>
-      {viewMode === "focus" && focusedPersonIds.length === 0 && <p className="timeline-note">Selecione uma pessoa em um candidato extraído para visualizar somente seu subgrafo.</p>}
-      {viewMode === "focus" && focusedPersonIds.length > 0 && <p className="timeline-note">Exibindo as pessoas selecionadas na revisão e seus eventos, narrativas e evidências relacionados.</p>}
-      {viewMode === "timeline" && <p className="timeline-note">A ordem usa datas normalizadas. Eventos sem data normalizada aparecem em uma coluna própria.</p>}
-      <div ref={container} className="graph-canvas" role="img" aria-label={viewMode === "timeline" ? "Linha do tempo dos eventos do LifeGraph" : viewMode === "focus" ? "Subgrafo das pessoas selecionadas na revisão" : "Grafo LifeGraph com tipos identificados por forma, texto e cor"} />
+      {viewMode === "focus" && focusedPersonIds.length === 0 && <p className="timeline-note">Selecione uma pessoa em um evento extraído para visualizar somente seu subgrafo.</p>}
+      {viewMode === "focus" && focusedPersonIds.length > 0 && <p className="timeline-note">Exibindo a pessoa escolhida e seus eventos, narrativas e evidências relacionados.</p>}
+      {viewMode === "timeline" && <p className="timeline-note">Os eventos da pessoa escolhida são ordenados cronologicamente, da esquerda para a direita. Eventos sem data normalizada aparecem ao final.</p>}
+      </> : <>
+        <div className="person-combobox graph-person-selector">
+          <label>Selecionar pessoa
+            <span className="combobox-input-wrap">
+              <input
+                type="search"
+                value={explorerPersonSearch}
+                onFocus={() => setExplorerPersonMenuOpen(true)}
+                onChange={(event) => {
+                  setExplorerPersonSearch(event.target.value);
+                  setExplorerPersonId("");
+                  setExplorerPersonMenuOpen(true);
+                }}
+                placeholder="Selecione ou digite um nome"
+                autoComplete="off"
+                role="combobox"
+                aria-expanded={explorerPersonMenuOpen}
+                aria-controls="graph-person-options"
+              />
+              <button type="button" className="combobox-toggle" aria-label="Mostrar lista de pessoas" aria-expanded={explorerPersonMenuOpen} onClick={() => setExplorerPersonMenuOpen((open) => !open)}>⌄</button>
+            </span>
+          </label>
+          {explorerPersonMenuOpen && <div id="graph-person-options" className="person-options" role="listbox" aria-label="Pessoas disponíveis">
+            {visibleExplorerPeople.length > 0 ? visibleExplorerPeople.map((person) => <button key={person.id} type="button" role="option" aria-selected={person.id === explorerPersonId} onClick={() => {
+              setExplorerPersonId(person.id);
+              setExplorerPersonSearch(String(person.properties.display_name ?? person.id));
+              setExplorerPersonMenuOpen(false);
+            }}><strong>{String(person.properties.display_name ?? person.id)}</strong></button>) : <p>Nenhuma pessoa encontrada.</p>}
+          </div>}
+        </div>
+        <div className="graph-toolbar" role="group" aria-label="Modo de visualização do grafo da pessoa selecionada">
+          <button type="button" className={viewMode === "focus" ? "view-mode active" : "view-mode"} aria-pressed={viewMode === "focus"} onClick={() => setViewMode("focus")}>Grafo relacional</button>
+          <button type="button" className={viewMode === "timeline" ? "view-mode active" : "view-mode"} aria-pressed={viewMode === "timeline"} onClick={() => setViewMode("timeline")}>Linha do tempo</button>
+        </div>
+        {!explorerPersonId && <p className="timeline-note">Escolha uma pessoa para visualizar seu grafo relacional completo.</p>}
+        {explorerPersonId && viewMode === "focus" && <p className="timeline-note">Exibindo as declarações, relações e evidências vinculadas à pessoa selecionada.</p>}
+        {explorerPersonId && viewMode === "timeline" && <p className="timeline-note">Os eventos civis são ordenados cronologicamente, da esquerda para a direita. Eventos sem data normalizada aparecem ao final.</p>}
+      </>}
+      <div ref={container} className="graph-canvas" role="img" aria-label={viewMode === "timeline" ? "Linha do tempo da pessoa selecionada" : variant === "explorer" ? "Grafo relacional da pessoa selecionada" : "Subgrafo da pessoa selecionada na revisão"} />
       <div className="graph-legends" aria-label="Legenda do grafo">
         <section><h4>Tipos de nó</h4><ul>
           <li><span className="node-key person" />Pessoa</li><li><span className="node-key claim" />Declaração de evento</li><li><span className="node-key relation-claim" />RelationClaim</li><li><span className="node-key ref" />Evento REF</li><li><span className="node-key conversation" />Narrativa</li><li><span className="node-key evidence" />Evidência</li>
@@ -275,7 +365,7 @@ export function GraphView({ graph, focusedPersonIds, onReconcile }: Props) {
         {selected.type === "ClaimEvent" && <dl>
           <div><dt>Pessoa</dt><dd>{String(selectedPerson?.properties.display_name ?? "—")}</dd></div>
           <div><dt>Origem</dt><dd>{String(selected.properties.origin ?? "—")}</dd></div>
-          <div><dt>Status</dt><dd><span className={`inline-status ${String(selected.properties.verification_status ?? "").toLowerCase()}`}>{String(selected.properties.verification_status ?? "—")}</span></dd></div>
+          <div><dt>Status</dt><dd><span className={`inline-status ${String(selected.properties.verification_status ?? "").toLowerCase()}`}>{displayVerificationStatus(selected.properties.verification_status ?? "—")}</span></dd></div>
           <div className="provenance-wide"><dt>Narrativa original</dt><dd>“{String(selectedConversation?.properties.text ?? "—")}”</dd></div>
           <div><dt>Expressão temporal original</dt><dd>{String(selected.properties.original_date_expression ?? "Não informada")}</dd></div>
           <div><dt>Data normalizada</dt><dd>{selected.properties.claimed_date_start && selected.properties.claimed_date_end
@@ -293,7 +383,7 @@ export function GraphView({ graph, focusedPersonIds, onReconcile }: Props) {
           <div><dt>Endpoint B</dt><dd>{String(selectedRelationEndpointB?.properties.display_name ?? "—")}</dd></div>
           <div><dt>Tipo declarado</dt><dd>{String(selected.properties.relation_type ?? "—")}</dd></div>
           <div><dt>Origem</dt><dd>{String(selected.properties.origin ?? "—")}</dd></div>
-          <div><dt>Status</dt><dd><span className="inline-status declared">{String(selected.properties.verification_status ?? "DECLARED")}</span></dd></div>
+          <div><dt>Status</dt><dd><span className="inline-status declared">{displayVerificationStatus(selected.properties.verification_status ?? "DECLARED")}</span></dd></div>
           <div className="provenance-wide"><dt>Narrativa original</dt><dd>“{String(selectedRelationConversation?.properties.text ?? selected.properties.source_text ?? "—")}”</dd></div>
           <div><dt>Evidência aceita</dt><dd>{String(selected.properties.accepted_relation_surface ?? "—")}</dd></div>
           <div><dt>Evidência original</dt><dd>{String(selected.properties.original_relation_surface ?? "—")}</dd></div>
@@ -301,7 +391,7 @@ export function GraphView({ graph, focusedPersonIds, onReconcile }: Props) {
           <div><dt>Família estrutural</dt><dd>{String(selected.properties.canonical_relation_family ?? "—")}</dd></div>
           <div className="provenance-wide technical-identity"><dt>Claim ID</dt><dd><code>{selected.id}</code></dd></div>
           <div className="provenance-wide technical-identity"><dt>ConversationTurn</dt><dd><code>{selectedRelationConversation?.id ?? "—"}</code></dd></div>
-          <div className="provenance-wide technical-identity"><dt>Review / candidato</dt><dd><code>{String(selected.properties.review_id ?? "—")} / {String(selected.properties.candidate_id ?? "—")}</code></dd></div>
+          <div className="provenance-wide technical-identity"><dt>Revisão / extração</dt><dd><code>{String(selected.properties.review_id ?? "—")} / {String(selected.properties.candidate_id ?? "—")}</code></dd></div>
           <div className="provenance-wide technical-identity"><dt>Pipeline / configuração</dt><dd><code>{String(selected.properties.pipeline_id ?? "—")} / {String(selected.properties.configuration_hash ?? "—")}</code></dd></div>
           <div className="provenance-wide technical-identity"><dt>Canonical pair key</dt><dd><code>{String(selected.properties.canonical_pair_key ?? "—")}</code></dd></div>
         </dl>}

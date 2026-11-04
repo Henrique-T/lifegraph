@@ -1,3 +1,5 @@
+"""Application service for extraction review, acceptance, and rejection."""
+
 import asyncio
 import hashlib
 import json
@@ -25,6 +27,7 @@ class ExtractionService:
     """Owns ephemeral reviews; graph writes exist only in explicit accept()."""
 
     def __init__(self, client: ExtractionClient, repository: GraphRepository) -> None:
+        """Initialize ephemeral review state and persistence dependencies."""
         self._client = client
         self._repository = repository
         self._reviews: dict[str, ExtractionReview] = {}
@@ -32,6 +35,7 @@ class ExtractionService:
         self._lock = asyncio.Lock()
 
     async def extract(self, request: ExtractionRequest) -> ExtractionReview:
+        """Create an expiring review without writing to the graph."""
         result = await self._client.extract(request.text)
         now = datetime.now(timezone.utc)
         review = ExtractionReview(
@@ -53,6 +57,7 @@ class ExtractionService:
         return review
 
     async def get_review(self, extraction_id: str) -> ExtractionReview:
+        """Return an active review or fail when it is absent or expired."""
         async with self._lock:
             review = self._reviews.get(extraction_id)
             if review is None or review.expires_at <= datetime.now(timezone.utc):
@@ -63,6 +68,7 @@ class ExtractionService:
     async def accept(
         self, extraction_id: str, candidate_id: str, request: CandidateAcceptanceRequest
     ) -> CandidateAcceptanceResult:
+        """Persist one explicitly bound and reviewed candidate idempotently."""
         review = await self.get_review(extraction_id)
         candidate = next((c for c in review.candidates if c.candidate_id == candidate_id), None)
         if candidate is None:
@@ -134,6 +140,7 @@ class ExtractionService:
         return accepted
 
     async def reject(self, extraction_id: str, candidate_id: str) -> CandidateRejectionResult:
+        """Reject a pending candidate without mutating the graph."""
         await self.get_review(extraction_id)
         key = (extraction_id, candidate_id)
         async with self._lock:

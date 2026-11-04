@@ -1,7 +1,10 @@
+"""Test model mapping."""
+
 from app.model import map_raw_output, normalize_year
 
 
 def test_maps_allowed_event_and_preserves_model_metadata() -> None:
+    """Verify maps allowed event and preserves model metadata."""
     text = "Eu me casei com Ana em 2019."
     raw = {
         "entities": {
@@ -27,6 +30,7 @@ def test_maps_allowed_event_and_preserves_model_metadata() -> None:
 
 
 def test_unknown_event_label_is_ignored() -> None:
+    """Verify unknown event label is ignored."""
     result = map_raw_output(
         "texto",
         {
@@ -42,11 +46,13 @@ def test_unknown_event_label_is_ignored() -> None:
 
 
 def test_negative_empty_model_output_has_no_event() -> None:
+    """Verify negative empty model output has no event."""
     result = map_raw_output("Fui ao supermercado em 2019.", {"entities": {}}, 1.0)
     assert result.extracted_events == []
 
 
 def test_only_plain_year_is_deterministically_normalized() -> None:
+    """Verify only plain year is deterministically normalized."""
     assert normalize_year("2019").temporal_precision == "YEAR"
     assert normalize_year("por volta de 2019") is None
     assert normalize_year("março de 2019") is None

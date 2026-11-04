@@ -1,3 +1,5 @@
+"""Read-only HTTP integration with the external REF service."""
+
 from uuid import UUID
 
 import httpx
@@ -8,27 +10,27 @@ from app.ref.schemas import RefPersonSummary, RefTrailEvent
 
 
 class RefIntegrationError(Exception):
-    pass
+    """Base error raised by the REF integration boundary."""
 
 
 class RefNotConfiguredError(RefIntegrationError):
-    pass
+    """Raised when REF authentication is not configured."""
 
 
 class RefPersonNotFoundError(RefIntegrationError):
-    pass
+    """Raised when REF does not contain the requested person."""
 
 
 class RefAuthenticationError(RefIntegrationError):
-    pass
+    """Raised when REF rejects the configured credentials."""
 
 
 class RefUnavailableError(RefIntegrationError):
-    pass
+    """Raised when REF cannot serve a request."""
 
 
 class RefMalformedResponseError(RefIntegrationError):
-    pass
+    """Raised when REF output violates the expected schema."""
 
 
 class RefClient:
@@ -40,6 +42,7 @@ class RefClient:
         *,
         transport: httpx.AsyncBaseTransport | None = None,
     ) -> None:
+        """Configure the authenticated, read-only REF client."""
         self._token = settings.ref_bearer_token
         self._client = httpx.AsyncClient(
             base_url=str(settings.ref_base_url).rstrip("/"),
@@ -48,11 +51,13 @@ class RefClient:
         )
 
     def _authorization_headers(self) -> dict[str, str]:
+        """Build the required bearer authorization header."""
         if not self._token:
             raise RefNotConfiguredError("REF bearer token is not configured")
         return {"Authorization": f"Bearer {self._token}"}
 
     async def list_people(self, limit: int = 50) -> list[RefPersonSummary]:
+        """List the most recently available REF people up to the limit."""
         try:
             response = await self._client.get(
                 "/pessoas/recent",
@@ -72,6 +77,7 @@ class RefClient:
             raise RefMalformedResponseError("REF returned a malformed person list") from exc
 
     async def get_person_trail(self, ref_person_id: UUID) -> list[RefTrailEvent]:
+        """Retrieve the canonical civil trail for one REF identity."""
         try:
             response = await self._client.get(
                 f"/pessoas/{ref_person_id}/trilha",
@@ -92,4 +98,5 @@ class RefClient:
             raise RefMalformedResponseError("REF returned a malformed trail") from exc
 
     async def close(self) -> None:
+        """Release HTTP resources."""
         await self._client.aclose()

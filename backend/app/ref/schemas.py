@@ -1,3 +1,5 @@
+"""Validated schemas exchanged with the external REF service."""
+
 from datetime import date, datetime
 from uuid import UUID
 
@@ -5,6 +7,7 @@ from pydantic import BaseModel, ConfigDict
 
 
 class RefTrailEvent(BaseModel):
+    """Civil-trail event returned by REF."""
     model_config = ConfigDict(extra="ignore")
 
     id_ato: UUID
@@ -15,6 +18,7 @@ class RefTrailEvent(BaseModel):
 
 
 class RefPersonSummary(BaseModel):
+    """Minimal REF person record used for explicit selection."""
     model_config = ConfigDict(extra="ignore")
 
     id_pessoa: UUID
@@ -24,12 +28,14 @@ class RefPersonSummary(BaseModel):
 
 
 class RefImportRequest(BaseModel):
+    """Explicit request to import one known REF identity."""
     model_config = ConfigDict(extra="forbid")
 
     ref_person_id: UUID
 
 
 class IgnoredRefEvent(BaseModel):
+    """Unsupported REF event reported without persistence."""
     id_ato: UUID
     tipo: str
     papel: str
@@ -37,6 +43,7 @@ class IgnoredRefEvent(BaseModel):
 
 
 class RefImportResult(BaseModel):
+    """Summary of an idempotent REF trail import."""
     person_id: str
     ref_person_id: UUID
     retrieved_events: int

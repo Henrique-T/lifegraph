@@ -1,3 +1,5 @@
+"""Unit tests for deterministic reconciliation rules."""
+
 from datetime import datetime, timezone
 
 from app.domain.schemas import ClaimEventRead, RefEventRead
@@ -14,6 +16,7 @@ def claim(
     end: str | None = "2019-12-31T23:59:59Z",
     precision: str = "YEAR",
 ) -> ClaimEventRead:
+    """Create a claim fixture for the test."""
     return ClaimEventRead(
         claim_event_id="claim",
         event_type=event_type,
@@ -32,6 +35,7 @@ def ref(
     *,
     event_type: str = "casamento",
 ) -> RefEventRead:
+    """Create a ref fixture for the test."""
     return RefEventRead(
         ref_event_id=ref_id,
         external_ref_id=f"external-{ref_id}",
@@ -44,6 +48,7 @@ def ref(
 
 
 def test_exact_day_match_is_confirmed() -> None:
+    """Verify exact day match is confirmed."""
     decision = reconcile_candidates(
         claim(
             start="2019-06-15T00:00:00Z",
@@ -57,24 +62,28 @@ def test_exact_day_match_is_confirmed() -> None:
 
 
 def test_year_interval_match_is_confirmed() -> None:
+    """Verify year interval match is confirmed."""
     decision = reconcile_candidates(claim(), [ref("one", "2019-06-15T00:00:00Z")])
     assert decision.status.value == "CONFIRMED"
     assert ReasonCode.EVENT_DATE_WITHIN_CLAIM_INTERVAL in decision.reason_codes
 
 
 def test_date_outside_interval_is_divergent_with_specific_event() -> None:
+    """Verify date outside interval is divergent with specific event."""
     decision = reconcile_candidates(claim(), [ref("one", "2021-03-01T00:00:00Z")])
     assert decision.status.value == "DIVERGENT"
     assert decision.contradictory_ref_event_ids == ["one"]
 
 
 def test_no_same_type_candidate_is_unverified() -> None:
+    """Verify no same type candidate is unverified."""
     decision = reconcile_candidates(claim(), [])
     assert decision.status.value == "UNVERIFIED"
     assert decision.reason_codes == [ReasonCode.NO_MATCHING_REF_EVENT_TYPE]
 
 
 def test_claim_without_date_is_unverified() -> None:
+    """Verify claim without date is unverified."""
     decision = reconcile_candidates(
         claim(start=None, end=None, precision="UNKNOWN"),
         [ref("one", "2019-06-15T00:00:00Z")],
@@ -84,11 +93,13 @@ def test_claim_without_date_is_unverified() -> None:
 
 
 def test_ref_without_event_date_is_unverified() -> None:
+    """Verify ref without event date is unverified."""
     decision = reconcile_candidates(claim(), [ref("one", None)])
     assert decision.status.value == "UNVERIFIED"
 
 
 def test_multiple_candidates_with_one_match_confirms_unique_candidate() -> None:
+    """Verify multiple candidates with one match confirms unique candidate."""
     decision = reconcile_candidates(
         claim(),
         [ref("outside", "2018-01-01T00:00:00Z"), ref("inside", "2019-07-01T00:00:00Z")],
@@ -99,6 +110,7 @@ def test_multiple_candidates_with_one_match_confirms_unique_candidate() -> None:
 
 
 def test_multiple_compatible_candidates_are_ambiguous() -> None:
+    """Verify multiple compatible candidates are ambiguous."""
     decision = reconcile_candidates(
         claim(),
         [ref("one", "2019-01-01T00:00:00Z"), ref("two", "2019-12-01T00:00:00Z")],
@@ -108,6 +120,7 @@ def test_multiple_compatible_candidates_are_ambiguous() -> None:
 
 
 def test_multiple_known_dates_with_zero_matches_are_divergent_collectively() -> None:
+    """Verify multiple known dates with zero matches are divergent collectively."""
     decision = reconcile_candidates(
         claim(),
         [ref("one", "2017-01-01T00:00:00Z"), ref("two", "2021-01-01T00:00:00Z")],
@@ -118,6 +131,7 @@ def test_multiple_known_dates_with_zero_matches_are_divergent_collectively() -> 
 
 
 def test_unknown_date_prevents_collective_divergence() -> None:
+    """Verify unknown date prevents collective divergence."""
     decision = reconcile_candidates(
         claim(), [ref("outside", "2021-01-01T00:00:00Z"), ref("unknown", None)]
     )
@@ -125,6 +139,7 @@ def test_unknown_date_prevents_collective_divergence() -> None:
 
 
 def test_event_type_mismatch_is_not_a_candidate() -> None:
+    """Verify event type mismatch is not a candidate."""
     decision = reconcile_candidates(
         claim(event_type="casamento"),
         [ref("birth", "2019-06-15T00:00:00Z", event_type="nascimento")],

@@ -1,3 +1,5 @@
+"""Integration tests for reconciliation persistence and isolation."""
+
 import asyncio
 from datetime import datetime, timezone
 from uuid import uuid4
@@ -16,10 +18,12 @@ UTC = timezone.utc
 
 @pytest.mark.integration
 def test_reconciliation_persistence_refresh_and_cross_person_isolation() -> None:
+    """Verify reconciliation persistence refresh and cross person isolation."""
     asyncio.run(_run())
 
 
 async def _run() -> None:
+    """Run the asynchronous test scenario."""
     client = Neo4jClient(get_settings())
     await client.initialize_schema()
     repository = GraphRepository(client.driver)
@@ -29,11 +33,13 @@ async def _run() -> None:
     suffix = str(uuid4())
 
     async def new_person(name: str):
+        """Create a person for the scenario."""
         item = await repository.create_person(PersonCreate(display_name=name))
         object_ids.append(item.person_id)
         return item
 
     async def new_claim(person, year: int):
+        """Create a claim for the scenario."""
         item = await repository.create_claim_event(
             ClaimEventCreate(
                 event_type="casamento",
@@ -48,6 +54,7 @@ async def _run() -> None:
         return item
 
     async def new_ref(person, label: str, year: int):
+        """Create a ref for the scenario."""
         item = await repository.create_ref_event(
             RefEventCreate(
                 external_ref_id=f"reconciliation-{suffix}-{label}",

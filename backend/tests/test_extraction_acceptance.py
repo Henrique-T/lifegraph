@@ -1,3 +1,5 @@
+"""Unit tests for explicit extraction acceptance and rejection."""
+
 import asyncio
 from unittest.mock import AsyncMock
 
@@ -16,6 +18,7 @@ from app.graph.repository import DomainConflictError, DomainNotFoundError
 
 
 def pipeline(subject="__NARRATOR__", resolution="RESOLVED"):
+    """Create a pipeline fixture for the test."""
     return PipelineExtractionResult(
         source_text="Eu me casei com Ana em 2019.", model_id="fastino/gliner2.5-multi-v1",
         model_revision="aaecfe45db1d828c963717054ccb868e8ad1f1d5",
@@ -32,6 +35,7 @@ def pipeline(subject="__NARRATOR__", resolution="RESOLVED"):
 
 
 def make_service(result=None):
+    """Exercise the make service helper."""
     client, repository = AsyncMock(), AsyncMock()
     client.extract.return_value = result or pipeline()
     repository.get_person.return_value = PersonRead(person_id="person-1", display_name="Ana", created_at="2026-01-01T00:00:00Z")
@@ -45,7 +49,9 @@ def make_service(result=None):
 
 
 def test_accept_is_explicit_declared_conversation_and_idempotent():
+    """Verify accept is explicit declared conversation and idempotent."""
     async def run():
+        """Run the asynchronous test scenario."""
         service, repo = make_service()
         review = await service.extract(ExtractionRequest(text="Eu me casei com Ana em 2019."))
         candidate = review.candidates[0]
@@ -60,7 +66,9 @@ def test_accept_is_explicit_declared_conversation_and_idempotent():
 
 
 def test_conflicting_reaccept_is_rejected():
+    """Verify conflicting reaccept is rejected."""
     async def run():
+        """Run the asynchronous test scenario."""
         service, repo = make_service()
         review = await service.extract(ExtractionRequest(text="x")); candidate = review.candidates[0]
         repo.accept_extraction_candidate.return_value.update(extraction_id=review.extraction_id, candidate_id=candidate.candidate_id)
@@ -71,7 +79,9 @@ def test_conflicting_reaccept_is_rejected():
 
 
 def test_reject_is_graph_noop_and_unknown_person_blocks_acceptance():
+    """Verify reject is graph noop and unknown person blocks acceptance."""
     async def run():
+        """Run the asynchronous test scenario."""
         service, repo = make_service(pipeline(None, "UNRESOLVED"))
         review = await service.extract(ExtractionRequest(text="x")); candidate = review.candidates[0]
         rejected = await service.reject(review.extraction_id, candidate.candidate_id)
@@ -88,6 +98,7 @@ def test_reject_is_graph_noop_and_unknown_person_blocks_acceptance():
 
 
 def test_corrections_are_explicit_and_origin_status_are_forbidden():
+    """Verify corrections are explicit and origin status are forbidden."""
     with pytest.raises(Exception):
         CandidateAcceptanceRequest.model_validate({"person_id":"p", "origin":"REF"})
     with pytest.raises(Exception):

@@ -2,8 +2,8 @@
 
 LifeGraph uses the approved Portuguese candidate pipeline `LIFEGRAPH_PT_CIVIL_V1`:
 
-1. frozen `B_LINGUISTIC_EVENT_SPANS` detects civil-event mentions;
-2. frozen `S1C_CONSERVATIVE_GUARDS` associates subjects, participants, and dates conservatively.
+1. a frozen linguistic detector identifies civil-event mentions;
+2. frozen deterministic safety guards associate subjects, participants, and dates conservatively.
 
 AI output is untrusted candidate data. The three boundaries are intentionally separate:
 

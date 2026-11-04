@@ -1,3 +1,5 @@
+"""Neo4j persistence operations for LifeGraph domain entities."""
+
 import json
 import logging
 from datetime import datetime, timezone
@@ -49,27 +51,32 @@ REASON_DESCRIPTIONS = {
 
 
 class DomainNotFoundError(Exception):
-    pass
+    """Raised when a requested graph entity does not exist."""
 
 
 class DomainConflictError(Exception):
-    pass
+    """Raised when a write conflicts with existing domain state."""
 
 
 class DomainPersistenceError(Exception):
-    pass
+    """Raised when Neo4j cannot complete a persistence operation."""
 
 
 def _new_id() -> str:
+    """Generate an application-owned UUID identifier."""
     return str(uuid4())
 
 
 def _utc_now() -> str:
+    """Return the current UTC timestamp in ISO 8601 format."""
     return datetime.now(timezone.utc).isoformat()
 
 
 class GraphRepository:
+    """Persist and retrieve LifeGraph nodes and relationships."""
+
     def __init__(self, driver: AsyncDriver) -> None:
+        """Initialize the repository with a Neo4j driver."""
         self._driver = driver
 
     async def _create_node(
@@ -80,6 +87,7 @@ class GraphRepository:
         values: dict[str, Any],
         read_model: type[ReadModel],
     ) -> ReadModel:
+        """Create a validated node and return its properties."""
         properties = {id_field: _new_id(), "created_at": _utc_now(), **values}
         query = f"CREATE (n:{label} $properties) RETURN properties(n) AS node"
         try:
@@ -103,6 +111,7 @@ class GraphRepository:
         object_id: str,
         read_model: type[ReadModel],
     ) -> ReadModel:
+        """Read one node by its application identifier."""
         query = (
             f"MATCH (n:{label} {{{id_field}: $object_id}}) "
             "RETURN properties(n) AS node"
@@ -113,6 +122,7 @@ class GraphRepository:
         return read_model.model_validate(records[0]["node"])
 
     async def create_person(self, data: PersonCreate) -> PersonRead:
+        """Create a person with an application-owned identifier."""
         return await self._create_node(
             label="Person",
             id_field="person_id",
@@ -121,6 +131,7 @@ class GraphRepository:
         )
 
     async def get_person(self, person_id: str) -> PersonRead:
+        """Read one person by identifier."""
         return await self._get_node(
             label="Person",
             id_field="person_id",
@@ -129,6 +140,7 @@ class GraphRepository:
         )
 
     async def list_persons(self) -> list[PersonRead]:
+        """List people in display-name order."""
         records, _, _ = await self._driver.execute_query(
             """
             MATCH (person:Person)
@@ -141,6 +153,7 @@ class GraphRepository:
     async def bind_external_ref_person(
         self, person_id: str, external_ref_person_id: str
     ) -> PersonRead:
+        """Bind one LifeGraph person to one explicit REF identity."""
         query = """
         MATCH (person:Person {person_id: $person_id})
         OPTIONAL MATCH (other:Person {external_ref_person_id: $external_ref_person_id})
@@ -173,6 +186,7 @@ class GraphRepository:
     async def create_conversation_turn(
         self, data: ConversationTurnCreate
     ) -> ConversationTurnRead:
+        """Persist a conversation turn."""
         return await self._create_node(
             label="ConversationTurn",
             id_field="conversation_turn_id",
@@ -183,6 +197,7 @@ class GraphRepository:
     async def get_conversation_turn(
         self, conversation_turn_id: str
     ) -> ConversationTurnRead:
+        """Read one conversation turn."""
         return await self._get_node(
             label="ConversationTurn",
             id_field="conversation_turn_id",
@@ -321,6 +336,7 @@ class GraphRepository:
         )
 
     async def create_claim_event(self, data: ClaimEventCreate) -> ClaimEventRead:
+        """Persist a conversational claim event."""
         return await self._create_node(
             label="ClaimEvent",
             id_field="claim_event_id",
@@ -329,6 +345,7 @@ class GraphRepository:
         )
 
     async def get_claim_event(self, claim_event_id: str) -> ClaimEventRead:
+        """Read one claim event."""
         return await self._get_node(
             label="ClaimEvent",
             id_field="claim_event_id",
@@ -352,6 +369,7 @@ class GraphRepository:
         payload_hash: str,
         speaker: Any,
     ) -> dict[str, Any]:
+        """Atomically persist an accepted candidate and its provenance."""
         accepted_key = f"{extraction_id}:{candidate_id}"
         claim_id = _new_id()
         turn_id = _new_id()
@@ -433,6 +451,7 @@ class GraphRepository:
         }
 
     async def create_ref_event(self, data: RefEventCreate) -> RefEventRead:
+        """Persist a REF event."""
         return await self._create_node(
             label="RefEvent",
             id_field="ref_event_id",
@@ -443,6 +462,7 @@ class GraphRepository:
     async def upsert_imported_ref_event(
         self, data: RefEventCreate
     ) -> tuple[RefEventRead, bool]:
+        """Create an imported REF event or return its existing node."""
         properties = {
             "ref_event_id": _new_id(),
             "created_at": _utc_now(),
@@ -479,6 +499,7 @@ class GraphRepository:
     async def get_reconciliation_context(
         self, claim_event_id: str
     ) -> tuple[ClaimEventRead, list[RefEventRead]]:
+        """Load a claim and same-person REF candidates of the same type."""
         query = """
         MATCH (claim:ClaimEvent {claim_event_id: $claim_event_id})
         OPTIONAL MATCH (person:Person)-[:SUBJECT_OF]->(claim)
@@ -504,6 +525,7 @@ class GraphRepository:
     async def persist_reconciliation(
         self, claim_event_id: str, decision: ReconciliationDecision
     ) -> ReconciliationResult:
+        """Persist a deterministic reconciliation decision idempotently."""
         reconciled_at = _utc_now()
         evidence_specs = []
         for reason in decision.reason_codes:
@@ -533,6 +555,7 @@ class GraphRepository:
             )
 
         async def write_reconciliation(tx):
+            """Apply one reconciliation update inside a transaction."""
             claim_result = await tx.run(
                 """
                 MATCH (claim:ClaimEvent {claim_event_id: $claim_event_id})
@@ -641,6 +664,7 @@ class GraphRepository:
     async def get_reconciliation_result(
         self, claim_event_id: str
     ) -> ReconciliationResult:
+        """Read the current persisted reconciliation metadata."""
         claim = await self.get_claim_event(claim_event_id)
         records, _, _ = await self._driver.execute_query(
             """
@@ -665,6 +689,7 @@ class GraphRepository:
         )
 
     async def get_ref_event(self, ref_event_id: str) -> RefEventRead:
+        """Read one REF event."""
         return await self._get_node(
             label="RefEvent",
             id_field="ref_event_id",
@@ -673,6 +698,7 @@ class GraphRepository:
         )
 
     async def create_evidence(self, data: EvidenceCreate) -> EvidenceRead:
+        """Persist an evidence node."""
         return await self._create_node(
             label="Evidence",
             id_field="evidence_id",
@@ -681,6 +707,7 @@ class GraphRepository:
         )
 
     async def get_evidence(self, evidence_id: str) -> EvidenceRead:
+        """Read one evidence node."""
         return await self._get_node(
             label="Evidence",
             id_field="evidence_id",
@@ -700,6 +727,7 @@ class GraphRepository:
         target_id: str,
         properties: dict[str, Any] | None = None,
     ) -> RelationshipRead:
+        """Create an allow-listed relationship between existing nodes."""
         query = (
             f"MATCH (source:{source_label} {{{source_field}: $source_id}}) "
             f"MATCH (target:{target_label} {{{target_field}: $target_id}}) "
@@ -731,6 +759,7 @@ class GraphRepository:
     async def link_person_claim(
         self, person_id: str, claim_event_id: str
     ) -> RelationshipRead:
+        """Link a claim to its explicitly selected person."""
         return await self._create_relationship(
             source_label="Person",
             source_field="person_id",
@@ -744,6 +773,7 @@ class GraphRepository:
     async def link_claim_source(
         self, claim_event_id: str, conversation_turn_id: str
     ) -> RelationshipRead:
+        """Link a claim to its source conversation turn."""
         return await self._create_relationship(
             source_label="ClaimEvent",
             source_field="claim_event_id",
@@ -757,6 +787,7 @@ class GraphRepository:
     async def link_person_ref_event(
         self, person_id: str, ref_event_id: str, role: str
     ) -> RelationshipRead:
+        """Link a person to a REF event with a registral role."""
         return await self._create_relationship(
             source_label="Person",
             source_field="person_id",
@@ -771,6 +802,7 @@ class GraphRepository:
     async def link_evidence_claim(
         self, evidence_id: str, claim_event_id: str
     ) -> RelationshipRead:
+        """Link evidence to a claim."""
         return await self._create_relationship(
             source_label="Evidence",
             source_field="evidence_id",
@@ -784,6 +816,7 @@ class GraphRepository:
     async def link_evidence_ref_event(
         self, evidence_id: str, ref_event_id: str
     ) -> RelationshipRead:
+        """Link evidence to a REF event."""
         return await self._create_relationship(
             source_label="Evidence",
             source_field="evidence_id",
@@ -797,6 +830,7 @@ class GraphRepository:
     async def link_claim_ref_event(
         self, claim_event_id: str, ref_event_id: str, relationship: str
     ) -> RelationshipRead:
+        """Link a claim to supporting or contradicting REF evidence."""
         if relationship not in {"SUPPORTED_BY", "CONTRADICTS"}:
             raise ValueError("Unsupported explicit claim relationship")
         return await self._create_relationship(
@@ -810,6 +844,7 @@ class GraphRepository:
         )
 
     async def get_graph(self) -> GraphRead:
+        """Return supported nodes and relationships for visualization."""
         node_query = """
         MATCH (n)
         WHERE any(label IN labels(n) WHERE label IN $labels)

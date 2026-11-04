@@ -19,10 +19,12 @@ ENDPOINT = "http://localhost:8200/calibration/extract"
 
 
 def normalized(text):
+    """Normalize text for deterministic span comparison."""
     return " ".join(text.casefold().split()) if isinstance(text, str) else None
 
 
 def validate_benchmark(data):
+    """Validate the structure and offsets of the calibration benchmark."""
     assert data["ground_truth_source"] == "human_specified_before_primary_model_runs"
     assert 30 <= len(data["cases"]) <= 40
     ids = set()
@@ -37,6 +39,7 @@ def validate_benchmark(data):
 
 
 def call(config_id, text):
+    """Request extraction with one immutable calibration configuration."""
     body = json.dumps({"configuration_id": config_id, "text": text}, ensure_ascii=False).encode("utf-8")
     request = urllib.request.Request(ENDPOINT, data=body, headers={"Content-Type": "application/json"}, method="POST")
     with urllib.request.urlopen(request, timeout=180) as response:
@@ -44,6 +47,7 @@ def call(config_id, text):
 
 
 def match_events(expected, detected):
+    """Match expected and detected events by type and trigger overlap."""
     remaining = list(enumerate(detected))
     pairs, missed = [], []
     for exp in expected:
@@ -57,6 +61,7 @@ def match_events(expected, detected):
 
 
 def score(cases):
+    """Aggregate event, subject, date, and participant metrics."""
     tp = fp = fn = subject_total = subject_exact = date_total = date_exact = 0
     third_total = third_subject = negative_cases = negative_fp = multi_expected = multi_detected = 0
     per_type = defaultdict(lambda: Counter(tp=0, fp=0, fn=0))
@@ -117,6 +122,7 @@ def score(cases):
 
 
 def main():
+    """Run all frozen calibration configurations and persist results."""
     benchmark = json.loads((ROOT / "gliner_calibration.json").read_text(encoding="utf-8"))
     snapshot = json.loads((ROOT / "configuration_snapshot.json").read_text(encoding="utf-8"))
     validate_benchmark(benchmark)

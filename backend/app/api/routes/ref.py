@@ -1,3 +1,5 @@
+"""Routes for explicit, read-only REF access and trail import."""
+
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, Query, Request
@@ -10,10 +12,12 @@ router = APIRouter()
 
 
 def get_import_service(request: Request) -> RefImportService:
+    """Resolve the application-scoped REF import service."""
     return request.app.state.ref_import_service
 
 
 def get_ref_client(request: Request) -> RefClient:
+    """Resolve the application-scoped REF client."""
     return request.app.state.ref_client
 
 
@@ -34,4 +38,5 @@ async def list_ref_people(
 async def import_ref_trail(
     person_id: str, data: RefImportRequest, service: ImportService
 ) -> RefImportResult:
+    """Import one selected REF civil trail for a known LifeGraph person."""
     return await service.import_person_trail(person_id, data.ref_person_id)

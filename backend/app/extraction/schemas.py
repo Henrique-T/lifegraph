@@ -1,3 +1,5 @@
+"""Schemas for extraction results and temporary human reviews."""
+
 from datetime import datetime
 from enum import StrEnum
 from typing import Literal
@@ -8,14 +10,17 @@ from app.domain.enums import CivilEventType, TemporalPrecision
 
 
 class StrictModel(BaseModel):
+    """Base extraction model that rejects undeclared fields."""
     model_config = ConfigDict(extra="forbid")
 
 
 class ExtractionRequest(StrictModel):
+    """Narrative submitted for non-persistent extraction."""
     text: str = Field(min_length=1, max_length=10_000)
 
 
 class NormalizedTimeCandidate(StrictModel):
+    """Deterministically normalized candidate year interval."""
     start: datetime
     end: datetime
     temporal_precision: Literal["YEAR"]
@@ -23,6 +28,7 @@ class NormalizedTimeCandidate(StrictModel):
 
 
 class PipelineCandidate(StrictModel):
+    """Structured event candidate returned by the extraction pipeline."""
     event_type: CivilEventType
     trigger_text: str
     trigger_start: int = Field(ge=0)
@@ -38,6 +44,7 @@ class PipelineCandidate(StrictModel):
 
 
 class PipelineExtractionResult(StrictModel):
+    """Validated output of one extraction request."""
     source_text: str
     model_id: str
     model_revision: str
@@ -48,17 +55,20 @@ class PipelineExtractionResult(StrictModel):
 
 
 class ReviewStatus(StrEnum):
+    """Temporary review state of an extracted candidate."""
     PENDING = "PENDING"
     ACCEPTED = "ACCEPTED"
     REJECTED = "REJECTED"
 
 
 class ReviewCandidate(PipelineCandidate):
+    """Candidate enriched with temporary review identity and state."""
     candidate_id: str
     review_status: ReviewStatus = ReviewStatus.PENDING
 
 
 class ExtractionReview(StrictModel):
+    """Expiring, non-persistent review session."""
     extraction_id: str
     source_text: str
     model_id: str
@@ -71,6 +81,7 @@ class ExtractionReview(StrictModel):
 
 
 class CandidateCorrections(StrictModel):
+    """Explicit reviewer corrections allowed before acceptance."""
     event_type: CivilEventType | None = None
     subject_text: str | None = Field(default=None, max_length=500)
     participant_texts: list[str] | None = None
@@ -82,6 +93,7 @@ class CandidateCorrections(StrictModel):
 
     @model_validator(mode="after")
     def validate_explicit_interval(self) -> "CandidateCorrections":
+        """Require all temporal interval fields when any is corrected."""
         interval_fields = {"claimed_date_start", "claimed_date_end", "temporal_precision"}
         supplied = interval_fields & self.model_fields_set
         if supplied and supplied != interval_fields:
@@ -90,11 +102,13 @@ class CandidateCorrections(StrictModel):
 
 
 class CandidateAcceptanceRequest(StrictModel):
+    """Explicit person binding and optional candidate corrections."""
     person_id: str = Field(min_length=1)
     corrections: CandidateCorrections = Field(default_factory=CandidateCorrections)
 
 
 class CandidateAcceptanceResult(StrictModel):
+    """Identifiers and immutable epistemic state returned after acceptance."""
     extraction_id: str
     candidate_id: str
     person_id: str
@@ -107,6 +121,7 @@ class CandidateAcceptanceResult(StrictModel):
 
 
 class CandidateRejectionResult(StrictModel):
+    """Confirmation that rejection produced no graph mutation."""
     extraction_id: str
     candidate_id: str
     review_status: Literal["REJECTED"]

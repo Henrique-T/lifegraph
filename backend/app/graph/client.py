@@ -1,3 +1,5 @@
+"""Neo4j driver lifecycle and schema initialization."""
+
 import logging
 
 from neo4j import AsyncDriver, AsyncGraphDatabase
@@ -44,7 +46,10 @@ SCHEMA_STATEMENTS = (
 
 
 class Neo4jClient:
+    """Own the asynchronous Neo4j driver used by the application."""
+
     def __init__(self, settings: Settings) -> None:
+        """Create a driver from application settings."""
         self._driver: AsyncDriver = AsyncGraphDatabase.driver(
             settings.neo4j_uri,
             auth=(settings.neo4j_user, settings.neo4j_password),
@@ -53,9 +58,11 @@ class Neo4jClient:
 
     @property
     def driver(self) -> AsyncDriver:
+        """Expose the initialized asynchronous driver."""
         return self._driver
 
     async def initialize_schema(self) -> None:
+        """Create idempotent constraints and indexes."""
         async with self._driver.session() as session:
             for statement in SCHEMA_STATEMENTS:
                 await session.run(statement)
@@ -63,6 +70,7 @@ class Neo4jClient:
         logger.info("Neo4j domain schema initialized")
 
     async def ping(self) -> bool:
+        """Check schema initialization and database connectivity."""
         if not self.schema_initialized:
             return False
         try:
@@ -74,4 +82,5 @@ class Neo4jClient:
             return False
 
     async def close(self) -> None:
+        """Close the Neo4j driver."""
         await self._driver.close()

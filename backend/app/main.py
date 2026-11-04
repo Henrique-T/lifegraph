@@ -1,3 +1,5 @@
+"""FastAPI application factory and dependency lifecycle."""
+
 from contextlib import asynccontextmanager
 from collections.abc import Callable
 import logging
@@ -46,8 +48,10 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s %(message
 def create_app(
     graph_client_factory: Callable = Neo4jClient,
 ) -> FastAPI:
+    """Build the LifeGraph API and configure managed service dependencies."""
     @asynccontextmanager
     async def lifespan(application: FastAPI):
+        """Initialize and close application-scoped clients and services."""
         settings = get_settings()
         graph_client = graph_client_factory(settings)
         await graph_client.initialize_schema()
@@ -93,6 +97,7 @@ def create_app(
     async def not_found_handler(
         _request: Request, exception: DomainNotFoundError
     ) -> JSONResponse:
+        """Translate missing domain resources to HTTP 404."""
         return JSONResponse(
             {"detail": str(exception)}, status_code=status.HTTP_404_NOT_FOUND
         )
@@ -101,6 +106,7 @@ def create_app(
     async def conflict_handler(
         _request: Request, exception: DomainConflictError
     ) -> JSONResponse:
+        """Translate domain conflicts to HTTP 409."""
         return JSONResponse(
             {"detail": str(exception)}, status_code=status.HTTP_409_CONFLICT
         )
@@ -109,6 +115,7 @@ def create_app(
     async def persistence_handler(
         _request: Request, _exception: DomainPersistenceError
     ) -> JSONResponse:
+        """Hide persistence internals behind an HTTP 503 response."""
         return JSONResponse(
             {"detail": "Graph persistence unavailable"},
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
@@ -118,6 +125,7 @@ def create_app(
     async def ref_person_not_found_handler(
         _request: Request, _exception: RefPersonNotFoundError
     ) -> JSONResponse:
+        """Translate missing REF identities to HTTP 404."""
         return JSONResponse(
             {"detail": "REF person not found"}, status_code=status.HTTP_404_NOT_FOUND
         )
@@ -127,6 +135,7 @@ def create_app(
     async def ref_unavailable_handler(
         _request: Request, exception: Exception
     ) -> JSONResponse:
+        """Translate unavailable REF integration to HTTP 503."""
         return JSONResponse(
             {"detail": str(exception)},
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
@@ -137,6 +146,7 @@ def create_app(
     async def ref_bad_gateway_handler(
         _request: Request, exception: Exception
     ) -> JSONResponse:
+        """Translate invalid REF responses or credentials to HTTP 502."""
         return JSONResponse(
             {"detail": str(exception)}, status_code=status.HTTP_502_BAD_GATEWAY
         )
@@ -145,6 +155,7 @@ def create_app(
     async def extraction_unavailable_handler(
         _request: Request, exception: ExtractionServiceUnavailableError
     ) -> JSONResponse:
+        """Translate extraction-service unavailability to HTTP 503."""
         return JSONResponse(
             {"detail": str(exception)},
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
@@ -155,6 +166,7 @@ def create_app(
     async def extraction_gateway_handler(
         _request: Request, _exception: Exception
     ) -> JSONResponse:
+        """Translate invalid extraction responses to HTTP 502."""
         return JSONResponse(
             {"detail": "GLiNER extraction failed"},
             status_code=status.HTTP_502_BAD_GATEWAY,

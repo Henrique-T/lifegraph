@@ -1,3 +1,5 @@
+"""Service that imports supported REF trail events into LifeGraph."""
+
 from uuid import UUID
 
 from app.domain.enums import CivilEventType
@@ -16,13 +18,17 @@ def map_event_type(event: RefTrailEvent) -> CivilEventType | None:
 
 
 class RefImportService:
+    """Coordinate explicit identity binding and idempotent event import."""
+
     def __init__(self, client: RefClient, repository: GraphRepository) -> None:
+        """Initialize REF and graph dependencies."""
         self._client = client
         self._repository = repository
 
     async def import_person_trail(
         self, person_id: str, ref_person_id: UUID
     ) -> RefImportResult:
+        """Import supported events for an explicitly identified person."""
         await self._repository.get_person(person_id)
         trail = await self._client.get_person_trail(ref_person_id)
         await self._repository.bind_external_ref_person(person_id, str(ref_person_id))

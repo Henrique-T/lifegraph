@@ -1,3 +1,5 @@
+"""FastAPI application for isolated GLiNER inference."""
+
 import asyncio
 from contextlib import asynccontextmanager
 import logging
@@ -15,8 +17,10 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s %(message
 
 
 def create_app(model_factory=GLiNERModel) -> FastAPI:
+    """Build the extraction service and its managed model lifecycle."""
     @asynccontextmanager
     async def lifespan(application: FastAPI):
+        """Load the model asynchronously and cancel pending work on shutdown."""
         model = model_factory()
         application.state.model = model
         load_task = asyncio.create_task(model.load())
@@ -28,10 +32,12 @@ def create_app(model_factory=GLiNERModel) -> FastAPI:
 
     @app.get("/health")
     async def health() -> dict[str, str]:
+        """Report that the HTTP process is running."""
         return {"status": "ok"}
 
     @app.get("/ready")
     async def ready(request: Request) -> dict[str, str]:
+        """Report whether the model is loaded and ready for inference."""
         model = request.app.state.model
         if not model.ready:
             detail = "model_failed" if model.load_failed else "model_loading"
@@ -40,6 +46,7 @@ def create_app(model_factory=GLiNERModel) -> FastAPI:
 
     @app.post("/extract", response_model=ApprovedExtractionResult)
     async def extract(data: ExtractRequest, request: Request) -> ApprovedExtractionResult:
+        """Run the immutable production extraction pipeline."""
         model = request.app.state.model
         if not model.ready:
             raise HTTPException(
@@ -71,6 +78,7 @@ def create_app(model_factory=GLiNERModel) -> FastAPI:
 
     @app.post("/calibration/extract")
     async def calibration_extract(data: CalibrationRequest, request: Request) -> dict:
+        """Run one predefined calibration configuration."""
         model = request.app.state.model
         if not model.ready:
             raise HTTPException(status_code=503, detail="model unavailable")
@@ -83,6 +91,7 @@ def create_app(model_factory=GLiNERModel) -> FastAPI:
 
     @app.post("/calibration/associate")
     async def association(data: AssociationRequest, request: Request) -> dict:
+        """Run one predefined subject-association strategy."""
         model = request.app.state.model
         if not model.ready:
             raise HTTPException(status_code=503, detail="model unavailable")

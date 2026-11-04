@@ -1,3 +1,5 @@
+"""Test calibration metrics."""
+
 import importlib.util
 from pathlib import Path
 
@@ -8,10 +10,12 @@ spec.loader.exec_module(runner)
 
 
 def result(expected, detected):
+    """Create a calibration result fixture."""
     return {"expected_events": expected, "result": {"detected_events": detected, "latency_ms": 10}}
 
 
 def test_metrics_count_exact_type_matches_and_negative_false_positive():
+    """Verify metrics count exact type matches and negative false positive."""
     expected = {"event_type":"casamento","subject_text":"Meu irmão","belongs_to_narrator":False,"date_expression":"2020"}
     detected = {"event_type":"casamento","subject_text":"Meu irmão","date_expression":"2020"}
     metrics = runner.score([result([expected],[detected]), result([], [{"event_type":"obito"}])])
@@ -21,6 +25,7 @@ def test_metrics_count_exact_type_matches_and_negative_false_positive():
 
 
 def test_metrics_preserve_multiple_event_recall():
+    """Verify metrics preserve multiple event recall."""
     events=[{"event_type":"nascimento","subject_text":None,"belongs_to_narrator":True,"date_expression":"1988"},{"event_type":"casamento","subject_text":None,"belongs_to_narrator":True,"date_expression":"2014"}]
     detected=[{"event_type":"nascimento"},{"event_type":"casamento"}]
     assert runner.score([result(events,detected)])["multi_event_recall"] == 1

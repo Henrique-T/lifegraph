@@ -9,6 +9,7 @@ from schema import validate_dataset
 
 
 def valid_event(event):
+    """Return whether a predicted event contains required fields."""
     trigger = event.get("trigger")
     return (
         event.get("event_type") in {"nascimento", "casamento", "obito", "natimorto"}
@@ -23,6 +24,7 @@ def valid_event(event):
 
 
 def main():
+    """Validate predictions and compute frozen evaluation metrics."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", required=True)
     parser.add_argument("--predictions", required=True)

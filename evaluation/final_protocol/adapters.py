@@ -2,6 +2,7 @@
 
 
 def _next_exact_span(text, value, used):
+    """Return the next unused exact character span for a value."""
     if not isinstance(value, str) or not value:
         return None
     cursor = 0
@@ -17,6 +18,7 @@ def _next_exact_span(text, value, used):
 
 
 def adapt_gemma_events(text, events):
+    """Convert Gemma JSON events into the frozen evaluation schema."""
     """Locate exact returned substrings left-to-right; no fuzzy repair is allowed."""
     trigger_spans, date_spans, adapted = set(), set(), []
     for event in events:

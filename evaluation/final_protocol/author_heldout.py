@@ -11,6 +11,7 @@ KNOWN_PERSON_NAMES = {
 
 
 def event(text, event_id, kind, trigger, role, subject=None, date=None, precision="YEAR", uncertainty=False, participants=None, occurrence=0):
+    """Build one ground-truth event with exact source offsets."""
     start = -1
     cursor = 0
     try:
@@ -32,6 +33,7 @@ def event(text, event_id, kind, trigger, role, subject=None, date=None, precisio
 
 
 def add(number, text, categories, events, *, excluded_subjects=None, coordinated_members=None):
+    """Append one annotated narrative and its shared NER spans."""
     flags = {"reported_speech": "REPORTED_SPEECH" in categories, "incidental_person": "INCIDENTAL_PERSON" in categories, "coordinated_subject": bool(coordinated_members), "pro_drop": "PRO_DROP" in categories, "ambiguous": "AMBIGUOUS" in categories, "negative_case": "NEGATIVE" in categories}
     person_spans = []
     for name in sorted(KNOWN_PERSON_NAMES):

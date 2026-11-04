@@ -1,3 +1,5 @@
+"""Integration tests for graph persistence and safety invariants."""
+
 import asyncio
 from datetime import datetime, timezone
 from uuid import uuid4
@@ -18,10 +20,12 @@ from app.graph.repository import DomainConflictError, GraphRepository
 
 @pytest.mark.integration
 def test_complete_persistence_and_safety_scenario() -> None:
+    """Verify complete persistence and safety scenario."""
     asyncio.run(_run_scenario())
 
 
 async def _run_scenario() -> None:
+    """Run the asynchronous test scenario."""
     client = Neo4jClient(get_settings())
     await client.initialize_schema()
     repository = GraphRepository(client.driver)

@@ -1,3 +1,5 @@
+"""Structural validation for the frozen held-out dataset."""
+
 from __future__ import annotations
 
 from datetime import datetime
@@ -9,6 +11,7 @@ REQUIRED_FLAGS = {"reported_speech", "incidental_person", "coordinated_subject",
 
 
 def validate_dataset(payload: dict) -> None:
+    """Validate required narrative, event, subject, and temporal fields."""
     assert payload["schema_version"] == "LIFEGRAPH_FINAL_GT_V1"
     narratives = payload["narratives"]
     assert len(narratives) == 100

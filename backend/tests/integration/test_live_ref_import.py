@@ -1,3 +1,5 @@
+"""Opt-in integration test for a live REF trail import."""
+
 import asyncio
 import os
 from uuid import UUID, uuid4
@@ -14,6 +16,7 @@ from app.ref.service import RefImportService
 
 @pytest.mark.integration
 def test_live_ref_import_is_idempotent_and_does_not_reconcile() -> None:
+    """Verify live ref import is idempotent and does not reconcile."""
     ref_person_id = os.getenv("LIVE_REF_PERSON_ID")
     if not ref_person_id or not os.getenv("REF_BEARER_TOKEN"):
         pytest.skip("LIVE_REF_PERSON_ID and REF_BEARER_TOKEN are required")
@@ -21,6 +24,7 @@ def test_live_ref_import_is_idempotent_and_does_not_reconcile() -> None:
 
 
 async def _run(ref_person_id: UUID) -> None:
+    """Run the asynchronous test scenario."""
     graph = Neo4jClient(get_settings())
     await graph.initialize_schema()
     repository = GraphRepository(graph.driver)

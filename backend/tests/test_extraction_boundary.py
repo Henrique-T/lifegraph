@@ -1,3 +1,5 @@
+"""Tests for the non-persistent extraction boundary."""
+
 import asyncio
 from unittest.mock import AsyncMock
 
@@ -6,7 +8,9 @@ from app.extraction.service import ExtractionService
 
 
 def test_extraction_creates_review_but_does_not_write_graph() -> None:
+    """Verify extraction creates review but does not write graph."""
     async def run() -> None:
+        """Run the asynchronous test scenario."""
         client = AsyncMock()
         client.extract.return_value = PipelineExtractionResult(
             source_text="Eu nasci em 1995.", model_id="model", model_revision="revision",
@@ -23,6 +27,7 @@ def test_extraction_creates_review_but_does_not_write_graph() -> None:
 
 
 def test_extraction_module_has_no_ref_dependency() -> None:
+    """Verify extraction module has no ref dependency."""
     from app.extraction import service
 
     names = set(service.__dict__)

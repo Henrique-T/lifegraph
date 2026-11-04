@@ -8,6 +8,7 @@ htmlcov/
 node_modules/
 frontend/dist/
 *.log
+**/human_review.md
 .DS_Store
 Thumbs.db
 
@@ -22,10 +23,3 @@ models/
 .cache/
 huggingface/
 ollama/
-
-# Keep data directories, but do not accidentally commit generated datasets.
-data/ibge/raw/*
-data/ibge/processed/*
-data/synthetic/*
-data/narratives/*
-!data/**/.gitkeep
