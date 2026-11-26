@@ -132,7 +132,7 @@ export interface RelationReviewItem {
 }
 export interface RelationReviewSession {
   review_id: string; source_text: string; conversation_turn_id: string; pipeline_id: "LIFEGRAPH_PERSON_RELATION_V1";
-  model_id: string; model_revision: "A0_B2+B3+B4"; configuration_hash: string;
+  model_id: string; model_revision: "A0_B2+B3+B4+COMPOUND_NAMES"; configuration_hash: string;
   candidates: RelationReviewItem[]; created_at: string; expires_at: string;
 }
 export interface RelationAcceptanceRequest {

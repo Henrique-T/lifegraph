@@ -1,4 +1,7 @@
 {
+  "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+  "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+  "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
   "metrics": {
     "detector": {
       "precision": 1.0,
@@ -15,16 +18,16 @@
       "f1": 0.982079,
       "relation_type_accuracy": 1.0,
       "surface_accuracy": 1.0,
-      "endpoint_a_accuracy": 0.948905,
+      "endpoint_a_accuracy": 0.908759,
       "endpoint_b_accuracy": 0.974453,
-      "both_endpoint_accuracy": 0.923358,
+      "both_endpoint_accuracy": 0.883212,
       "polarity_accuracy": 1.0,
       "epistemic_accuracy": 1.0,
       "reporting_accuracy": 1.0,
       "temporal_accuracy": 1.0,
       "false_relation_candidates": 0,
       "missed_relation_candidates": 10,
-      "wrong_resolved_endpoint": 0,
+      "wrong_resolved_endpoint": 11,
       "safe_abstentions": 14,
       "unsafe_persistible_false_positive": 0
     },
@@ -32,7 +35,8 @@
       "DETECTION_FALSE_NEGATIVE": 10,
       "DETECTION_FALSE_POSITIVE": 0,
       "SAFE_ENDPOINT_ABSTENTION": 14,
-      "UNSAFE_PERSISTIBLE_FALSE_POSITIVE": 0
+      "UNSAFE_PERSISTIBLE_FALSE_POSITIVE": 0,
+      "WRONG_ENDPOINT_A": 11
     },
     "by_phenomenon": {
       "ambiguous": {
@@ -361,19 +365,19 @@
       "persistible_oracle_correct": 122,
       "persistible_oracle_recall": 0.96063,
       "per_relation_type_recall": {
-        "BROTHER_OF": 0.878049,
-        "DAUGHTER_OF": 0.925,
-        "FATHER_OF": 0.904762,
-        "MOTHER_OF": 0.875,
-        "SISTER_OF": 0.902439,
-        "SON_OF": 0.871795,
-        "SPOUSE_OF": 0.878049
+        "BROTHER_OF": 0.853659,
+        "DAUGHTER_OF": 0.9,
+        "FATHER_OF": 0.857143,
+        "MOTHER_OF": 0.825,
+        "SISTER_OF": 0.853659,
+        "SON_OF": 0.846154,
+        "SPOUSE_OF": 0.829268
       },
       "per_phenomenon_recall": {
         "ambiguous": 0.125,
         "apposition": 1.0,
         "appositive_chain": 1.0,
-        "b1_generalization": 0.941176,
+        "b1_generalization": 0.932773,
         "compositional": 0.666667,
         "contracted_preposition": 1.0,
         "coordination": 0.857143,
@@ -386,9 +390,9 @@
         "duplicate_semantics": 1.0,
         "embedded_clause": 1.0,
         "existential_have": 1.0,
-        "hypothetical": 1.0,
+        "hypothetical": 0.142857,
         "independent_declaration": 1.0,
-        "minimal_pair": 1.0,
+        "minimal_pair": 0.666667,
         "multiple_people": 1.0,
         "multiple_relations": 0.892857,
         "named": 1.0,
@@ -409,15 +413,15 @@
         "safe_abstention": 1.0,
         "sibling": 1.0,
         "speaker_distractor": 0.965517,
-        "spouse_surface": 0.866667,
+        "spouse_surface": 0.8,
         "structural_pair": 1.0,
         "surface_variation": 1.0,
         "temporal_limitation": 1.0,
         "temporal_scope": 1.0,
-        "uncertain": 1.0,
-        "uncertainty": 0.866667,
-        "uncertainty_variant": 1.0,
-        "utf8": 0.892857
+        "uncertain": 0.928571,
+        "uncertainty": 0.733333,
+        "uncertainty_variant": 0.857143,
+        "utf8": 0.857143
       },
       "safe_abstention_count": 35,
       "safe_abstention_rate": 1.0,
@@ -508,7 +512,7 @@
       "spouse_surface": {
         "status": "PASS",
         "denominator": 15,
-        "recall": 0.866667
+        "recall": 0.8
       },
       "sibling": {
         "status": "PASS",
@@ -526,7 +530,7 @@
         "recall": 0.888889
       }
     },
-    "minimum_relation_type_value": 0.871795,
+    "minimum_relation_type_value": 0.825,
     "minimum_populated_critical_value": 0.666667
   }
 }

@@ -138,7 +138,13 @@ def b3_regression_cases():
 
 def save_result(prefix, cases):
     rows, metrics, gate = evaluate(cases)
-    write_json(f"metrics_{prefix}.json", {"metrics": metrics, "r4": gate})
+    write_json(f"metrics_{prefix}.json", {
+        "pipeline_id": PIPELINE_ID,
+        "revision": A0_B2_REVISION,
+        "configuration_hash": _CONFIG_HASH,
+        "metrics": metrics,
+        "r4": gate,
+    })
     return rows, metrics, gate
 
 
@@ -159,9 +165,14 @@ def main():
         unseen_path = HERE / "checkpoint_b4_unseen.jsonl"
         unseen, digest = validation.validate(unseen_path)
         rows, metrics, gate = save_result("b4_unseen", unseen)
+        run_metadata = {"pipeline_id": PIPELINE_ID, "revision": A0_B2_REVISION,
+                        "configuration_hash": _CONFIG_HASH}
+        for row in rows:
+            row["run_metadata"] = run_metadata
         write_json("predictions_b4_unseen.json", rows)
         manifest = {"corpus": unseen_path.name, "sha256": digest, "narratives": len(unseen),
                     "expected_candidates": sum(len(c["expected_relation_candidates"]) for c in unseen),
+                    "pipeline_id": PIPELINE_ID, "revision": A0_B2_REVISION,
                     "configuration_hash": _CONFIG_HASH,
                     "sequence": "code freeze -> oracle validation -> SHA-256 -> one-shot prediction"}
         write_json("unseen_manifest.json", manifest)

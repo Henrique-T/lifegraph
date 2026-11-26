@@ -1,12 +1,12 @@
 {
   "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
-  "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+  "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
   "source_checkpoint": "B.4",
   "primary_relation_detector": "DETERMINISTIC_STRUCTURAL",
   "gliner_primary_relation_detector": false,
   "gliner_fallback": false,
   "model_id": "deterministic-structural-baseline",
-  "revision": "A0_B2+B3+B4",
+  "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
   "supported_relation_types": [
     "BROTHER_OF",
     "DAUGHTER_OF",

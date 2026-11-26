@@ -30,8 +30,9 @@ def test_persist_command_has_no_semantic_payload():
 
 
 def test_explicit_two_person_selectors():
-    assert "Endpoint A — Pessoa LifeGraph" in PANEL
-    assert "Endpoint B — Pessoa LifeGraph" in PANEL
+    assert PANEL.count("Pessoa correspondente a") == 2
+    assert "candidate.endpoint_a_mention" in PANEL
+    assert "candidate.endpoint_b_mention" in PANEL
     assert PANEL.count("Selecione explicitamente…") == 2
 
 
@@ -39,9 +40,24 @@ def test_no_person_auto_binding():
     assert "autoSelect" not in PANEL and "fuzzy" not in PANEL
 
 
+def test_relation_review_statuses_are_translated_for_users():
+    expected = {
+        'PENDING: "PENDENTE DE REVISÃO"',
+        'BLOCKED: "BLOQUEADA"',
+        'ACCEPTED_FOR_PERSISTENCE: "ACEITA PARA REGISTRO"',
+        'REJECTED: "REJEITADA"',
+        'EXPIRED: "REVISÃO EXPIRADA"',
+    }
+    assert all(label in PANEL for label in expected)
+    assert "reviewStatusLabels[item.review_status]" in PANEL
+
+
 def test_narrator_warning_and_no_autobind():
     assert "NARRATOR_ROLE" in PANEL
     assert "nenhuma identidade é presumida" in PANEL
+    assert 'return "narrador da trajetória"' in PANEL
+    assert "endpointDisplay(candidate.endpoint_a_mention, candidate.endpoint_a_semantic_target)" in PANEL
+    assert "endpointDisplay(candidate.endpoint_b_mention, candidate.endpoint_b_semantic_target)" in PANEL
 
 
 def test_question_is_visible_and_not_directly_persistible():
@@ -173,3 +189,14 @@ def test_graph_timeline_switching_is_local_view_state_only():
     switching = "\n".join(line for line in GRAPH.splitlines() if "setViewMode" in line)
     for mutation in ("accept", "persist", "reconcile", "fetch("):
         assert mutation not in switching.lower()
+
+
+def test_graph_can_expand_without_hiding_person_selection():
+    assert 'const [expanded, setExpanded] = useState(false)' in GRAPH
+    assert '"graph-layout graph-expanded"' in GRAPH
+    assert 'aria-label={expanded ? "Fechar visualização expandida" : "Expandir grafo para tela inteira"}' in GRAPH
+    assert "graph-person-selector" in GRAPH
+    assert 'event.key === "Escape"' in GRAPH
+    styles = (ROOT / "src/styles.css").read_text(encoding="utf-8")
+    assert ".graph-expanded .provenance { display: none; }" in styles
+    assert ".graph-expanded .graph-canvas { min-height: calc(100vh - 190px); }" in styles

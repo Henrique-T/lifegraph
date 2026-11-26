@@ -66,14 +66,19 @@
           "warnings": [],
           "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
           "model_id": "deterministic-structural-baseline",
-          "model_revision": "A0_B2+B3+B4",
-          "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+          "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+          "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
           "detector_strategy": "A0",
           "detector_label": "FATHER_OF",
           "detector_confidence": 1.0,
           "persistence_eligibility": "LINGUISTICALLY_ELIGIBLE_REVIEW_AND_BINDING_REQUIRED"
         }
       ]
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -143,14 +148,19 @@
           "warnings": [],
           "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
           "model_id": "deterministic-structural-baseline",
-          "model_revision": "A0_B2+B3+B4",
-          "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+          "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+          "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
           "detector_strategy": "A0",
           "detector_label": "MOTHER_OF",
           "detector_confidence": 1.0,
           "persistence_eligibility": "NOT_PERSISTIBLE_NEGATED"
         }
       ]
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -220,14 +230,19 @@
           "warnings": [],
           "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
           "model_id": "deterministic-structural-baseline",
-          "model_revision": "A0_B2+B3+B4",
-          "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+          "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+          "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
           "detector_strategy": "A0",
           "detector_label": "SON_OF",
           "detector_confidence": 1.0,
           "persistence_eligibility": "NOT_PERSISTIBLE_UNCERTAIN"
         }
       ]
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -297,14 +312,19 @@
           "warnings": [],
           "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
           "model_id": "deterministic-structural-baseline",
-          "model_revision": "A0_B2+B3+B4",
-          "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+          "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+          "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
           "detector_strategy": "A0",
           "detector_label": "DAUGHTER_OF",
           "detector_confidence": 1.0,
           "persistence_eligibility": "NOT_PERSISTIBLE_UNSUPPORTED_TEMPORAL_SCOPE"
         }
       ]
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -374,14 +394,19 @@
           "warnings": [],
           "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
           "model_id": "deterministic-structural-baseline",
-          "model_revision": "A0_B2+B3+B4",
-          "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+          "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+          "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
           "detector_strategy": "A0",
           "detector_label": "BROTHER_OF",
           "detector_confidence": 1.0,
           "persistence_eligibility": "LINGUISTICALLY_ELIGIBLE_REVIEW_AND_BINDING_REQUIRED"
         }
       ]
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -451,14 +476,19 @@
           "warnings": [],
           "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
           "model_id": "deterministic-structural-baseline",
-          "model_revision": "A0_B2+B3+B4",
-          "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+          "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+          "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
           "detector_strategy": "A0",
           "detector_label": "SISTER_OF",
           "detector_confidence": 1.0,
           "persistence_eligibility": "LINGUISTICALLY_ELIGIBLE_REVIEW_AND_BINDING_REQUIRED"
         }
       ]
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -529,14 +559,19 @@
           "warnings": [],
           "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
           "model_id": "deterministic-structural-baseline",
-          "model_revision": "A0_B2+B3+B4",
-          "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+          "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+          "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
           "detector_strategy": "A0",
           "detector_label": "SPOUSE_OF",
           "detector_confidence": 1.0,
           "persistence_eligibility": "NOT_PERSISTIBLE_REPORTED"
         }
       ]
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -607,14 +642,19 @@
           "warnings": [],
           "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
           "model_id": "deterministic-structural-baseline",
-          "model_revision": "A0_B2+B3+B4",
-          "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+          "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+          "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
           "detector_strategy": "A0",
           "detector_label": "FATHER_OF",
           "detector_confidence": 1.0,
           "persistence_eligibility": "NOT_PERSISTIBLE_REPORTED"
         }
       ]
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -634,6 +674,11 @@
       "threshold": 1.0,
       "detections": [],
       "candidates": []
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -653,6 +698,11 @@
       "threshold": 1.0,
       "detections": [],
       "candidates": []
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -722,14 +772,19 @@
           "warnings": [],
           "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
           "model_id": "deterministic-structural-baseline",
-          "model_revision": "A0_B2+B3+B4",
-          "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+          "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+          "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
           "detector_strategy": "A0",
           "detector_label": "FATHER_OF",
           "detector_confidence": 1.0,
           "persistence_eligibility": "NOT_PERSISTIBLE_UNCERTAIN"
         }
       ]
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -799,14 +854,19 @@
           "warnings": [],
           "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
           "model_id": "deterministic-structural-baseline",
-          "model_revision": "A0_B2+B3+B4",
-          "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+          "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+          "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
           "detector_strategy": "A0",
           "detector_label": "MOTHER_OF",
           "detector_confidence": 1.0,
           "persistence_eligibility": "NOT_PERSISTIBLE_UNCERTAIN"
         }
       ]
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -877,14 +937,19 @@
           "warnings": [],
           "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
           "model_id": "deterministic-structural-baseline",
-          "model_revision": "A0_B2+B3+B4",
-          "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+          "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+          "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
           "detector_strategy": "A0",
           "detector_label": "SON_OF",
           "detector_confidence": 1.0,
           "persistence_eligibility": "NOT_PERSISTIBLE_UNCERTAIN"
         }
       ]
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -956,14 +1021,19 @@
           "warnings": [],
           "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
           "model_id": "deterministic-structural-baseline",
-          "model_revision": "A0_B2+B3+B4",
-          "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+          "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+          "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
           "detector_strategy": "A0",
           "detector_label": "DAUGHTER_OF",
           "detector_confidence": 1.0,
           "persistence_eligibility": "NOT_PERSISTIBLE_UNCERTAIN"
         }
       ]
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -1033,14 +1103,19 @@
           "warnings": [],
           "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
           "model_id": "deterministic-structural-baseline",
-          "model_revision": "A0_B2+B3+B4",
-          "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+          "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+          "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
           "detector_strategy": "A0",
           "detector_label": "BROTHER_OF",
           "detector_confidence": 1.0,
           "persistence_eligibility": "NOT_PERSISTIBLE_UNCERTAIN"
         }
       ]
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -1110,14 +1185,19 @@
           "warnings": [],
           "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
           "model_id": "deterministic-structural-baseline",
-          "model_revision": "A0_B2+B3+B4",
-          "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+          "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+          "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
           "detector_strategy": "A0",
           "detector_label": "SISTER_OF",
           "detector_confidence": 1.0,
           "persistence_eligibility": "NOT_PERSISTIBLE_NEGATED"
         }
       ]
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -1137,6 +1217,11 @@
       "threshold": 1.0,
       "detections": [],
       "candidates": []
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -1207,14 +1292,19 @@
           "warnings": [],
           "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
           "model_id": "deterministic-structural-baseline",
-          "model_revision": "A0_B2+B3+B4",
-          "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+          "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+          "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
           "detector_strategy": "A0",
           "detector_label": "SPOUSE_OF",
           "detector_confidence": 1.0,
           "persistence_eligibility": "NOT_PERSISTIBLE_UNCERTAIN"
         }
       ]
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -1283,14 +1373,19 @@
           "warnings": [],
           "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
           "model_id": "deterministic-structural-baseline",
-          "model_revision": "A0_B2+B3+B4",
-          "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+          "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+          "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
           "detector_strategy": "A0",
           "detector_label": "FATHER_OF",
           "detector_confidence": 1.0,
           "persistence_eligibility": "LINGUISTICALLY_ELIGIBLE_REVIEW_AND_BINDING_REQUIRED"
         }
       ]
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -1359,14 +1454,19 @@
           "warnings": [],
           "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
           "model_id": "deterministic-structural-baseline",
-          "model_revision": "A0_B2+B3+B4",
-          "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+          "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+          "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
           "detector_strategy": "A0",
           "detector_label": "MOTHER_OF",
           "detector_confidence": 1.0,
           "persistence_eligibility": "LINGUISTICALLY_ELIGIBLE_REVIEW_AND_BINDING_REQUIRED"
         }
       ]
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -1435,14 +1535,19 @@
           "warnings": [],
           "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
           "model_id": "deterministic-structural-baseline",
-          "model_revision": "A0_B2+B3+B4",
-          "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+          "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+          "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
           "detector_strategy": "A0",
           "detector_label": "SON_OF",
           "detector_confidence": 1.0,
           "persistence_eligibility": "LINGUISTICALLY_ELIGIBLE_REVIEW_AND_BINDING_REQUIRED"
         }
       ]
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -1511,14 +1616,19 @@
           "warnings": [],
           "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
           "model_id": "deterministic-structural-baseline",
-          "model_revision": "A0_B2+B3+B4",
-          "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+          "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+          "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
           "detector_strategy": "A0",
           "detector_label": "SISTER_OF",
           "detector_confidence": 1.0,
           "persistence_eligibility": "LINGUISTICALLY_ELIGIBLE_REVIEW_AND_BINDING_REQUIRED"
         }
       ]
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -1587,14 +1697,19 @@
           "warnings": [],
           "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
           "model_id": "deterministic-structural-baseline",
-          "model_revision": "A0_B2+B3+B4",
-          "configuration_hash": "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D",
+          "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+          "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
           "detector_strategy": "A0",
           "detector_label": "SPOUSE_OF",
           "detector_confidence": 1.0,
           "persistence_eligibility": "LINGUISTICALLY_ELIGIBLE_REVIEW_AND_BINDING_REQUIRED"
         }
       ]
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -1613,6 +1728,11 @@
       "threshold": 1.0,
       "detections": [],
       "candidates": []
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -1632,6 +1752,11 @@
       "threshold": 1.0,
       "detections": [],
       "candidates": []
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   },
   {
@@ -1650,6 +1775,11 @@
       "threshold": 1.0,
       "detections": [],
       "candidates": []
+    },
+    "run_metadata": {
+      "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+      "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+      "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     }
   }
 ]

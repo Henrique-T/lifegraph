@@ -83,7 +83,13 @@ code { overflow-wrap: anywhere; }
 details { margin-top: 12px; color: #9fb0c8; }
 summary { cursor: pointer; }
 .graph-layout { display: grid; grid-template-columns: minmax(0, 3fr) minmax(220px, 1fr); gap: 14px; margin-top: 16px; }
-.graph-visual { min-width: 0; }
+.graph-visual { position: relative; min-width: 0; }
+.graph-expand-button { position: absolute; z-index: 4; top: 0; right: 0; display: grid; width: 40px; height: 40px; padding: 0; place-items: center; border: 1px solid #52637d; border-radius: 9px; color: #e2e8f0; background: #0b1424; font-size: 1.45rem; line-height: 1; }
+.graph-expand-button:hover, .graph-expand-button:focus-visible { border-color: #60a5fa; color: #ffffff; background: #1e3a8a; }
+.graph-expanded { position: fixed; z-index: 1000; inset: 0; grid-template-columns: minmax(0, 1fr); margin: 0; padding: 24px; overflow: auto; background: #0b1220; }
+.graph-expanded .graph-canvas { min-height: calc(100vh - 190px); }
+.graph-expanded .graph-person-selector { padding-right: 52px; }
+.graph-expanded .provenance { display: none; }
 .graph-toolbar { display: flex; gap: 8px; margin-bottom: 10px; }
 .graph-person-selector { max-width: 420px; margin-bottom: 12px; }
 .view-mode { border: 1px solid #52637d; border-radius: 999px; padding: 7px 12px; color: #cbd5e1; background: #0b1424; font-weight: 700; }

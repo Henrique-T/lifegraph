@@ -12,10 +12,10 @@ const blockerLabels: Record<string, string> = {
   NOT_PERSISTIBLE_UNCERTAIN: "A narrativa expressa incerteza ou uma pergunta.",
   NOT_PERSISTIBLE_HYPOTHETICAL: "A relação é hipotética.",
   NOT_PERSISTIBLE_REPORTED: "A relação foi relatada por outra pessoa.",
-  NOT_PERSISTIBLE_PARTIAL_ENDPOINT: "Um endpoint linguístico está incompleto.",
+  NOT_PERSISTIBLE_PARTIAL_ENDPOINT: "Uma das pessoas mencionadas na relação está incompleta.",
   NOT_PERSISTIBLE_UNSUPPORTED_TEMPORAL_SCOPE: "Relações históricas ou temporais não resolvidas não podem ser persistidas nesta versão.",
   NOT_PERSISTIBLE_UNBOUND_ENDPOINT: "Selecione explicitamente as duas pessoas.",
-  NOT_PERSISTIBLE_SAME_PERSON_ENDPOINTS: "Os dois endpoints não podem apontar para a mesma pessoa.",
+  NOT_PERSISTIBLE_SAME_PERSON_ENDPOINTS: "As duas posições da relação não podem apontar para a mesma pessoa.",
   NOT_PERSISTIBLE_UNGROUNDED_CORRECTION: "A correção deve corresponder exatamente a um trecho da narrativa.",
   NOT_PERSISTIBLE_NOT_ACCEPTED: "A declaração ainda não foi aceita pelo revisor.",
 };
@@ -26,6 +26,18 @@ const polarityLabels = { POSITIVE: "afirmativa", NEGATED: "negada" } as const;
 const epistemicLabels = { ASSERTED: "afirmada", UNCERTAIN: "incerta", HYPOTHETICAL: "hipotética" } as const;
 const reportingLabels = { DIRECT: "direta", REPORTED: "relatada por outra pessoa" } as const;
 const temporalLabels = { CURRENT_OR_UNSPECIFIED: "atual ou sem período informado", PAST: "passada", UNRESOLVED: "período não resolvido" } as const;
+const reviewStatusLabels = {
+  PENDING: "PENDENTE DE REVISÃO",
+  BLOCKED: "BLOQUEADA",
+  ACCEPTED_FOR_PERSISTENCE: "ACEITA PARA REGISTRO",
+  REJECTED: "REJEITADA",
+  EXPIRED: "REVISÃO EXPIRADA",
+} as const;
+
+function endpointDisplay(mention: string | null, semanticTarget: string): string {
+  if (semanticTarget === "NARRATOR_ROLE") return "narrador da trajetória";
+  return mention ?? "participante não resolvido";
+}
 
 function RelationCard({ item, people, onUpdate, onGraphRefresh, onPersonFocus }: { item: RelationReviewItem; people: Person[]; onUpdate: (item: RelationReviewItem) => void; onGraphRefresh: () => Promise<void>; onPersonFocus: (ids: string[]) => void }) {
   const candidate = item.corrected_candidate ?? item.original_candidate;
@@ -35,6 +47,8 @@ function RelationCard({ item, people, onUpdate, onGraphRefresh, onPersonFocus }:
   const [message, setMessage] = useState<string | null>(null);
   const question = item.source_text.trim().endsWith("?");
   const terminal = item.review_status === "REJECTED" || item.persistence_status === "PERSISTED";
+  const endpointA = endpointDisplay(candidate.endpoint_a_mention, candidate.endpoint_a_semantic_target);
+  const endpointB = endpointDisplay(candidate.endpoint_b_mention, candidate.endpoint_b_semantic_target);
 
   async function accept() {
     setBusy("accept"); setMessage(null);
@@ -59,18 +73,18 @@ function RelationCard({ item, people, onUpdate, onGraphRefresh, onPersonFocus }:
   }
 
   return <article className="candidate relation-candidate" aria-label={`Relação ${candidate.relation_type}`}>
-    <header className="candidate-header"><div><span className="candidate-kind relation-kind">RELAÇÃO · interpretação automática</span><h3>{relationLabels[candidate.relation_type]}</h3></div><span className={`status ${item.eligible ? "accepted" : "unresolved"}`}>{item.persistence_status === "PERSISTED" ? "DECLARADO" : item.review_status}</span></header>
+    <header className="candidate-header"><div><span className="candidate-kind relation-kind">RELAÇÃO · interpretação automática</span><h3>{relationLabels[candidate.relation_type]}</h3></div><span className={`status ${item.eligible ? "accepted" : "unresolved"}`}>{item.persistence_status === "PERSISTED" ? "DECLARADO" : reviewStatusLabels[item.review_status]}</span></header>
     <blockquote className="source-narrative">{item.source_text}</blockquote>
     <dl className="candidate-facts">
-      <div><dt>Evidência</dt><dd>“{candidate.relation_surface_text}”</dd></div><div><dt>Pessoa A</dt><dd>{candidate.endpoint_a_mention ?? "não resolvida"}</dd></div>
-      <div><dt>Pessoa B</dt><dd>{candidate.endpoint_b_mention ?? "não resolvida"}</dd></div><div><dt>Como aparece no texto</dt><dd>{polarityLabels[candidate.polarity]} · {epistemicLabels[candidate.epistemic_status]}<br/>{reportingLabels[candidate.reporting_mode]} · {temporalLabels[candidate.temporal_scope]}</dd></div>
+      <div><dt>Evidência</dt><dd>“{candidate.relation_surface_text}”</dd></div><div><dt>Primeira pessoa</dt><dd>{endpointA}</dd></div>
+      <div><dt>Segunda pessoa</dt><dd>{endpointB}</dd></div><div><dt>Como aparece no texto</dt><dd>{polarityLabels[candidate.polarity]} · {epistemicLabels[candidate.epistemic_status]}<br/>{reportingLabels[candidate.reporting_mode]} · {temporalLabels[candidate.temporal_scope]}</dd></div>
     </dl>
-    {candidate.endpoint_a_semantic_target === "NARRATOR_ROLE" || candidate.endpoint_b_semantic_target === "NARRATOR_ROLE" ? <p className="safety-note">Endpoint linguístico: narrador. Selecione uma Pessoa existente explicitamente; nenhuma identidade é presumida.</p> : null}
+    {candidate.endpoint_a_semantic_target === "NARRATOR_ROLE" || candidate.endpoint_b_semantic_target === "NARRATOR_ROLE" ? <p className="safety-note">Participante da relação: narrador. Selecione uma Pessoa existente explicitamente; nenhuma identidade é presumida.</p> : null}
     {question && <p className="safety-note">Relação mencionada em uma pergunta — pode ser revisada, mas não registrada como declaração factual.</p>}
     {!item.eligible && <p className="blocker"><strong>BLOQUEADA</strong> — {blockerLabels[item.primary_blocker] ?? item.primary_blocker}</p>}
     <div className="relation-bindings">
-      <label>Endpoint A — Pessoa LifeGraph<select value={personA} disabled={terminal || Boolean(busy)} onChange={(event) => { setPersonA(event.target.value); onPersonFocus([event.target.value, personB].filter(Boolean)); }}><option value="">Selecione explicitamente…</option>{people.map((person) => <option key={person.person_id} value={person.person_id}>{person.display_name}</option>)}</select></label>
-      <label>Endpoint B — Pessoa LifeGraph<select value={personB} disabled={terminal || Boolean(busy)} onChange={(event) => { setPersonB(event.target.value); onPersonFocus([personA, event.target.value].filter(Boolean)); }}><option value="">Selecione explicitamente…</option>{people.map((person) => <option key={person.person_id} value={person.person_id}>{person.display_name}</option>)}</select></label>
+      <label>Pessoa correspondente a “{endpointA}”<select value={personA} disabled={terminal || Boolean(busy)} onChange={(event) => { setPersonA(event.target.value); onPersonFocus([event.target.value, personB].filter(Boolean)); }}><option value="">Selecione explicitamente…</option>{people.map((person) => <option key={person.person_id} value={person.person_id}>{person.display_name}</option>)}</select></label>
+      <label>Pessoa correspondente a “{endpointB}”<select value={personB} disabled={terminal || Boolean(busy)} onChange={(event) => { setPersonB(event.target.value); onPersonFocus([personA, event.target.value].filter(Boolean)); }}><option value="">Selecione explicitamente…</option>{people.map((person) => <option key={person.person_id} value={person.person_id}>{person.display_name}</option>)}</select></label>
     </div>
     <div className="actions"><button className="primary" disabled={terminal || Boolean(busy)} onClick={() => void accept()}>{busy === "accept" ? "Aceitando…" : "Aceitar relação"}</button><button className="secondary" disabled={terminal || Boolean(busy)} onClick={() => void reject()}>{busy === "reject" ? "Rejeitando…" : "Rejeitar relação"}</button>{item.review_status === "ACCEPTED_FOR_PERSISTENCE" && item.eligible && <button className="primary persist" disabled={Boolean(busy)} onClick={() => void persist()}>{busy === "persist" ? "Persistindo…" : item.persistence_status === "PERSISTED" ? "Ver declaração persistida" : "Persistir declaração"}</button>}</div>
     {message && <p className={item.eligible ? "success" : "error"} role="status">{message}</p>}

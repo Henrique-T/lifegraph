@@ -58,7 +58,7 @@ def candidate(**changes: object) -> RelationCandidate:
         "temporal_scope": RelationTemporalScope.CURRENT_OR_UNSPECIFIED,
         "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
         "model_id": "deterministic-structural-baseline",
-        "model_revision": "A0_B2+B3+B4",
+        "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES",
         "configuration_hash": CONFIGURATION_HASH,
     }
     values.update(changes)
@@ -111,7 +111,7 @@ async def test_review_preserves_immutable_source_and_frozen_provenance() -> None
     assert review.source_text == SOURCE
     assert review.conversation_turn_id == "turn-1"
     assert review.pipeline_id == "LIFEGRAPH_PERSON_RELATION_V1"
-    assert review.model_revision == "A0_B2+B3+B4"
+    assert review.model_revision == "A0_B2+B3+B4+COMPOUND_NAMES"
     assert review.configuration_hash == CONFIGURATION_HASH
     assert review.candidates[0].original_candidate.source_text == SOURCE
     assert review.candidates[0].review_status is RelationReviewStatus.PENDING

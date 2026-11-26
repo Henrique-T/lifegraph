@@ -25,8 +25,8 @@ def test_relation_endpoint_uses_frozen_deterministic_pipeline_without_gliner() -
     assert len(payload["candidates"]) == 1
     relation = payload["candidates"][0]
     assert relation["pipeline_id"] == "LIFEGRAPH_PERSON_RELATION_V1"
-    assert relation["model_revision"] == "A0_B2+B3+B4"
-    assert relation["configuration_hash"] == "32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D"
+    assert relation["model_revision"] == "A0_B2+B3+B4+COMPOUND_NAMES"
+    assert relation["configuration_hash"] == "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"
     assert "endpoint_a_person_id" not in relation
 
 

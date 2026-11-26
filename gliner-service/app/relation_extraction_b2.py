@@ -17,7 +17,7 @@ from app.relation_schemas import RelationCandidate, RelationDetection, RelationE
 
 PIPELINE_ID = "LIFEGRAPH_PERSON_RELATION_V1"
 A0_B2_MODEL_ID = "deterministic-structural-baseline"
-A0_B2_REVISION = "A0_B2+B3+B4"
+A0_B2_REVISION = "A0_B2+B3+B4+COMPOUND_NAMES"
 D1_LABELS = {
     "father role cue": "Word or short phrase denoting the role of father",
     "mother role cue": "Word or short phrase denoting the role of mother",
@@ -28,7 +28,8 @@ D1_LABELS = {
     "spouse role cue": "Word or short phrase denoting husband, wife, or spouse",
 }
 
-_NAME = r"(?-i:[A-ZÁÉÍÓÚÂÊÔÃÕÇ][A-Za-zÀ-ÖØ-öø-ÿ'-]+)"
+_NAME_WORD = r"(?-i:[A-ZÁÉÍÓÚÂÊÔÃÕÇ][A-Za-zÀ-ÖØ-öø-ÿ'-]+)"
+_NAME = rf"{_NAME_WORD}(?:\s+(?:(?:da|de|do|das|dos)\s+)?{_NAME_WORD}){{0,3}}"
 _KINSHIP = r"(?:pai|mãe|filho|filha|irmão|irmã|marido|esposa|cônjuge)"
 _ENDPOINT = (
     rf"(?:uma\s+pessoa(?:\s+(?:que|cujo|não)\s+[^,.!?]+)?|alguém(?:\s+que\s+[^,.!?]+)?|"
@@ -58,6 +59,7 @@ _CONFIG_HASH = hashlib.sha256(json.dumps({
     "families": ["direct", "reordered", "apposition", "relative_apposition", "contracted", "ter_como", "discontinuous", "coordination", "interrogative"],
     "guards": ["emphatic_negation", "uncertainty_and_question", "hypothetical", "reported_b4", "temporal"],
     "endpoint_targets": ["EXPLICIT_MENTION", "NARRATOR_ROLE", "UNRESOLVED_MENTION"],
+    "name_pattern": "up_to_four_tokens_with_portuguese_particles",
 }, sort_keys=True).encode()).hexdigest().upper()
 
 

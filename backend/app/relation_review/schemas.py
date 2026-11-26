@@ -102,8 +102,8 @@ class RelationReviewSession(StrictReviewModel):
     conversation_turn_id: str
     pipeline_id: Literal["LIFEGRAPH_PERSON_RELATION_V1"]
     model_id: str
-    model_revision: Literal["A0_B2+B3+B4"]
-    configuration_hash: Literal["32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D"]
+    model_revision: Literal["A0_B2+B3+B4+COMPOUND_NAMES"]
+    configuration_hash: Literal["95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"]
     candidates: list[RelationReviewItem]
     created_at: datetime
     expires_at: datetime
@@ -143,8 +143,8 @@ class RelationPersistenceResult(StrictReviewModel):
     origin: Literal["CONVERSATION"]
     verification_status: Literal["DECLARED"]
     pipeline_id: Literal["LIFEGRAPH_PERSON_RELATION_V1"]
-    model_revision: Literal["A0_B2+B3+B4"]
-    configuration_hash: Literal["32040A53D33F30A4DDDBA0E423180AB9DC08AF17B583BB6B3A9A82BEA091FC7D"]
+    model_revision: Literal["A0_B2+B3+B4+COMPOUND_NAMES"]
+    configuration_hash: Literal["95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728"]
     persisted_at: datetime
     idempotent_replay: bool
     graph_delta_nodes: Literal[0, 1]

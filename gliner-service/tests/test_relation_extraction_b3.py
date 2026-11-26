@@ -104,6 +104,16 @@ def test_narrator_relative_predicates(text, relation_type, name, possessive):
     assert not hasattr(item, "endpoint_b_person_id")
 
 
+def test_compound_name_is_preserved_for_narrator_relation():
+    text = "Nasci em 1988, casei em 2010 e me casei novamente em 2019. Antonella Moraes é minha filha."
+    item = candidate(text)
+    assert item.relation_type == "DAUGHTER_OF"
+    assert item.endpoint_a_mention == "Antonella Moraes"
+    assert text[item.endpoint_a_span_start:item.endpoint_a_span_end] == "Antonella Moraes"
+    assert item.endpoint_b_mention == "minha"
+    assert item.endpoint_b_semantic_target == "NARRATOR_ROLE"
+
+
 @pytest.mark.parametrize("text,relation_type,name,possessive", [
     ("Meu pai é João.", "FATHER_OF", "João", "Meu"),
     ("Minha mãe é Ana.", "MOTHER_OF", "Ana", "Minha"),

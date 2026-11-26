@@ -42,7 +42,7 @@ def candidate() -> RelationCandidate:
         reporting_mode=ReportingMode.DIRECT,
         temporal_scope=RelationTemporalScope.CURRENT_OR_UNSPECIFIED,
         pipeline_id="LIFEGRAPH_PERSON_RELATION_V1",
-        model_id="deterministic-structural-baseline", model_revision="A0_B2+B3+B4",
+        model_id="deterministic-structural-baseline", model_revision="A0_B2+B3+B4+COMPOUND_NAMES",
         configuration_hash=CONFIGURATION_HASH,
     )
 

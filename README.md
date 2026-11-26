@@ -106,6 +106,8 @@ The browser provides one narrative input that coordinates two specialized paths.
 
 Person search only filters existing graph nodes; it never binds an identity automatically. Relation claims require two explicit selections and remain `CONVERSATION / DECLARED`, with `ENDPOINT_A`, `ENDPOINT_B`, and `EXTRACTED_FROM` edges rather than a factual Person-to-Person kinship edge. Relation claims are not reconciled against REF.
 
+The supported relation types are `FATHER_OF` (pai de), `MOTHER_OF` (mãe de), `SON_OF` (filho de), `DAUGHTER_OF` (filha de), `BROTHER_OF` (irmão de), `SISTER_OF` (irmã de), and `SPOUSE_OF` (cônjuge de).
+
 ## AI extraction boundary
 
 The GLiNER service, which uses a span-based named-entity extraction model, receives text and returns a strict intermediate schema. It has no Neo4j or REF credentials and cannot create graph nodes, select an identity, invoke reconciliation, or assign a final verification state.
@@ -143,6 +145,8 @@ C:\AIModels\ollama
 These directories are local caches, not project files. A new developer must create `C:\AIModels\huggingface`; on the first GLiNER startup, the model is downloaded from Hugging Face into that directory. The first startup therefore takes longer and requires network access and sufficient disk space. Later starts reuse the cached files. Without network access or a pre-populated cache, the GLiNER service cannot become ready and narrative extraction remains unavailable, although the remaining application services can still run.
 
 ## Documentation
+
+The canonical controlled demo material is described by [`demo/lifegraph_demo_manifest.json`](demo/lifegraph_demo_manifest.json). The relation workflow and its safety boundaries are documented in [`docs/person-relations.md`](docs/person-relations.md); no additional fixture-loading command is implied by these files.
 
 - [Extraction, review, and acceptance contract](docs/extraction-review-acceptance.md)
 - [Person-relation workflow](docs/person-relations.md)

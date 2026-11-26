@@ -1,4 +1,7 @@
 {
+  "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+  "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+  "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
   "metrics": {
     "detector": {
       "precision": 1.0,
@@ -15,16 +18,16 @@
       "f1": 0.986842,
       "relation_type_accuracy": 1.0,
       "surface_accuracy": 1.0,
-      "endpoint_a_accuracy": 0.933333,
+      "endpoint_a_accuracy": 0.88,
       "endpoint_b_accuracy": 0.973333,
-      "both_endpoint_accuracy": 0.906667,
+      "both_endpoint_accuracy": 0.853333,
       "polarity_accuracy": 1.0,
       "epistemic_accuracy": 1.0,
       "reporting_accuracy": 1.0,
       "temporal_accuracy": 1.0,
       "false_relation_candidates": 0,
       "missed_relation_candidates": 2,
-      "wrong_resolved_endpoint": 0,
+      "wrong_resolved_endpoint": 4,
       "safe_abstentions": 7,
       "unsafe_persistible_false_positive": 0
     },
@@ -32,7 +35,8 @@
       "DETECTION_FALSE_NEGATIVE": 2,
       "DETECTION_FALSE_POSITIVE": 0,
       "SAFE_ENDPOINT_ABSTENTION": 7,
-      "UNSAFE_PERSISTIBLE_FALSE_POSITIVE": 0
+      "UNSAFE_PERSISTIBLE_FALSE_POSITIVE": 0,
+      "WRONG_ENDPOINT_A": 4
     },
     "by_phenomenon": {
       "ambiguous": {
@@ -313,16 +317,16 @@
       "per_relation_type_recall": {
         "BROTHER_OF": 0.833333,
         "DAUGHTER_OF": 0.833333,
-        "FATHER_OF": 0.923077,
-        "MOTHER_OF": 1.0,
-        "SISTER_OF": 0.916667,
+        "FATHER_OF": 0.846154,
+        "MOTHER_OF": 0.857143,
+        "SISTER_OF": 0.75,
         "SON_OF": 0.888889,
         "SPOUSE_OF": 0.833333
       },
       "per_phenomenon_recall": {
         "ambiguous": 0.166667,
         "apposition": 1.0,
-        "b1_generalization": 0.88,
+        "b1_generalization": 0.84,
         "compositional": 0.5,
         "contracted_preposition": 1.0,
         "coordination": 0.8,
@@ -333,7 +337,7 @@
         "distractors": 1.0,
         "embedded_clause": 1.0,
         "existential_have": 1.0,
-        "hypothetical": 1.0,
+        "hypothetical": 0.0,
         "minimal_pair": 1.0,
         "multiple_people": 1.0,
         "multiple_relations": 0.8,
@@ -359,9 +363,9 @@
         "surface_variation": 1.0,
         "temporal_limitation": 1.0,
         "temporal_scope": 1.0,
-        "uncertain": 1.0,
-        "uncertainty": 0.909091,
-        "uncertainty_variant": 1.0,
+        "uncertain": 0.5,
+        "uncertainty": 0.818182,
+        "uncertainty_variant": 0.0,
         "utf8": 0.888889
       },
       "safe_abstention_count": 14,
@@ -471,7 +475,7 @@
         "recall": 1.0
       }
     },
-    "minimum_relation_type_value": 0.833333,
+    "minimum_relation_type_value": 0.75,
     "minimum_populated_critical_value": 0.5
   }
 }

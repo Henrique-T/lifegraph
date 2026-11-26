@@ -31,7 +31,7 @@ def payload() -> dict:
             "polarity": "POSITIVE", "epistemic_status": "ASSERTED", "reporting_mode": "DIRECT",
             "reporting_source_mention": None, "temporal_scope": "CURRENT_OR_UNSPECIFIED", "warnings": [],
             "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1", "model_id": "deterministic-structural-baseline",
-            "model_revision": "A0_B2+B3+B4", "configuration_hash": CONFIGURATION_HASH,
+            "model_revision": "A0_B2+B3+B4+COMPOUND_NAMES", "configuration_hash": CONFIGURATION_HASH,
             "detector_strategy": "A0", "detector_label": "deterministic-structural",
             "detector_confidence": 1.0, "persistence_eligibility": "NOT_PERSISTIBLE_UNBOUND_ENDPOINT",
         }],

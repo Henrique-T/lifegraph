@@ -1,4 +1,7 @@
 {
+  "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+  "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+  "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
   "metrics": {
     "detector": {
       "precision": 1.0,

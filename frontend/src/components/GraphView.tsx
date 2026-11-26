@@ -216,6 +216,7 @@ export function GraphView({ graph, focusedPersonIds, onReconcile, variant = "rev
   const [explorerPersonId, setExplorerPersonId] = useState("");
   const [explorerPersonSearch, setExplorerPersonSearch] = useState("");
   const [explorerPersonMenuOpen, setExplorerPersonMenuOpen] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const availablePeople = useMemo(() => graph?.nodes.filter((node) => node.type === "Person") ?? [], [graph]);
   const normalizedExplorerSearch = normalizeSearchText(explorerPersonSearch.trim());
   const visibleExplorerPeople = normalizedExplorerSearch
@@ -225,6 +226,19 @@ export function GraphView({ graph, focusedPersonIds, onReconcile, variant = "rev
   useEffect(() => {
     if (!focusedPersonIds.includes(reviewPersonId)) setReviewPersonId(focusedPersonIds[0] ?? "");
   }, [focusedPersonIds, reviewPersonId]);
+  useEffect(() => {
+    if (!expanded) return;
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setExpanded(false);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [expanded]);
   const reviewGraph = useMemo(() => graph ? focusedSubgraph(graph, reviewPersonId ? [reviewPersonId] : []) : null, [graph, reviewPersonId]);
   const reviewTimeline = useMemo(() => graph ? timelineSubgraph(graph, reviewPersonId) : null, [graph, reviewPersonId]);
   const explorerGraph = useMemo(() => graph ? focusedSubgraph(graph, explorerPersonId ? [explorerPersonId] : []) : null, [graph, explorerPersonId]);
@@ -281,10 +295,20 @@ export function GraphView({ graph, focusedPersonIds, onReconcile, variant = "rev
     });
     cy.on("tap", 'node[type != "TimelineMarker"]', (event) => setSelectedId(event.target.id()));
     return () => cy.destroy();
-  }, [visibleGraph, viewMode]);
+  }, [visibleGraph, viewMode, expanded]);
 
-  return <div className="graph-layout">
+  return <div className={expanded ? "graph-layout graph-expanded" : "graph-layout"}>
     <section className="graph-visual" aria-label="Visualização do LifeGraph">
+      <button
+        type="button"
+        className="graph-expand-button"
+        aria-label={expanded ? "Fechar visualização expandida" : "Expandir grafo para tela inteira"}
+        title={expanded ? "Fechar visualização expandida" : "Expandir grafo"}
+        aria-pressed={expanded}
+        onClick={() => setExpanded((current) => !current)}
+      >
+        <span aria-hidden="true">{expanded ? "×" : "⛶"}</span>
+      </button>
       {variant === "review" ? <>
       {focusedPersonIds.length > 0 && <label className="graph-person-selector">Pessoa da revisão<select value={reviewPersonId} onChange={(event) => setReviewPersonId(event.target.value)}>{focusedPersonIds.map((personId) => {
         const person = graph?.nodes.find((node) => node.type === "Person" && node.id === personId);
@@ -379,8 +403,8 @@ export function GraphView({ graph, focusedPersonIds, onReconcile, variant = "rev
           <div className="provenance-wide technical-identity"><dt>Pipeline</dt><dd>{String(selected.properties.pipeline_id ?? "—")}</dd></div>
         </dl>}
         {selected.type === "RelationClaim" && <dl>
-          <div><dt>Endpoint A</dt><dd>{String(selectedRelationEndpointA?.properties.display_name ?? "—")}</dd></div>
-          <div><dt>Endpoint B</dt><dd>{String(selectedRelationEndpointB?.properties.display_name ?? "—")}</dd></div>
+          <div><dt>Pessoa correspondente a “{String(selected.properties.accepted_endpoint_a_mention ?? selected.properties.original_endpoint_a_mention ?? "participante não resolvido")}”</dt><dd>{String(selectedRelationEndpointA?.properties.display_name ?? "—")}</dd></div>
+          <div><dt>Pessoa correspondente a “{String(selected.properties.accepted_endpoint_b_mention ?? selected.properties.original_endpoint_b_mention ?? "participante não resolvido")}”</dt><dd>{String(selectedRelationEndpointB?.properties.display_name ?? "—")}</dd></div>
           <div><dt>Tipo declarado</dt><dd>{String(selected.properties.relation_type ?? "—")}</dd></div>
           <div><dt>Origem</dt><dd>{String(selected.properties.origin ?? "—")}</dd></div>
           <div><dt>Status</dt><dd><span className="inline-status declared">{displayVerificationStatus(selected.properties.verification_status ?? "DECLARED")}</span></dd></div>

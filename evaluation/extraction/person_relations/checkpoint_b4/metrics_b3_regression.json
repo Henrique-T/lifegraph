@@ -1,4 +1,7 @@
 {
+  "pipeline_id": "LIFEGRAPH_PERSON_RELATION_V1",
+  "revision": "A0_B2+B3+B4+COMPOUND_NAMES",
+  "configuration_hash": "95E09B3C9AC2AB853432045A96B1F9D4C2F995AA6BDC6CDF9CE33BDE6820B728",
   "metrics": {
     "detector": {
       "precision": 1.0,
@@ -15,16 +18,16 @@
       "f1": 1.0,
       "relation_type_accuracy": 1.0,
       "surface_accuracy": 1.0,
-      "endpoint_a_accuracy": 1.0,
+      "endpoint_a_accuracy": 0.972973,
       "endpoint_b_accuracy": 1.0,
-      "both_endpoint_accuracy": 1.0,
+      "both_endpoint_accuracy": 0.972973,
       "polarity_accuracy": 1.0,
       "epistemic_accuracy": 1.0,
       "reporting_accuracy": 1.0,
       "temporal_accuracy": 1.0,
       "false_relation_candidates": 0,
       "missed_relation_candidates": 0,
-      "wrong_resolved_endpoint": 0,
+      "wrong_resolved_endpoint": 1,
       "safe_abstentions": 2,
       "unsafe_persistible_false_positive": 0
     },
@@ -32,7 +35,8 @@
       "DETECTION_FALSE_NEGATIVE": 0,
       "DETECTION_FALSE_POSITIVE": 0,
       "SAFE_ENDPOINT_ABSTENTION": 2,
-      "UNSAFE_PERSISTIBLE_FALSE_POSITIVE": 0
+      "UNSAFE_PERSISTIBLE_FALSE_POSITIVE": 0,
+      "WRONG_ENDPOINT_A": 1
     },
     "by_phenomenon": {
       "apposition": {
@@ -196,21 +200,21 @@
         "FATHER_OF": 1.0,
         "MOTHER_OF": 1.0,
         "SISTER_OF": 1.0,
-        "SON_OF": 1.0,
+        "SON_OF": 0.75,
         "SPOUSE_OF": 1.0
       },
       "per_phenomenon_recall": {
         "apposition": 1.0,
         "b4_question_policy": 1.0,
         "b4_regression": 1.0,
-        "contracted_preposition": 1.0,
+        "contracted_preposition": 0.8,
         "direct": 1.0,
         "discontinuous": 1.0,
         "emphatic_negation": 1.0,
         "narrator": 1.0,
         "negated": 1.0,
         "no_relation": 1.0,
-        "parent_child": 1.0,
+        "parent_child": 0.95,
         "partial_endpoint": 1.0,
         "past": 1.0,
         "possessive": 1.0,
@@ -223,7 +227,7 @@
         "sibling": 1.0,
         "spouse_surface": 1.0,
         "ter_como": 1.0,
-        "uncertain": 1.0
+        "uncertain": 0.8
       },
       "safe_abstention_count": 2,
       "safe_abstention_rate": 1.0,
@@ -289,7 +293,7 @@
       "contracted_preposition": {
         "status": "PASS",
         "denominator": 5,
-        "recall": 1.0
+        "recall": 0.8
       },
       "discontinuous": {
         "status": "PASS",
@@ -324,7 +328,7 @@
       "parent_child": {
         "status": "PASS",
         "denominator": 20,
-        "recall": 1.0
+        "recall": 0.95
       },
       "narrator": {
         "status": "PASS",
@@ -332,7 +336,7 @@
         "recall": 1.0
       }
     },
-    "minimum_relation_type_value": 1.0,
-    "minimum_populated_critical_value": 1.0
+    "minimum_relation_type_value": 0.75,
+    "minimum_populated_critical_value": 0.8
   }
 }

@@ -102,11 +102,11 @@ export default function App() {
         <p>Nenhuma interpretação é registrada como declaração sem revisão explícita.</p>
       </div>
       {workflowStage !== "narrative" && <button className="restart-flow" type="button" onClick={restartWithSameNarrative}>Começar do início com a mesma narrativa</button>}
-      <p className="sidebar-footer">INE5448 · UFSC</p>
+      <p className="sidebar-footer">UFSC</p>
     </aside>
     <main className="dashboard-content">
     <header className="hero">
-      <p className="eyebrow">INE5448 · UFSC · LifeGraph</p>
+      <p className="eyebrow">UFSC · LifeGraph</p>
       <h1>LifeGraph Conversacional</h1>
       <p className="hero-summary">Narrativas pessoais, declarações revisadas e evidência registral em um grafo temporal com proveniência explícita.</p>
       <ol className="demo-steps workflow-overview" aria-label="Etapas realizadas pelo programa"><li><span>1</span>Lê a narrativa</li><li><span>2</span>Identifica eventos e relações</li><li><span>3</span>Aguarda sua revisão</li><li><span>4</span>Registra a declaração aceita</li><li><span>5</span>Compara eventos com o REF</li></ol>
