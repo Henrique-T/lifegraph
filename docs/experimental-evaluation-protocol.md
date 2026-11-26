@@ -4,9 +4,12 @@
 
 `FINAL_HELD_OUT_DATASET_FROZEN = YES`
 `FINAL_EVALUATION_PROTOCOL_FROZEN = YES`
-`FINAL_MODEL_COMPARISON_AUTHORIZED = NO`
+`HUMAN_GROUND_TRUTH_REVIEW = YES`
+`FINAL_MODEL_COMPARISON_AUTHORIZED = YES`
+`FINAL_MODEL_COMPARISON_EXECUTED = NO`
+`FINAL_EVENT_EVALUATION_STATUS = PREPARED_BUT_OUT_OF_FINAL_SCOPE`
 
-This document preregisters the final LifeGraph extraction comparison. Independent review must authorize execution. Results must not be used to tune this protocol or its held-out data.
+This document preregisters the LifeGraph extraction comparison. Human review was completed and authorized execution at the protocol level. The project subsequently placed the final comparison outside the delivered PoC scope, so no final predictions or metrics were produced. The authorized and reproducible protocol remains available for future work, and its reserved data must not be used for tuning.
 
 ## Development evidence inventory
 
@@ -52,7 +55,7 @@ Sampling strata are not an exhaustive linguistic tag set. The schema's flags and
 
 Each narrative stores an ID, text, categories, expected events, evaluation flags, safety annotations, and shared NER ground truth. Each event stores an ID/type; exact trigger text and offsets; subject role (`NARRATOR`, `THIRD_PARTY`, `UNRESOLVED`) and exact third-party text where supported; textual participants; date text/offsets; normalized start/end/precision/uncertainty. Approximate expressions use `UNSUPPORTED` with no invented interval. The B1 NER layer contains 88 proper-name PERSON spans and 120 DATE spans. PERSON excludes pronouns, kinship common nouns, and narrator markers; DATE includes full annotated expressions and distractor years.
 
-All 100 records were authored and reviewed with AI assistance; there is no evidence of a full human review. Therefore `HUMAN_GROUND_TRUTH_REVIEW = NO`, `AI_ASSISTED_GROUND_TRUTH_AUTHORING = YES`, and `AI_ASSISTED_GROUND_TRUTH_REVIEW = YES`. `SINGLE_ANNOTATOR_GROUND_TRUTH = YES` denotes one AI-assisted provenance stream, not one human annotator. No agreement statistic is claimed.
+All 100 records were authored and reviewed with AI assistance and subsequently received complete human review without corrections. Model predictions were unavailable to the reviewer. Therefore `HUMAN_GROUND_TRUTH_REVIEW = YES`, `AI_ASSISTED_GROUND_TRUTH_AUTHORING = YES`, and `AI_ASSISTED_GROUND_TRUTH_REVIEW = YES`. `SINGLE_ANNOTATOR_GROUND_TRUTH = YES` denotes one AI-assisted provenance stream, not one human annotator. No agreement statistic is claimed.
 
 Only two expected events are `natimorto`. Any per-class result for it is `DESCRIPTIVE_ONLY_INSUFFICIENT_FOR_STRONG_CLASS_SPECIFIC_CONCLUSION`.
 
@@ -96,7 +99,9 @@ Quality metrics are runtime-independent. No system receives multiple generations
 
 Report point estimates plus exact counts. This protocol does not use confidence intervals, bootstrap, or significance tests. Category results are required for narrator, third party, pro-drop, multi-event, reported speech, incidental person, ambiguity/UNRESOLVED, and negative narratives.
 
-## Final-run procedure
+## Preserved future-run procedure
+
+The following procedure remains frozen for a possible future evaluation; it was not executed as part of the delivered PoC.
 
 1. Obtain independent authorization without editing frozen files.
 2. Record hardware/runtime/model provenance and verify dataset/protocol/prompt hashes.

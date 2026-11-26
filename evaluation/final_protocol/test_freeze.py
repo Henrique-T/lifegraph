@@ -34,4 +34,12 @@ def test_frozen_protocol_and_prompt_hashes():
     assert digest(HERE / "protocol.json") == recorded_protocol_hash
     assert digest(HERE / "gemma_prompt.txt") == protocol["systems"]["C"]["prompt_sha256"]
     assert protocol["final_evaluation_protocol_frozen"] is True
-    assert protocol["final_model_comparison_authorized"] is False
+    assert protocol["data"]["human_ground_truth_review"] is True
+    review_path = HERE.parent.parent / Path(protocol["data"]["human_review_record"])
+    assert digest(review_path) == protocol["data"]["human_review_sha256"]
+    review = json.loads(review_path.read_text(encoding="utf-8"))
+    assert review["dataset_sha256"] == protocol["data"]["held_out_sha256"]
+    assert review["narratives_reviewed"] == 100
+    assert review["expected_events_reviewed"] == 110
+    assert review["decision"] == "APPROVED_WITHOUT_CORRECTIONS"
+    assert protocol["final_model_comparison_authorized"] is True

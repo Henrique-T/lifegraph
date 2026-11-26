@@ -34,6 +34,8 @@
   "ground_truth_schema_version": "LIFEGRAPH_FINAL_GT_V1",
   "single_annotator_ground_truth": true,
   "manual_review": "COMPLETE",
+  "human_review_record": "evaluation/final_protocol/human_review_record.json",
+  "human_review_sha256": "274E8867B9044B15911AFA611262BE4372BC9D79A12F4E5E2721385B04852D38",
   "freeze_status": "FROZEN",
   "final_held_out_dataset_frozen": true
 }

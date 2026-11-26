@@ -1,0 +1,14 @@
+{
+  "review_id": "LIFEGRAPH_FINAL_HELDOUT_HUMAN_REVIEW_2026-11-10",
+  "review_date": "2026-11-10",
+  "reviewer_role": "PROJECT_RESPONSIBLE_HUMAN_REVIEWER",
+  "dataset_id": "LIFEGRAPH_PT_CIVIL_FINAL_HELDOUT_V1",
+  "dataset_sha256": "050575D1BFECAF40FDD7489A1C84C7D425FBAAA6980CD2FA7F82D5A773D9C247",
+  "narratives_reviewed": 100,
+  "expected_events_reviewed": 110,
+  "scope": "All narrative texts and expected event, trigger, subject, participant, temporal-expression, and normalized-time annotations",
+  "decision": "APPROVED_WITHOUT_CORRECTIONS",
+  "dataset_content_changed": false,
+  "review_timing": "Completed before the final frozen model evaluation",
+  "model_predictions_available_to_reviewer": false
+}
